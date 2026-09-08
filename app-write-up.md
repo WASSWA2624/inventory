@@ -10,21 +10,24 @@ The extracted information is then automatically mapped into a **predefined Excel
 
 The application is intended to significantly reduce manual data-entry work during:
 
-* Asset inventories
-* Equipment inspections
-* Building/facility assessments
-* Medical equipment inventories
-* Property surveys
-* Infrastructure assessments
-* Field data collection
-* Document digitization
-* Audits
-* Stock-taking
-* Maintenance surveys
-* Project assessments
-* Compliance inspections
+- Asset inventories
+- Equipment inspections
+- Building/facility assessments
+- Medical equipment inventories
+- Property surveys
+- Infrastructure assessments
+- Field data collection
+- Document digitization
+- Audits
+- Stock-taking
+- Maintenance surveys
+- Project assessments
+- Compliance inspections
+- Among others
 
 ---
+
+
 
 # 2. Core Concept
 
@@ -80,14 +83,18 @@ Organized Photos + Excel Output
 
 ---
 
+
+
 # 3. Example Use Case
 
 Suppose an organization wants to inventory medical equipment.
 
 The Excel template may contain:
 
+
 | Asset ID | Equipment Name | Manufacturer | Model | Serial Number | Location | Condition | Year | Description | Photo |
 | -------- | -------------- | ------------ | ----- | ------------- | -------- | --------- | ---- | ----------- | ----- |
+
 
 A user walks into a facility.
 
@@ -95,12 +102,12 @@ They photograph an autoclave.
 
 The photo contains:
 
-* Manufacturer
-* Model number
-* Serial number
-* Capacity
-* Rating plate
-* Equipment name
+- Manufacturer
+- Model number
+- Serial number
+- Capacity
+- Rating plate
+- Equipment name
 
 The user optionally says:
 
@@ -126,6 +133,8 @@ It may produce:
 The application then maps these values to the corresponding Excel columns.
 
 ---
+
+
 
 # 4. Main Objectives
 
@@ -156,7 +165,11 @@ The application should:
 
 ---
 
+
+
 # 5. Target Platform
+
+
 
 ## Primary Platform
 
@@ -164,19 +177,23 @@ Flutter mobile application.
 
 Initial target:
 
-* Android
+- Android
 
 Future targets:
 
-* iOS
-* Windows
-* Web
+- iOS
+- Windows
+- Web
 
 The architecture should avoid unnecessary platform-specific dependencies so that iOS support can be added later.
 
 ---
 
+
+
 # 6. Recommended Technology Stack
+
+
 
 ## Frontend
 
@@ -187,6 +204,8 @@ Riverpod
 GoRouter
 Material 3
 ```
+
+
 
 ## Local Database
 
@@ -217,14 +236,16 @@ MySQL
 
 This backend architecture is suitable for:
 
-* Authentication
-* Project management
-* Template management
-* AI orchestration
-* Data synchronization
-* File management
-* Excel generation
-* Audit logging
+- Authentication
+- Project management
+- Template management
+- AI orchestration
+- Data synchronization
+- File management
+- Excel generation
+- Audit logging
+
+
 
 ## AI Layer
 
@@ -245,6 +266,8 @@ AIService
 This allows the application to change AI providers without rewriting the Flutter application.
 
 ---
+
+
 
 # 7. High-Level Architecture
 
@@ -289,6 +312,8 @@ This allows the application to change AI providers without rewriting the Flutter
 
 ---
 
+
+
 # 8. Core Application Modules
 
 The application should consist of the following modules:
@@ -317,25 +342,29 @@ The application should consist of the following modules:
 
 ---
 
+
+
 # 9. Authentication
 
 Users should be able to:
 
-* Register
-* Login
-* Logout
-* Reset password
-* Change password
-* View profile
+- Register
+- Login
+- Logout
+- Reset password
+- Change password
+- View profile
 
 Optional future functionality:
 
-* Google login
-* Microsoft login
-* Organization login
-* Role-based access control
+- Google login
+- Microsoft login
+- Organization login
+- Role-based access control
 
 ---
+
+
 
 # 10. User Roles
 
@@ -345,45 +374,53 @@ Recommended roles:
 
 Can:
 
-* Create users
-* Create projects
-* Upload templates
-* Configure fields
-* View all records
-* Export Excel
-* Delete records
-* Manage settings
+- Create users
+- Create projects
+- Upload templates
+- Configure fields
+- View all records
+- Export Excel
+- Delete records
+- Manage settings
+
+
 
 ### Project Manager
 
 Can:
 
-* Create projects
-* Upload templates
-* Assign users
-* Review records
-* Export data
+- Create projects
+- Upload templates
+- Assign users
+- Review records
+- Export data
+
+
 
 ### Field User
 
 Can:
 
-* Capture images
-* Upload documents
-* Add captions
-* Submit records
-* Edit their own records
+- Capture images
+- Upload documents
+- Add captions
+- Submit records
+- Edit their own records
+
+
 
 ### Reviewer
 
 Can:
 
-* Review AI extraction
-* Correct fields
-* Approve records
-* Reject records
+- Review AI extraction
+- Correct fields
+- Approve records
+- Reject records
 
 ---
+
+
 
 # 11. Dashboard
 
@@ -437,6 +474,8 @@ School Infrastructure Survey
 
 ---
 
+
+
 # 12. Project Management
 
 A project represents a data collection exercise.
@@ -466,6 +505,8 @@ Project
 
 ---
 
+
+
 # 13. Creating a Project
 
 Fields:
@@ -493,6 +534,8 @@ Archived
 
 ---
 
+
+
 # 14. Excel Template System
 
 This is one of the most important components.
@@ -507,13 +550,13 @@ equipment_inventory.xlsx
 
 The application reads the workbook and identifies:
 
-* Sheets
-* Header rows
-* Columns
-* Existing rows
-* Formatting
-* Merged cells
-* Data types where possible
+- Sheets
+- Header rows
+- Columns
+- Existing rows
+- Formatting
+- Merged cells
+- Data types where possible
 
 Example:
 
@@ -531,6 +574,8 @@ J = Photo
 ```
 
 ---
+
+
 
 # 15. Template Mapping
 
@@ -569,6 +614,8 @@ This schema becomes the application's internal data model.
 
 ---
 
+
+
 # 16. Predefined Rows
 
 The system should support templates where rows are already predefined.
@@ -603,6 +650,8 @@ The user should also be able to create new rows where permitted.
 
 ---
 
+
+
 # 17. Dynamic Schema
 
 Although the initial application uses Excel, the internal system should NOT depend directly on Excel column letters.
@@ -628,6 +677,8 @@ equipment_name → Excel column B
 This makes the application much more flexible.
 
 ---
+
+
 
 # 18. Capture Screen
 
@@ -673,6 +724,8 @@ Pressure gauge appears faulty."
 
 ---
 
+
+
 # 19. Multiple Photo Capture
 
 A single record may contain multiple photographs.
@@ -698,13 +751,15 @@ Photos: 5
 
 and allow:
 
-* Preview
-* Delete
-* Retake
-* Reorder
-* Add another image
+- Preview
+- Delete
+- Retake
+- Reorder
+- Add another image
 
 ---
+
+
 
 # 20. Photo Grouping
 
@@ -727,6 +782,8 @@ This is important because one photograph may show the equipment while another co
 
 ---
 
+
+
 # 21. Individual Photo Captions
 
 Each photo may optionally have its own caption.
@@ -746,10 +803,12 @@ Photo 3:
 
 Captions can be entered by:
 
-* Keyboard
-* Speech-to-text
+- Keyboard
+- Speech-to-text
 
 ---
+
+
 
 # 22. Group Caption
 
@@ -762,6 +821,8 @@ Example:
 The AI uses this caption as contextual information.
 
 ---
+
+
 
 # 23. Speech-to-Text
 
@@ -788,6 +849,8 @@ Important:
 Speech transcription should be treated as **supporting evidence**, not unquestioned truth.
 
 ---
+
+
 
 # 24. AI Analysis Pipeline
 
@@ -837,24 +900,28 @@ Review screen
 
 ---
 
+
+
 # 25. Image Preprocessing
 
 Before AI analysis, images may be processed to improve quality.
 
 Possible operations:
 
-* Resize
-* Compress
-* Rotate
-* Crop
-* Deskew
-* Improve contrast
-* Remove excessive noise
-* Detect document boundaries
+- Resize
+- Compress
+- Rotate
+- Crop
+- Deskew
+- Improve contrast
+- Remove excessive noise
+- Detect document boundaries
 
 Original images should always be retained.
 
 ---
+
+
 
 # 26. OCR
 
@@ -891,17 +958,19 @@ Voltage: 220V
 
 ---
 
+
+
 # 27. Vision Analysis
 
 Vision AI should determine:
 
-* What object is shown?
-* What type of equipment is it?
-* What components are visible?
-* What condition is visible?
-* What damage is visible?
-* What labels are present?
-* What environment is it located in?
+- What object is shown?
+- What type of equipment is it?
+- What components are visible?
+- What condition is visible?
+- What damage is visible?
+- What labels are present?
+- What environment is it located in?
 
 Example:
 
@@ -920,6 +989,8 @@ Example:
 ```
 
 ---
+
+
 
 # 28. Contextual Analysis
 
@@ -946,6 +1017,8 @@ Predefined rows
 It should not analyze each image independently and blindly overwrite fields.
 
 ---
+
+
 
 # 29. Structured AI Output
 
@@ -987,6 +1060,8 @@ Example:
 
 ---
 
+
+
 # 30. Confidence Scores
 
 Every extracted field should have a confidence score.
@@ -1016,6 +1091,8 @@ Below 70% = Review required
 These thresholds should be configurable.
 
 ---
+
+
 
 # 31. AI Must Not Invent Data
 
@@ -1047,6 +1124,8 @@ Not detected
 instead of fabricating a year.
 
 ---
+
+
 
 # 32. Review Screen
 
@@ -1093,17 +1172,19 @@ AI Confidence
 
 ---
 
+
+
 # 33. Field-Level Editing
 
 Every extracted field should be editable.
 
 The user should be able to:
 
-* Correct spelling
-* Replace incorrect value
-* Add missing information
-* Clear incorrect information
-* Mark field as verified
+- Correct spelling
+- Replace incorrect value
+- Add missing information
+- Clear incorrect information
+- Mark field as verified
 
 Example:
 
@@ -1122,6 +1203,8 @@ SN458928
 The system records the correction.
 
 ---
+
+
 
 # 34. Evidence Tracking
 
@@ -1152,6 +1235,8 @@ This makes the system useful for audits.
 
 ---
 
+
+
 # 35. Data Provenance
 
 Each field should record:
@@ -1179,6 +1264,8 @@ Example:
 
 ---
 
+
+
 # 36. Record Status
 
 Each record should have a status:
@@ -1196,6 +1283,8 @@ FAILED
 ```
 
 ---
+
+
 
 # 37. Photo Naming
 
@@ -1224,6 +1313,8 @@ AUTOCLAVE_000124_SERIAL.jpg
 
 ---
 
+
+
 # 38. Photo Naming Rules
 
 Recommended structure:
@@ -1241,6 +1332,8 @@ EQUIPMENT_AUDIT_REC000123_AUTOCLAVE_FRONT_01.jpg
 However, filenames should use a safe normalized format.
 
 ---
+
+
 
 # 39. Photo Metadata
 
@@ -1264,16 +1357,18 @@ GPS should be optional and configurable because location information may not alw
 
 ---
 
+
+
 # 40. Document Input
 
 The application should support:
 
-* JPG
-* JPEG
-* PNG
-* HEIC where supported
-* PDF
-* Scanned documents
+- JPG
+- JPEG
+- PNG
+- HEIC where supported
+- PDF
+- Scanned documents
 
 A PDF may contain multiple pages.
 
@@ -1289,6 +1384,8 @@ PDF
 ```
 
 ---
+
+
 
 # 41. Document Analysis
 
@@ -1312,6 +1409,8 @@ Save
 
 ---
 
+
+
 # 42. Excel Output
 
 The application should produce an Excel file based on the original template.
@@ -1333,19 +1432,21 @@ Microscope | XYZ          | MIC-220    | SN783421 | Good
 
 ---
 
+
+
 # 43. Preserve Original Excel Formatting
 
 Where technically possible, the application should preserve:
 
-* Column widths
-* Fonts
-* Borders
-* Cell formatting
-* Header styling
-* Existing formulas
-* Sheet names
-* Frozen panes
-* Existing workbook structure
+- Column widths
+- Fonts
+- Borders
+- Cell formatting
+- Header styling
+- Existing formulas
+- Sheet names
+- Frozen panes
+- Existing workbook structure
 
 The original template must never be overwritten.
 
@@ -1363,6 +1464,8 @@ equipment_inventory_completed_2026-09-08.xlsx
 
 ---
 
+
+
 # 44. Photo References in Excel
 
 The system should support multiple approaches.
@@ -1375,11 +1478,15 @@ Insert:
 AUTCLAVE_SN458923_FRONT.jpg
 ```
 
+
+
 ### Option B — Relative path
 
 ```text
 photos/AUTCLAVE_SN458923_FRONT.jpg
 ```
+
+
 
 ### Option C — Embedded image
 
@@ -1388,6 +1495,8 @@ Where supported, embed the photograph directly into the workbook.
 The project should initially support filename/path references and later add image embedding.
 
 ---
+
+
 
 # 45. Export Package
 
@@ -1412,6 +1521,8 @@ The manifest records relationships between records and files.
 
 ---
 
+
+
 # 46. Manifest Example
 
 ```json
@@ -1432,6 +1543,8 @@ The manifest records relationships between records and files.
 ```
 
 ---
+
+
 
 # 47. Offline-First Architecture
 
@@ -1471,6 +1584,8 @@ Flutter App
 
 ---
 
+
+
 # 48. Sync Queue
 
 Local database should contain a synchronization queue.
@@ -1490,6 +1605,8 @@ REC005    Failed
 The application should automatically retry failed operations.
 
 ---
+
+
 
 # 49. Network States
 
@@ -1513,19 +1630,21 @@ connection is restored.
 
 ---
 
+
+
 # 50. Duplicate Detection
 
 The application should attempt to detect duplicate captures.
 
 Possible signals:
 
-* Same image hash
-* Similar image
-* Same serial number
-* Same asset number
-* Same project
-* Same location
-* Similar object
+- Same image hash
+- Similar image
+- Same serial number
+- Same asset number
+- Same project
+- Same location
+- Similar object
 
 Example warning:
 
@@ -1543,17 +1662,19 @@ Existing record found.
 
 ---
 
+
+
 # 51. Data Validation
 
 Before approving a record, the system should validate:
 
-* Required fields
-* Data types
-* Serial number format
-* Dates
-* Numeric values
-* Predefined values
-* Duplicate identifiers
+- Required fields
+- Data types
+- Serial number format
+- Dates
+- Numeric values
+- Predefined values
+- Duplicate identifiers
 
 Example:
 
@@ -1569,6 +1690,8 @@ Unknown
 ```
 
 ---
+
+
 
 # 52. Required Fields
 
@@ -1593,6 +1716,8 @@ Description         Optional
 
 ---
 
+
+
 # 53. Field Types
 
 Supported field types:
@@ -1616,6 +1741,8 @@ GPS Location
 ```
 
 ---
+
+
 
 # 54. Predefined Choices
 
@@ -1649,6 +1776,8 @@ while preserving the detailed description separately.
 
 ---
 
+
+
 # 55. AI Mapping Logic
 
 Mapping should use multiple signals.
@@ -1667,6 +1796,8 @@ Priority:
 The system should avoid overwriting verified user data unless explicitly instructed.
 
 ---
+
+
 
 # 56. Data Conflict Resolution
 
@@ -1698,6 +1829,8 @@ Please verify.
 
 ---
 
+
+
 # 57. AI Processing Jobs
 
 AI processing should be asynchronous.
@@ -1728,6 +1861,8 @@ This prevents long-running requests from blocking the mobile application.
 
 ---
 
+
+
 # 58. Processing Progress
 
 The app should show:
@@ -1744,6 +1879,8 @@ Analyzing capture...
 ```
 
 ---
+
+
 
 # 59. Error Handling
 
@@ -1773,6 +1910,8 @@ Try taking a closer photograph of the serial-number label.
 
 ---
 
+
+
 # 60. Image Quality Detection
 
 Before submitting an image, the application should detect obvious problems.
@@ -1797,18 +1936,20 @@ Move closer and capture again?
 
 ---
 
+
+
 # 61. Camera Features
 
 Camera screen should provide:
 
-* Flash
-* Zoom
-* Focus
-* Grid
-* Retake
-* Image preview
-* Document mode
-* Barcode/QR scanning where appropriate
+- Flash
+- Zoom
+- Focus
+- Grid
+- Retake
+- Image preview
+- Document mode
+- Barcode/QR scanning where appropriate
 
 Optional future feature:
 
@@ -1816,13 +1957,15 @@ Automatic document edge detection.
 
 ---
 
+
+
 # 62. Barcode / QR Support
 
 If assets contain:
 
-* QR codes
-* Barcodes
-* Asset labels
+- QR codes
+- Barcodes
+- Asset labels
 
 the application should be able to scan them.
 
@@ -1839,6 +1982,8 @@ Load existing record
 This can significantly improve accuracy.
 
 ---
+
+
 
 # 63. Search
 
@@ -1857,6 +2002,8 @@ Status
 ```
 
 ---
+
+
 
 # 64. Record Detail Screen
 
@@ -1912,6 +2059,8 @@ Approved
 
 ---
 
+
+
 # 65. Record History
 
 Every record should have a history.
@@ -1928,6 +2077,8 @@ Example:
 ```
 
 ---
+
+
 
 # 66. Audit Trail
 
@@ -1962,6 +2113,8 @@ Date:
 
 ---
 
+
+
 # 67. Database Design
 
 Recommended entities:
@@ -1989,6 +2142,8 @@ audit_logs
 
 ---
 
+
+
 # 68. User
 
 ```text
@@ -2005,6 +2160,8 @@ updated_at
 ```
 
 ---
+
+
 
 # 69. Project
 
@@ -2026,6 +2183,8 @@ updated_at
 
 ---
 
+
+
 # 70. Template
 
 ```text
@@ -2042,6 +2201,8 @@ updated_at
 ```
 
 ---
+
+
 
 # 71. Template Field
 
@@ -2063,6 +2224,8 @@ created_at
 ```
 
 ---
+
+
 
 # 72. Template Row
 
@@ -2088,6 +2251,8 @@ label = "Autoclave"
 
 ---
 
+
+
 # 73. Record
 
 ```text
@@ -2106,6 +2271,8 @@ updated_at
 ```
 
 ---
+
+
 
 # 74. Record Field
 
@@ -2126,6 +2293,8 @@ updated_at
 ```
 
 ---
+
+
 
 # 75. Photo
 
@@ -2150,6 +2319,8 @@ created_at
 
 ---
 
+
+
 # 76. AI Job
 
 ```text
@@ -2169,6 +2340,8 @@ created_at
 
 ---
 
+
+
 # 77. Evidence
 
 ```text
@@ -2185,6 +2358,8 @@ created_at
 ```
 
 ---
+
+
 
 # 78. API Design
 
@@ -2207,6 +2382,8 @@ Recommended API structure:
 
 ---
 
+
+
 # 79. Authentication APIs
 
 ```text
@@ -2221,6 +2398,8 @@ GET  /auth/me
 
 ---
 
+
+
 # 80. Project APIs
 
 ```text
@@ -2232,6 +2411,8 @@ DELETE /projects/:id
 ```
 
 ---
+
+
 
 # 81. Template APIs
 
@@ -2245,6 +2426,8 @@ POST /templates/:id/validate
 
 ---
 
+
+
 # 82. Capture APIs
 
 ```text
@@ -2256,6 +2439,8 @@ DELETE /captures/:id
 ```
 
 ---
+
+
 
 # 83. Record APIs
 
@@ -2269,6 +2454,8 @@ DELETE /records/:id
 
 ---
 
+
+
 # 84. Photo APIs
 
 ```text
@@ -2278,6 +2465,8 @@ DELETE /photos/:id
 ```
 
 ---
+
+
 
 # 85. AI API
 
@@ -2289,6 +2478,8 @@ POST /ai/jobs/:id/retry
 
 ---
 
+
+
 # 86. Export APIs
 
 ```text
@@ -2299,6 +2490,8 @@ GET  /exports/:id/download
 ```
 
 ---
+
+
 
 # 87. Flutter Project Structure
 
@@ -2354,6 +2547,8 @@ lib/
 
 ---
 
+
+
 # 88. Flutter Architecture
 
 Use feature-first architecture with separation between:
@@ -2387,6 +2582,8 @@ capture/
 
 ---
 
+
+
 # 89. State Management
 
 Use Riverpod.
@@ -2407,6 +2604,8 @@ syncProvider
 
 ---
 
+
+
 # 90. Navigation
 
 Recommended routes:
@@ -2425,6 +2624,8 @@ Recommended routes:
 ```
 
 ---
+
+
 
 # 91. Local Storage
 
@@ -2445,26 +2646,30 @@ Large files should use filesystem storage rather than putting image binaries dir
 
 ---
 
+
+
 # 92. Security
 
 Security requirements:
 
-* HTTPS
-* Secure authentication
-* Token expiration
-* Refresh tokens
-* Password hashing
-* Role-based authorization
-* File access control
-* Encryption where appropriate
-* Audit logging
-* Secure local storage for sensitive credentials
+- HTTPS
+- Secure authentication
+- Token expiration
+- Refresh tokens
+- Password hashing
+- Role-based authorization
+- File access control
+- Encryption where appropriate
+- Audit logging
+- Secure local storage for sensitive credentials
 
 Never store API keys inside the Flutter application.
 
 AI provider API keys must remain on the backend.
 
 ---
+
+
 
 # 93. File Storage
 
@@ -2488,6 +2693,8 @@ storage/
 ```
 
 ---
+
+
 
 # 94. AI Prompt Architecture
 
@@ -2530,6 +2737,8 @@ Return valid JSON.
 
 ---
 
+
+
 # 95. Structured Output Enforcement
 
 The backend should validate AI output against a JSON schema before saving.
@@ -2551,6 +2760,8 @@ Valid?
 Never trust raw AI output directly.
 
 ---
+
+
 
 # 96. AI Provider Abstraction
 
@@ -2575,23 +2786,27 @@ The application can therefore change providers later.
 
 ---
 
+
+
 # 97. AI Cost Management
 
 Because field projects may involve thousands of photographs, AI processing should be optimized.
 
 Techniques:
 
-* Resize images
-* Compress images
-* Avoid duplicate analysis
-* Cache OCR results
-* Process multiple related images together
-* Use cheaper models for preliminary classification
-* Use more capable models only when necessary
-* Allow manual processing
-* Queue AI jobs
+- Resize images
+- Compress images
+- Avoid duplicate analysis
+- Cache OCR results
+- Process multiple related images together
+- Use cheaper models for preliminary classification
+- Use more capable models only when necessary
+- Allow manual processing
+- Queue AI jobs
 
 ---
+
+
 
 # 98. Two-Stage AI Pipeline
 
@@ -2623,6 +2838,8 @@ This can reduce AI costs substantially.
 
 ---
 
+
+
 # 99. Human-in-the-Loop Principle
 
 AI should assist humans, not silently replace verification.
@@ -2645,15 +2862,17 @@ Require Review
 
 Critical fields such as:
 
-* Serial number
-* Asset ID
-* Financial value
-* Date
-* Location
+- Serial number
+- Asset ID
+- Financial value
+- Date
+- Location
 
 should optionally require manual verification.
 
 ---
+
+
 
 # 100. Excel Mapping Engine
 
@@ -2687,6 +2906,8 @@ E7 = SN458923
 ```
 
 ---
+
+
 
 # 101. Normalization
 
@@ -2723,6 +2944,8 @@ Not Working
 
 ---
 
+
+
 # 102. Excel Row Matching
 
 For predefined rows, use:
@@ -2753,6 +2976,8 @@ The mapping should be configurable.
 
 ---
 
+
+
 # 103. Duplicate Row Protection
 
 Before writing a new record:
@@ -2776,6 +3001,8 @@ Existing record found.
 
 ---
 
+
+
 # 104. Excel Versioning
 
 Each export should have a version.
@@ -2792,6 +3019,8 @@ Never destroy previous exports.
 
 ---
 
+
+
 # 105. Project Backup
 
 The backend should periodically back up:
@@ -2806,6 +3035,8 @@ Audit logs
 ```
 
 ---
+
+
 
 # 106. App Settings
 
@@ -2825,6 +3056,8 @@ Export Preferences
 ```
 
 ---
+
+
 
 # 107. Voice Languages
 
@@ -2849,32 +3082,38 @@ French
 
 ---
 
+
+
 # 108. Accessibility
 
 Support:
 
-* Large text
-* High contrast
-* Screen readers
-* Clear buttons
-* Large camera controls
-* Voice input
+- Large text
+- High contrast
+- Screen readers
+- Clear buttons
+- Large camera controls
+- Voice input
 
 ---
+
+
 
 # 109. Performance Requirements
 
 The app should:
 
-* Open quickly
-* Avoid loading all project photos at once
-* Use pagination
-* Compress images before upload
-* Process large datasets incrementally
-* Avoid blocking the UI
-* Perform synchronization in the background
+- Open quickly
+- Avoid loading all project photos at once
+- Use pagination
+- Compress images before upload
+- Process large datasets incrementally
+- Avoid blocking the UI
+- Perform synchronization in the background
 
 ---
+
+
 
 # 110. Capture Performance
 
@@ -2895,6 +3134,8 @@ Upload/AI process in background
 ```
 
 ---
+
+
 
 # 111. Batch Capture Mode
 
@@ -2930,6 +3171,8 @@ This is ideal for large field surveys.
 
 ---
 
+
+
 # 112. Intelligent Capture Mode
 
 Future enhancement:
@@ -2955,6 +3198,8 @@ and suggests:
 
 ---
 
+
+
 # 113. Automatic Photo Classification
 
 Multiple images can automatically be classified:
@@ -2973,6 +3218,8 @@ OTHER
 This classification can be used in filenames and evidence tracking.
 
 ---
+
+
 
 # 114. Location Capture
 
@@ -2999,6 +3246,8 @@ GPS should only be collected when enabled and permitted.
 
 ---
 
+
+
 # 115. Map Integration
 
 Future feature:
@@ -3018,13 +3267,15 @@ Example:
 
 Useful for:
 
-* Buildings
-* Infrastructure
-* Facilities
-* Utility assets
-* Equipment distribution
+- Buildings
+- Infrastructure
+- Facilities
+- Utility assets
+- Equipment distribution
 
 ---
+
+
 
 # 116. Building Assessment Mode
 
@@ -3064,6 +3315,8 @@ AI maps observations to the predefined fields.
 
 ---
 
+
+
 # 117. Equipment Assessment Mode
 
 Example:
@@ -3085,6 +3338,8 @@ Purchase Date
 
 ---
 
+
+
 # 118. Inspection Mode
 
 Example template:
@@ -3102,6 +3357,8 @@ Photo Evidence
 AI can populate observations from photographs.
 
 ---
+
+
 
 # 119. Risk Classification
 
@@ -3130,6 +3387,8 @@ All risk classifications should be presented as AI suggestions requiring appropr
 
 ---
 
+
+
 # 120. Notifications
 
 The app may notify users:
@@ -3143,6 +3402,8 @@ Sync failed
 ```
 
 ---
+
+
 
 # 121. Analytics
 
@@ -3175,6 +3436,8 @@ These figures should be based on verified human corrections rather than arbitrar
 
 ---
 
+
+
 # 122. AI Learning / Feedback
 
 The system should record user corrections.
@@ -3191,15 +3454,17 @@ Sterilizer
 
 These corrections can later be used to improve:
 
-* Prompting
-* Mapping rules
-* Aliases
-* Classification
-* Validation
+- Prompting
+- Mapping rules
+- Aliases
+- Classification
+- Validation
 
 Do not automatically train models from corrections without an explicit data governance policy.
 
 ---
+
+
 
 # 123. Template Builder
 
@@ -3229,6 +3494,8 @@ This removes dependence on manually editing Excel templates.
 
 ---
 
+
+
 # 124. Template Mapping UI
 
 When an Excel template is uploaded:
@@ -3246,6 +3513,8 @@ Condition        →    condition
 Users can manually correct mappings.
 
 ---
+
+
 
 # 125. AI-Assisted Template Mapping
 
@@ -3267,6 +3536,8 @@ Confidence:
 ```
 
 ---
+
+
 
 # 126. Import Existing Excel Data
 
@@ -3290,6 +3561,8 @@ This enables users to continue existing inventories.
 
 ---
 
+
+
 # 127. Conflict During Import
 
 If an imported record already exists:
@@ -3306,6 +3579,8 @@ SN458923
 ```
 
 ---
+
+
 
 # 128. Data Export Formats
 
@@ -3326,17 +3601,21 @@ ZIP
 
 ---
 
+
+
 # 129. API Rate Limiting
 
 Backend should implement:
 
-* Rate limiting
-* File upload limits
-* Request size limits
-* AI request throttling
-* Authentication protection
+- Rate limiting
+- File upload limits
+- Request size limits
+- AI request throttling
+- Authentication protection
 
 ---
+
+
 
 # 130. File Validation
 
@@ -3353,6 +3632,8 @@ Malicious content
 Do not trust filename extensions alone.
 
 ---
+
+
 
 # 131. Image Compression
 
@@ -3371,6 +3652,8 @@ Keep original according to retention policy
 ```
 
 ---
+
+
 
 # 132. Data Retention
 
@@ -3391,14 +3674,16 @@ Delete after 7 days
 
 ---
 
+
+
 # 133. Privacy
 
 The application may process photographs containing:
 
-* People
-* Documents
-* Locations
-* Identifiers
+- People
+- Documents
+- Locations
+- Identifiers
 
 Therefore, privacy controls are required.
 
@@ -3412,32 +3697,40 @@ Sensitive document redaction
 
 ---
 
+
+
 # 134. Testing Strategy
 
 Testing should cover:
 
 ## Unit Tests
 
-* Mapping
-* Normalization
-* Validation
-* File naming
-* Excel schema parsing
-* Confidence calculations
+- Mapping
+- Normalization
+- Validation
+- File naming
+- Excel schema parsing
+- Confidence calculations
+
+
 
 ## Widget Tests
 
-* Capture UI
-* Review UI
-* Template UI
-* Record UI
+- Capture UI
+- Review UI
+- Template UI
+- Record UI
+
+
 
 ## Integration Tests
 
-* Camera → Capture
-* Capture → Upload
-* AI → Result
-* Result → Excel
+- Camera → Capture
+- Capture → Upload
+- AI → Result
+- Result → Excel
+
+
 
 ## End-to-End Tests
 
@@ -3463,7 +3756,11 @@ Export Excel
 
 ---
 
+
+
 # 135. Critical Test Cases
+
+
 
 ### Test 1 — Single Photo
 
@@ -3481,6 +3778,8 @@ Fields extracted
 Excel populated
 ```
 
+
+
 ### Test 2 — Multiple Photos
 
 Input:
@@ -3494,6 +3793,8 @@ Expected:
 ```text
 Information combined correctly
 ```
+
+
 
 ### Test 3 — Missing Information
 
@@ -3525,6 +3826,8 @@ Expected:
 Duplicate warning
 ```
 
+
+
 ### Test 5 — Offline
 
 Input:
@@ -3539,6 +3842,8 @@ Expected:
 Capture saved locally
 ```
 
+
+
 ### Test 6 — AI Failure
 
 Expected:
@@ -3550,6 +3855,8 @@ Retry available
 
 ---
 
+
+
 # 136. MVP Scope
 
 The first version should NOT attempt to implement every future feature.
@@ -3558,53 +3865,71 @@ Recommended MVP:
 
 ## Phase 1
 
+
+
 ### Authentication
 
-* Login
-* Logout
+- Login
+- Logout
+
+
 
 ### Projects
 
-* Create project
-* Select project
+- Create project
+- Select project
+
+
 
 ### Excel
 
-* Upload template
-* Read headers
-* Define fields
+- Upload template
+- Read headers
+- Define fields
+
+
 
 ### Capture
 
-* Camera
-* Gallery
-* Multiple photos
-* Caption
-* Speech-to-text
+- Camera
+- Gallery
+- Multiple photos
+- Caption
+- Speech-to-text
+
+
 
 ### AI
 
-* OCR
-* Vision analysis
-* Structured extraction
+- OCR
+- Vision analysis
+- Structured extraction
+
+
 
 ### Review
 
-* Display extracted data
-* Edit fields
-* Approve
+- Display extracted data
+- Edit fields
+- Approve
+
+
 
 ### Export
 
-* Populate Excel
-* Download/share Excel
+- Populate Excel
+- Download/share Excel
+
+
 
 ### Storage
 
-* Local draft storage
-* Backend synchronization
+- Local draft storage
+- Backend synchronization
 
 ---
+
+
 
 # 137. MVP Workflow
 
@@ -3644,6 +3969,8 @@ EXPORT EXCEL
 
 ---
 
+
+
 # 138. Phase 2
 
 Add:
@@ -3661,6 +3988,8 @@ Roles
 ```
 
 ---
+
+
 
 # 139. Phase 3
 
@@ -3680,6 +4009,8 @@ Enterprise administration
 
 ---
 
+
+
 # 140. Phase 4
 
 Potential advanced capabilities:
@@ -3696,6 +4027,8 @@ Digital asset registry
 ```
 
 ---
+
+
 
 # 141. Important Design Principle
 
@@ -3731,6 +4064,8 @@ without validation.
 
 ---
 
+
+
 # 142. Recommended Record Lifecycle
 
 ```text
@@ -3755,20 +4090,22 @@ EXPORTED
 
 ---
 
+
+
 # 143. UI Design Principles
 
 The interface should be:
 
-* Modern
-* Minimal
-* Fast
-* Field-worker friendly
-* Large touch targets
-* Easy to use outdoors
-* Clear status indicators
-* Minimal typing
-* Camera-first
-* Voice-friendly
+- Modern
+- Minimal
+- Fast
+- Field-worker friendly
+- Large touch targets
+- Easy to use outdoors
+- Clear status indicators
+- Minimal typing
+- Camera-first
+- Voice-friendly
 
 The most important action should always be obvious:
 
@@ -3777,6 +4114,8 @@ CAPTURE
 ```
 
 ---
+
+
 
 # 144. Suggested Bottom Navigation
 
@@ -3791,6 +4130,8 @@ Settings
 The central Capture action can be visually emphasized.
 
 ---
+
+
 
 # 145. Capture UX Principle
 
@@ -3808,6 +4149,8 @@ A field worker should ideally be able to create a record using:
 The application should minimize typing.
 
 ---
+
+
 
 # 146. Example Complete Session
 
@@ -3915,6 +4258,8 @@ Autoclave | ABC Medical  | MED-1300 | SN458923 | 13 L | Laboratory | Faulty
 
 ---
 
+
+
 # 147. Recommended Development Order
 
 Development should proceed in this order:
@@ -3929,6 +4274,8 @@ Navigation
 Authentication
 ```
 
+
+
 ## Sprint 2
 
 ```text
@@ -3937,6 +4284,8 @@ Local database
 Project records
 ```
 
+
+
 ## Sprint 3
 
 ```text
@@ -3944,6 +4293,8 @@ Excel template upload
 Excel schema parser
 Template mapping
 ```
+
+
 
 ## Sprint 4
 
@@ -3954,6 +4305,8 @@ Multi-photo capture
 Local image storage
 ```
 
+
+
 ## Sprint 5
 
 ```text
@@ -3961,6 +4314,8 @@ Captions
 Speech-to-text
 Capture sessions
 ```
+
+
 
 ## Sprint 6
 
@@ -3972,6 +4327,8 @@ Vision extraction
 Structured JSON
 ```
 
+
+
 ## Sprint 7
 
 ```text
@@ -3981,6 +4338,8 @@ Confidence scores
 Validation
 ```
 
+
+
 ## Sprint 8
 
 ```text
@@ -3989,6 +4348,8 @@ Export
 Photo naming
 ```
 
+
+
 ## Sprint 9
 
 ```text
@@ -3996,6 +4357,8 @@ Offline synchronization
 Retry queues
 Error handling
 ```
+
+
 
 ## Sprint 10
 
@@ -4008,33 +4371,37 @@ Production release
 
 ---
 
+
+
 # 148. Definition of Done for MVP
 
 The MVP is complete when a user can:
 
-* Login
-* Create a project
-* Upload an Excel template
-* Configure/map fields
-* Open camera
-* Capture multiple photos
-* Upload photos from gallery
-* Add a text caption
-* Speak a caption
-* Submit capture
-* Have AI analyze the images
-* Extract structured information
-* Match the information to predefined rows
-* Review the information
-* Correct fields
-* Approve the record
-* Save the record
-* Name photos automatically
-* Generate the completed Excel document
-* Export the Excel file
-* Recover safely from network/AI failure
+- Login
+- Create a project
+- Upload an Excel template
+- Configure/map fields
+- Open camera
+- Capture multiple photos
+- Upload photos from gallery
+- Add a text caption
+- Speak a caption
+- Submit capture
+- Have AI analyze the images
+- Extract structured information
+- Match the information to predefined rows
+- Review the information
+- Correct fields
+- Approve the record
+- Save the record
+- Name photos automatically
+- Generate the completed Excel document
+- Export the Excel file
+- Recover safely from network/AI failure
 
 ---
+
+
 
 # 149. Long-Term Product Vision
 
@@ -4078,6 +4445,8 @@ EXCEL / DATABASE / REPORT
 This makes the application a reusable platform rather than a single-purpose inventory application.
 
 ---
+
+
 
 # 150. Final Architecture
 
@@ -4146,6 +4515,8 @@ The final system should conceptually operate as:
 
 ---
 
+
+
 # 151. Core Product Principle
 
 The most important architectural rule for this application is:
@@ -4155,6 +4526,8 @@ The most important architectural rule for this application is:
 This principle keeps the system flexible, auditable, and resistant to AI hallucination.
 
 ---
+
+
 
 # 152. Suggested Product Name
 
@@ -4183,6 +4556,8 @@ A particularly descriptive working name is:
 because the system captures real-world evidence and maps it into structured data.
 
 ---
+
+
 
 # 153. Immediate Development Goal
 
