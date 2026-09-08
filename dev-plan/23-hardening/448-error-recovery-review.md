@@ -10,8 +10,8 @@ Write the fault-injection harness and the suite that drives every external depen
 
 ## Files
 
-- `integration_test/failure_paths_test.dart` (new)
-- `test/support/fault_injection.dart` (new)
+- `frontend/integration_test/failure_paths_test.dart` (new)
+- `frontend/test/support/fault_injection.dart` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ class FaultInjector { void fail(Dependency d, Failure f); void clear(); }
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

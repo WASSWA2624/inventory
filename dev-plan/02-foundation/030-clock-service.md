@@ -10,7 +10,7 @@ Write the clock abstraction so every timestamp is testable and consistently UTC.
 
 ## Files
 
-- `lib/core/time/clock.dart` (new)
+- `frontend/lib/core/time/clock.dart` (new)
 
 ## Contract
 
@@ -26,6 +26,7 @@ class SystemClock implements Clock;  class FixedClock implements Clock
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -35,7 +36,7 @@ class SystemClock implements Clock;  class FixedClock implements Clock
 ## Definition of done
 
 - [ ] A test can freeze time and assert a stamped value exactly.
-- [ ] Tests written and passing: `test/core/time/clock_test.dart` covers both implementations.
+- [ ] Tests written and passing: `frontend/test/core/time/clock_test.dart` covers both implementations.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

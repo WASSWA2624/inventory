@@ -10,9 +10,9 @@ Write the installer that puts the pre-commit and commit-message hooks in place, 
 
 ## Files
 
-- `tool/install_hooks.dart` (new)
-- `tool/hooks/pre-commit` (new)
-- `tool/hooks/commit-msg` (new)
+- `frontend/tool/install_hooks.dart` (new)
+- `frontend/tool/hooks/pre-commit` (new)
+- `frontend/tool/hooks/commit-msg` (new)
 
 ## Steps
 
@@ -22,6 +22,7 @@ Write the installer that puts the pre-commit and commit-message hooks in place, 
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -32,7 +33,7 @@ Write the installer that puts the pre-commit and commit-message hooks in place, 
 
 - [ ] A commit message without a task number is rejected.
 - [ ] Running the installer twice leaves exactly one copy of each hook.
-- [ ] Tests written and passing: `test/tool/commit_msg_test.dart` covers valid and invalid subjects.
+- [ ] Tests written and passing: `frontend/test/tool/commit_msg_test.dart` covers valid and invalid subjects.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

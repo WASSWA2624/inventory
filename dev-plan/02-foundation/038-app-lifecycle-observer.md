@@ -10,7 +10,7 @@ Write the observer that flushes pending work on pause and re-arms the lock on re
 
 ## Files
 
-- `lib/core/lifecycle/lifecycle_observer.dart` (new)
+- `frontend/lib/core/lifecycle/lifecycle_observer.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ class LifecycleObserver with WidgetsBindingObserver { Stream<AppLifecycleState> 
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -33,7 +34,7 @@ class LifecycleObserver with WidgetsBindingObserver { Stream<AppLifecycleState> 
 ## Definition of done
 
 - [ ] Backgrounding during capture never loses an unsaved photo reference.
-- [ ] Tests written and passing: `test/core/lifecycle/lifecycle_observer_test.dart` drives lifecycle transitions.
+- [ ] Tests written and passing: `frontend/test/core/lifecycle/lifecycle_observer_test.dart` drives lifecycle transitions.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

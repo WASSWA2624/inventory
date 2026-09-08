@@ -10,7 +10,7 @@ Establish how schema changes ship, so no later table task has to invent it.
 
 ## Files
 
-- `lib/core/db/migrations.dart` (new)
+- `frontend/lib/core/db/migrations.dart` (new)
 
 ## Steps
 
@@ -19,6 +19,7 @@ Establish how schema changes ship, so no later table task has to invent it.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/11-security-privacy.md`, `frontend/rules/12-testing.md`.
 - Every table carries `id`, `createdAt`, `updatedAt`, `updatedByDevice` and `rev` through the shared column mixins.
 - Deletes write a tombstone in the same transaction; nothing is hard-deleted.
 - Raw columns are written once at creation and never updated.

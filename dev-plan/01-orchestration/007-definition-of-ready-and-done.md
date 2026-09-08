@@ -10,8 +10,8 @@ Write the generator that creates a new task file with the next free number and t
 
 ## Files
 
-- `tool/new_task.dart` (new)
-- `tool/task_template.md` (new)
+- `frontend/tool/new_task.dart` (new)
+- `frontend/tool/task_template.md` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ Future<int> main(List<String> args)  // new_task <phase-folder> <slug> "<title>"
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -37,7 +38,7 @@ Future<int> main(List<String> args)  // new_task <phase-folder> <slug> "<title>"
 
 - [ ] Running the tool twice with the same slug fails rather than overwriting.
 - [ ] The generated file passes the plan integrity checker unchanged.
-- [ ] Tests written and passing: `test/tool/new_task_test.dart` generates into a temporary tree and asserts the result.
+- [ ] Tests written and passing: `frontend/test/tool/new_task_test.dart` generates into a temporary tree and asserts the result.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

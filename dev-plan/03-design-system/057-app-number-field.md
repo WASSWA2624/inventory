@@ -10,7 +10,7 @@ Numeric entry with unit suffix, decimal control and range hints.
 
 ## Files
 
-- `lib/core/widgets/fields/app_number_field.dart` (new)
+- `frontend/lib/core/widgets/fields/app_number_field.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ class AppNumberField extends StatelessWidget { final String label; final String?
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/04-theming.md`, `frontend/rules/05-responsiveness.md`, `frontend/rules/07-consistency.md`, `frontend/rules/09-accessibility.md`.
 - Colours, spacing, radii, durations and text styles come from tokens only — never literals.
 - Minimum 48dp tap target, a semantic label on every interactive element, and no clipping at 200 percent text scale.
 - Add the component to the widget gallery and give it a golden test in light, dark and outdoor themes.

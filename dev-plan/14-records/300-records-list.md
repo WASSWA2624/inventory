@@ -10,7 +10,7 @@ The paged list with number, name, identifier, context and status.
 
 ## Files
 
-- `lib/features/records/presentation/records_list_screen.dart` (new)
+- `frontend/lib/features/records/presentation/records_list_screen.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ The paged list with number, name, identifier, context and status.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/07-consistency.md`, `frontend/rules/10-performance.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

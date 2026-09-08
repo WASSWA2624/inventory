@@ -10,8 +10,8 @@ Write the single entry point that installs error handling, the provider scope an
 
 ## Files
 
-- `lib/main.dart` (edit)
-- `lib/app/app.dart` (new)
+- `frontend/lib/main.dart` (edit)
+- `frontend/lib/app/app.dart` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ Future<void> main();  class TaptureApp extends ConsumerWidget
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -36,7 +37,7 @@ Future<void> main();  class TaptureApp extends ConsumerWidget
 ## Definition of done
 
 - [ ] An uncaught error is captured rather than lost, and the app still renders.
-- [ ] Tests written and passing: `test/app/bootstrap_test.dart` pumps the app and asserts a thrown error reaches the handler.
+- [ ] Tests written and passing: `frontend/test/app/bootstrap_test.dart` pumps the app and asserts a thrown error reaches the handler.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

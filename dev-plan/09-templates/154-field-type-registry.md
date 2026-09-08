@@ -10,7 +10,7 @@ One registry describing each field type: its editor widget, validator, normalise
 
 ## Files
 
-- `lib/features/templates/domain/field_type_registry.dart` (new)
+- `frontend/lib/features/templates/domain/field_type_registry.dart` (new)
 
 ## Steps
 
@@ -19,6 +19,7 @@ One registry describing each field type: its editor widget, validator, normalise
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/03-state-and-data.md`, `frontend/rules/06-simplicity.md`, `frontend/rules/08-localization.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

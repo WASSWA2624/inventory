@@ -20,6 +20,7 @@ Write the ignore and editor configuration that keeps generated output and secret
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -29,7 +30,7 @@ Write the ignore and editor configuration that keeps generated output and secret
 ## Definition of done
 
 - [ ] A clean checkout followed by a build produces no untracked files.
-- [ ] Tests written and passing: `tool/check_repo_hygiene.dart` fails if a build artefact path is missing from `.gitignore`.
+- [ ] Tests written and passing: `frontend/tool/check_repo_hygiene.dart` fails if a build artefact path is missing from `.gitignore`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

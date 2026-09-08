@@ -10,7 +10,7 @@ Write the test that fails when a list or detail screen has no empty state, then 
 
 ## Files
 
-- `test/states/empty_state_coverage_test.dart` (new)
+- `frontend/test/states/empty_state_coverage_test.dart` (new)
 
 ## Contract
 
@@ -25,6 +25,7 @@ Future<void> expectEmptyState(WidgetTester t, {required String action});
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

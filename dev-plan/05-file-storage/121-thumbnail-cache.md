@@ -10,7 +10,7 @@ Generate and cache thumbnails so lists never decode full images.
 
 ## Files
 
-- `lib/core/files/thumbnail_cache.dart` (new)
+- `frontend/lib/core/files/thumbnail_cache.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ Generate and cache thumbnails so lists never decode full images.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/10-performance.md`, `frontend/rules/11-security-privacy.md`.
 - Original files are never modified or deleted; derived copies go to `.cache`.
 - Every write is atomic: temporary name, then rename, so an interruption leaves no partial file.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.

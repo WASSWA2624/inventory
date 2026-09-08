@@ -10,8 +10,8 @@ Write the checker that fails the build when pubspec gains a package that was nev
 
 ## Files
 
-- `tool/allowlist.yaml` (new)
-- `tool/check_dependencies.dart` (new)
+- `frontend/tool/allowlist.yaml` (new)
+- `frontend/tool/check_dependencies.dart` (new)
 
 ## Contract
 
@@ -22,11 +22,12 @@ Future<int> main(List<String> args)  // exit 0 clean, 1 on violation
 ## Steps
 
 1. Write allowlist.yaml listing every approved package with its pinned version, purpose and the task that introduced it.
-2. Parse `pubspec.yaml`, compare direct dependencies against the allowlist, and report additions, removals and version drift.
+2. Parse `frontend/pubspec.yaml`, compare direct dependencies against the allowlist, and report additions, removals and version drift.
 3. Fail on any package not on the list; print the offending package and the rule that adding one requires its own task.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -37,7 +38,7 @@ Future<int> main(List<String> args)  // exit 0 clean, 1 on violation
 
 - [ ] Adding a package to pubspec without the allowlist entry fails the check.
 - [ ] Removing an allowlisted package reports a warning rather than an error.
-- [ ] Tests written and passing: `test/tool/check_dependencies_test.dart` covers approved, unapproved and version-drift fixtures.
+- [ ] Tests written and passing: `frontend/test/tool/check_dependencies_test.dart` covers approved, unapproved and version-drift fixtures.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

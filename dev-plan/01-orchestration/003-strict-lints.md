@@ -10,7 +10,7 @@ Configure the analyzer as the first reviewer, with warnings treated as failures.
 
 ## Files
 
-- `analysis_options.yaml` (edit)
+- `frontend/analysis_options.yaml` (edit)
 
 ## Steps
 
@@ -20,6 +20,7 @@ Configure the analyzer as the first reviewer, with warnings treated as failures.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -30,7 +31,7 @@ Configure the analyzer as the first reviewer, with warnings treated as failures.
 
 - [ ] Running the analyzer on the fresh project reports zero issues.
 - [ ] Introducing an implicit dynamic cast fails the analyzer.
-- [ ] Tests written and passing: `tool/verify.dart` runs the analyzer and fails on any issue.
+- [ ] Tests written and passing: `frontend/tool/verify.dart` runs the analyzer and fails on any issue.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

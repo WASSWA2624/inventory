@@ -10,7 +10,7 @@ Write the reusable matchers every later widget test uses to assert semantics, la
 
 ## Files
 
-- `test/support/a11y_matchers.dart` (new)
+- `frontend/test/support/a11y_matchers.dart` (new)
 
 ## Contract
 
@@ -25,6 +25,7 @@ Matcher hasSemanticLabel(String label);  Matcher meetsTapTarget({double min = 48
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -34,7 +35,7 @@ Matcher hasSemanticLabel(String label);  Matcher meetsTapTarget({double min = 48
 ## Definition of done
 
 - [ ] A button without a semantic label fails the matcher with a readable message.
-- [ ] Tests written and passing: `test/support/a11y_matchers_test.dart` proves each matcher passes and fails correctly.
+- [ ] Tests written and passing: `frontend/test/support/a11y_matchers_test.dart` proves each matcher passes and fails correctly.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

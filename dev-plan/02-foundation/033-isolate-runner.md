@@ -10,7 +10,7 @@ Write the helper that moves heavy work off the UI thread with progress and cance
 
 ## Files
 
-- `lib/core/concurrency/isolate_runner.dart` (new)
+- `frontend/lib/core/concurrency/isolate_runner.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ Future<Result<R>> runIsolate<M, R>(FutureOr<R> Function(M) task, M message, {voi
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -33,7 +34,7 @@ Future<Result<R>> runIsolate<M, R>(FutureOr<R> Function(M) task, M message, {voi
 ## Definition of done
 
 - [ ] Cancelling mid-run completes with CancelledFailure and leaves no orphan isolate.
-- [ ] Tests written and passing: `test/core/concurrency/isolate_runner_test.dart` covers success, progress, failure and cancellation.
+- [ ] Tests written and passing: `frontend/test/core/concurrency/isolate_runner_test.dart` covers success, progress, failure and cancellation.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

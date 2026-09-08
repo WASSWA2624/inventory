@@ -10,10 +10,11 @@ Persist source, method, provider, model and prompt version per value.
 
 ## Files
 
-- `lib/features/processing/domain/provenance.dart` (new)
+- `frontend/lib/features/processing/domain/provenance.dart` (new)
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/03-state-and-data.md`, `frontend/rules/10-performance.md`, `frontend/rules/11-security-privacy.md`.
 - On-device first; an online call happens only when local extraction cannot finish the job.
 - A verified or manual value is never overwritten by processing.
 - Every applied value carries source, confidence and at least one evidence link.

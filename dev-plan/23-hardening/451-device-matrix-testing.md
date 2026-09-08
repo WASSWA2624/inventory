@@ -10,8 +10,8 @@ Write the script that runs the integration suite across the configured device cl
 
 ## Files
 
-- `tool/device_matrix.dart` (new)
-- `tool/devices.yaml` (new)
+- `frontend/tool/device_matrix.dart` (new)
+- `frontend/tool/devices.yaml` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ Future<int> main(List<String> args)  // --devices low,mid,tablet
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.
@@ -34,7 +35,7 @@ Future<int> main(List<String> args)  // --devices low,mid,tablet
 ## Definition of done
 
 - [ ] A regression on the low-end device fails the run, naming the metric and the margin.
-- [ ] Tests written and passing: `test/tool/device_matrix_test.dart` parses fixture output and asserts the comparison logic.
+- [ ] Tests written and passing: `frontend/test/tool/device_matrix_test.dart` parses fixture output and asserts the comparison logic.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

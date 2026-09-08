@@ -6,12 +6,12 @@
 
 ## Implement
 
-Initialise the Flutter application in the repository root with the Tapture identity, and delete the demo code.
+Initialise the Flutter application inside frontend/ with the Tapture identity, and delete the demo code.
 
 ## Files
 
-- `pubspec.yaml` (new)
-- `lib/main.dart` (new)
+- `frontend/pubspec.yaml` (new)
+- `frontend/lib/main.dart` (new)
 
 ## Contract
 
@@ -21,12 +21,13 @@ void main()  // renders an empty MaterialApp scaffold; no counter demo
 
 ## Steps
 
-1. Run the Flutter create command with organisation com.tapture and project name tapture, Android platform first.
+1. Run the Flutter create command into frontend/ with organisation com.tapture and project name tapture, Android platform first.
 2. Set the display name to Tapture and the application id to com.tapture.app in the Android manifest and Gradle config.
 3. Delete the counter demo widget and its generated test; leave main.dart rendering an empty scaffold.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -36,8 +37,8 @@ void main()  // renders an empty MaterialApp scaffold; no counter demo
 ## Definition of done
 
 - [ ] The app builds and launches to a blank scaffold on a device or emulator.
-- [ ] No generated demo code remains anywhere in lib/ or `test/`.
-- [ ] Tests written and passing: `test/smoke_test.dart` pumps the app and asserts it builds without exception.
+- [ ] No generated demo code remains anywhere in lib/ or `frontend/test/`.
+- [ ] Tests written and passing: `frontend/test/smoke_test.dart` pumps the app and asserts it builds without exception.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

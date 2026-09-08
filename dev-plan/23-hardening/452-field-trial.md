@@ -10,8 +10,8 @@ Build the one-tap "something went wrong here" action a field tester uses during 
 
 ## Files
 
-- `lib/features/settings/domain/friction_log.dart` (new)
-- `lib/features/settings/presentation/friction_log_button.dart` (new)
+- `frontend/lib/features/settings/domain/friction_log.dart` (new)
+- `frontend/lib/features/settings/presentation/friction_log_button.dart` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ Future<Result<void>> logFriction({required String screen, String? note, bool wit
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

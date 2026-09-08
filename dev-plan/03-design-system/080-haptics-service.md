@@ -10,7 +10,7 @@ Named haptic patterns for capture, save, warning and error.
 
 ## Files
 
-- `lib/core/feedback/haptics.dart` (new)
+- `frontend/lib/core/feedback/haptics.dart` (new)
 
 ## Contract
 
@@ -20,6 +20,7 @@ abstract interface class Haptics { void shutter(); void save(); void warning(); 
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/04-theming.md`, `frontend/rules/05-responsiveness.md`, `frontend/rules/07-consistency.md`, `frontend/rules/09-accessibility.md`.
 - Colours, spacing, radii, durations and text styles come from tokens only — never literals.
 - Minimum 48dp tap target, a semantic label on every interactive element, and no clipping at 200 percent text scale.
 - Add the component to the widget gallery and give it a golden test in light, dark and outdoor themes.

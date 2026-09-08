@@ -10,7 +10,7 @@ Write the program that verifies every release condition and refuses to produce a
 
 ## Files
 
-- `tool/release_gate.dart` (new)
+- `frontend/tool/release_gate.dart` (new)
 
 ## Contract
 
@@ -26,6 +26,7 @@ Future<int> main(List<String> args)  // --tag <version>; exits 0 only when every
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/12-testing.md`, `frontend/rules/13-workflow.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.
@@ -33,7 +34,7 @@ Future<int> main(List<String> args)  // --tag <version>; exits 0 only when every
 ## Definition of done
 
 - [ ] A build cannot be produced while any gate fails.
-- [ ] Tests written and passing: `test/tool/release_gate_test.dart` covers the pass, fail and waiver paths.
+- [ ] Tests written and passing: `frontend/test/tool/release_gate_test.dart` covers the pass, fail and waiver paths.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

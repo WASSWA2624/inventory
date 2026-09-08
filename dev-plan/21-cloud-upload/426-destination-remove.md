@@ -10,10 +10,11 @@ Delete the destination and purge its credentials from secure storage.
 
 ## Files
 
-- `lib/features/cloud/presentation/destination_remove_action.dart` (new)
+- `frontend/lib/features/cloud/presentation/destination_remove_action.dart` (new)
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/11-security-privacy.md`.
 - Nothing is uploaded without an explicit per-file confirmation; credentials live only in secure storage.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.

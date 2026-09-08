@@ -10,7 +10,7 @@ Open a bundle, verify its checksums and format version, and refuse anything susp
 
 ## Files
 
-- `lib/core/bundle/bundle_reader.dart` (new)
+- `frontend/lib/core/bundle/bundle_reader.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ Open a bundle, verify its checksums and format version, and refuse anything susp
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/11-security-privacy.md`, `frontend/rules/12-testing.md`.
 - Merge is additive, idempotent and previewed; nothing is applied before the user confirms.
 - Every automatic resolution writes an audit entry naming the rule that made it.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.

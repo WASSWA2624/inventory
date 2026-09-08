@@ -10,7 +10,7 @@ Write the tool that turns everything unbuilt, every friction entry and every wai
 
 ## Files
 
-- `tool/backlog_report.dart` (new)
+- `frontend/tool/backlog_report.dart` (new)
 
 ## Contract
 
@@ -26,6 +26,7 @@ Future<int> main(List<String> args)  // writes build/backlog.md
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/12-testing.md`, `frontend/rules/13-workflow.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.
@@ -33,7 +34,7 @@ Future<int> main(List<String> args)  // writes build/backlog.md
 ## Definition of done
 
 - [ ] Running the tool after a release produces a backlog nobody has to assemble by hand.
-- [ ] Tests written and passing: `test/tool/backlog_report_test.dart` runs over a fixture plan and asserts grouping and ordering.
+- [ ] Tests written and passing: `frontend/test/tool/backlog_report_test.dart` runs over a fixture plan and asserts grouping and ordering.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

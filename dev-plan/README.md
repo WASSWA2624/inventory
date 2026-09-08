@@ -1,28 +1,57 @@
 # Tapture — development plan
 
-469 implementation prompts, in the order they should be built, from an empty repository to a shippable app.
+517 implementation prompts, in the order they should be built, from an empty repository to a shippable app plus its
+optional team backend.
 
-Every file is a prompt that produces code. There are no policy documents, no checklists to read and file away: the
-architectural rules of phase 01 ship as lints, checkers and tests that fail a build when they are broken.
+Every file is a prompt that produces code. There are no policy documents here: the architectural rules live in
+`frontend/rules/` and `backend/rules/`, and phase 01 ships them as lints, checkers and tests that fail a build when
+they are broken.
 
 Read [INDEX.md](INDEX.md) for the full list, or open a phase folder.
+
+## Repository layout
+
+```text
+tapture/
+├── frontend/           the Flutter application
+│   └── rules/          14 rule files — structure, theming, responsiveness, simplicity, l10n, a11y, ...
+├── backend/            the optional team server (post-MVP, specification Part XI)
+│   └── rules/          12 rule files — structure, API, data, security, relay boundary, AI proxy, ...
+├── dev-plan/           this plan
+└── app-write-up.md     the specification
+```
+
+Task file paths are written in full: a frontend task touches `frontend/lib/...`, a backend task touches
+`backend/src/...`. Nothing is ambiguous about where a file goes.
+
+## The rules come first
+
+Before starting any task, read the rule files it cites. Every task's **Constraints** section names them, and the ones
+that matter for that task specifically:
+
+```text
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/04-theming.md`,
+  `frontend/rules/07-consistency.md`, `frontend/rules/09-accessibility.md`.
+```
+
+Rules are numbered (`FE-THEME-05`, `BE-RELAY-04`) so review cites an identifier instead of an opinion. Most are
+enforced by a test; where one is not, that gap is itself a task.
 
 ## How to use a task file
 
 Open the lowest unticked task, give the file to a developer or an agent, and build exactly what it says. Each file is
-self-contained: it names its dependencies, the files to touch, the public contract, the steps, the constraints and the
-test that proves it.
+self-contained.
 
 ```text
-# 010 — Layering enforcement test
+# 228 — Delete a photo
 
-**Phase** 01 · Project setup and guardrails  |  **Depends on** 004
+**Phase** 12 · Capture  |  **Depends on** 225, 072, 074
 
 > Implementation prompt. Build exactly this task, then stop.
 
 ## Implement           what exists when this is finished
-## Files               what to create or change
-## Contract            the public API, in Dart, that other tasks will call
+## Files               what to create or change, with full paths
+## Contract            the public API other tasks will call
 ## Steps               how to build it
 ## Reuse               what must be reused rather than rebuilt
 ## Constraints         the rules this task may not break
@@ -36,21 +65,21 @@ test that proves it.
 `dart run tool/new_task.dart` and split it.
 
 **Numbers are global and chronological, and dependencies always point backwards.** Working top to bottom means never
-being blocked. Task 006 builds the checker that proves this stays true.
+being blocked; task 006 builds the checker that proves it stays true.
 
-**Never widen a task.** Every file ends with an Out of scope fence. Anything discovered mid-task becomes a new file.
+**Never widen a task.** Every file ends with an Out of scope fence.
 
-**A task is done when** its Definition of done is fully ticked — which includes a clean analyzer, applied formatter,
-written tests, and green guardrail suites.
+**A task is done when** its Definition of done is fully ticked — clean analyzer, applied formatter, written tests,
+green guardrails.
 
 ## Phases
 
 | | Phase | Tasks | What it delivers |
 |---|---|---|---|
 | 01 | [Project setup and guardrails](01-orchestration/) | 001–022 | The repository, plus every architectural rule as a lint, checker or test |
-| 02 | [Foundation services](02-foundation/) | 023–041 | Boots, logs, fails safely; the small services everything injects |
+| 02 | [Foundation services](02-foundation/) | 023–041 | Boots, logs, fails safely; the services everything injects |
 | 03 | [Design system](03-design-system/) | 042–083 | Tokens, themes and the whole widget vocabulary, before any screen |
-| 04 | [Local database](04-data-layer/) | 084–114 | Every table, with merge columns present from the first migration |
+| 04 | [Local database](04-data-layer/) | 084–114 | Every table, with merge columns from the first migration |
 | 05 | [File storage](05-file-storage/) | 115–126 | The organised folder tree and every service that writes into it |
 | 06 | [Application shell](06-app-shell/) | 127–133 | Navigation, routing and the always-visible status line |
 | 07 | [Operator and settings](07-operator-and-settings/) | 134–142 | Local identity, app lock, and the switches later features read |
@@ -71,27 +100,29 @@ written tests, and green guardrail suites.
 | 22 | [Privacy and security](22-privacy-and-security/) | 427–436 | What leaves the device, and what never does |
 | 23 | [Hardening](23-hardening/) | 437–452 | Fast, legible, reachable, unbreakable in the field |
 | 24 | [Testing and release](24-testing-and-release/) | 453–469 | The suites, the pipeline and the shipping gate |
-
-Team mode — the optional backend in Part XI of the specification — is deliberately absent. The application must be
-complete and shippable with no server in existence.
+| 25 | [Optional team backend](25-backend/) | 470–517 | Accounts, roles, key custody and change relay — **post-MVP** |
 
 ## Milestones
 
-**Task 022** — the guardrails are in place. From here, an architectural mistake fails a test instead of surviving to
-review.
+**Task 022** — the guardrails are in place. An architectural mistake now fails a test instead of surviving to review.
 
-**Task 083** — the design system is complete. Every later screen is assembled from existing parts; no feature builds a
-button, a field, an error state or a spacing value of its own.
+**Task 083** — the design system is complete. Every later screen is assembled from existing parts.
 
 **Task 385** — the first end-to-end slice works: create a project, choose a template, set context, capture, process,
-review, approve, export with photos. Everything after that widens the app; nothing after that is needed to prove it.
+review, approve, export with photos.
+
+**Task 469** — shippable. The application is complete and releasable with no server in existence.
+
+**Task 517** — team mode. Only worth starting once a real organisation needs accounts, roles and relay.
 
 ## Rules that outrank convenience
 
-1. Raw evidence is never destroyed. Refinement writes a new column beside the original.
+1. Raw evidence is never destroyed. Refinement writes beside the original.
 2. No screen invents a widget, colour, spacing value or error style the design system already has.
 3. Nothing blocks capture — not a missing network, not a slow provider, not a missing template.
 4. Every write is local-first and durable before the interface confirms it.
 5. AI proposes; a person approves.
+6. The backend is transit, not truth. It never holds a durable copy of a project, and the app is complete without it.
 
-Tasks 010–022 turn each of these from a promise into a failing test.
+Tasks 010–022 turn the first five into failing tests. `backend/rules/06-relay-and-retention.md` and tasks 495–497 do
+the same for the sixth.

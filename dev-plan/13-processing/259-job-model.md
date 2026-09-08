@@ -10,8 +10,8 @@ Model the queue: one job per record, with stage, attempts and outcome.
 
 ## Files
 
-- `lib/features/processing/domain/processing_job.dart` (new)
-- `lib/features/processing/data/processing_repository_impl.dart` (new)
+- `frontend/lib/features/processing/domain/processing_job.dart` (new)
+- `frontend/lib/features/processing/data/processing_repository_impl.dart` (new)
 
 ## Steps
 
@@ -19,6 +19,7 @@ Model the queue: one job per record, with stage, attempts and outcome.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/03-state-and-data.md`, `frontend/rules/10-performance.md`, `frontend/rules/11-security-privacy.md`.
 - On-device first; an online call happens only when local extraction cannot finish the job.
 - A verified or manual value is never overwritten by processing.
 - Every applied value carries source, confidence and at least one evidence link.

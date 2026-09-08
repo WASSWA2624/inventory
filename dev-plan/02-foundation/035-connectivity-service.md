@@ -10,7 +10,7 @@ Write the service reporting online, offline and metered, including the manual of
 
 ## Files
 
-- `lib/core/network/connectivity_service.dart` (new)
+- `frontend/lib/core/network/connectivity_service.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ enum NetworkState { online, metered, offline }  Stream<NetworkState> watch();
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -33,7 +34,7 @@ enum NetworkState { online, metered, offline }  Stream<NetworkState> watch();
 ## Definition of done
 
 - [ ] Enabling the manual override reports offline regardless of the radio.
-- [ ] Tests written and passing: `test/core/network/connectivity_service_test.dart` uses a fake source and asserts the override.
+- [ ] Tests written and passing: `frontend/test/core/network/connectivity_service_test.dart` uses a fake source and asserts the override.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

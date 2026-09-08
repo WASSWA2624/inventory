@@ -10,8 +10,8 @@ Write the instrumented test that fails when capture, export or merge exceeds its
 
 ## Files
 
-- `integration_test/memory_test.dart` (new)
-- `tool/profile_memory.dart` (new)
+- `frontend/integration_test/memory_test.dart` (new)
+- `frontend/tool/profile_memory.dart` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ Future<MemoryReport> measure(Future<void> Function() scenario, {required int cei
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

@@ -10,7 +10,7 @@ Create and edit the local operator identity used for attribution and merge.
 
 ## Files
 
-- `lib/features/settings/presentation/operator_profile_screen.dart` (new)
+- `frontend/lib/features/settings/presentation/operator_profile_screen.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ Create and edit the local operator identity used for attribution and merge.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/06-simplicity.md`, `frontend/rules/07-consistency.md`, `frontend/rules/11-security-privacy.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

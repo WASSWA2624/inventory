@@ -10,7 +10,7 @@ Write the logger with levels, tags, a bounded buffer and redaction.
 
 ## Files
 
-- `lib/core/logging/logger.dart` (new)
+- `frontend/lib/core/logging/logger.dart` (new)
 
 ## Contract
 
@@ -26,6 +26,7 @@ abstract interface class Logger { void trace/info/warn/error(String tag, String 
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -35,7 +36,7 @@ abstract interface class Logger { void trace/info/warn/error(String tag, String 
 ## Definition of done
 
 - [ ] No log line contains a redacted pattern, even when one is passed deliberately.
-- [ ] Tests written and passing: `test/core/logging/logger_test.dart` proves redaction, level filtering and buffer bounds.
+- [ ] Tests written and passing: `frontend/test/core/logging/logger_test.dart` proves redaction, level filtering and buffer bounds.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

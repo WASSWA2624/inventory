@@ -10,7 +10,7 @@ Write the single file of durations, sizes, limits and storage keys so no magic n
 
 ## Files
 
-- `lib/core/constants/app_constants.dart` (new)
+- `frontend/lib/core/constants/app_constants.dart` (new)
 
 ## Contract
 
@@ -25,6 +25,7 @@ abstract final class AppConstants { static const listPageSize = 50; static const
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -34,7 +35,7 @@ abstract final class AppConstants { static const listPageSize = 50; static const
 ## Definition of done
 
 - [ ] No later task introduces a bare literal for any of these values.
-- [ ] Tests written and passing: `test/core/app_constants_test.dart` asserts the values are within sane ranges.
+- [ ] Tests written and passing: `frontend/test/core/app_constants_test.dart` asserts the values are within sane ranges.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

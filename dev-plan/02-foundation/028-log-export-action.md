@@ -10,7 +10,7 @@ Write the function that writes the buffer to a shareable file, so support needs 
 
 ## Files
 
-- `lib/core/logging/log_export.dart` (new)
+- `frontend/lib/core/logging/log_export.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ Future<Result<File>> exportLog({required Directory into});
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -33,7 +34,7 @@ Future<Result<File>> exportLog({required Directory into});
 ## Definition of done
 
 - [ ] The exported file contains no record values and no credentials.
-- [ ] Tests written and passing: `test/core/logging/log_export_test.dart` scans the output against the secret patterns.
+- [ ] Tests written and passing: `frontend/test/core/logging/log_export_test.dart` scans the output against the secret patterns.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

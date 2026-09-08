@@ -10,8 +10,8 @@ Write the registry of canonical type names for every specification concept, and 
 
 ## Files
 
-- `lib/core/naming/domain_names.dart` (new)
-- `test/architecture/naming_test.dart` (new)
+- `frontend/lib/core/naming/domain_names.dart` (new)
+- `frontend/test/architecture/naming_test.dart` (new)
 
 ## Contract
 
@@ -26,6 +26,7 @@ abstract final class DomainNames { static const project = 'Project'; ... }
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.

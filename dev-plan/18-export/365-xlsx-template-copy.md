@@ -10,7 +10,7 @@ Preserve the client's formatting by writing into a copy, never the original.
 
 ## Files
 
-- `lib/core/export/xlsx_template_copy.dart` (new)
+- `frontend/lib/core/export/xlsx_template_copy.dart` (new)
 
 ## Steps
 
@@ -19,6 +19,7 @@ Preserve the client's formatting by writing into a copy, never the original.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/08-localization.md`, `frontend/rules/10-performance.md`, `frontend/rules/12-testing.md`.
 - Validate the chosen library against a real client workbook before committing to it.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.

@@ -10,7 +10,7 @@ The one abstraction every provider implements, so providers are swappable.
 
 ## Files
 
-- `lib/core/ai/ai_service.dart` (new)
+- `frontend/lib/core/ai/ai_service.dart` (new)
 
 ## Steps
 
@@ -19,6 +19,7 @@ The one abstraction every provider implements, so providers are swappable.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.

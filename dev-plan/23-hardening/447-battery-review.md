@@ -10,8 +10,8 @@ Write the policy object every background job must consult, and the test that enf
 
 ## Files
 
-- `lib/core/background/background_policy.dart` (new)
-- `test/core/background/background_policy_test.dart` (new)
+- `frontend/lib/core/background/background_policy.dart` (new)
+- `frontend/test/core/background/background_policy_test.dart` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ class BackgroundPolicy { bool mayRun({required bool charging, required bool idle
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

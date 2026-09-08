@@ -10,7 +10,7 @@ Attach a long-form recording to the meeting record.
 
 ## Files
 
-- `lib/features/meetings/presentation/meeting_audio_section.dart` (new)
+- `frontend/lib/features/meetings/presentation/meeting_audio_section.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ Attach a long-form recording to the meeting record.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/06-simplicity.md`, `frontend/rules/08-localization.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

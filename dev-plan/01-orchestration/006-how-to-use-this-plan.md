@@ -10,7 +10,7 @@ Write the tool that validates this plan itself: numbering, required sections, re
 
 ## Files
 
-- `tool/check_plan.dart` (new)
+- `frontend/tool/check_plan.dart` (new)
 
 ## Contract
 
@@ -27,6 +27,7 @@ Future<int> main(List<String> args)  // scans dev-plan/, exits non-zero on any s
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -37,7 +38,7 @@ Future<int> main(List<String> args)  // scans dev-plan/, exits non-zero on any s
 
 - [ ] Renumbering a file by hand and forgetting its heading fails the check.
 - [ ] A dependency pointing at a higher-numbered task fails the check.
-- [ ] Tests written and passing: `test/tool/check_plan_test.dart` runs the checker over valid and deliberately broken fixture trees.
+- [ ] Tests written and passing: `frontend/test/tool/check_plan_test.dart` runs the checker over valid and deliberately broken fixture trees.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

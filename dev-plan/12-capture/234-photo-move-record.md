@@ -10,7 +10,7 @@ Correct a mistake where photos landed on the wrong record.
 
 ## Files
 
-- `lib/features/capture/presentation/photo_move_action.dart` (new)
+- `frontend/lib/features/capture/presentation/photo_move_action.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ Correct a mistake where photos landed on the wrong record.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/06-simplicity.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`, `frontend/rules/11-security-privacy.md`.
 - Nothing blocks capture: no network call, no AI call, no long computation on the UI thread.
 - Persist immediately — a crash may lose at most the last keystroke.
 - Raw photos, captions and transcripts are append-only.

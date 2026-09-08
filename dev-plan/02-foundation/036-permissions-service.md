@@ -10,7 +10,7 @@ Write the one service that requests camera, microphone, location and storage, wi
 
 ## Files
 
-- `lib/core/permissions/permissions_service.dart` (new)
+- `frontend/lib/core/permissions/permissions_service.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ Future<Result<PermissionState>> request(AppPermission p);  Future<PermissionStat
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -33,7 +34,7 @@ Future<Result<PermissionState>> request(AppPermission p);  Future<PermissionStat
 ## Definition of done
 
 - [ ] A denied permission returns PermissionFailure with a recovery action, never an exception.
-- [ ] Tests written and passing: `test/core/permissions/permissions_service_test.dart` covers granted, denied and permanently denied.
+- [ ] Tests written and passing: `frontend/test/core/permissions/permissions_service_test.dart` covers granted, denied and permanently denied.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

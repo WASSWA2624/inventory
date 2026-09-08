@@ -10,7 +10,7 @@ Write the observer that logs provider failures and slow rebuilds in development 
 
 ## Files
 
-- `lib/app/provider_observer.dart` (new)
+- `frontend/lib/app/provider_observer.dart` (new)
 
 ## Contract
 
@@ -25,6 +25,7 @@ class AppProviderObserver extends ProviderObserver
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -34,7 +35,7 @@ class AppProviderObserver extends ProviderObserver
 ## Definition of done
 
 - [ ] A provider that throws produces exactly one logged error.
-- [ ] Tests written and passing: `test/app/provider_observer_test.dart` asserts logging on failure.
+- [ ] Tests written and passing: `frontend/test/app/provider_observer_test.dart` asserts logging on failure.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

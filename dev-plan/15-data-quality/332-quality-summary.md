@@ -10,7 +10,7 @@ One screen answering what still blocks a clean export.
 
 ## Files
 
-- `lib/features/quality/presentation/quality_summary_screen.dart` (new)
+- `frontend/lib/features/quality/presentation/quality_summary_screen.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ One screen answering what still blocks a clean export.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/07-consistency.md`, `frontend/rules/12-testing.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

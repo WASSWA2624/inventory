@@ -10,7 +10,7 @@ Write the time-ordered identifier generator that makes cross-device merge safe.
 
 ## Files
 
-- `lib/core/ids/uuid_service.dart` (new)
+- `frontend/lib/core/ids/uuid_service.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ abstract interface class IdService { String newId(); }  class UuidV7Service impl
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -34,7 +35,7 @@ abstract interface class IdService { String newId(); }  class UuidV7Service impl
 
 - [ ] Identifiers generated in order sort in order as strings.
 - [ ] Ten thousand identifiers contain no duplicate.
-- [ ] Tests written and passing: `test/core/ids/uuid_service_test.dart` asserts ordering, uniqueness and format.
+- [ ] Tests written and passing: `frontend/test/core/ids/uuid_service_test.dart` asserts ordering, uniqueness and format.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

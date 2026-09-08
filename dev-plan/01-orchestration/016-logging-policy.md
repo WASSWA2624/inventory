@@ -10,16 +10,17 @@ Write the checker that bans print statements and logging of forbidden values.
 
 ## Files
 
-- `tool/check_logging.dart` (new)
+- `frontend/tool/check_logging.dart` (new)
 
 ## Steps
 
-1. Fail on any print( or debugPrint( outside tool/ and `test/`.
+1. Fail on any print( or debugPrint( outside tool/ and `frontend/test/`.
 2. Fail when a log call interpolates an identifier matching key, secret, token, password, credential, caption, transcript or value.
 3. Require every log call to pass a level and a tag.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -29,7 +30,7 @@ Write the checker that bans print statements and logging of forbidden values.
 ## Definition of done
 
 - [ ] Logging an API key variable fails the check with the line number.
-- [ ] Tests written and passing: `test/tool/check_logging_test.dart` covers each banned pattern.
+- [ ] Tests written and passing: `frontend/test/tool/check_logging_test.dart` covers each banned pattern.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

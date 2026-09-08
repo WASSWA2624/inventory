@@ -10,7 +10,7 @@ Tolerate typos and abbreviations, with a confidence score and a threshold.
 
 ## Files
 
-- `lib/features/reference/domain/fuzzy_matcher.dart` (new)
+- `frontend/lib/features/reference/domain/fuzzy_matcher.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ Tolerate typos and abbreviations, with a confidence score and a threshold.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/03-state-and-data.md`, `frontend/rules/07-consistency.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

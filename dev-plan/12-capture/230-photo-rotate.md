@@ -10,7 +10,7 @@ Fix orientation without touching the original file.
 
 ## Files
 
-- `lib/features/capture/domain/photo_rotate.dart` (new)
+- `frontend/lib/features/capture/domain/photo_rotate.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ Fix orientation without touching the original file.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/06-simplicity.md`, `frontend/rules/09-accessibility.md`, `frontend/rules/10-performance.md`, `frontend/rules/11-security-privacy.md`.
 - Nothing blocks capture: no network call, no AI call, no long computation on the UI thread.
 - Persist immediately — a crash may lose at most the last keystroke.
 - Raw photos, captions and transcripts are append-only.

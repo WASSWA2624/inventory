@@ -10,10 +10,24 @@ A local-first Flutter app for field data capture. Photograph or describe a thing
 - **Nothing invented.** Raw input is kept beside the AI-refined version, and a person approves every record.
 - **Anything, not just assets.** Behaviour comes from templates, so the same app inventories equipment, buildings, plants, animals, people or meetings.
 
+## Repository layout
+
+```text
+frontend/        the Flutter application
+  rules/         standardisation rules: structure, theming, responsiveness, simplicity, l10n, a11y, testing
+backend/         the optional team server (post-MVP; specification Part XI)
+  rules/         standardisation rules: structure, API, data, security, the relay boundary, AI proxy
+dev-plan/        517 implementation prompts, in build order
+app-write-up.md  the product and technical specification
+```
+
 ## Documentation
 
-[app-write-up.md](app-write-up.md) — the full product and technical specification.
+- [app-write-up.md](app-write-up.md) — the full product and technical specification.
+- [dev-plan/README.md](dev-plan/README.md) — how the build is sequenced, and where to start.
+- [frontend/rules/](frontend/rules/) and [backend/rules/](backend/rules/) — the conventions every task obeys.
 
 ## Status
 
-Specification stage. Implementation starts with the Phase 1 vertical slice described in §66.
+Specification and plan complete; implementation starts at dev-plan task 001. The backend is optional and deliberately
+outside the first release.

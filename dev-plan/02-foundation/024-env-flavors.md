@@ -10,8 +10,8 @@ Write the flavour configuration that separates development and production builds
 
 ## Files
 
-- `lib/app/env.dart` (new)
-- `android/app/build.gradle` (edit)
+- `frontend/lib/app/env.dart` (new)
+- `frontend/android/app/build.gradle` (edit)
 
 ## Contract
 
@@ -26,6 +26,7 @@ enum Flavor { dev, prod }  abstract final class Env { static Flavor get flavor; 
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -35,7 +36,7 @@ enum Flavor { dev, prod }  abstract final class Env { static Flavor get flavor; 
 ## Definition of done
 
 - [ ] A development build installs alongside a production build.
-- [ ] Tests written and passing: `test/app/env_test.dart` asserts defaults and overrides.
+- [ ] Tests written and passing: `frontend/test/app/env_test.dart` asserts defaults and overrides.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

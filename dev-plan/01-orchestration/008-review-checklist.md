@@ -10,7 +10,7 @@ Write the single command that runs every gate, so a developer and continuous int
 
 ## Files
 
-- `tool/verify.dart` (new)
+- `frontend/tool/verify.dart` (new)
 
 ## Contract
 
@@ -26,6 +26,7 @@ Future<int> main(List<String> args)  // --fast skips golden and integration suit
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -35,7 +36,7 @@ Future<int> main(List<String> args)  // --fast skips golden and integration suit
 ## Definition of done
 
 - [ ] One command reproduces the entire review gate locally.
-- [ ] Tests written and passing: `test/tool/verify_test.dart` asserts the exit code aggregates gate failures correctly.
+- [ ] Tests written and passing: `frontend/test/tool/verify_test.dart` asserts the exit code aggregates gate failures correctly.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

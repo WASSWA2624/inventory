@@ -10,7 +10,7 @@ Write the widget that catches build errors below it and renders a recoverable pa
 
 ## Files
 
-- `lib/core/widgets/error_boundary.dart` (new)
+- `frontend/lib/core/widgets/error_boundary.dart` (new)
 
 ## Contract
 
@@ -24,6 +24,7 @@ class ErrorBoundary extends StatefulWidget { final Widget child; final VoidCallb
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
@@ -33,7 +34,7 @@ class ErrorBoundary extends StatefulWidget { final Widget child; final VoidCallb
 ## Definition of done
 
 - [ ] A throwing child produces a recoverable panel, not a red screen.
-- [ ] Tests written and passing: `test/core/widgets/error_boundary_test.dart` pumps a deliberately throwing child.
+- [ ] Tests written and passing: `frontend/test/core/widgets/error_boundary_test.dart` pumps a deliberately throwing child.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

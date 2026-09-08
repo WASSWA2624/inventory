@@ -10,16 +10,17 @@ Write the test that keeps state management uniform across every feature.
 
 ## Files
 
-- `test/architecture/state_test.dart` (new)
+- `frontend/test/architecture/state_test.dart` (new)
 
 ## Steps
 
 1. Assert every provider declaration ends in Provider and lives in the feature that owns it.
-2. Assert no StatefulWidget uses setState outside `lib/core/widgets/` and animation code.
+2. Assert no StatefulWidget uses setState outside `frontend/lib/core/widgets/` and animation code.
 3. Assert controllers expose intent methods and that widgets do not call repositories directly.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/13-workflow.md`.
 - Checkers and guardrail tests must pass on the current tree and fail on a deliberate violation; ship a fixture proving both.
 - A guardrail reports every violation it finds, with file and line, rather than stopping at the first.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.

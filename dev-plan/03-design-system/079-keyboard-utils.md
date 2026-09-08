@@ -10,7 +10,7 @@ Dismiss on scroll, next-field traversal, and keeping the focused field visible.
 
 ## Files
 
-- `lib/core/widgets/forms/keyboard_utils.dart` (new)
+- `frontend/lib/core/widgets/forms/keyboard_utils.dart` (new)
 
 ## Contract
 
@@ -21,6 +21,7 @@ class KeepFocusedVisible extends StatelessWidget { final Widget child; }
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/04-theming.md`, `frontend/rules/05-responsiveness.md`, `frontend/rules/07-consistency.md`, `frontend/rules/09-accessibility.md`.
 - Colours, spacing, radii, durations and text styles come from tokens only — never literals.
 - Minimum 48dp tap target, a semantic label on every interactive element, and no clipping at 200 percent text scale.
 - Add the component to the widget gallery and give it a golden test in light, dark and outdoor themes.

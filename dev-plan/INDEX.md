@@ -1,6 +1,6 @@
 # Tapture — task index
 
-469 implementation prompts across 24 phases. Work top to bottom.
+517 implementation prompts across 25 phases. Work top to bottom.
 
 ## 01 — Project setup and guardrails
 
@@ -590,3 +590,56 @@
 - [ ] [467 — Release build configuration](24-testing-and-release/467-release-build.md)
 - [ ] [468 — Release gate program](24-testing-and-release/468-release-checklist.md)
 - [ ] [469 — Backlog report generator](24-testing-and-release/469-post-release-backlog.md)
+
+## 25 — Optional team backend
+
+*Post-MVP. The small server of specification Part XI: accounts, identity, roles, key custody and change relay. The app must stay complete without it.*
+
+- [ ] [470 — Initialise the backend project](25-backend/470-be-project-init.md)
+- [ ] [471 — Lint, format and the verify command](25-backend/471-be-lint-format.md)
+- [ ] [472 — Configuration loading and validation](25-backend/472-be-config.md)
+- [ ] [473 — Structured logger with redaction](25-backend/473-be-logger.md)
+- [ ] [474 — Typed errors and the error envelope](25-backend/474-be-error-model.md)
+- [ ] [475 — HTTP server and middleware chain](25-backend/475-be-http-server.md)
+- [ ] [476 — Request context and identifiers](25-backend/476-be-request-context.md)
+- [ ] [477 — Database connection and pooling](25-backend/477-be-db-connection.md)
+- [ ] [478 — Migration runner](25-backend/478-be-migrations.md)
+- [ ] [479 — Schema: organisations, users and devices](25-backend/479-be-schema-identity.md)
+- [ ] [480 — Schema: projects, members and roles](25-backend/480-be-schema-projects.md)
+- [ ] [481 — Schema: relay packages and acknowledgements](25-backend/481-be-schema-relay.md)
+- [ ] [482 — Schema: audit and security events](25-backend/482-be-schema-audit.md)
+- [ ] [483 — Repository base and transactions](25-backend/483-be-repositories.md)
+- [ ] [484 — Password hashing](25-backend/484-be-auth-passwords.md)
+- [ ] [485 — Account creation and invitation](25-backend/485-be-auth-register.md)
+- [ ] [486 — Login with rate limiting and lockout](25-backend/486-be-auth-login.md)
+- [ ] [487 — Access and refresh tokens](25-backend/487-be-auth-tokens.md)
+- [ ] [488 — Authentication middleware](25-backend/488-be-auth-middleware.md)
+- [ ] [489 — Device enrolment](25-backend/489-be-device-enrol.md)
+- [ ] [490 — Role matrix and permission checks](25-backend/490-be-permissions.md)
+- [ ] [491 — Organisation user endpoints](25-backend/491-be-users-api.md)
+- [ ] [492 — Project and membership endpoints](25-backend/492-be-projects-api.md)
+- [ ] [493 — Relay: accept a package](25-backend/493-be-relay-push.md)
+- [ ] [494 — Relay: list and download packages](25-backend/494-be-relay-fetch.md)
+- [ ] [495 — Relay: acknowledge and delete](25-backend/495-be-relay-ack.md)
+- [ ] [496 — Relay: version vector state](25-backend/496-be-relay-state.md)
+- [ ] [497 — Retention purge job](25-backend/497-be-retention-job.md)
+- [ ] [498 — Storage ceilings and reporting](25-backend/498-be-storage-limits.md)
+- [ ] [499 — AI provider abstraction](25-backend/499-be-ai-provider.md)
+- [ ] [500 — Provider key custody](25-backend/500-be-ai-keys.md)
+- [ ] [501 — AI proxy endpoints](25-backend/501-be-ai-proxy.md)
+- [ ] [502 — Budgets, quotas and usage](25-backend/502-be-ai-quota.md)
+- [ ] [503 — Timeouts, retries and circuit breaker](25-backend/503-be-ai-resilience.md)
+- [ ] [504 — Rate limiting](25-backend/504-be-rate-limiting.md)
+- [ ] [505 — Audit and security event recording](25-backend/505-be-audit-service.md)
+- [ ] [506 — Metrics endpoint](25-backend/506-be-metrics.md)
+- [ ] [507 — OpenAPI specification](25-backend/507-be-openapi.md)
+- [ ] [508 — Contract tests against the specification](25-backend/508-be-contract-tests.md)
+- [ ] [509 — Export and destroy server state](25-backend/509-be-admin-commands.md)
+- [ ] [510 — Container, compose and runbook](25-backend/510-be-deployment.md)
+- [ ] [511 — Backend pipeline](25-backend/511-be-ci.md)
+- [ ] [512 — App: team mode configuration](25-backend/512-fe-team-mode-config.md)
+- [ ] [513 — App: sign in and enrol](25-backend/513-fe-team-signin.md)
+- [ ] [514 — App: role-aware affordances](25-backend/514-fe-team-roles.md)
+- [ ] [515 — App: change relay client](25-backend/515-fe-relay-client.md)
+- [ ] [516 — App: relay controls and visibility](25-backend/516-fe-relay-settings.md)
+- [ ] [517 — App: route AI through the backend](25-backend/517-fe-ai-proxy-client.md)

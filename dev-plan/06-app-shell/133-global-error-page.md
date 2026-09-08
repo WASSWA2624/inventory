@@ -10,7 +10,7 @@ A last-resort screen that keeps data safe and offers the log.
 
 ## Files
 
-- `lib/app/widgets/global_error_page.dart` (new)
+- `frontend/lib/app/widgets/global_error_page.dart` (new)
 
 ## Steps
 
@@ -18,6 +18,7 @@ A last-resort screen that keeps data safe and offers the log.
 
 ## Constraints
 
+- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/05-responsiveness.md`, `frontend/rules/06-simplicity.md`, `frontend/rules/07-consistency.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.
