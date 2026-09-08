@@ -8,6 +8,7 @@
 ## Table of Contents
 
 **Part I — Product Definition**
+
 1. Overview
 2. Scope
 3. Design Principles
@@ -110,23 +111,29 @@ B. Core Product Principle
 
 ---
 
+
+
 # Part I — Product Definition
+
+
 
 ## 1. Overview
 
-**Tapture** is a Flutter application for collecting structured data about physical things — equipment, buildings, vehicles, stock, land, plants, animals, people, documents, meetings — using photographs, voice and typed input.
+**Tapture** is a Flutter application for collecting structured data about physical things — equipment, buildings, vehicles, stock, land, plants, animals, people, documents, meetings, events, etc — using photographs, voice and typed input.
 
 The application:
 
 1. Captures evidence (photos, documents, audio, typed notes) offline.
-2. Extracts structured information from that evidence using OCR, vision AI and speech-to-text.
+2. Extracts structured information from that evidence using OCR, vision AI and real-time speech-to-text.
 3. Maps the extracted information into user-defined templates (spreadsheet-shaped or built in-app).
 4. Requires a human to review and approve the result.
-5. Exports the verified data as XLSX, CSV, JSON, PDF or a portable ZIP bundle.
+5. Exports the verified data as XLSX, CSV, JSON, DOCX, PDF or a portable ZIP bundle.
 
 Everything is stored on the device. Network access is used only for the online AI services the user chooses to enable, and for cloud uploads the user explicitly triggers.
 
 ## 2. Scope
+
+
 
 ### 2.1 In scope
 
@@ -142,6 +149,8 @@ Everything is stored on the device. Network access is used only for the online A
 - Two deployment modes: **standalone** (no server at all) and **team** (an optional minimal backend).
 - An optional backend providing accounts, organisation identity, roles, AI key custody and change relay (Part XI).
 
+
+
 ### 2.2 Out of scope
 
 - **No server-side backup, in either mode.** Backup is the user's ZIP export, kept wherever the user chooses (§54). The backend relays changes; it never becomes a durable copy of a project (§70.2, §72.4).
@@ -150,20 +159,26 @@ Everything is stored on the device. Network access is used only for the online A
 - No multi-tenant hosted service. The backend, when used, is run by the organisation that owns the data.
 - No model training on user data.
 
+
+
 ### 2.3 The two deployment modes
 
 Standalone mode is the default and the baseline: everything works with no server. Team mode adds a minimal backend
 (Part XI) that answers the concerns a single device cannot answer for itself. **Backup is the deliberate exception —
 it stays local in both modes.**
 
-| Concern | Standalone mode | Team mode (optional backend) |
-|---|---|---|
-| Authentication | None required. The app opens straight into work; an optional device lock (PIN / biometric) protects it. | Sign in once per device against the organisation's server, then cached for field work (§71.1, §70.4). |
-| User identity | A local **operator profile** (name, optional initials/ID) used for attribution and merge. | One organisation-wide identity, so attribution and merge agree across every device (§71.2). |
-| Roles & permissions | Not enforced by software. Every operator on a device has full control of the projects on that device. | Roles enforced by the server for everything it mediates, and mirrored on device as affordances (§71.3). |
-| Multi-user work | Bundle export, transfer, import, merge by hand (Part VII). | The same merge machinery, with change packages relayed by the server instead of carried by hand (§72). |
-| AI keys | Supplied by the user, held in platform secure storage on the device (§30, §60). | Held only by the backend, which proxies provider calls, so no device holds a key (§73). |
-| Backup | Manual ZIP export, optionally uploaded to the user's own cloud account (§54). | **Unchanged.** Manual ZIP export, optionally uploaded to the user's own cloud account (§54). The backend stores no backup (§70.3). |
+
+| Concern             | Standalone mode                                                                                         | Team mode (optional backend)                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Authentication      | None required. The app opens straight into work; an optional device lock (PIN / biometric) protects it. | Sign in once per device against the organisation's server, then cached for field work (§71.1, §70.4).                              |
+| User identity       | A local **operator profile** (name, optional initials/ID) used for attribution and merge.               | One organisation-wide identity, so attribution and merge agree across every device (§71.2).                                        |
+| Roles & permissions | Not enforced by software. Every operator on a device has full control of the projects on that device.   | Roles enforced by the server for everything it mediates, and mirrored on device as affordances (§71.3).                            |
+| Multi-user work     | Bundle export, transfer, import, merge by hand (Part VII).                                              | The same merge machinery, with change packages relayed by the server instead of carried by hand (§72).                             |
+| AI keys             | Supplied by the user, held in platform secure storage on the device (§30, §60).                         | Held only by the backend, which proxies provider calls, so no device holds a key (§73).                                            |
+| Backup              | Manual ZIP export, optionally uploaded to the user's own cloud account (§54).                           | **Unchanged.** Manual ZIP export, optionally uploaded to the user's own cloud account (§54). The backend stores no backup (§70.3). |
+
+
+
 
 ## 3. Design Principles
 
@@ -178,25 +193,33 @@ it stays local in both modes.**
 9. **Template-driven.** The app has no built-in notion of "equipment" or "building". Behaviour comes from templates, so the app can inventory anything.
 10. **Portable data.** Any project can leave the device whole and be reconstructed elsewhere.
 
+
+
 ## 4. Glossary
 
-| Term | Meaning |
-|---|---|
-| **Project** | One data-collection exercise. Owns templates, records, files, reference data and exports. |
-| **Template** | The definition of one record shape: its fields, types, validation, identity keys and output columns. |
-| **Field** | One named, typed slot in a template (`field_key`, label, type, rules). |
-| **Record** | One captured item: field values plus its evidence. |
-| **Capture session** | The act of creating one record: photos, captions, voice and typed input, analysed together. |
-| **Context** | Field values pinned by the user that auto-apply to subsequent records until changed (§20). |
+
+| Term                  | Meaning                                                                                                        |
+| --------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **Project**           | One data-collection exercise. Owns templates, records, files, reference data and exports.                      |
+| **Template**          | The definition of one record shape: its fields, types, validation, identity keys and output columns.           |
+| **Field**             | One named, typed slot in a template (`field_key`, label, type, rules).                                         |
+| **Record**            | One captured item: field values plus its evidence.                                                             |
+| **Capture session**   | The act of creating one record: photos, captions, voice and typed input, analysed together.                    |
+| **Context**           | Field values pinned by the user that auto-apply to subsequent records until changed (§20).                     |
 | **Reference dataset** | An imported table used for prefill and lookup: suppliers, manufacturers, known assets, staff, locations (§16). |
-| **Predefined row** | A pre-listed item the operator is expected to find, used as a checklist (§15). |
-| **Raw value** | Exactly what was typed, spoken, scanned or read, unmodified. |
-| **Refined value** | The AI-cleaned or normalised counterpart of a raw value, stored separately. |
-| **Bundle** | A ZIP archive containing a complete project, portable between devices (§45). |
-| **Operator** | The person using the device, identified by a local profile. |
-| **Device ID** | A stable random identifier generated at first launch, used for merge. |
+| **Predefined row**    | A pre-listed item the operator is expected to find, used as a checklist (§15).                                 |
+| **Raw value**         | Exactly what was typed, spoken, scanned or read, unmodified.                                                   |
+| **Refined value**     | The AI-cleaned or normalised counterpart of a raw value, stored separately.                                    |
+| **Bundle**            | A ZIP archive containing a complete project, portable between devices (§45).                                   |
+| **Operator**          | The person using the device, identified by a local profile.                                                    |
+| **Device ID**         | A stable random identifier generated at first launch, used for merge.                                          |
+
+
+
 
 ## 5. Primary Workflows
+
+
 
 ### 5.1 Immediate capture (network available)
 
@@ -218,6 +241,8 @@ Approve -> record saved
 (repeat) -> Export
 ```
 
+
+
 ### 5.2 Deferred capture (no network, or speed matters)
 
 ```text
@@ -236,6 +261,8 @@ Review the processed records in a list
 Approve -> Export
 ```
 
+
+
 ### 5.3 Verification of an existing record
 
 ```text
@@ -250,6 +277,8 @@ Confirm, edit, or photograph the differences
 Approve -> variance recorded (as-recorded vs as-found)
 ```
 
+
+
 ### 5.4 Collaboration
 
 ```text
@@ -258,24 +287,33 @@ Device A: Export bundle  ->  transfer (cable, SD card, share sheet, cloud)
 Device B: Import bundle -> merge preview -> resolve conflicts -> merged project
 ```
 
+
+
 ## 6. Representative Use Cases
 
-| Use case | Notes |
-|---|---|
+
+| Use case                                     | Notes                                                                      |
+| -------------------------------------------- | -------------------------------------------------------------------------- |
 | Medical equipment inventory across districts | Context: District › Facility › Department. Templates: Equipment, Building. |
-| Building / facility condition assessment | Photo-heavy, condition scales, risk notes. |
-| Verification audit of a known asset register | Reference dataset imported; verification mode; variance report. |
-| Stock-taking and warehouse counting | Barcode-first capture, quantity fields, rapid mode. |
-| Infrastructure and utility surveys | GPS enabled, map-ready export. |
-| Document digitisation | PDF/scan input, OCR, field extraction. |
-| Compliance and safety inspection | Predefined checklist rows, compliance and risk fields. |
-| Meeting records | Meeting mode: minutes, attendance, actions (§28). |
-| Biodiversity / agricultural surveys | Free-form templates: species, counts, condition, location. |
-| Household or beneficiary registration | Person templates, consent flag, privacy controls (§60). |
-| Dataset creation for downstream analytics | Stable field keys, data dictionary export, JSON/CSV output (§49). |
+| Building / facility condition assessment     | Photo-heavy, condition scales, risk notes.                                 |
+| Verification audit of a known asset register | Reference dataset imported; verification mode; variance report.            |
+| Stock-taking and warehouse counting          | Barcode-first capture, quantity fields, rapid mode.                        |
+| Infrastructure and utility surveys           | GPS enabled, map-ready export.                                             |
+| Document digitisation                        | PDF/scan input, OCR, field extraction.                                     |
+| Compliance and safety inspection             | Predefined checklist rows, compliance and risk fields.                     |
+| Meeting records                              | Meeting mode: minutes, attendance, actions (§28).                          |
+| Biodiversity / agricultural surveys          | Free-form templates: species, counts, condition, location.                 |
+| Household or beneficiary registration        | Person templates, consent flag, privacy controls (§60).                    |
+| Dataset creation for downstream analytics    | Stable field keys, data dictionary export, JSON/CSV output (§49).          |
+
 
 ---
+
+
+
 # Part II — Data & Storage
+
+
 
 ## 7. Local-Only Data Policy
 
@@ -283,14 +321,18 @@ All project data — database, photos, documents, audio, exports — lives in de
 
 ### 7.1 The only permitted outbound traffic
 
-| Operation | Data sent | Trigger | Optional? |
-|---|---|---|---|
-| Cloud vision / extraction AI | Selected images (compressed copies) + captions + the field list of the template | User taps Analyse, or runs the processing queue | Yes — the app works without it |
-| Cloud OCR (when on-device OCR is insufficient) | Selected images | Same | Yes |
-| Cloud speech-to-text (when on-device STT is unavailable for the language) | Audio clip | User records voice | Yes |
-| Text refinement (captions, minutes) | Raw text | User taps Refine, or automatic refinement is enabled | Yes |
-| Manual cloud upload | The export file the user selected | User taps Upload (§54) | Yes |
-| App/model metadata (versions, pricing lists) | None personal | Manual check for updates | Yes |
+
+| Operation                                                                 | Data sent                                                                       | Trigger                                              | Optional?                      |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------- | ------------------------------ |
+| Cloud vision / extraction AI                                              | Selected images (compressed copies) + captions + the field list of the template | User taps Analyse, or runs the processing queue      | Yes — the app works without it |
+| Cloud OCR (when on-device OCR is insufficient)                            | Selected images                                                                 | Same                                                 | Yes                            |
+| Cloud speech-to-text (when on-device STT is unavailable for the language) | Audio clip                                                                      | User records voice                                   | Yes                            |
+| Text refinement (captions, minutes)                                       | Raw text                                                                        | User taps Refine, or automatic refinement is enabled | Yes                            |
+| Manual cloud upload                                                       | The export file the user selected                                               | User taps Upload (§54)                               | Yes                            |
+| App/model metadata (versions, pricing lists)                              | None personal                                                                   | Manual check for updates                             | Yes                            |
+
+
+
 
 ### 7.2 Guarantees
 
@@ -300,17 +342,21 @@ All project data — database, photos, documents, audio, exports — lives in de
 - A per-project **Do not send images** switch forces on-device OCR only.
 - The user is shown, before the first online call of a session, what will be sent (count of images and approximate size).
 
+
+
 ### 7.3 Additional traffic in team mode
 
 Present only when an organisation has configured a backend (Part XI). Everything above still applies.
 
-| Operation | Data sent | Trigger | Optional? |
-|---|---|---|---|
-| Sign-in and token refresh | Credentials, organisation and device identifiers | First launch on a device, then on token expiry | No, once team mode is enabled |
-| AI proxy | The same payload as a direct provider call (§31), addressed to the organisation's server instead | User taps Analyse, or runs the processing queue | Yes — a project may disable AI entirely |
-| Change relay push | An encrypted change package: records, values and files changed since the last acknowledged version | Explicit action, or the schedule the project sets (§72.5) | Yes — relay is per project and off by default |
-| Change relay pull | Acknowledgements and other devices' encrypted packages | Same | Yes |
-| Directory and role refresh | Organisation users, project membership, role grants | Periodically and at sign-in | No, once team mode is enabled |
+
+| Operation                  | Data sent                                                                                          | Trigger                                                   | Optional?                                     |
+| -------------------------- | -------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------- |
+| Sign-in and token refresh  | Credentials, organisation and device identifiers                                                   | First launch on a device, then on token expiry            | No, once team mode is enabled                 |
+| AI proxy                   | The same payload as a direct provider call (§31), addressed to the organisation's server instead   | User taps Analyse, or runs the processing queue           | Yes — a project may disable AI entirely       |
+| Change relay push          | An encrypted change package: records, values and files changed since the last acknowledged version | Explicit action, or the schedule the project sets (§72.5) | Yes — relay is per project and off by default |
+| Change relay pull          | Acknowledgements and other devices' encrypted packages                                             | Same                                                      | Yes                                           |
+| Directory and role refresh | Organisation users, project membership, role grants                                                | Periodically and at sign-in                               | No, once team mode is enabled                 |
+
 
 Team-mode guarantees:
 
@@ -318,6 +364,8 @@ Team-mode guarantees:
 - The server keeps no durable copy: packages are purged once acknowledged, or after the retention window (§72.4).
 - Offline mode blocks relay and proxy traffic exactly as it blocks provider traffic; capture, review and export continue.
 - A project can be marked **never relay**, keeping it device-local inside a team deployment.
+
+
 
 ## 8. On-Device Folder Layout
 
@@ -353,6 +401,8 @@ Files are written to a single app-visible root folder so that the user can also 
 └── .cache/                                   # compressed upload copies, thumbnails, PDF page renders
 ```
 
+
+
 ### 8.1 Rules
 
 1. **Original photos are never modified or deleted by the app.** Rotation, cropping and compression produce derived files in `.cache/`.
@@ -362,6 +412,8 @@ Files are written to a single app-visible root folder so that the user can also 
 5. Folder strategy is configurable per project: **By context** (default), **By template**, **By capture date**, or **Flat**.
 6. Every file row in the database stores a project-relative path, so moving the root folder or restoring a bundle never breaks references.
 7. Storage headroom is checked before each capture session; below 500 MB the app warns, below 100 MB it blocks new capture and offers export/cleanup.
+
+
 
 ## 9. Database Overview
 
@@ -399,6 +451,8 @@ exports               export history
 audit_log             every change
 tombstones            deletions, for merge
 ```
+
+
 
 ### 9.2 Core table shapes
 
@@ -513,7 +567,12 @@ Because projects merge between devices — and because even in team mode the ser
 9. **Human-facing numbers** (`record_number`) are per-project sequences for display only; they are never used as identity and are re-labelled on merge if they collide.
 
 ---
+
+
+
 # Part III — Templates & Reference Data
+
+
 
 ## 11. Template System
 
@@ -521,12 +580,14 @@ A template defines one record shape. A project may contain several templates (eq
 
 ### 11.1 Four ways to obtain a template
 
-| Route | Description |
-|---|---|
-| **Use a shipped template** | Pick from the library included with the app (§13). Usable immediately, no configuration. |
-| **Derive from a shipped template** | Copy a shipped template, then add, remove, rename or reorder fields. The original library entry is read-only and unaffected. |
-| **Import a spreadsheet** | Upload an existing `.xlsx` / `.csv`. The app reads sheets, header row, columns, existing rows and formatting, and proposes a field mapping. |
-| **Build from scratch** | Add fields one at a time in the in-app template builder. No spreadsheet needed; output columns are generated from the labels. |
+
+| Route                              | Description                                                                                                                                |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Use a shipped template**         | Pick from the library included with the app (§13). Usable immediately, no configuration.                                                   |
+| **Derive from a shipped template** | Copy a shipped template, then add, remove, rename or reorder fields. The original library entry is read-only and unaffected.               |
+| **Import a spreadsheet**           | Upload an existing`.xlsx` / `.csv`. The app reads sheets, header row, columns, existing rows and formatting, and proposes a field mapping. |
+| **Build from scratch**             | Add fields one at a time in the in-app template builder. No spreadsheet needed; output columns are generated from the labels.              |
+
 
 Any template can be duplicated, exported (as JSON or XLSX) and imported into another project or device.
 
@@ -565,6 +626,8 @@ I  Description        ->  description       (Long text, refine)
 J  Photo              ->  photo             (Photo reference)
 ```
 
+
+
 ### 11.3 The internal schema is authoritative
 
 Templates are stored as field keys, never as spreadsheet column letters. The column letter is one output attribute of a field.
@@ -578,26 +641,32 @@ This keeps records valid when the template is edited, when the same data is expo
 
 ## 12. Field Definitions
 
+
+
 ### 12.1 Field types
 
-| Type | Notes |
-|---|---|
-| Text | Single line |
-| Long text | Multi-line; refinement typically enabled |
-| Number / Decimal | Optional unit, min, max |
-| Currency | Currency code per project |
-| Percentage | |
-| Date / Time / DateTime | Auto-fill supported (§21) |
-| Boolean | Rendered as a switch |
-| Choice | Single-select from an option list |
-| Multi-choice | Multi-select |
-| Lookup | Bound to a reference dataset; matching prefills other fields (§16) |
-| Barcode | Populated by the scanner, typeable as fallback |
-| Photo reference | Names/paths of the record's photos |
-| Document reference | Attached files |
-| GPS location | Latitude, longitude, accuracy |
-| Signature | Drawn on screen, stored as an image |
-| Computed | Read-only expression over other fields (for example `qty * unit_cost`) |
+
+| Type                   | Notes                                                                 |
+| ---------------------- | --------------------------------------------------------------------- |
+| Text                   | Single line                                                           |
+| Long text              | Multi-line; refinement typically enabled                              |
+| Number / Decimal       | Optional unit, min, max                                               |
+| Currency               | Currency code per project                                             |
+| Percentage             |                                                                       |
+| Date / Time / DateTime | Auto-fill supported (§21)                                             |
+| Boolean                | Rendered as a switch                                                  |
+| Choice                 | Single-select from an option list                                     |
+| Multi-choice           | Multi-select                                                          |
+| Lookup                 | Bound to a reference dataset; matching prefills other fields (§16)    |
+| Barcode                | Populated by the scanner, typeable as fallback                        |
+| Photo reference        | Names/paths of the record's photos                                    |
+| Document reference     | Attached files                                                        |
+| GPS location           | Latitude, longitude, accuracy                                         |
+| Signature              | Drawn on screen, stored as an image                                   |
+| Computed               | Read-only expression over other fields (for example`qty * unit_cost`) |
+
+
+
 
 ### 12.2 Field attributes
 
@@ -618,6 +687,8 @@ unit            displayed and exported (for example L, kg, V)
 help            one short line of guidance shown under the field
 ```
 
+
+
 ### 12.3 Field editor
 
 The in-app template builder is a plain list with drag-to-reorder. Adding a field asks three questions only — **Label**, **Type**, **Required?** — and every other attribute sits under **Advanced**.
@@ -626,23 +697,25 @@ The in-app template builder is a plain list with drag-to-reorder. Adding a field
 
 The app ships with ready-to-use templates. Each can be used as-is or copied and modified.
 
-| Template | Representative fields |
-|---|---|
-| **Equipment / Asset** | Asset number, name, category, manufacturer, model, serial number, year, supplier, location, condition, functional status, fault, action required, estimated cost, photos |
-| **Medical Equipment** | The above plus capacity, power rating, service provider, last service date, calibration due, risk class |
-| **Building / Facility** | Building name, type, use, floors, construction year, roof, walls, floors, doors/windows, electrical, plumbing, sanitation, accessibility, overall condition, recommendations |
-| **Room / Space** | Room name, function, area, occupancy, finishes, condition, defects |
-| **Vehicle** | Registration, make, model, year, chassis, engine, mileage, insurance expiry, condition |
-| **Furniture** | Item, material, quantity, condition, location |
-| **ICT Equipment** | Type, make, model, serial, tag, specification, operating system, user, status |
-| **Stock / Store Item** | Item code, description, unit, quantity counted, batch, expiry, storage condition |
-| **Inspection / Compliance** | Item, requirement, observation, compliance, risk, recommendation, deadline, evidence |
-| **Meeting** | §28 |
-| **Person / Beneficiary** | Name, identifier, contact, role, category, consent, photo |
-| **Land / Plot** | Plot number, tenure, area, use, boundaries, GPS |
-| **Plant / Tree Survey** | Species, common name, count, height, health, GPS, photo |
-| **Livestock / Animal** | Tag, species, breed, sex, age, health, owner |
-| **Generic Item** | Name, category, identifier, description, condition, quantity, location, notes, photos |
+
+| Template                    | Representative fields                                                                                                                                                        |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Equipment / Asset**       | Asset number, name, category, manufacturer, model, serial number, year, supplier, location, condition, functional status, fault, action required, estimated cost, photos     |
+| **Medical Equipment**       | The above plus capacity, power rating, service provider, last service date, calibration due, risk class                                                                      |
+| **Building / Facility**     | Building name, type, use, floors, construction year, roof, walls, floors, doors/windows, electrical, plumbing, sanitation, accessibility, overall condition, recommendations |
+| **Room / Space**            | Room name, function, area, occupancy, finishes, condition, defects                                                                                                           |
+| **Vehicle**                 | Registration, make, model, year, chassis, engine, mileage, insurance expiry, condition                                                                                       |
+| **Furniture**               | Item, material, quantity, condition, location                                                                                                                                |
+| **ICT Equipment**           | Type, make, model, serial, tag, specification, operating system, user, status                                                                                                |
+| **Stock / Store Item**      | Item code, description, unit, quantity counted, batch, expiry, storage condition                                                                                             |
+| **Inspection / Compliance** | Item, requirement, observation, compliance, risk, recommendation, deadline, evidence                                                                                         |
+| **Meeting**                 | §28                                                                                                                                                                          |
+| **Person / Beneficiary**    | Name, identifier, contact, role, category, consent, photo                                                                                                                    |
+| **Land / Plot**             | Plot number, tenure, area, use, boundaries, GPS                                                                                                                              |
+| **Plant / Tree Survey**     | Species, common name, count, height, health, GPS, photo                                                                                                                      |
+| **Livestock / Animal**      | Tag, species, breed, sex, age, health, owner                                                                                                                                 |
+| **Generic Item**            | Name, category, identifier, description, condition, quantity, location, notes, photos                                                                                        |
+
 
 **Generic Item** exists so that a user can begin capturing anything within seconds and refine the template afterwards.
 
@@ -659,6 +732,8 @@ A project may hold several templates. The app selects the right one per capture;
 4. Automatic detection (below)                         -> use it if confidence is high
 5. Otherwise                                           -> ask the operator
 ```
+
+
 
 ### 14.2 Detection profile
 
@@ -707,6 +782,8 @@ TemplateRow: id, template_id, output_row_number, identifier, label, aliases[], m
 - On capture, the app matches the item to a predefined row (exact → alias → semantic → AI classification, §35) and populates that row.
 - Rows never found can be exported as **Not found**, which is often the point of the exercise.
 - The operator may add rows where the template permits it.
+
+
 
 ## 16. Reference Datasets & Prefill Lookups
 
@@ -763,6 +840,8 @@ Behaviour:
 4. On multiple matches, a short picker appears.
 5. On no match, the value is kept as free text with an **Add to Suppliers** action.
 
+
+
 ### 16.3 Prefilled templates
 
 A template may declare dataset-driven defaults so that whole groups of fields never need re-entry:
@@ -799,6 +878,8 @@ Operator confirms each field, edits by typing, or captures a photo and lets OCR/
 Approve
 ```
 
+
+
 ### 17.3 Variance
 
 Every field that differs from the register is recorded in `record_variances`:
@@ -824,7 +905,12 @@ Variance is exportable as its own sheet or report, and is the deliverable of a v
 - Bundle merge treats templates like any other entity (§47); a template conflict is resolved by choosing a version or keeping both.
 
 ---
+
+
+
 # Part IV — Capture
+
+
 
 ## 19. Capture Screen
 
@@ -855,6 +941,8 @@ One screen, one primary button.
 - Both buttons save immediately to the device. They differ only in whether AI runs now (§26).
 - After saving, the screen resets but **keeps the context, the pinned template and the capture settings**, ready for the next item.
 
+
+
 ## 20. Context Fields (Sticky Values)
 
 The single most important input-saving feature. Values the operator sets once apply to every subsequent record until changed.
@@ -881,6 +969,8 @@ Any project can define its own levels — Site › Block › Floor, Farm › Fie
 4. New records are prefilled from the context, marked `source = CONTEXT`, and remain individually editable. **Editing the value on one record does not change the project context** — a per-record override is exactly that.
 5. The context snapshot is stored on each record (`context_json`), so changing the context later never alters existing records.
 6. The context drives the photo folder path (§8) and can be included in generated file names (§51).
+
+
 
 ### 20.3 Non-hierarchical pinned fields
 
@@ -910,19 +1000,21 @@ Both are opt-in; the default is that context stays exactly where the operator le
 
 Filled by the system without the operator touching them.
 
-| Field | Source | Editable |
-|---|---|---|
-| Capture date | Device clock at first save | Yes, with an audit entry |
-| Capture time | Device clock | Yes |
-| Captured at (UTC + offset) | Device clock | No |
-| Last modified | Device clock on each change | No |
-| Record number | Per-project sequence | No |
-| Operator | Device profile | Yes (choose another local profile) |
-| Device | Device ID | No |
-| App / template version | System | No |
-| GPS latitude / longitude / accuracy | Device GPS, when enabled | Cleared, not edited |
-| Context values | Context bar (§20) | Yes, per record |
-| Photo count | Derived | No |
+
+| Field                               | Source                      | Editable                           |
+| ----------------------------------- | --------------------------- | ---------------------------------- |
+| Capture date                        | Device clock at first save  | Yes, with an audit entry           |
+| Capture time                        | Device clock                | Yes                                |
+| Captured at (UTC + offset)          | Device clock                | No                                 |
+| Last modified                       | Device clock on each change | No                                 |
+| Record number                       | Per-project sequence        | No                                 |
+| Operator                            | Device profile              | Yes (choose another local profile) |
+| Device                              | Device ID                   | No                                 |
+| App / template version              | System                      | No                                 |
+| GPS latitude / longitude / accuracy | Device GPS, when enabled    | Cleared, not edited                |
+| Context values                      | Context bar (§20)           | Yes, per record                    |
+| Photo count                         | Derived                     | No                                 |
+
 
 Rules:
 
@@ -931,7 +1023,11 @@ Rules:
 - Dates are stored as ISO-8601 UTC with the device offset, and displayed and exported in the project's chosen format (default `dd MMM yyyy`).
 - A survey date that differs from the capture date (backdated field work) is set once as a pinned field (§20.3) and applies to every record until changed.
 
+
+
 ## 22. Photos & Photo Editing
+
+
 
 ### 22.1 Capture
 
@@ -940,6 +1036,8 @@ Rules:
 - The camera stays open for rapid multi-shot; each shot is written to disk immediately.
 - Camera controls: flash, tap-to-focus, pinch zoom, grid, document mode with edge detection, barcode overlay.
 - Quality warnings are advisory, never blocking (§39.3).
+
+
 
 ### 22.2 The photo tray
 
@@ -954,6 +1052,8 @@ Set type       Add caption    Apply caption to selection (§23)
 Move to another record         Duplicate to another record
 ```
 
+
+
 ### 22.3 Photo types
 
 `FRONT · BACK · SERIAL · RATING_PLATE · DAMAGE · PANEL · LOCATION · ATTENDANCE · DOCUMENT · OTHER`
@@ -966,12 +1066,16 @@ Photos can be added, removed, replaced, rotated, re-typed, re-captioned and reor
 
 ## 23. Captions & Caption Scope
 
+
+
 ### 23.1 Two levels
 
-| Level | Purpose |
-|---|---|
+
+| Level              | Purpose                                                                |
+| ------------------ | ---------------------------------------------------------------------- |
 | **Record caption** | Describes the item as a whole. The main context signal for extraction. |
-| **Photo caption** | Describes one photo: "serial number plate", "cracked casing". |
+| **Photo caption**  | Describes one photo: "serial number plate", "cracked casing".          |
+
 
 Both can be typed or spoken, and both are stored **raw and refined** (§32).
 
@@ -1010,6 +1114,8 @@ Applying a caption to many photos writes an independent caption row per photo, s
 - Transcripts are evidence, not truth: any value derived from speech carries `source = STT` and is subject to the same review as AI output.
 - Supported languages follow the device's speech services. English is the initial default; additional languages (Luganda, Swahili, Runyankole, Acholi, French, Arabic) are enabled as the platform or the chosen online service supports them.
 
+
+
 ## 25. Barcode / QR & Identifier-First Capture
 
 Scanning is the fastest path to a correct record.
@@ -1025,15 +1131,17 @@ Look up: existing records -> reference datasets
 | Match found                                             |
 |                                                         |
 |  Existing record  -> open it, or add photos to it       |
-|  Reference row    -> prefill a new record (§17)          |
-|  No match         -> start a new record with the         |
-|                      identifier already filled in        |
+|  Reference row    -> prefill a new record (§17)         |
+|  No match         -> start a new record with the        |
+|                      identifier already filled in       |
 +---------------------------------------------------------+
 ```
 
 - Supported symbologies: QR, Code 128, Code 39, EAN, UPC, Data Matrix, PDF417.
 - Scanned values are `source = BARCODE` and carry full confidence.
 - The scanner can stay open in **continuous mode** for stock counting: each scan increments a count or creates a stub record.
+
+
 
 ## 26. Capture Now, Map Later
 
@@ -1066,6 +1174,8 @@ Process                                     Online
 - **Auto-process when connected** is an opt-in setting, with an optional "Wi-Fi only" restriction.
 - On-device OCR runs opportunistically on unprocessed records while charging, so text is ready before any online call is made.
 
+
+
 ### 26.3 Mixed projects
 
 Immediate and deferred records coexist in a project. A record captured raw and processed a week later is indistinguishable in the final export, apart from its timestamps and audit trail.
@@ -1090,6 +1200,8 @@ RAPID MODE - Kasubi HC IV / Theatre
 - Nothing is analysed until **Process all**.
 - Review then happens as a list, one record after another, with **Approve and next** as the primary action.
 
+
+
 ## 28. Meeting Mode
 
 A meeting is a record built on a Meeting template, with extra structure.
@@ -1111,15 +1223,21 @@ Next meeting date
 Attachments                           (photos, documents, audio)
 ```
 
+
+
 ### 28.2 Inputs
 
-| Input | Handling |
-|---|---|
-| Voice recording of the meeting | Saved to `audio/`, transcribed; the transcript is preserved verbatim |
-| Typed notes | Preserved verbatim as the raw note |
-| Photo of the attendance sheet | OCR to rows of `name / title / organisation / signature present`, each editable |
-| Photos of participants, venue, whiteboards, handouts | Attached, captioned, classified `ATTENDANCE` or `DOCUMENT` |
-| Documents (agenda, reports) | Attached as evidence |
+
+| Input                                                | Handling                                                                       |
+| ---------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Voice recording of the meeting                       | Saved to`audio/`, transcribed; the transcript is preserved verbatim            |
+| Typed notes                                          | Preserved verbatim as the raw note                                             |
+| Photo of the attendance sheet                        | OCR to rows of`name / title / organisation / signature present`, each editable |
+| Photos of participants, venue, whiteboards, handouts | Attached, captioned, classified`ATTENDANCE` or `DOCUMENT`                      |
+| Documents (agenda, reports)                          | Attached as evidence                                                           |
+
+
+
 
 ### 28.3 Refinement
 
@@ -1130,6 +1248,8 @@ Attachments                           (photos, documents, audio)
 - Attendee names extracted by OCR are matched against the Staff reference dataset where available.
 - Refusal rule: the refiner may not add attendees, decisions or actions that are absent from the raw material (§34).
 
+
+
 ### 28.4 Output
 
 - **PDF** — formatted minutes with attendance list and photo appendix.
@@ -1137,7 +1257,12 @@ Attachments                           (photos, documents, audio)
 - **JSON** — the complete structured meeting.
 
 ---
+
+
+
 # Part V — AI Processing
+
+
 
 ## 29. Processing Pipeline
 
@@ -1196,7 +1321,11 @@ Analysing 12 of 38
   wait  Checking values
 ```
 
+
+
 ## 30. AI Providers, Keys & Offline Behaviour
+
+
 
 ### 30.1 Abstraction
 
@@ -1221,20 +1350,26 @@ Implementations: on-device (ML Kit OCR, platform STT), and one implementation pe
 - Per project, the user can select which configured provider to use, or none.
 - **In team mode the key need never touch a device at all**: the backend holds it and proxies the call (§73). This is the recommended arrangement for an organisation, because a key can then be rotated in one place and no lost device carries one.
 
+
+
 ### 30.3 Behaviour without a network
 
-| Capability | Offline |
-|---|---|
-| Capture photos, captions, typed values | Works |
-| Speech-to-text | Works where the device supports the language offline; otherwise queued or unavailable |
-| Text OCR | Works (on-device) |
-| Barcode / QR | Works |
-| Reference lookup and prefill | Works |
-| Template detection | Works (heuristics) |
-| Vision extraction and text refinement | Queued for later (§26) |
-| Review, edit, approve | Works |
-| Export XLSX / CSV / JSON / PDF / ZIP | Works |
-| Cloud upload | Unavailable, queued as a pending user action |
+
+| Capability                             | Offline                                                                               |
+| -------------------------------------- | ------------------------------------------------------------------------------------- |
+| Capture photos, captions, typed values | Works                                                                                 |
+| Speech-to-text                         | Works where the device supports the language offline; otherwise queued or unavailable |
+| Text OCR                               | Works (on-device)                                                                     |
+| Barcode / QR                           | Works                                                                                 |
+| Reference lookup and prefill           | Works                                                                                 |
+| Template detection                     | Works (heuristics)                                                                    |
+| Vision extraction and text refinement  | Queued for later (§26)                                                                |
+| Review, edit, approve                  | Works                                                                                 |
+| Export XLSX / CSV / JSON / PDF / ZIP   | Works                                                                                 |
+| Cloud upload                           | Unavailable, queued as a pending user action                                          |
+
+
+
 
 ## 31. Structured Output & Validation
 
@@ -1283,6 +1418,8 @@ Response:
 }
 ```
 
+
+
 ### 31.1 Enforcement
 
 ```text
@@ -1303,11 +1440,13 @@ Raw provider responses are stored in `processing_results` for audit and for repr
 
 **Every captured text keeps its original.** This is a hard rule of the data model.
 
-| Stored as | Contents |
-|---|---|
-| `value_raw` / `caption_raw` | Exactly what was typed, spoken, scanned or read by OCR |
-| `value_refined` / `caption_refined` | The AI-cleaned, corrected or normalised counterpart |
-| `value_final` | What the user approved — defaults to refined when present, otherwise raw; editing sets it explicitly |
+
+| Stored as                           | Contents                                                                                             |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| `value_raw` / `caption_raw`         | Exactly what was typed, spoken, scanned or read by OCR                                               |
+| `value_refined` / `caption_refined` | The AI-cleaned, corrected or normalised counterpart                                                  |
+| `value_final`                       | What the user approved — defaults to refined when present, otherwise raw; editing sets it explicitly |
+
 
 Rules:
 
@@ -1353,6 +1492,8 @@ Every field value carries where it came from and how sure the system is.
 - Manual and barcode values have no confidence score; they are simply authoritative.
 - Confidence is a processing aid. It never approves a record on its own.
 
+
+
 ## 34. The No-Invention Rule
 
 If a value is not supported by the evidence, it is `null`.
@@ -1365,6 +1506,8 @@ Not detected                    [ type it ]  [ photograph the label ]
 - The extraction prompt states the rule explicitly, and post-validation drops values whose evidence list is empty for fields marked as evidence-required.
 - Values contradicted by an identifier pattern or a choice list are rejected rather than coerced.
 - Refinement may reword and correct obvious transcription errors; it may not add facts, attendees, decisions, measurements or dates that are absent from the raw text.
+
+
 
 ## 35. Normalisation & Row Matching
 
@@ -1395,6 +1538,8 @@ Aliases are editable per template:
 Blood Pressure Machine  <-  "BP machine", "blood pressure monitor", "sphygmomanometer"
 ```
 
+
+
 ### 35.3 Precedence when sources disagree
 
 ```text
@@ -1424,7 +1569,12 @@ Field projects run to thousands of photographs, so processing is deliberately ec
 - **Manual only** mode: nothing is ever sent unless the user taps Process.
 
 ---
+
+
+
 # Part VI — Review & Data Quality
+
+
 
 ## 37. Review Screen
 
@@ -1458,23 +1608,31 @@ Field projects run to thousands of photographs, so processing is deliberately ec
 - **Approve & next** moves straight to the following unreviewed record, which makes batch review fast.
 - **Re-analyse** re-runs processing without discarding verified values.
 
+
+
 ## 38. Editing Saved Records
 
 Everything remains editable after saving, and after approval.
 
-| Change | Effect |
-|---|---|
-| Edit a field value | Old value kept in history; `source` becomes `MANUAL`; field marked verified |
-| Add photos | Appended; the record may be re-analysed if the user asks |
-| Delete a photo | File retained until the record is deleted; affected values flagged *evidence removed* |
-| Reorder / rotate / re-type photos | Recorded in history; original file untouched |
-| Change the template | Field values are re-mapped by `field_key`; unmapped values are retained as retired fields and shown |
-| Change context values | Applies to this record only; the folder path of its photos is updated |
-| Re-run AI | Proposals shown as a diff; verified fields are never overwritten silently |
-| Approve after editing | Status returns to Needs review first, then Approved; audit entry written |
-| Delete a record | Soft delete with a tombstone; restorable from the Recycle bin for a configurable period (default 30 days) |
+
+| Change                            | Effect                                                                                                    |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| Edit a field value                | Old value kept in history;`source` becomes `MANUAL`; field marked verified                                |
+| Add photos                        | Appended; the record may be re-analysed if the user asks                                                  |
+| Delete a photo                    | File retained until the record is deleted; affected values flagged*evidence removed*                      |
+| Reorder / rotate / re-type photos | Recorded in history; original file untouched                                                              |
+| Change the template               | Field values are re-mapped by`field_key`; unmapped values are retained as retired fields and shown        |
+| Change context values             | Applies to this record only; the folder path of its photos is updated                                     |
+| Re-run AI                         | Proposals shown as a diff; verified fields are never overwritten silently                                 |
+| Approve after editing             | Status returns to Needs review first, then Approved; audit entry written                                  |
+| Delete a record                   | Soft delete with a tombstone; restorable from the Recycle bin for a configurable period (default 30 days) |
+
+
+
 
 ## 39. Validation Rules
+
+
 
 ### 39.1 Field validation
 
@@ -1487,12 +1645,16 @@ Purchase year must be between 1950 and 2026
 Quantity must be a positive number
 ```
 
+
+
 ### 39.2 Record validation
 
 - All `REQUIRED` fields present.
 - Identity fields present when the template declares them.
 - At least one photo, when the template requires evidence.
 - No unresolved duplicate (§40) and no unresolved source conflict (§41).
+
+
 
 ### 39.3 Image quality (advisory)
 
@@ -1504,6 +1666,8 @@ Before an export runs, the app lists records that are incomplete or unapproved a
 
 ## 40. Duplicate Detection & Override
 
+
+
 ### 40.1 Signals
 
 ```text
@@ -1513,6 +1677,8 @@ Near-identical photo (perceptual hash)
 Same predefined row already captured in the same context
 Same name + same context + close timestamp
 ```
+
+
 
 ### 40.2 When a duplicate is detected
 
@@ -1537,6 +1703,8 @@ Possible duplicate
 - **Merge fields** opens a per-field chooser (existing / new / keep both as a note).
 - **Keep both** links the two records as `related_duplicate` so a later reviewer can see the pair.
 - Photos from the discarded side can be attached to the surviving record.
+
+
 
 ### 40.3 Bulk duplicate review
 
@@ -1606,7 +1774,12 @@ Record 124
 Audit entries store: timestamp, operator, device, entity, action, field, previous value, new value, and reason where one was given. Audit rows travel inside bundles and merge like any other data, so the combined project retains the full history of every device that contributed to it.
 
 ---
+
+
+
 # Part VII — Collaboration
+
+
 
 ## 44. Multi-Device Collaboration Model
 
@@ -1628,14 +1801,20 @@ Principles:
 4. Every automatic decision is visible; every ambiguous one is handed to a human.
 5. A merge can be **undone** as a whole, from the merge history, until it is purged.
 
+
+
 ### 44.1 Practical patterns
 
-| Pattern | How it works |
-|---|---|
-| Team lead consolidates | Members export at the end of each day; the lead imports each bundle into the master copy. |
-| Split by area | Each member is assigned different context values (facilities, blocks); conflicts are then rare by construction. |
-| Round-trip review | The lead merges, reviews and approves, then exports the merged bundle back to the team as the new baseline. |
-| Device replacement | Export a bundle, import it on the new device; the project continues with full history. |
+
+| Pattern                | How it works                                                                                                    |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Team lead consolidates | Members export at the end of each day; the lead imports each bundle into the master copy.                       |
+| Split by area          | Each member is assigned different context values (facilities, blocks); conflicts are then rare by construction. |
+| Round-trip review      | The lead merges, reviews and approves, then exports the merged bundle back to the team as the new baseline.     |
+| Device replacement     | Export a bundle, import it on the new device; the project continues with full history.                          |
+
+
+
 
 ## 45. Project Bundle Format
 
@@ -1661,6 +1840,8 @@ medical-equipment-inventory__deviceA__2026-09-08T1030.zip
 └── checksums.txt           SHA-256 of every file in the bundle
 ```
 
+
+
 ### 45.1 Manifest
 
 ```json
@@ -1684,6 +1865,8 @@ medical-equipment-inventory__deviceA__2026-09-08T1030.zip
 }
 ```
 
+
+
 ### 45.2 Options
 
 - **Scope**: full project, a date range, a context subtree (one facility), only approved records, or data without photos (small bundle for review).
@@ -1691,7 +1874,11 @@ medical-equipment-inventory__deviceA__2026-09-08T1030.zip
 - **Password protection**: optional AES encryption of the archive, since bundles travel on removable media.
 - Bundles never contain API keys, cloud credentials or device secrets.
 
+
+
 ## 46. Bundle Export & Import
+
+
 
 ### 46.1 Export
 
@@ -1702,6 +1889,8 @@ Choose scope, photos, password
       |
 Bundle written to projects/<project>/exports/  and offered to the share sheet
 ```
+
+
 
 ### 46.2 Import
 
@@ -1772,20 +1961,24 @@ Automatic settlement rules, applied in order:
 
 Other entity types:
 
-| Entity | Rule |
-|---|---|
-| Photos, documents, audio | Union by SHA-256. Same content = one file. Captions merge per field. |
-| Photo order | The importing device's order is kept; new photos are appended. |
-| Templates | Same version → no action. Different versions → conflict, resolved by choosing one or keeping both (records keep their captured version, §18). |
-| Reference datasets | Merge by key column; differing attribute values raise a conflict per row. |
-| Predefined rows | Union by identifier. |
-| Audit log, processing results | Append-only union, deduplicated by id. |
-| Context presets | Union by name. |
-| Record numbers | Re-labelled on collision; the UUID is unchanged, so no reference breaks. |
+
+| Entity                        | Rule                                                                                                                                          |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Photos, documents, audio      | Union by SHA-256. Same content = one file. Captions merge per field.                                                                          |
+| Photo order                   | The importing device's order is kept; new photos are appended.                                                                                |
+| Templates                     | Same version → no action. Different versions → conflict, resolved by choosing one or keeping both (records keep their captured version, §18). |
+| Reference datasets            | Merge by key column; differing attribute values raise a conflict per row.                                                                     |
+| Predefined rows               | Union by identifier.                                                                                                                          |
+| Audit log, processing results | Append-only union, deduplicated by id.                                                                                                        |
+| Context presets               | Union by name.                                                                                                                                |
+| Record numbers                | Re-labelled on collision; the UUID is unchanged, so no reference breaks.                                                                      |
+
 
 Duplicate detection (§40) runs after the structural merge, catching records that are *the same thing* while having different ids because two people captured the same item independently.
 
 ## 48. Conflict Resolution
+
+
 
 ### 48.1 Preview before anything is written
 
@@ -1801,6 +1994,8 @@ Merge preview - kasubi-teamB.zip
 
   [ Resolve conflicts ]   [ Cancel ]
 ```
+
+
 
 ### 48.2 Resolving one conflict
 
@@ -1828,19 +2023,28 @@ Conflict 3 of 7        Record 124 - Autoclave (SN458923)
 - The whole merge appears in **Merge history** with an **Undo merge** action that restores the pre-merge state.
 
 ---
+
+
+
 # Part VIII — Output & Distribution
+
+
 
 ## 49. Export Formats
 
 All five formats are first-class and available offline.
 
-| Format | Contents | Typical use |
-|---|---|---|
-| **XLSX** | The template workbook populated with records; optional extra sheets: Raw vs Refined, Evidence, Photo index, Variance, Not found, Duplicates, Audit | The primary deliverable |
-| **CSV** | One file per template/sheet, UTF-8 with BOM, configurable delimiter; zipped when there is more than one | Analysis, data warehouse loading |
-| **JSON** | Full fidelity: records, raw and refined values, provenance, confidence, evidence links, context, templates, data dictionary | Programmatic consumption, data centres |
-| **PDF** | Formatted report with photos, or meeting minutes, or a variance report | Sharing with people who do not use the app |
-| **ZIP** | Either a data package (chosen formats + photos + manifest) or a full project bundle (§45) | Archiving, transfer, backup |
+
+| Format   | Contents                                                                                                                                           | Typical use                                |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| **XLSX** | The template workbook populated with records; optional extra sheets: Raw vs Refined, Evidence, Photo index, Variance, Not found, Duplicates, Audit | The primary deliverable                    |
+| **CSV**  | One file per template/sheet, UTF-8 with BOM, configurable delimiter; zipped when there is more than one                                            | Analysis, data warehouse loading           |
+| **JSON** | Full fidelity: records, raw and refined values, provenance, confidence, evidence links, context, templates, data dictionary                        | Programmatic consumption, data centres     |
+| **PDF**  | Formatted report with photos, or meeting minutes, or a variance report                                                                             | Sharing with people who do not use the app |
+| **ZIP**  | Either a data package (chosen formats + photos + manifest) or a full project bundle (§45)                                                          | Archiving, transfer, backup                |
+
+
+
 
 ### 49.1 Export dialog
 
@@ -1856,6 +2060,8 @@ Export
 
                        [ EXPORT ]
 ```
+
+
 
 ### 49.2 Data dictionary
 
@@ -1900,7 +2106,11 @@ Manifest:
 }
 ```
 
+
+
 ## 50. Excel Generation
+
+
 
 ### 50.1 Rules
 
@@ -1914,19 +2124,23 @@ Manifest:
 | uh this is a thirteen litre autoclave in ...   | 13 litre autoclave located in the theatre. ...  |
 ```
 
-5. Multi-template projects produce one sheet per template.
-6. Long text is written as text, never coerced to a number or a date; identifiers keep leading zeros.
-7. Formatting fidelity has practical limits in Dart spreadsheet libraries: charts, pivot tables, macros and some conditional formats may not survive a round trip. Where the library cannot guarantee preservation, the app writes a clean, well-formatted workbook and says so in the export summary rather than silently producing a damaged file.
+1. Multi-template projects produce one sheet per template.
+2. Long text is written as text, never coerced to a number or a date; identifiers keep leading zeros.
+3. Formatting fidelity has practical limits in Dart spreadsheet libraries: charts, pivot tables, macros and some conditional formats may not survive a round trip. Where the library cannot guarantee preservation, the app writes a clean, well-formatted workbook and says so in the export summary rather than silently producing a damaged file.
+
+
 
 ### 50.2 Photo references in the spreadsheet
 
 Three modes, selectable per project:
 
-| Mode | Cell content |
-|---|---|
-| **Filename** (default) | `AUTOCLAVE_SN458923_FRONT_01.jpg` |
-| **Relative path** | `photos/Kampala/Kasubi-HC-IV/Theatre/AUTOCLAVE_SN458923_FRONT_01.jpg` |
-| **Embedded image** | The image itself, inserted and row-height adjusted (larger files, slower) |
+
+| Mode                   | Cell content                                                              |
+| ---------------------- | ------------------------------------------------------------------------- |
+| **Filename** (default) | `AUTOCLAVE_SN458923_FRONT_01.jpg`                                         |
+| **Relative path**      | `photos/Kampala/Kasubi-HC-IV/Theatre/AUTOCLAVE_SN458923_FRONT_01.jpg`     |
+| **Embedded image**     | The image itself, inserted and row-height adjusted (larger files, slower) |
+
 
 A **Photo index** sheet always lists record number, photo type, caption and path, so photos are traceable even in filename mode.
 
@@ -1952,17 +2166,21 @@ Rules:
 - A photo taken before the identity is known uses the record number, and is renamed automatically once a serial or asset number is confirmed. The database keeps `original_filename` and every rename in history.
 - The folder path supplies the context (§8), so file names stay short and readable.
 
+
+
 ## 52. PDF Reports
 
 Generated on device, offline.
 
-| Report | Contents |
-|---|---|
-| **Record report** | One record per page or per block: fields, photos, captions, context, operator, date |
-| **Project summary** | Counts by context, template, condition and status, plus charts |
-| **Variance report** | As-recorded vs as-found, plus items missing and items not in the register (§17) |
-| **Meeting minutes** | Title, attendance, agenda, discussion, decisions, actions, photo appendix (§28) |
-| **Inspection report** | Checklist items, observations, compliance, risk, recommendations, photo evidence |
+
+| Report                | Contents                                                                            |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| **Record report**     | One record per page or per block: fields, photos, captions, context, operator, date |
+| **Project summary**   | Counts by context, template, condition and status, plus charts                      |
+| **Variance report**   | As-recorded vs as-found, plus items missing and items not in the register (§17)     |
+| **Meeting minutes**   | Title, attendance, agenda, discussion, decisions, actions, photo appendix (§28)     |
+| **Inspection report** | Checklist items, observations, compliance, risk, recommendations, photo evidence    |
+
 
 Reports carry a cover page (project, date, operator, filters applied) and page numbers, and can embed thumbnails or full-size photos.
 
@@ -1972,6 +2190,8 @@ Reports carry a cover page (project, date, operator, filters applied) and page n
 - Exports are versioned per project (`v1`, `v2`, …) and stored in dated folders. **Previous exports are never overwritten or deleted by the app.**
 - Records included in an export get an `exported_at` stamp; the export history shows exactly which record versions a given file contains, so a file can always be explained after the fact.
 - An export can be re-shared or re-uploaded later from the history list without regenerating it.
+
+
 
 ## 54. Manual Cloud Upload
 
@@ -1991,14 +2211,18 @@ Tapping **Upload to cloud** shows the configured destinations, the file size, an
 
 ### 54.2 Destinations
 
-| Destination | Credentials supplied by the user |
-|---|---|
-| Google Drive | OAuth sign-in, or a service-account key file |
-| Microsoft OneDrive | OAuth sign-in |
-| Dropbox | OAuth sign-in |
+
+| Destination                          | Credentials supplied by the user                    |
+| ------------------------------------ | --------------------------------------------------- |
+| Google Drive                         | OAuth sign-in, or a service-account key file        |
+| Microsoft OneDrive                   | OAuth sign-in                                       |
+| Dropbox                              | OAuth sign-in                                       |
 | Amazon S3 or any S3-compatible store | Access key, secret, region, bucket, optional prefix |
-| WebDAV / generic HTTPS endpoint | URL plus credentials |
-| Local / SD card / USB folder | Path chosen with the system file picker |
+| WebDAV / generic HTTPS endpoint      | URL plus credentials                                |
+| Local / SD card / USB folder         | Path chosen with the system file picker             |
+
+
+
 
 ### 54.3 Rules
 
@@ -2010,7 +2234,12 @@ Tapping **Upload to cloud** shows the configured destinations, the file size, an
 6. Cloud storage is treated as a place to keep files, not as shared state: two devices coordinate through bundles (§44), not through a shared cloud folder.
 
 ---
+
+
+
 # Part IX — Application Shell
+
+
 
 ## 55. Navigation & Screens
 
@@ -2020,12 +2249,14 @@ Four destinations. No dashboard the user must pass through, and no login in stan
 [ Projects ]      [ CAPTURE ]      [ Records ]      [ More ]
 ```
 
-| Screen | Purpose |
-|---|---|
+
+| Screen       | Purpose                                                                                         |
+| ------------ | ----------------------------------------------------------------------------------------------- |
 | **Projects** | List of projects with counts and last-worked timestamps. Create, open, import, export, archive. |
-| **Capture** | The capture screen for the current project (§19). The centre button is visually dominant. |
-| **Records** | Searchable, filterable list; opens a record for review or editing. |
-| **More** | Templates, reference data, processing queue, duplicates, merge, exports, settings, help. |
+| **Capture**  | The capture screen for the current project (§19). The centre button is visually dominant.       |
+| **Records**  | Searchable, filterable list; opens a record for review or editing.                              |
+| **More**     | Templates, reference data, processing queue, duplicates, merge, exports, settings, help.        |
+
 
 Route map:
 
@@ -2045,6 +2276,8 @@ Route map:
 /settings
 ```
 
+
+
 ### 55.1 Project home
 
 ```text
@@ -2060,6 +2293,8 @@ Route map:
 
   Review 43   ·   Process 38   ·   Export   ·   Share
 ```
+
+
 
 ### 55.2 Records list
 
@@ -2090,6 +2325,8 @@ Concrete, testable rules that keep the interface extremely simple.
 11. **Touch targets at least 48 dp**, primary actions reachable with one thumb.
 12. **Undo** for destructive actions, and a recycle bin for deletions.
 13. **The status of the app is always visible in one line**: context, template, online/offline, unprocessed count.
+
+
 
 ## 57. Settings
 
@@ -2143,6 +2380,8 @@ About
   Version, licences, help
 ```
 
+
+
 ## 58. Accessibility & Field Usability
 
 - Large text support and a high-contrast theme for direct sunlight.
@@ -2152,22 +2391,28 @@ About
 - Colour is never the only signal — icons and text accompany every status colour.
 - Tolerates interruption: an incoming call or a locked screen never loses an in-progress capture.
 
+
+
 ## 59. Performance
 
 Targets on a mid-range Android device:
 
-| Action | Target |
-|---|---|
-| Cold start to Projects | < 2 s |
-| Project open to Capture | < 1 s |
-| Shutter to photo saved and ready for the next shot | < 400 ms |
-| Records list, 10,000 records | smooth scrolling, paged loading |
-| Search across 10,000 records | < 300 ms (indexed) |
-| XLSX export, 5,000 records | < 30 s, on a background isolate with progress |
+
+| Action                                             | Target                                        |
+| -------------------------------------------------- | --------------------------------------------- |
+| Cold start to Projects                             | < 2 s                                         |
+| Project open to Capture                            | < 1 s                                         |
+| Shutter to photo saved and ready for the next shot | < 400 ms                                      |
+| Records list, 10,000 records                       | smooth scrolling, paged loading               |
+| Search across 10,000 records                       | < 300 ms (indexed)                            |
+| XLSX export, 5,000 records                         | < 30 s, on a background isolate with progress |
+
 
 Techniques: paged queries and indexes on project, status, context, identity hash and timestamps; thumbnails generated once and cached; full images loaded only in the viewer; image compression, hashing, export generation and merge run on background isolates; the UI thread never performs file or database work.
 
 ## 60. Security & Privacy
+
+
 
 ### 60.1 On the device
 
@@ -2176,17 +2421,23 @@ Techniques: paged queries and indexes on project, status, context, identity hash
 - The database and files live in app-private storage; an optional setting encrypts the database (SQLCipher) and export archives.
 - Deleted records are tombstoned and purged after the retention period, including their files.
 
+
+
 ### 60.2 Data leaving the device
 
 - Only the operations listed in §7.1 and, when a backend is configured, §7.3 — and only when the user enables them.
 - A one-screen summary before the first online call of a session states what will be sent.
 - Bundles and exports never contain credentials or device secrets.
 
+
+
 ### 60.3 Personal data
 
 - Photographs may contain people, documents and identifiers. Projects that collect personal data can enable: a consent flag per record, face blurring on export, and redaction of marked regions before any image is sent for analysis.
 - GPS is off by default and can be enabled per project.
 - The operator's name is stored locally for attribution and travels in bundles shared with teammates; nothing else identifies the user.
+
+
 
 ### 60.4 Input safety
 
@@ -2195,7 +2446,12 @@ Techniques: paged queries and indexes on project, status, context, identity hash
 - Text arriving from OCR, transcripts, imported files or bundles is treated strictly as data. It is never executed, never used to build queries by concatenation, and never allowed to alter the app's instructions to an AI provider.
 
 ---
+
+
+
 # Part X — Engineering
+
+
 
 ## 61. Technology Stack
 
@@ -2268,6 +2524,8 @@ capture/
 └── presentation/  capture_screen.dart, capture_controller.dart, widgets/
 ```
 
+
+
 ## 63. State Management
 
 ```text
@@ -2319,12 +2577,14 @@ Library choice for XLSX must be validated early against a real client template; 
 
 ## 65. Testing Strategy
 
-| Level | Coverage |
-|---|---|
-| **Unit** | Field validation, normalisation, alias and row matching, identity hashing, file naming, folder pathing, context inheritance and clearing, auto-fill, merge algorithm and version vectors, duplicate detection, spreadsheet schema parsing, export writers |
-| **Widget** | Capture screen, context bar, photo tray and caption scope, review screen, conflict resolution, template builder |
-| **Integration** | Camera to saved record; deferred queue to processed record; import spreadsheet to records; export to XLSX/CSV/JSON/PDF/ZIP; bundle export to import on a second database |
-| **End-to-end** | Create project → shipped template → set context → capture 3 records offline → process → review → approve → export ZIP → import on a second device → merge with conflicts → resolve → export again |
+
+| Level           | Coverage                                                                                                                                                                                                                                                  |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Unit**        | Field validation, normalisation, alias and row matching, identity hashing, file naming, folder pathing, context inheritance and clearing, auto-fill, merge algorithm and version vectors, duplicate detection, spreadsheet schema parsing, export writers |
+| **Widget**      | Capture screen, context bar, photo tray and caption scope, review screen, conflict resolution, template builder                                                                                                                                           |
+| **Integration** | Camera to saved record; deferred queue to processed record; import spreadsheet to records; export to XLSX/CSV/JSON/PDF/ZIP; bundle export to import on a second database                                                                                  |
+| **End-to-end**  | Create project → shipped template → set context → capture 3 records offline → process → review → approve → export ZIP → import on a second device → merge with conflicts → resolve → export again                                                         |
+
 
 Critical test cases:
 
@@ -2349,7 +2609,11 @@ Critical test cases:
 18 Storage full                   graceful warning, no corrupted record
 ```
 
+
+
 ## 66. Delivery Plan
+
+
 
 ### Phase 1 — Vertical slice (build this first)
 
@@ -2375,6 +2639,8 @@ CSV / JSON / PDF export, ZIP packaging
 Editing saved records, history and audit trail
 ```
 
+
+
 ### Phase 3 — Teams and breadth
 
 ```text
@@ -2387,6 +2653,8 @@ Documents and PDF input
 GPS and map view
 ```
 
+
+
 ### Phase 4 — Advanced
 
 ```text
@@ -2397,6 +2665,8 @@ Local analytics: correction rates, accuracy by field, progress by context
 Additional voice languages
 Desktop build for consolidation and reporting
 ```
+
+
 
 ## 67. Definition of Done — MVP
 
@@ -2416,6 +2686,8 @@ The MVP is standalone. Team mode (Part XI) is deliberately outside it: the appli
 - Export a project bundle, import it on another device, and merge it with conflict resolution.
 - Upload an export to a cloud destination by explicit action.
 - Do all of the above offline, except the online AI steps and the upload.
+
+
 
 ## 68. Product Naming
 
@@ -2437,51 +2709,61 @@ Before public release, confirm the name is clear on the Google Play Store and wi
 
 ## 69. Requirements Coverage Matrix
 
-| Requirement | Where it is specified |
-|---|---|
-| Fields enabled once and reused while collecting (district, facility, department) | §20 Context fields; §12.2 `stickable`, `context_level` |
-| Context hierarchy with per-record override | §20.2 |
-| Dates and times set automatically | §21 Automatic fields |
-| Captions applied to one photo, selected photos, or all photos | §23.2 |
-| Adjusting captured data: adding and removing photos, editing values | §22.4, §38 |
-| Extremely simple user interface | §3 (principle 2), §19, §55, §56 |
-| Photos saved on the device in organised folders with subfolders | §8 |
-| Database stored locally on the device | §8, §9 |
-| Everything local except online AI, OCR and STT | §7 |
-| Prefill from existing data by asset or serial number, then edit | §16, §17, §25 |
-| Supplying the existing data record | §16.1, §46.3 |
-| Record raw data first, map later | §26 |
-| Whole project exportable, importable and analysable on another device | §45, §46 |
-| Meeting minutes, refinement, attendance photos | §28 |
-| Different templates auto-detected and data structured accordingly | §14 |
-| Several people on one project, merge with conflict resolution | §44, §47, §48 |
-| Original captions preserved, AI-refined stored in a separate column | §32, §50.1 rule 4 |
-| Inventory of anything | §3 (principle 9), §6, §11, §13 |
-| Predefined shipped templates, derived templates, templates from scratch | §11.1, §13 |
-| Duplicate entries overridden after human review | §40 |
-| No backend backup; local storage only; manual cloud upload button | §2.2, §7, §54, §70.3 |
-| Optional minimal backend for accounts, identity, roles, keys and multi-user relay | Part XI (§70–§75) |
-| Data suitable for data centres | §49.2 data dictionary, §49 JSON/CSV |
-| Export and import: CSV, PDF, JSON, ZIP, XLSX | §49 |
-| Upload to Google Drive, AWS and similar with user credentials | §54.2 |
-| Prefilled templates: supplier or manufacturer lists matched by ID | §16.2, §16.3 |
+
+| Requirement                                                                       | Where it is specified                                 |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| Fields enabled once and reused while collecting (district, facility, department)  | §20 Context fields; §12.2`stickable`, `context_level` |
+| Context hierarchy with per-record override                                        | §20.2                                                 |
+| Dates and times set automatically                                                 | §21 Automatic fields                                  |
+| Captions applied to one photo, selected photos, or all photos                     | §23.2                                                 |
+| Adjusting captured data: adding and removing photos, editing values               | §22.4, §38                                            |
+| Extremely simple user interface                                                   | §3 (principle 2), §19, §55, §56                       |
+| Photos saved on the device in organised folders with subfolders                   | §8                                                    |
+| Database stored locally on the device                                             | §8, §9                                                |
+| Everything local except online AI, OCR and STT                                    | §7                                                    |
+| Prefill from existing data by asset or serial number, then edit                   | §16, §17, §25                                         |
+| Supplying the existing data record                                                | §16.1, §46.3                                          |
+| Record raw data first, map later                                                  | §26                                                   |
+| Whole project exportable, importable and analysable on another device             | §45, §46                                              |
+| Meeting minutes, refinement, attendance photos                                    | §28                                                   |
+| Different templates auto-detected and data structured accordingly                 | §14                                                   |
+| Several people on one project, merge with conflict resolution                     | §44, §47, §48                                         |
+| Original captions preserved, AI-refined stored in a separate column               | §32, §50.1 rule 4                                     |
+| Inventory of anything                                                             | §3 (principle 9), §6, §11, §13                        |
+| Predefined shipped templates, derived templates, templates from scratch           | §11.1, §13                                            |
+| Duplicate entries overridden after human review                                   | §40                                                   |
+| No backend backup; local storage only; manual cloud upload button                 | §2.2, §7, §54, §70.3                                  |
+| Optional minimal backend for accounts, identity, roles, keys and multi-user relay | Part XI (§70–§75)                                     |
+| Data suitable for data centres                                                    | §49.2 data dictionary, §49 JSON/CSV                   |
+| Export and import: CSV, PDF, JSON, ZIP, XLSX                                      | §49                                                   |
+| Upload to Google Drive, AWS and similar with user credentials                     | §54.2                                                 |
+| Prefilled templates: supplier or manufacturer lists matched by ID                 | §16.2, §16.3                                          |
+
 
 ---
 
+
+
 # Part XI — The Optional Backend
+
+
 
 ## 70. Purpose and Boundaries
 
 Tapture runs in one of two modes. The application binary is identical in both; the backend only supplies what a
 single device cannot supply for itself.
 
-| | Standalone mode (default) | Team mode |
-|---|---|---|
-| Backend | None | One small server, run by the organisation that owns the data |
-| Sign-in | Not required | Once per device, then cached (§70.4) |
-| Store of record | The device | Still the device |
-| Works fully offline | Yes | Yes |
-| Backup | Manual ZIP export (§54) | Manual ZIP export (§54) — unchanged |
+
+|                     | Standalone mode (default) | Team mode                                                    |
+| ------------------- | ------------------------- | ------------------------------------------------------------ |
+| Backend             | None                      | One small server, run by the organisation that owns the data |
+| Sign-in             | Not required              | Once per device, then cached (§70.4)                         |
+| Store of record     | The device                | Still the device                                             |
+| Works fully offline | Yes                       | Yes                                                          |
+| Backup              | Manual ZIP export (§54)   | Manual ZIP export (§54) — unchanged                          |
+
+
+
 
 ### 70.1 What the backend provides
 
@@ -2503,6 +2785,8 @@ That list is the whole of it. Anything not on it is a device responsibility and 
 - Read project content. Relay packages are encrypted on the device (§72.6).
 - Train on user data, or retain provider payloads beyond the request (§73.4).
 - Weaken any device-side rule: raw evidence preserved, no invention, human approval before data is final.
+
+
 
 ### 70.3 Why backup is deliberately excluded
 
@@ -2530,6 +2814,8 @@ and is asked to sign in before relaying.
 
 ## 71. Accounts, Identity and Roles
 
+
+
 ### 71.1 Accounts
 
 Register or invite, sign in, sign out, change password, reset password. Optional single sign-on may be added later
@@ -2545,12 +2831,14 @@ enrolment and prior entries are annotated, never rewritten.
 
 ### 71.3 Roles
 
-| Role | May |
-|---|---|
-| **Administrator** | Manage users and devices, create projects, hold and rotate provider keys, configure relay and retention |
-| **Project manager** | Create and configure projects and templates, assign members, review, approve, export |
-| **Reviewer** | Review, correct, approve and reject records; resolve duplicates and conflicts |
-| **Field operator** | Capture, edit their own unapproved records, run processing, export their own work |
+
+| Role                | May                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Administrator**   | Manage users and devices, create projects, hold and rotate provider keys, configure relay and retention |
+| **Project manager** | Create and configure projects and templates, assign members, review, approve, export                    |
+| **Reviewer**        | Review, correct, approve and reject records; resolve duplicates and conflicts                           |
+| **Field operator**  | Capture, edit their own unapproved records, run processing, export their own work                       |
+
 
 The server enforces roles for everything it mediates: project membership, relay access, key use, directory changes
 and administrative actions. The application mirrors them as affordances, hiding what a role cannot do.
@@ -2567,6 +2855,8 @@ construction (§44.1).
 
 ## 72. Change Relay
 
+
+
 ### 72.1 The model
 
 The relay is transport, not logic. It carries exactly the packages described in Part VII, and merge, conflict
@@ -2578,6 +2868,8 @@ Device A ── encrypted change package ──▶ ┌────────�
 Device C ◀── other devices' packages ─── └──────────┘ ◀── acknowledgements
                                     (ciphertext, purged once acknowledged)
 ```
+
+
 
 ### 72.2 The package
 
@@ -2599,10 +2891,12 @@ identically to a relayed package.
 
 - A package is deleted as soon as every enrolled device on the project has acknowledged it.
 - Any package older than the retention window (default 30 days, configurable, hard maximum 90) is deleted whether or
-  not it has been acknowledged.
+not it has been acknowledged.
 - The server retains only version vectors, package metadata and acknowledgement state — never project content.
 - A device that misses the window re-synchronises from a peer with a full bundle, exactly as in standalone mode.
 - Purging is automatic, logged, and verifiable by an administrator.
+
+
 
 ### 72.5 Relay rules
 
@@ -2612,6 +2906,8 @@ identically to a relayed package.
 - A project may be marked **never relay**, keeping it device-local inside a team deployment.
 - The user can always see what is queued, what was sent and what was purged.
 
+
+
 ### 72.6 Encryption
 
 Packages are encrypted on the device with a project key held by member devices and distributed at enrolment. The server
@@ -2619,6 +2915,8 @@ stores ciphertext it cannot read, which makes §70.2 an architectural fact rathe
 device loses the project — which is precisely why backup remains a deliberate, local, user-controlled act (§54).
 
 ## 73. AI Key Custody and Proxy
+
+
 
 ### 73.1 Arrangement
 
@@ -2631,6 +2929,8 @@ returns the result. No key is ever transmitted to, or stored on, a device.
 - A key is rotated in one place, not on every phone.
 - Per-project budgets, quotas and request counts become enforceable rather than advisory (§36).
 - Cost is attributable to a project, a user and a record.
+
+
 
 ### 73.3 Behaviour
 
@@ -2645,6 +2945,8 @@ project, user, model, size, duration, outcome and cost. This is the same discipl
 the server.
 
 ## 74. Deployment and API Surface
+
+
 
 ### 74.1 Deployment
 
@@ -2681,6 +2983,8 @@ POST /ai/refine               GET  /ai/usage
 GET  /health                  GET  /version
 ```
 
+
+
 ### 74.3 Compatibility
 
 The API is versioned. The application must tolerate a server that is older or newer than itself, and say so plainly
@@ -2696,10 +3000,12 @@ rather than failing obscurely; a version mismatch degrades to standalone behavio
 - Server logs carry no record values, no captions, no images — request metadata only.
 - An administrative audit log covering user, role, key, retention and purge changes.
 - File validation and size limits on every upload endpoint; packages are opaque blobs and are never unpacked
-  server-side.
+server-side.
 - Every device-side rule in §60 continues to apply unchanged.
 
 ---
+
+
 
 # Appendix A — Worked Example
 
@@ -2768,6 +3074,8 @@ MEDICAL_EQUIPMENT_2026-09-08_v2.zip
 The operator taps **Upload to cloud**, confirms the destination, and the ZIP goes to the organisation's Google Drive folder. Nothing else has left the device all day.
 
 ---
+
+
 
 # Appendix B — Core Product Principle
 
