@@ -14,7 +14,7 @@ Enforce per-project and per-organisation budgets server-side, and report usage.
 
 ## Contract
 
-```dart
+```ts
 GET /api/v1/ai/usage?project=&from=&to=
 ```
 

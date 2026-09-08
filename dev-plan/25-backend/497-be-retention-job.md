@@ -1,4 +1,4 @@
-# 497 — Retention purge job
+# 497 — Relay package purge job
 
 **Phase** 25 · Optional team backend  |  **Depends on** [495](495-be-relay-ack.md)
 
@@ -14,7 +14,7 @@ Write the scheduled job that deletes expired packages unconditionally, and prove
 
 ## Contract
 
-```dart
+```ts
 runPurge(now: Date): Promise<PurgeReport>
 ```
 

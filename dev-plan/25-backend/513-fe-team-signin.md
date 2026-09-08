@@ -10,11 +10,13 @@ Implement sign-in, device enrolment and cached credentials so no one meets a log
 
 ## Files
 
+- `frontend/lib/core/team/team_api_client.dart` (new)
 - `frontend/lib/features/team/presentation/sign_in_screen.dart` (new)
 
 ## Steps
 
-1. Cache the session for the configured period; refresh silently; degrade to standalone behaviour when unreachable.
+1. Put every authentication and enrolment call in the core client; the screen calls the client and never a server.
+2. Cache the session for the configured period; refresh silently; degrade to standalone behaviour when unreachable.
 
 ## Constraints
 

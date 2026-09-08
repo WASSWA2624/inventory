@@ -41,7 +41,7 @@ Tasks 042–083 (42). Each file is a standalone implementation prompt.
 - [ ] [076 — Step progress list](076-app-progress-steps.md)
 - [ ] [077 — Photo thumbnail](077-app-photo-thumb.md)
 - [ ] [078 — Form scaffold and validation display](078-app-form-scaffold.md)
-- [ ] [079 — Keyboard and focus utilities](079-keyboard-utils.md)
+- [ ] [079 — Keyboard dismissal and focus traversal](079-keyboard-focus.md)
 - [ ] [080 — Haptics service](080-haptics-service.md)
 - [ ] [081 — User-facing copy helper](081-copy-helper.md)
 - [ ] [082 — Widget gallery screen](082-widget-gallery.md)

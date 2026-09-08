@@ -1,6 +1,6 @@
 # 276 — Apply proposals to a record
 
-**Phase** 13 · Processing pipeline  |  **Depends on** [273](273-response-parse.md), [098](../04-data-layer/098-record-fields-table.md), [021](../01-orchestration/021-data-safety-rules.md)
+**Phase** 13 · Processing pipeline  |  **Depends on** [273](273-response-parse.md), [098](../04-data-layer/098-record-fields-table.md), [021](../01-orchestration/021-raw-data-test.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

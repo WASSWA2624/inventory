@@ -10,7 +10,7 @@ Add the client side of team mode: server address, enrolment state and a switch t
 
 ## Files
 
-- `frontend/lib/features/team/data/team_config.dart` (new)
+- `frontend/lib/core/team/team_config.dart` (new)
 - `frontend/lib/features/team/presentation/team_settings_screen.dart` (new)
 
 ## Constraints

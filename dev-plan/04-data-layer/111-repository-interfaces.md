@@ -1,6 +1,6 @@
 # 111 — Repository interfaces
 
-**Phase** 04 · Local database  |  **Depends on** [010](../01-orchestration/010-architecture-rules.md), [087](087-dao-conventions.md)
+**Phase** 04 · Local database  |  **Depends on** [010](../01-orchestration/010-layering-test.md), [087](087-dao-conventions.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

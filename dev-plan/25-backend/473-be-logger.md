@@ -14,7 +14,7 @@ Write the JSON logger with levels, request identifiers and a redaction list that
 
 ## Contract
 
-```dart
+```ts
 log.info(event: string, fields: Record<string, unknown>): void
 ```
 

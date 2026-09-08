@@ -1,6 +1,6 @@
 # 085 — Migration strategy and schema version
 
-**Phase** 04 · Local database  |  **Depends on** [084](084-drift-setup.md), [021](../01-orchestration/021-data-safety-rules.md)
+**Phase** 04 · Local database  |  **Depends on** [084](084-drift-setup.md), [021](../01-orchestration/021-raw-data-test.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

@@ -1,6 +1,6 @@
 # 126 — Imported file validation
 
-**Phase** 05 · File storage  |  **Depends on** [022](../01-orchestration/022-security-policy.md), [026](../02-foundation/026-result-and-failures.md)
+**Phase** 05 · File storage  |  **Depends on** [022](../01-orchestration/022-secret-scan.md), [026](../02-foundation/026-result-and-failures.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

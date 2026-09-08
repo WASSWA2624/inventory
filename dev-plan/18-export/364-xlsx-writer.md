@@ -25,7 +25,7 @@ Write records into a workbook, off the UI thread, with progress.
 
 ## Definition of done
 
-- [ ] A five-thousand-record export completes without freezing the interface.
+- [ ] A five-thousand-record export completes in under thirty seconds, with progress, without freezing the interface.
 - [ ] Tests written and passing: Test that output reopens in a spreadsheet reader with correct types.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

@@ -40,5 +40,8 @@ with that, the rule is wrong.
 1. The server never holds a durable copy of a project. Packages are transient ciphertext, purged on acknowledgement
    or expiry.
 2. The server never serves as backup. Backup is the user's manual export.
-3. The server cannot read project content. Packages arrive encrypted and leave encrypted.
+3. The server cannot read a relay package. Packages arrive encrypted, are stored encrypted and leave encrypted; the
+   server holds no key and has no code path that decrypts one. The AI proxy is the deliberate exception and the only
+   one: a request the user chose to send passes through in the clear on its way to the provider, is never persisted,
+   and is logged only as metadata (`07-ai-proxy.md`).
 4. The application must remain fully usable when this server does not exist.

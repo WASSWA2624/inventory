@@ -1,6 +1,6 @@
 # 434 — Treat imported text as data
 
-**Phase** 22 · Privacy and security  |  **Depends on** [022](../01-orchestration/022-security-policy.md), [272](../13-processing/272-extraction-request.md)
+**Phase** 22 · Privacy and security  |  **Depends on** [022](../01-orchestration/022-secret-scan.md), [272](../13-processing/272-extraction-request.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

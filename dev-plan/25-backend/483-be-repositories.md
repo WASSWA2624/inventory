@@ -14,7 +14,7 @@ Write the repository conventions and the transaction helper every multi-table wr
 
 ## Contract
 
-```dart
+```ts
 withTransaction<T>(fn: (tx: Tx) => Promise<T>): Promise<T>
 ```
 

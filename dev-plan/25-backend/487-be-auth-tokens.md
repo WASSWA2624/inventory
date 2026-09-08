@@ -14,7 +14,7 @@ Implement short-lived access tokens and rotating refresh tokens bound to an enro
 
 ## Contract
 
-```dart
+```ts
 issueTokens(userId, deviceId): Promise<TokenPair>;  rotate(refresh: string): Promise<TokenPair>
 ```
 

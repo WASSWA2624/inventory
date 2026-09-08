@@ -14,7 +14,7 @@ Write the test that keeps networking confined to the two places allowed to do it
 
 ## Steps
 
-1. Fail on any import of a HTTP client outside `frontend/lib/core/ai/` and `frontend/lib/core/cloud/`.
+1. Fail on any import of a HTTP client outside `frontend/lib/core/ai/`, `frontend/lib/core/cloud/` and `frontend/lib/core/team/`.
 2. Fail when a widget or domain file references a network client type.
 3. Assert no capture, records or export file imports a networking package.
 

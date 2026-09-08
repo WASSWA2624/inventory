@@ -14,9 +14,9 @@ Read [INDEX.md](INDEX.md) for the full list, or open a phase folder.
 ```text
 tapture/
 ├── frontend/           the Flutter application
-│   └── rules/          14 rule files — structure, theming, responsiveness, simplicity, l10n, a11y, ...
+│   └── rules/          13 rule files — structure, theming, responsiveness, simplicity, l10n, a11y, ...
 ├── backend/            the optional team server (post-MVP, specification Part XI)
-│   └── rules/          12 rule files — structure, API, data, security, relay boundary, AI proxy, ...
+│   └── rules/          11 rule files — structure, API, data, security, relay boundary, AI proxy, ...
 ├── dev-plan/           this plan
 └── app-write-up.md     the specification
 ```
@@ -58,6 +58,14 @@ self-contained.
 ## Definition of done  the checklist, including the tests
 ## Out of scope        the fence that stops this task growing
 ```
+
+Five of those are in every task: **Implement**, **Files**, **Constraints**, **Definition of done** and **Out of
+scope**. Three appear only where they say something a task cannot say without them — **Contract** where the task
+publishes an API other tasks call, **Steps** where the order of work is not obvious from the contract, and **Reuse**
+where a task is at genuine risk of rebuilding something that already exists. Their absence is not an omission.
+
+The reuse obligation itself is never optional: it lives in `frontend/rules/07-consistency.md` (FE-CONS-01, FE-CONS-02)
+and `frontend/rules/01-structure.md` (FE-STR-09), which every task inherits through its Constraints.
 
 ## Rules the plan enforces on itself
 

@@ -31,7 +31,7 @@ Tasks 470–517 (48). Each file is a standalone implementation prompt.
 - [ ] [494 — Relay: list and download packages](494-be-relay-fetch.md)
 - [ ] [495 — Relay: acknowledge and delete](495-be-relay-ack.md)
 - [ ] [496 — Relay: version vector state](496-be-relay-state.md)
-- [ ] [497 — Retention purge job](497-be-retention-job.md)
+- [ ] [497 — Relay package purge job](497-be-retention-job.md)
 - [ ] [498 — Storage ceilings and reporting](498-be-storage-limits.md)
 - [ ] [499 — AI provider abstraction](499-be-ai-provider.md)
 - [ ] [500 — Provider key custody](500-be-ai-keys.md)

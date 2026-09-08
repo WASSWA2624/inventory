@@ -10,7 +10,7 @@ Push and pull encrypted change packages, reusing the bundle and merge machinery 
 
 ## Files
 
-- `frontend/lib/features/team/data/relay_client.dart` (new)
+- `frontend/lib/core/team/relay_client.dart` (new)
 
 ## Steps
 

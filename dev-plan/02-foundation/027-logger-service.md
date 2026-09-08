@@ -1,6 +1,6 @@
 # 027 — Logger service
 
-**Phase** 02 · Foundation services  |  **Depends on** [026](026-result-and-failures.md), [016](../01-orchestration/016-logging-policy.md)
+**Phase** 02 · Foundation services  |  **Depends on** [026](026-result-and-failures.md), [016](../01-orchestration/016-logging-checker.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

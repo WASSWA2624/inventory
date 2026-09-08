@@ -22,7 +22,7 @@ Future<int> main(List<String> args)
 
 1. Assert file names are snake_case and that the primary public type name matches the file name.
 2. Assert providers are camelCase ending in Provider, and that a file declares at most one public class.
-3. Reject the words manager, data, info, util and helper in class names, naming the file and the offending identifier.
+3. Reject the words manager, helper, util, data, info and item in class names, naming the file and the offending identifier. Match whole camel-case segments, not substrings, so `ReferenceDataset` passes and `RecordData` does not; check only types this repository declares, so Flutter's `ThemeData` and `IconData` are never flagged.
 
 ## Constraints
 

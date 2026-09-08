@@ -11,7 +11,9 @@ Nothing ships with a provider key. Keys are entered by the user, or held by the 
 
 ## FE-SEC-03 — Egress is a closed list
 The only outbound calls are those in sections 7.1 and 7.3 of the specification, and only when the user enables them.
-Networking imports are confined to `core/ai/` and `core/cloud/`.
+Networking imports are confined to `core/ai/`, `core/cloud/` and `core/team/` — the last only for the team-mode
+backend of Part XI. A screen never speaks to a server; it calls a client in one of those three, which is why they are
+the only three places the boundary test allows an HTTP import.
 
 ## FE-SEC-04 — Offline mode is absolute
 One switch stops every outbound call. Capture, editing, review and export continue unaffected.

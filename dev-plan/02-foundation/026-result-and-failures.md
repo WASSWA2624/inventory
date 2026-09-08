@@ -1,6 +1,6 @@
 # 026 — Result type and failure taxonomy
 
-**Phase** 02 · Foundation services  |  **Depends on** [025](025-app-constants.md), [015](../01-orchestration/015-error-handling-policy.md)
+**Phase** 02 · Foundation services  |  **Depends on** [025](025-app-constants.md), [015](../01-orchestration/015-error-handling-test.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

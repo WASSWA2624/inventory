@@ -1,6 +1,6 @@
 # 154 — Field type registry
 
-**Phase** 09 · Templates  |  **Depends on** [153](153-template-model.md), [011](../01-orchestration/011-coding-standards.md)
+**Phase** 09 · Templates  |  **Depends on** [153](153-template-model.md), [011](../01-orchestration/011-naming-checker.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

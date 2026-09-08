@@ -17,7 +17,7 @@ Create every directory the architecture requires under frontend/, each with a ba
 
 ## Steps
 
-1. Create app/, and core/ with db, files, ai, export, import, merge, validation, normalise, security, errors, logging, time, ids, hash, concurrency, network, permissions, device, feedback, copy and widgets.
+1. Create app/, and core/ with ai, background, bundle, cloud, concurrency, constants, copy, db, device, errors, export, feedback, files, hash, ids, import, lifecycle, logging, naming, network, normalise, permissions, security, serialisation, team, time, validation and widgets. This list is exhaustive: it is every core directory the plan goes on to use, and `frontend/tool/paths.dart` is what makes that checkable.
 2. Create features/ with one folder per feature named in the plan, each containing empty data/, domain/ and presentation/ directories.
 3. Write `frontend/tool/paths.dart` exporting the canonical directory list as constants, so guardrail checkers read the structure from one place rather than hardcoding paths.
 

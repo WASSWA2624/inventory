@@ -15,7 +15,7 @@ Write the service that creates the stable device identifier and exposes device f
 ## Contract
 
 ```dart
-Future<String> deviceId();  Future<DeviceInfo> deviceInfo();
+Future<String> deviceId();  Future<DeviceDescriptor> deviceDescriptor();
 ```
 
 ## Steps

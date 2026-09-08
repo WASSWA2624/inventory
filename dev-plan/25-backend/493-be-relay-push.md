@@ -14,7 +14,7 @@ Implement the upload endpoint: opaque, size-limited, idempotent, membership-scop
 
 ## Contract
 
-```dart
+```ts
 POST /api/v1/projects/:id/relay/packages  (Idempotency-Key header)
 ```
 

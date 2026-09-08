@@ -15,7 +15,7 @@ Write the error hierarchy and the middleware that renders it as the single docum
 
 ## Contract
 
-```dart
+```ts
 class AppError extends Error { code: ErrorCode; status: number; publicMessage: string; details?: object }
 ```
 

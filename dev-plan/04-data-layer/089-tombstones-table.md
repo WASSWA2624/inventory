@@ -1,6 +1,6 @@
 # 089 — Tombstones table
 
-**Phase** 04 · Local database  |  **Depends on** [086](086-column-mixins.md), [021](../01-orchestration/021-data-safety-rules.md)
+**Phase** 04 · Local database  |  **Depends on** [086](086-column-mixins.md), [021](../01-orchestration/021-raw-data-test.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

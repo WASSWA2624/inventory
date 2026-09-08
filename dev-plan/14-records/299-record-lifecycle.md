@@ -1,6 +1,6 @@
 # 299 — Record status lifecycle
 
-**Phase** 14 · Records  |  **Depends on** [298](298-record-model.md), [021](../01-orchestration/021-data-safety-rules.md)
+**Phase** 14 · Records  |  **Depends on** [298](298-record-model.md), [021](../01-orchestration/021-raw-data-test.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

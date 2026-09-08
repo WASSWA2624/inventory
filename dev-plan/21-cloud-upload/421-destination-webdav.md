@@ -10,7 +10,7 @@ Upload to a URL with basic or token authentication.
 
 ## Files
 
-- `frontend/lib/features/cloud/data/webdav_destination.dart` (new)
+- `frontend/lib/core/cloud/webdav_destination.dart` (new)
 
 ## Constraints
 

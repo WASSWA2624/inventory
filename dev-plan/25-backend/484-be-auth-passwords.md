@@ -14,7 +14,7 @@ Implement password hashing with a memory-hard function and documented parameters
 
 ## Contract
 
-```dart
+```ts
 hashPassword(plain: string): Promise<string>;  verifyPassword(plain: string, hash: string): Promise<boolean>
 ```
 

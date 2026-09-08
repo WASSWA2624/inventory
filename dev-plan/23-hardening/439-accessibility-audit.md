@@ -1,6 +1,6 @@
 # 439 — Accessibility audit
 
-**Phase** 23 · Hardening  |  **Depends on** [019](../01-orchestration/019-accessibility-policy.md), [082](../03-design-system/082-widget-gallery.md)
+**Phase** 23 · Hardening  |  **Depends on** [019](../01-orchestration/019-accessibility-matchers.md), [082](../03-design-system/082-widget-gallery.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

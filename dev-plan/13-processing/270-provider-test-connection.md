@@ -14,7 +14,8 @@ A single call that proves the key and endpoint work, with a clear result.
 
 ## Steps
 
-1. Send the smallest possible request; report success, auth failure or network failure distinctly.
+1. Send the smallest possible request through the registry in `frontend/lib/core/ai/`; this action never imports a HTTP client itself.
+2. Report success, auth failure or network failure distinctly.
 
 ## Constraints
 

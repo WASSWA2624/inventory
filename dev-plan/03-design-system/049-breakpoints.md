@@ -1,6 +1,6 @@
 # 049 — Breakpoints and responsive helpers
 
-**Phase** 03 · Design system  |  **Depends on** [018](../01-orchestration/018-responsiveness-policy.md), [044](044-spacing-tokens.md)
+**Phase** 03 · Design system  |  **Depends on** [018](../01-orchestration/018-responsive-test.md), [044](044-spacing-tokens.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

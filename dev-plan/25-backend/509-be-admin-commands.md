@@ -14,7 +14,7 @@ Write the two administrative commands the deployment rules require.
 
 ## Contract
 
-```dart
+```ts
 npm run admin -- export --out <dir> | npm run admin -- destroy --confirm <org>
 ```
 

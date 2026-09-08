@@ -10,7 +10,7 @@ Copy an export to an SD card or a folder chosen with the system picker.
 
 ## Files
 
-- `frontend/lib/features/cloud/data/local_destination.dart` (new)
+- `frontend/lib/core/cloud/local_destination.dart` (new)
 
 ## Constraints
 

@@ -14,7 +14,7 @@ Write the interface every provider implements, plus a fake used by every test.
 
 ## Contract
 
-```dart
+```ts
 interface AiProvider { extract(req): Promise<Res>; ocr(req): Promise<Res>; transcribe(req): Promise<Res>; refine(req): Promise<Res> }
 ```
 

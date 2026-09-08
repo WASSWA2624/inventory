@@ -26,8 +26,12 @@ No second copy for safety, no cold storage, no "just in case" bucket, no analyti
 window re-synchronises from a peer.
 
 ## BE-RELAY-06 — Metadata is minimal and listed
-Package identifier, project, author device, byte size, created time, expiry, acknowledgement state. Nothing else.
-Adding a metadata column requires a task and a written justification.
+Package identifier, project, author device, byte size, created time, expiry, acknowledgement state. Nothing else on
+the package row. Adding a metadata column requires a task and a written justification.
+
+Version vectors are the one adjacent record, kept per project and device rather than per package, so a returning
+device can be told what it has yet to receive (task 496). They carry counters and device identifiers only — never a
+record identifier, a field name or anything else drawn from project content.
 
 ## BE-RELAY-07 — Access is membership-scoped
 A package is downloadable only by an enrolled device of a member of that project. Every access is authorised in the

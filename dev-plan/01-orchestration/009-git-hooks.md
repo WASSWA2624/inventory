@@ -1,6 +1,6 @@
 # 009 — Git hook installer
 
-**Phase** 01 · Project setup and guardrails  |  **Depends on** [008](008-review-checklist.md)
+**Phase** 01 · Project setup and guardrails  |  **Depends on** [008](008-verify-command.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

@@ -10,7 +10,7 @@ Configure and upload to an S3-compatible bucket with user-supplied keys.
 
 ## Files
 
-- `frontend/lib/features/cloud/data/s3_destination.dart` (new)
+- `frontend/lib/core/cloud/s3_destination.dart` (new)
 
 ## Steps
 

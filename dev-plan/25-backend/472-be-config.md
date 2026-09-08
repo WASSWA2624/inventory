@@ -14,7 +14,7 @@ Write the typed configuration module that reads the environment once, validates 
 
 ## Contract
 
-```dart
+```ts
 export const config: AppConfig;  // throws at import time on invalid environment
 ```
 

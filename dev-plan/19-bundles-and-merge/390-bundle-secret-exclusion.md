@@ -1,6 +1,6 @@
 # 390 — Exclude secrets from bundles
 
-**Phase** 19 · Bundles and merge  |  **Depends on** [387](387-bundle-writer.md), [022](../01-orchestration/022-security-policy.md)
+**Phase** 19 · Bundles and merge  |  **Depends on** [387](387-bundle-writer.md), [022](../01-orchestration/022-secret-scan.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

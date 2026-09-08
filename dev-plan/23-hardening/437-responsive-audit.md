@@ -1,6 +1,6 @@
 # 437 — Responsive audit
 
-**Phase** 23 · Hardening  |  **Depends on** [018](../01-orchestration/018-responsiveness-policy.md), [128](../06-app-shell/128-nav-shell.md)
+**Phase** 23 · Hardening  |  **Depends on** [018](../01-orchestration/018-responsive-test.md), [128](../06-app-shell/128-nav-shell.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

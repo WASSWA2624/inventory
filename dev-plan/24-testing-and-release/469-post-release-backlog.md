@@ -1,6 +1,6 @@
 # 469 — Backlog report generator
 
-**Phase** 24 · Testing and release  |  **Depends on** [006](../01-orchestration/006-how-to-use-this-plan.md), [452](../23-hardening/452-field-trial.md)
+**Phase** 24 · Testing and release  |  **Depends on** [006](../01-orchestration/006-plan-integrity-checker.md), [452](../23-hardening/452-field-trial.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

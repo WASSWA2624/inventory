@@ -10,7 +10,7 @@ Model a destination: kind, label, folder and a credential reference held in secu
 
 ## Files
 
-- `frontend/lib/features/cloud/domain/cloud_destination.dart` (new)
+- `frontend/lib/core/cloud/cloud_destination.dart` (new)
 
 ## Steps
 

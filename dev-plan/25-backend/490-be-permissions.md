@@ -14,7 +14,7 @@ Write one permission function per capability and the table-driven test that cove
 
 ## Contract
 
-```dart
+```ts
 can(principal: Principal, capability: Capability, scope?: Scope): boolean
 ```
 

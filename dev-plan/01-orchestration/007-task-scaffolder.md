@@ -1,6 +1,6 @@
 # 007 — Task scaffolding tool
 
-**Phase** 01 · Project setup and guardrails  |  **Depends on** [006](006-how-to-use-this-plan.md)
+**Phase** 01 · Project setup and guardrails  |  **Depends on** [006](006-plan-integrity-checker.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

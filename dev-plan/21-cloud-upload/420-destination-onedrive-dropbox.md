@@ -10,7 +10,8 @@ The same flow for the other two consumer providers.
 
 ## Files
 
-- `frontend/lib/features/cloud/data/oauth_destinations.dart` (new)
+- `frontend/lib/core/cloud/onedrive_destination.dart` (new)
+- `frontend/lib/core/cloud/dropbox_destination.dart` (new)
 
 ## Reuse
 

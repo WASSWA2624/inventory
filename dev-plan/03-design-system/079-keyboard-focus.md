@@ -1,4 +1,4 @@
-# 079 — Keyboard and focus utilities
+# 079 — Keyboard dismissal and focus traversal
 
 **Phase** 03 · Design system  |  **Depends on** [078](078-app-form-scaffold.md)
 
@@ -10,12 +10,13 @@ Dismiss on scroll, next-field traversal, and keeping the focused field visible.
 
 ## Files
 
-- `frontend/lib/core/widgets/forms/keyboard_utils.dart` (new)
+- `frontend/lib/core/widgets/forms/focus_actions.dart` (new)
+- `frontend/lib/core/widgets/forms/keep_focused_visible.dart` (new)
 
 ## Contract
 
 ```dart
-extension FocusX on BuildContext { void dismissKeyboard(); void focusNext(); }
+extension FocusActions on BuildContext { void dismissKeyboard(); void focusNext(); }
 class KeepFocusedVisible extends StatelessWidget { final Widget child; }
 ```
 

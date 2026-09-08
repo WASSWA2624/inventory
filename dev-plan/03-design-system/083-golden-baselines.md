@@ -1,6 +1,6 @@
 # 083 — Golden test baselines for the catalogue
 
-**Phase** 03 · Design system  |  **Depends on** [082](082-widget-gallery.md), [017](../01-orchestration/017-testing-policy.md)
+**Phase** 03 · Design system  |  **Depends on** [082](082-widget-gallery.md), [017](../01-orchestration/017-test-presence-checker.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

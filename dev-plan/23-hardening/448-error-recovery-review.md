@@ -1,6 +1,6 @@
 # 448 — Failure injection suite
 
-**Phase** 23 · Hardening  |  **Depends on** [015](../01-orchestration/015-error-handling-policy.md), [254](../12-capture/254-capture-recovery.md)
+**Phase** 23 · Hardening  |  **Depends on** [015](../01-orchestration/015-error-handling-test.md), [254](../12-capture/254-capture-recovery.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

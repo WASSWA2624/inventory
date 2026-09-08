@@ -10,7 +10,7 @@ Sign in with the user's own account and upload to a chosen folder.
 
 ## Files
 
-- `frontend/lib/features/cloud/data/google_drive_destination.dart` (new)
+- `frontend/lib/core/cloud/google_drive_destination.dart` (new)
 
 ## Steps
 

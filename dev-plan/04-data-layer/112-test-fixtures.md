@@ -1,6 +1,6 @@
 # 112 — Test fixtures and object factories
 
-**Phase** 04 · Local database  |  **Depends on** [017](../01-orchestration/017-testing-policy.md), [097](097-records-table.md), [094](094-template-fields-table.md)
+**Phase** 04 · Local database  |  **Depends on** [017](../01-orchestration/017-test-presence-checker.md), [097](097-records-table.md), [094](094-template-fields-table.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

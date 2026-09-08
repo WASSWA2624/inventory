@@ -1,6 +1,6 @@
 # 042 — Colour tokens for light and dark
 
-**Phase** 03 · Design system  |  **Depends on** [013](../01-orchestration/013-reuse-policy.md), [023](../02-foundation/023-app-bootstrap.md)
+**Phase** 03 · Design system  |  **Depends on** [013](../01-orchestration/013-design-token-test.md), [023](../02-foundation/023-app-bootstrap.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

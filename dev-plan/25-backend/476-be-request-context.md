@@ -14,7 +14,7 @@ Generate a request identifier at the edge, propagate it through services and ret
 
 ## Contract
 
-```dart
+```ts
 export const ctx: AsyncLocalStorage<RequestContext>;
 ```
 

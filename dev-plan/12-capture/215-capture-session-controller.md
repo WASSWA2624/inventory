@@ -1,6 +1,6 @@
 # 215 — Capture session controller
 
-**Phase** 12 · Capture  |  **Depends on** [214](214-capture-session-model.md), [014](../01-orchestration/014-state-management-conventions.md)
+**Phase** 12 · Capture  |  **Depends on** [214](214-capture-session-model.md), [014](../01-orchestration/014-riverpod-test.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 

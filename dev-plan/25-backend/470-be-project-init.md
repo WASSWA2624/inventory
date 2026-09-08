@@ -16,7 +16,7 @@ Create the Node and TypeScript project in backend/ with strict compiler settings
 
 ## Contract
 
-```dart
+```ts
 npm run dev | npm run build | npm run test | npm run verify
 ```
 

@@ -1,7 +1,7 @@
 # 06 — Simplicity
 
 The product's central claim is that a field worker can use it. These rules are how that claim survives contact with
-469 features.
+475 features.
 
 *Built into tasks 048, 052, 127-133; audited by 439 and 442.*
 

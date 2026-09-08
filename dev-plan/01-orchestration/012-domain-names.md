@@ -1,6 +1,6 @@
 # 012 — Canonical domain names
 
-**Phase** 01 · Project setup and guardrails  |  **Depends on** [011](011-coding-standards.md)
+**Phase** 01 · Project setup and guardrails  |  **Depends on** [011](011-naming-checker.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 
