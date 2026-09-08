@@ -1,7 +1,7 @@
 # Tapture — Product & Technical Specification
 
 **Document status:** Revision 2 — supersedes all earlier drafts.
-**Architecture:** Local-first. The application runs entirely on the device; there is no application backend and no automatic cloud synchronisation.
+**Architecture:** Local-first, with an optional minimal backend. The device is always the store of record. An organisation may add a small server for accounts, roles, AI key custody and change relay (Part XI); the application is complete and fully usable without it.
 
 ---
 
@@ -96,6 +96,14 @@
 68. Product Naming
 69. Requirements Coverage Matrix
 
+**Part XI — The Optional Backend**
+70. Purpose and Boundaries
+71. Accounts, Identity and Roles
+72. Change Relay
+73. AI Key Custody and Proxy
+74. Deployment and API Surface
+75. Backend Security and Retention
+
 **Appendices**
 A. Worked Example
 B. Core Product Principle
@@ -131,28 +139,35 @@ Everything is stored on the device. Network access is used only for the online A
 - Peer-to-peer collaboration by exchanging project bundles, with merge and conflict resolution.
 - Meeting capture, including attendance photos and refined minutes.
 - Manual, user-initiated upload of exports to a cloud storage account.
+- Two deployment modes: **standalone** (no server at all) and **team** (an optional minimal backend).
+- An optional backend providing accounts, organisation identity, roles, AI key custody and change relay (Part XI).
 
 ### 2.2 Out of scope
 
-- No application server, no hosted database, no user accounts, no server-side roles.
-- No automatic background upload of project data anywhere.
-- No server-side backup. Backup is the user's ZIP export, kept wherever the user chooses.
+- **No server-side backup, in either mode.** Backup is the user's ZIP export, kept wherever the user chooses (§54). The backend relays changes; it never becomes a durable copy of a project (§70.2, §72.4).
+- No automatic upload of project data in standalone mode. In team mode, relay is per project, off by default and explicitly configured (§72.5).
+- No mandatory backend. Every capability except the five listed in §70.1 works with no server present.
+- No multi-tenant hosted service. The backend, when used, is run by the organisation that owns the data.
 - No model training on user data.
 
-### 2.3 Consequences of having no backend
+### 2.3 The two deployment modes
 
-| Concern | Local-first answer |
-|---|---|
-| Authentication | None required. The app opens straight into work. An optional device lock (PIN / biometric) protects the app. |
-| User identity | A local **operator profile** (name, optional initials/ID) used for attribution and merge. |
-| Roles & permissions | Not enforced by software. Every operator on a device has full control of the projects on that device. |
-| Multi-user work | Bundle export, transfer, import, merge (Part VII). |
-| AI keys | Supplied by the user, held in platform secure storage on the device (§30, §60). |
-| Backup | Manual ZIP export, optionally uploaded to the user's own cloud account (§54). |
+Standalone mode is the default and the baseline: everything works with no server. Team mode adds a minimal backend
+(Part XI) that answers the concerns a single device cannot answer for itself. **Backup is the deliberate exception —
+it stays local in both modes.**
+
+| Concern | Standalone mode | Team mode (optional backend) |
+|---|---|---|
+| Authentication | None required. The app opens straight into work; an optional device lock (PIN / biometric) protects it. | Sign in once per device against the organisation's server, then cached for field work (§71.1, §70.4). |
+| User identity | A local **operator profile** (name, optional initials/ID) used for attribution and merge. | One organisation-wide identity, so attribution and merge agree across every device (§71.2). |
+| Roles & permissions | Not enforced by software. Every operator on a device has full control of the projects on that device. | Roles enforced by the server for everything it mediates, and mirrored on device as affordances (§71.3). |
+| Multi-user work | Bundle export, transfer, import, merge by hand (Part VII). | The same merge machinery, with change packages relayed by the server instead of carried by hand (§72). |
+| AI keys | Supplied by the user, held in platform secure storage on the device (§30, §60). | Held only by the backend, which proxies provider calls, so no device holds a key (§73). |
+| Backup | Manual ZIP export, optionally uploaded to the user's own cloud account (§54). | **Unchanged.** Manual ZIP export, optionally uploaded to the user's own cloud account (§54). The backend stores no backup (§70.3). |
 
 ## 3. Design Principles
 
-1. **Local first.** The device is the system of record. The app is fully usable with the network permanently off.
+1. **Local first.** The device is the store of record in both modes. The app is fully usable with the network permanently off, and the optional backend coordinates work without ever owning the data (§70.2).
 2. **Extremely simple.** One obvious action per screen. A field worker completes a record in a handful of taps (§56).
 3. **Evidence first.** Every value can be traced back to a photo, a document, a transcript or a person.
 4. **Never invent.** Unknown is `null`, never a plausible guess (§34).
@@ -264,7 +279,7 @@ Device B: Import bundle -> merge preview -> resolve conflicts -> merged project
 
 ## 7. Local-Only Data Policy
 
-All project data — database, photos, documents, audio, exports — lives in device storage. Nothing is transmitted automatically.
+All project data — database, photos, documents, audio, exports — lives in device storage. Nothing is transmitted automatically. This section describes standalone mode; team mode adds only the traffic in §7.3 and changes nothing else.
 
 ### 7.1 The only permitted outbound traffic
 
@@ -284,6 +299,25 @@ All project data — database, photos, documents, audio, exports — lives in de
 - Each project can disable AI entirely, making it a pure manual-entry project.
 - A per-project **Do not send images** switch forces on-device OCR only.
 - The user is shown, before the first online call of a session, what will be sent (count of images and approximate size).
+
+### 7.3 Additional traffic in team mode
+
+Present only when an organisation has configured a backend (Part XI). Everything above still applies.
+
+| Operation | Data sent | Trigger | Optional? |
+|---|---|---|---|
+| Sign-in and token refresh | Credentials, organisation and device identifiers | First launch on a device, then on token expiry | No, once team mode is enabled |
+| AI proxy | The same payload as a direct provider call (§31), addressed to the organisation's server instead | User taps Analyse, or runs the processing queue | Yes — a project may disable AI entirely |
+| Change relay push | An encrypted change package: records, values and files changed since the last acknowledged version | Explicit action, or the schedule the project sets (§72.5) | Yes — relay is per project and off by default |
+| Change relay pull | Acknowledgements and other devices' encrypted packages | Same | Yes |
+| Directory and role refresh | Organisation users, project membership, role grants | Periodically and at sign-in | No, once team mode is enabled |
+
+Team-mode guarantees:
+
+- Relay packages are encrypted on the device; the server stores ciphertext it cannot read (§72.6).
+- The server keeps no durable copy: packages are purged once acknowledged, or after the retention window (§72.4).
+- Offline mode blocks relay and proxy traffic exactly as it blocks provider traffic; capture, review and export continue.
+- A project can be marked **never relay**, keeping it device-local inside a team deployment.
 
 ## 8. On-Device Folder Layout
 
@@ -466,7 +500,7 @@ Documents, audio clips, meeting rows, reference rows, jobs and exports follow th
 
 ## 10. Identity, Versioning & Change Tracking
 
-Because projects merge between devices with no server to arbitrate, identity and change tracking are part of the data model, not an afterthought.
+Because projects merge between devices — and because even in team mode the server only relays changes rather than arbitrating them — identity and change tracking are part of the data model, not an afterthought.
 
 1. **UUIDv7 for every row**, generated on the device. Time-ordered, so lists sort naturally and two devices never collide.
 2. **Device ID**: a random identifier created at first launch, stored in the device profile, never reused.
@@ -1185,6 +1219,7 @@ Implementations: on-device (ML Kit OCR, platform STT), and one implementation pe
 - Keys are stored in platform secure storage (Android Keystore / iOS Keychain via `flutter_secure_storage`), never in the database, never in logs, never in exports or bundles.
 - Keys are shown masked after entry and can be tested with a one-call **Test connection** button.
 - Per project, the user can select which configured provider to use, or none.
+- **In team mode the key need never touch a device at all**: the backend holds it and proxies the call (§73). This is the recommended arrangement for an organisation, because a key can then be rotated in one place and no lost device carries one.
 
 ### 30.3 Behaviour without a network
 
@@ -1552,7 +1587,7 @@ Flags carried alongside the status: `exported_at`, `has_duplicate`, `has_conflic
 
 ## 43. History & Audit Trail
 
-Every change is recorded locally. There is no server to consult, so the device's log is the record.
+Every change is recorded locally, and the device's log is the record. In team mode the backend relays audit entries along with everything else, but never becomes the authority for them.
 
 ```text
 Record 124
@@ -1575,7 +1610,7 @@ Audit entries store: timestamp, operator, device, entity, action, field, previou
 
 ## 44. Multi-Device Collaboration Model
 
-Several people can work on one project without a server. Each device holds a complete, independent copy; copies are reconciled by exchanging bundles.
+Several people can work on one project with or without a server. Each device holds a complete, independent copy; copies are reconciled by exchanging bundles. Team mode automates the transport of those bundles (§72) and changes nothing about how they merge.
 
 ```text
 Device A  ----export bundle---->  transfer  ---->  Device B  (import + merge)
@@ -1583,7 +1618,7 @@ Device B  ----export bundle---->  transfer  ---->  Device A  (import + merge)
 Device C  ----export bundle---->  transfer  ---->  Device A  (import + merge)
 ```
 
-Transfer is by any means the user prefers: share sheet, cable, SD card, Bluetooth, local Wi-Fi share, e-mail, or a cloud folder the user uploads to manually (§54).
+Transfer is by any means the user prefers: share sheet, cable, SD card, Bluetooth, local Wi-Fi share, e-mail, a cloud folder the user uploads to manually (§54), or — in team mode — the change relay (§72).
 
 Principles:
 
@@ -1979,7 +2014,7 @@ Tapping **Upload to cloud** shows the configured destinations, the file size, an
 
 ## 55. Navigation & Screens
 
-Four destinations. No login, no dashboard the user must pass through.
+Four destinations. No dashboard the user must pass through, and no login in standalone mode.
 
 ```text
 [ Projects ]      [ CAPTURE ]      [ Records ]      [ More ]
@@ -2046,7 +2081,7 @@ Concrete, testable rules that keep the interface extremely simple.
 2. **Four navigation destinations**, never more.
 3. **A record can be created in three taps**: Capture → shutter → Save.
 4. **No mandatory setup.** A new user can capture within 30 seconds of installing, using a shipped template and the Generic Item fallback.
-5. **No login, no account, no onboarding tour.**
+5. **No login, no account, no onboarding tour.** In team mode this becomes one sign-in per device, cached so that no one meets a login screen in the field (§70.4).
 6. **Everything advanced is behind "Advanced"** or in More; the default screens show only what a field worker needs.
 7. **Defaults are always sensible**: today's date, the current context, the last template, the last camera settings.
 8. **No dialog chains.** At most one decision at a time, and every decision has a safe default.
@@ -2060,7 +2095,13 @@ Concrete, testable rules that keep the interface extremely simple.
 
 ```text
 Operator
-  Name, initials, contact                        (local only)
+  Name, initials, contact                        (local only in standalone mode)
+
+Team (only when a backend is configured, Part XI)
+  Server address, sign-in and enrolled device
+  Organisation role                              (read-only)
+  Relay: per project, schedule, Wi-Fi only       off by default
+  Queued, sent and purged packages
 
 Capture
   Default camera mode, flash, grid
@@ -2137,7 +2178,7 @@ Techniques: paged queries and indexes on project, status, context, identity hash
 
 ### 60.2 Data leaving the device
 
-- Only the operations listed in §7.1, only when the user enables them.
+- Only the operations listed in §7.1 and, when a backend is configured, §7.3 — and only when the user enables them.
 - A one-screen summary before the first online call of a session states what will be sent.
 - Bundles and exports never contain credentials or device secrets.
 
@@ -2168,7 +2209,7 @@ Drift + SQLite      local database
 Isolates            image processing, export generation, merge
 ```
 
-There is no server component, no ORM on a backend, and no hosted database. AI providers are reached directly over HTTPS from the device using the user's own key.
+In standalone mode there is no server component and no hosted database; AI providers are reached directly over HTTPS from the device using the user's own key. In team mode the optional backend (Part XI) is a small Node.js and Express service over PostgreSQL, reached through a versioned REST API; the Flutter application is identical in both modes and treats the backend as one more injectable service.
 
 Platform portability: nothing in the design depends on Android-only APIs beyond the standard camera, storage, speech and secure-storage plugins, so iOS and desktop targets remain reachable.
 
@@ -2359,7 +2400,7 @@ Desktop build for consolidation and reporting
 
 ## 67. Definition of Done — MVP
 
-A user can, on one device with no account and no server:
+The MVP is standalone. Team mode (Part XI) is deliberately outside it: the application must be complete and shippable with no server in existence. A user can, on one device with no account and no server:
 
 - Create a project and choose or import a template.
 - Set a context hierarchy and have it persist across records.
@@ -2418,11 +2459,245 @@ Before public release, confirm the name is clear on the Google Play Store and wi
 | Inventory of anything | §3 (principle 9), §6, §11, §13 |
 | Predefined shipped templates, derived templates, templates from scratch | §11.1, §13 |
 | Duplicate entries overridden after human review | §40 |
-| No backend backup; local storage only; manual cloud upload button | §2.2, §7, §54 |
+| No backend backup; local storage only; manual cloud upload button | §2.2, §7, §54, §70.3 |
+| Optional minimal backend for accounts, identity, roles, keys and multi-user relay | Part XI (§70–§75) |
 | Data suitable for data centres | §49.2 data dictionary, §49 JSON/CSV |
 | Export and import: CSV, PDF, JSON, ZIP, XLSX | §49 |
 | Upload to Google Drive, AWS and similar with user credentials | §54.2 |
 | Prefilled templates: supplier or manufacturer lists matched by ID | §16.2, §16.3 |
+
+---
+
+# Part XI — The Optional Backend
+
+## 70. Purpose and Boundaries
+
+Tapture runs in one of two modes. The application binary is identical in both; the backend only supplies what a
+single device cannot supply for itself.
+
+| | Standalone mode (default) | Team mode |
+|---|---|---|
+| Backend | None | One small server, run by the organisation that owns the data |
+| Sign-in | Not required | Once per device, then cached (§70.4) |
+| Store of record | The device | Still the device |
+| Works fully offline | Yes | Yes |
+| Backup | Manual ZIP export (§54) | Manual ZIP export (§54) — unchanged |
+
+### 70.1 What the backend provides
+
+1. **Accounts and authentication** — real sign-in, password reset, device enrolment (§71.1).
+2. **One organisation-wide identity** per operator, so attribution and merge agree across every device (§71.2).
+3. **Roles and permissions**, enforced by software rather than by convention (§71.3).
+4. **Custody of AI provider keys**, so no device holds a key (§73).
+5. **A change relay**, so devices reconcile without anyone carrying a bundle by hand (§72).
+
+That list is the whole of it. Anything not on it is a device responsibility and stays one.
+
+### 70.2 What the backend must never do
+
+- Become the store of record. The device holds the authoritative project; the server holds transit, not truth.
+- Keep a durable copy of a project. Relay packages are transient and purged (§72.4).
+- Serve as backup, in any disguise. Backup remains the user's manual ZIP export (§54).
+- Receive anything at all in standalone mode.
+- Be required for capture, review, editing, validation, export, bundle exchange or merge.
+- Read project content. Relay packages are encrypted on the device (§72.6).
+- Train on user data, or retain provider payloads beyond the request (§73.4).
+- Weaken any device-side rule: raw evidence preserved, no invention, human approval before data is final.
+
+### 70.3 Why backup is deliberately excluded
+
+A relay that keeps a durable copy is a backup by another name. It would move the organisation's data-protection
+obligations onto the server, change what the operator must be told, and quietly make the server the place data
+really lives — the opposite of this design. Keeping relay packages transient and encrypted makes the distinction
+real and testable rather than a matter of policy language.
+
+An organisation that wants a server-held archive achieves it the same way a single user does: export a bundle or a
+data package (§45, §49) and upload it to storage it controls (§54). That path is explicit, auditable and already
+specified.
+
+### 70.4 Behaviour when the backend is unreachable
+
+Team mode with the server down behaves exactly like standalone mode:
+
+- Capture, review, editing, validation, export and manual bundle exchange all continue.
+- Role checks fall back to the last cached grant, which has a configurable lifetime (default 30 days).
+- Sign-in is cached for a configurable period, so no one meets a login screen in the field.
+- AI proxy calls queue in the processing queue (§26) exactly as provider calls do.
+- Relay packages accumulate locally and are pushed when the server returns.
+
+A device that has been offline past its cached-grant lifetime keeps full read and capture access to its own projects
+and is asked to sign in before relaying.
+
+## 71. Accounts, Identity and Roles
+
+### 71.1 Accounts
+
+Register or invite, sign in, sign out, change password, reset password. Optional single sign-on may be added later
+without changing the application. Signing in enrols the device: the device identifier (§10) is bound to the user
+account, which is what makes server-side roles meaningful.
+
+### 71.2 Identity
+
+In team mode the server-issued user identifier supersedes the local operator profile for attribution and merge. Every
+record, edit, approval and audit entry carries it, so two devices never disagree about who did what. A device that
+worked standalone before enrolment keeps its history: the local operator profile is reconciled to the account at
+enrolment and prior entries are annotated, never rewritten.
+
+### 71.3 Roles
+
+| Role | May |
+|---|---|
+| **Administrator** | Manage users and devices, create projects, hold and rotate provider keys, configure relay and retention |
+| **Project manager** | Create and configure projects and templates, assign members, review, approve, export |
+| **Reviewer** | Review, correct, approve and reject records; resolve duplicates and conflicts |
+| **Field operator** | Capture, edit their own unapproved records, run processing, export their own work |
+
+The server enforces roles for everything it mediates: project membership, relay access, key use, directory changes
+and administrative actions. The application mirrors them as affordances, hiding what a role cannot do.
+
+**Stated plainly:** because every device holds a complete local copy, device-side role display is guidance, not a
+security boundary. The enforceable boundary is the server — the relay and the key proxy. An organisation that needs a
+harder boundary must not put a project on a device it does not trust.
+
+### 71.4 Membership and assignment
+
+A project has members, each with a role for that project. Members can be assigned context subtrees — a district, a
+facility — which is the practical way to keep two people from editing the same record and so keeps conflicts rare by
+construction (§44.1).
+
+## 72. Change Relay
+
+### 72.1 The model
+
+The relay is transport, not logic. It carries exactly the packages described in Part VII, and merge, conflict
+resolution, duplicate detection and undo all still run on the device, unchanged.
+
+```text
+Device A ── encrypted change package ──▶ ┌──────────┐ ──▶ Device B  (merge on device)
+                                         │  Relay   │
+Device C ◀── other devices' packages ─── └──────────┘ ◀── acknowledgements
+                                    (ciphertext, purged once acknowledged)
+```
+
+### 72.2 The package
+
+A delta bundle (§45) scoped to everything changed since the last version acknowledged by the receiving device, carrying
+its version vectors (§47) so the receiver can classify every entity exactly as it would from a hand-carried bundle.
+Photos and documents travel by content hash, so a file already held is never sent again.
+
+### 72.3 The flow
+
+```text
+Local change ──▶ pending queue ──▶ (explicit action or schedule) ──▶ encrypt ──▶ push
+Pull ──▶ decrypt ──▶ merge preview (§48) ──▶ conflicts to a human ──▶ apply ──▶ acknowledge
+```
+
+Merge is never applied silently on the strength of the transport: the preview and conflict rules of §47 and §48 apply
+identically to a relayed package.
+
+### 72.4 Retention — the rule that keeps this from being a backup
+
+- A package is deleted as soon as every enrolled device on the project has acknowledged it.
+- Any package older than the retention window (default 30 days, configurable, hard maximum 90) is deleted whether or
+  not it has been acknowledged.
+- The server retains only version vectors, package metadata and acknowledgement state — never project content.
+- A device that misses the window re-synchronises from a peer with a full bundle, exactly as in standalone mode.
+- Purging is automatic, logged, and verifiable by an administrator.
+
+### 72.5 Relay rules
+
+- Relay is **per project and off by default**; enabling it is an explicit act by a project manager.
+- Push happens on explicit action, or on a schedule the project sets (for example, at the end of each day).
+- Metered connections are avoided unless the user allows them; large packages wait for Wi-Fi.
+- A project may be marked **never relay**, keeping it device-local inside a team deployment.
+- The user can always see what is queued, what was sent and what was purged.
+
+### 72.6 Encryption
+
+Packages are encrypted on the device with a project key held by member devices and distributed at enrolment. The server
+stores ciphertext it cannot read, which makes §70.2 an architectural fact rather than a promise. Losing every member
+device loses the project — which is precisely why backup remains a deliberate, local, user-controlled act (§54).
+
+## 73. AI Key Custody and Proxy
+
+### 73.1 Arrangement
+
+The organisation holds provider keys on the backend. Devices call the backend; the backend calls the provider and
+returns the result. No key is ever transmitted to, or stored on, a device.
+
+### 73.2 Why this is better than keys on devices
+
+- A lost or stolen device carries no key.
+- A key is rotated in one place, not on every phone.
+- Per-project budgets, quotas and request counts become enforceable rather than advisory (§36).
+- Cost is attributable to a project, a user and a record.
+
+### 73.3 Behaviour
+
+The request and response are exactly those specified in §31; the backend adds no interpretation and no extra
+processing. If the backend is unreachable, calls queue as in §70.4. A device may still use its own key where the
+organisation permits it, which keeps a single field worker productive in an emergency.
+
+### 73.4 Retention
+
+The backend must not store images, audio or extracted text beyond the life of the request. It logs metadata only:
+project, user, model, size, duration, outcome and cost. This is the same discipline §75.3 applies to the rest of
+the server.
+
+## 74. Deployment and API Surface
+
+### 74.1 Deployment
+
+```text
+One container:  Node.js + Express  ·  PostgreSQL  ·  local disk for transient packages
+```
+
+Self-hosted by the organisation, one instance per organisation, no multi-tenancy. Because the server stores no media
+durably, a fifty-person deployment is small enough to run on a modest virtual machine. A single administrator command
+must be able to export and to destroy the entire server state.
+
+### 74.2 API surface
+
+Deliberately small; anything not on this list belongs on the device.
+
+```text
+POST /auth/register           POST /auth/login            POST /auth/refresh
+POST /auth/logout             POST /auth/reset            POST /auth/change-password
+GET  /auth/me                 POST /devices/enrol         GET  /devices
+
+GET  /org/users               POST /org/users             PATCH /org/users/:id
+GET  /projects                POST /projects              GET   /projects/:id
+GET  /projects/:id/members    POST /projects/:id/members
+
+POST /projects/:id/relay/packages        push an encrypted package
+GET  /projects/:id/relay/packages        list packages this device has not acknowledged
+GET  /projects/:id/relay/packages/:pid   download one
+POST /projects/:id/relay/ack             acknowledge, which permits purging
+GET  /projects/:id/relay/state           version vectors and queue state
+
+POST /ai/extract              POST /ai/ocr                POST /ai/transcribe
+POST /ai/refine               GET  /ai/usage
+
+GET  /health                  GET  /version
+```
+
+### 74.3 Compatibility
+
+The API is versioned. The application must tolerate a server that is older or newer than itself, and say so plainly
+rather than failing obscurely; a version mismatch degrades to standalone behaviour instead of blocking work.
+
+## 75. Backend Security and Retention
+
+- HTTPS only, with certificate pinning where the organisation supplies its own certificate.
+- Short-lived access tokens with refresh; tokens bound to an enrolled device.
+- Passwords hashed with a memory-hard function; rate limiting and lockout on authentication endpoints.
+- Provider keys held in a secrets store, never returned by any endpoint, never logged.
+- Relay packages encrypted by the client, purged per §72.4, with deletion verifiable by an administrator.
+- Server logs carry no record values, no captions, no images — request metadata only.
+- An administrative audit log covering user, role, key, retention and purge changes.
+- File validation and size limits on every upload endpoint; packages are opaque blobs and are never unpacked
+  server-side.
+- Every device-side rule in §60 continues to apply unchanged.
 
 ---
 
@@ -2496,6 +2771,6 @@ The operator taps **Upload to cloud**, confirms the destination, and the ZIP goe
 
 # Appendix B — Core Product Principle
 
-> **The template defines what information is required. Photographs, documents, captions and voice provide the evidence. On-device and online AI turn that evidence into proposed values, never into invented ones. Raw input is kept forever beside the refined version. A person verifies the result. Only verified data is exported. Everything lives on the device unless the user sends it somewhere.**
+> **The template defines what information is required. Photographs, documents, captions and voice provide the evidence. On-device and online AI turn that evidence into proposed values, never into invented ones. Raw input is kept forever beside the refined version. A person verifies the result. Only verified data is exported. Everything lives on the device unless the user sends it somewhere — and where an organisation runs the optional backend, that server coordinates the work without ever becoming the place the data lives.**
 
 This principle is what keeps the application flexible enough to inventory anything, auditable enough to be trusted, and safe enough to work offline in the field.

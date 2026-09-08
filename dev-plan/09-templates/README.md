@@ -1,0 +1,36 @@
+# 09 — Templates
+
+The definition of every record shape: shipped, built in the app, or read from a spreadsheet.
+
+Tasks 149–178 (30).
+
+- [ ] [149 — Template domain model and repository](149-template-model.md)
+- [ ] [150 — Field type registry](150-field-type-registry.md)
+- [ ] [151 — Shipped template assets](151-shipped-templates-assets.md)
+- [ ] [152 — Shipped template loader](152-shipped-template-loader.md)
+- [ ] [153 — Template list screen](153-template-list.md)
+- [ ] [154 — Create a template from the library](154-template-create-from-shipped.md)
+- [ ] [155 — Create a blank template](155-template-create-blank.md)
+- [ ] [156 — Duplicate a template](156-template-duplicate.md)
+- [ ] [157 — Field list editor](157-field-list-editor.md)
+- [ ] [158 — Add a field: label, type, required](158-field-add-basic.md)
+- [ ] [159 — Field advanced attributes](159-field-advanced-attributes.md)
+- [ ] [160 — Reorder fields](160-field-reorder.md)
+- [ ] [161 — Delete a field](161-field-delete.md)
+- [ ] [162 — Field validation rules editor](162-field-validation-editor.md)
+- [ ] [163 — Choice options editor](163-field-options-editor.md)
+- [ ] [164 — Identity field selection](164-identity-fields.md)
+- [ ] [165 — Output column mapping](165-output-column-mapping.md)
+- [ ] [166 — Template version bump](166-template-versioning.md)
+- [ ] [167 — Migrate records to a new template version](167-template-migration-preview.md)
+- [ ] [168 — Export a template as JSON](168-template-export-json.md)
+- [ ] [169 — Import a template from JSON](169-template-import-json.md)
+- [ ] [170 — Read a spreadsheet workbook](170-xlsx-read-workbook.md)
+- [ ] [171 — Detect the header row](171-xlsx-header-detection.md)
+- [ ] [172 — Infer field types from columns](172-xlsx-type-inference.md)
+- [ ] [173 — Confirm the column mapping](173-xlsx-mapping-screen.md)
+- [ ] [174 — Create a template from the mapping](174-xlsx-template-create.md)
+- [ ] [175 — Import predefined rows](175-predefined-rows-import.md)
+- [ ] [176 — Row alias editor](176-row-aliases-editor.md)
+- [ ] [177 — Predefined row checklist view](177-checklist-progress.md)
+- [ ] [178 — Detection profile editor](178-template-detection-profile.md)

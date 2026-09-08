@@ -1,0 +1,37 @@
+# 04 — Local database
+
+Every table, one task each, with the merge columns present from the first migration.
+
+Tasks 080–110 (31).
+
+- [ ] [080 — Drift database bootstrap](080-drift-setup.md)
+- [ ] [081 — Migration strategy and schema version](081-migration-strategy.md)
+- [ ] [082 — Shared column mixins](082-column-mixins.md)
+- [ ] [083 — DAO base and conventions](083-dao-conventions.md)
+- [ ] [084 — Transaction helper](084-transaction-helper.md)
+- [ ] [085 — Tombstones table](085-tombstones-table.md)
+- [ ] [086 — Audit log table](086-audit-table.md)
+- [ ] [087 — Device profile table](087-device-profile-table.md)
+- [ ] [088 — Projects table](088-projects-table.md)
+- [ ] [089 — Templates table](089-templates-table.md)
+- [ ] [090 — Template fields table](090-template-fields-table.md)
+- [ ] [091 — Template rows table](091-template-rows-table.md)
+- [ ] [092 — Context definition and state tables](092-context-tables.md)
+- [ ] [093 — Records table](093-records-table.md)
+- [ ] [094 — Record fields table](094-record-fields-table.md)
+- [ ] [095 — Photos table](095-photos-table.md)
+- [ ] [096 — Documents and audio tables](096-documents-table.md)
+- [ ] [097 — Captions table](097-captions-table.md)
+- [ ] [098 — Reference dataset tables](098-reference-tables.md)
+- [ ] [099 — Processing jobs and results tables](099-jobs-table.md)
+- [ ] [100 — Field evidence table](100-evidence-table.md)
+- [ ] [101 — Duplicates table](101-duplicates-table.md)
+- [ ] [102 — Variances table](102-variances-table.md)
+- [ ] [103 — Meeting tables](103-meetings-tables.md)
+- [ ] [104 — Exports table](104-exports-table.md)
+- [ ] [105 — Merge session and conflict tables](105-merge-tables.md)
+- [ ] [106 — Version vector table](106-sync-state-table.md)
+- [ ] [107 — Repository interfaces](107-repository-interfaces.md)
+- [ ] [108 — Test fixtures and object factories](108-test-fixtures.md)
+- [ ] [109 — Database integrity check](109-db-integrity-check.md)
+- [ ] [110 — Optional database encryption](110-db-encryption.md)

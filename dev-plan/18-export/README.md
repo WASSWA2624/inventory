@@ -1,0 +1,35 @@
+# 18 — Export
+
+Five formats, all produced on the device, all reproducible and all recorded.
+
+Tasks 354–382 (29).
+
+- [ ] [354 — Export request model](354-export-model.md)
+- [ ] [355 — Export scope selection](355-export-scope.md)
+- [ ] [356 — Column and extras options](356-export-options.md)
+- [ ] [357 — Pre-export validation](357-export-validation-gate.md)
+- [ ] [358 — Export value formatter](358-value-formatter.md)
+- [ ] [359 — Photo naming service](359-photo-naming-service.md)
+- [ ] [360 — Rename photos when identity is known](360-photo-rename-on-identity.md)
+- [ ] [361 — XLSX writer core](361-xlsx-writer.md)
+- [ ] [362 — Write into a copy of the original workbook](362-xlsx-template-copy.md)
+- [ ] [363 — Write into predefined rows](363-xlsx-predefined-rows.md)
+- [ ] [364 — Raw and refined column pairs](364-xlsx-raw-refined-columns.md)
+- [ ] [365 — One sheet per template](365-xlsx-multi-sheet.md)
+- [ ] [366 — Photo reference modes](366-xlsx-photo-references.md)
+- [ ] [367 — Photo index sheet](367-photo-index-sheet.md)
+- [ ] [368 — CSV writer](368-csv-writer.md)
+- [ ] [369 — JSON writer](369-json-writer.md)
+- [ ] [370 — Data dictionary writer](370-data-dictionary.md)
+- [ ] [371 — PDF engine and shared layout](371-pdf-engine.md)
+- [ ] [372 — Record report](372-pdf-record-report.md)
+- [ ] [373 — Project summary report](373-pdf-summary-report.md)
+- [ ] [374 — Variance report](374-pdf-variance-report.md)
+- [ ] [375 — Meeting minutes PDF](375-pdf-minutes.md)
+- [ ] [376 — ZIP data package](376-zip-package.md)
+- [ ] [377 — Export manifest](377-export-manifest.md)
+- [ ] [378 — Export screen](378-export-screen.md)
+- [ ] [379 — Export progress and cancellation](379-export-progress.md)
+- [ ] [380 — Export history](380-export-history.md)
+- [ ] [381 — Export versioning and folders](381-export-versioning.md)
+- [ ] [382 — Share an export](382-export-share.md)
