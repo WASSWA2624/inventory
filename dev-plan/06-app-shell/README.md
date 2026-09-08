@@ -2,12 +2,12 @@
 
 Navigation, the always-visible status line, and the frame every feature plugs into.
 
-Tasks 123–129 (7).
+Tasks 127–133 (7). Each file is a standalone implementation prompt.
 
-- [ ] [123 — Router setup](123-router-setup.md)
-- [ ] [124 — Adaptive navigation shell](124-nav-shell.md)
-- [ ] [125 — Route guards](125-route-guards.md)
-- [ ] [126 — First-run flow](126-first-run.md)
-- [ ] [127 — Global status line](127-status-line.md)
-- [ ] [128 — Offline banner wiring](128-offline-banner.md)
-- [ ] [129 — Global error and crash recovery screen](129-global-error-page.md)
+- [ ] [127 — Router setup](127-router-setup.md)
+- [ ] [128 — Adaptive navigation shell](128-nav-shell.md)
+- [ ] [129 — Route guards](129-route-guards.md)
+- [ ] [130 — First-run flow](130-first-run.md)
+- [ ] [131 — Global status line](131-status-line.md)
+- [ ] [132 — Offline banner wiring](132-offline-banner.md)
+- [ ] [133 — Global error and crash recovery screen](133-global-error-page.md)

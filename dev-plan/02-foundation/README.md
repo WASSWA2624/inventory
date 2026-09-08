@@ -1,25 +1,25 @@
-# 02 — Project foundation
+# 02 — Foundation services
 
-The empty app that boots, logs, fails safely and knows what device it is on.
+The empty app that boots, logs, fails safely, and the small services every later feature injects.
 
-Tasks 019–037 (19).
+Tasks 023–041 (19). Each file is a standalone implementation prompt.
 
-- [ ] [019 — Create the Flutter project](019-flutter-project-init.md)
-- [ ] [020 — Repository hygiene](020-repo-hygiene.md)
-- [ ] [021 — Strict analyzer configuration](021-strict-lints.md)
-- [ ] [022 — Create the folder skeleton](022-folder-scaffold.md)
 - [ ] [023 — Application bootstrap](023-app-bootstrap.md)
-- [ ] [024 — Shared constants](024-app-constants.md)
-- [ ] [025 — Result type and failure taxonomy](025-result-and-failures.md)
-- [ ] [026 — Logger service](026-logger-service.md)
-- [ ] [027 — Export diagnostics log](027-log-export-action.md)
-- [ ] [028 — Error boundary widget](028-error-boundary-widget.md)
-- [ ] [029 — Injectable clock](029-clock-service.md)
-- [ ] [030 — UUIDv7 identifier service](030-uuid-service.md)
-- [ ] [031 — Hashing service](031-hashing-service.md)
-- [ ] [032 — Isolate runner helper](032-isolate-runner.md)
-- [ ] [033 — Device identity and profile bootstrap](033-device-identity.md)
-- [ ] [034 — Connectivity service](034-connectivity-service.md)
-- [ ] [035 — Runtime permissions service](035-permissions-service.md)
-- [ ] [036 — Secure storage service](036-secure-storage-service.md)
-- [ ] [037 — Lifecycle observer](037-app-lifecycle-observer.md)
+- [ ] [024 — Build flavours and environment](024-env-flavors.md)
+- [ ] [025 — Shared constants](025-app-constants.md)
+- [ ] [026 — Result type and failure taxonomy](026-result-and-failures.md)
+- [ ] [027 — Logger service](027-logger-service.md)
+- [ ] [028 — Diagnostics log export](028-log-export-action.md)
+- [ ] [029 — Error boundary widget](029-error-boundary-widget.md)
+- [ ] [030 — Injectable clock](030-clock-service.md)
+- [ ] [031 — UUIDv7 identifier service](031-uuid-service.md)
+- [ ] [032 — Hashing service](032-hashing-service.md)
+- [ ] [033 — Isolate runner](033-isolate-runner.md)
+- [ ] [034 — Device identity](034-device-identity.md)
+- [ ] [035 — Connectivity service](035-connectivity-service.md)
+- [ ] [036 — Runtime permissions service](036-permissions-service.md)
+- [ ] [037 — Secure storage service](037-secure-storage-service.md)
+- [ ] [038 — Lifecycle observer](038-app-lifecycle-observer.md)
+- [ ] [039 — Riverpod observer](039-provider-observer.md)
+- [ ] [040 — Serialisation conventions](040-json-codec-setup.md)
+- [ ] [041 — AI service interface](041-ai-service-interface.md)

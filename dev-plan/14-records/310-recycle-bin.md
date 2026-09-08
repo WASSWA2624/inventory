@@ -1,0 +1,32 @@
+# 310 — Recycle bin
+
+**Phase** 14 · Records  |  **Depends on** [309](309-record-delete.md)
+
+> **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
+
+## Implement
+
+List deleted records and restore them within the retention window.
+
+## Files
+
+- `lib/features/records/presentation/recycle_bin_screen.dart` (new)
+
+## Steps
+
+1. Show remaining days per item and a restore action; support empty-now with a strong confirmation.
+
+## Constraints
+
+- Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
+- `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
+- No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.
+
+## Definition of done
+
+- [ ] Nothing leaves the device's storage without an explicit action.
+- [ ] Analyzer clean, formatter applied, guardrail suites green.
+
+## Out of scope
+
+- Anything not named above. Raise it as its own task rather than widening this one.

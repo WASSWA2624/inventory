@@ -2,15 +2,15 @@
 
 Create, open and manage the container that owns everything else.
 
-Tasks 139–148 (10).
+Tasks 143–152 (10). Each file is a standalone implementation prompt.
 
-- [ ] [139 — Project domain model and repository](139-project-model.md)
-- [ ] [140 — Project list screen](140-project-list.md)
-- [ ] [141 — Create a project](141-project-create.md)
-- [ ] [142 — Open a project and current-project provider](142-project-open.md)
-- [ ] [143 — Project home screen](143-project-home.md)
-- [ ] [144 — Edit project details](144-project-edit.md)
-- [ ] [145 — Per-project settings](145-project-settings.md)
-- [ ] [146 — Archive and unarchive a project](146-project-archive.md)
-- [ ] [147 — Delete a project](147-project-delete.md)
-- [ ] [148 — Duplicate a project structure](148-project-duplicate.md)
+- [ ] [143 — Project domain model and repository](143-project-model.md)
+- [ ] [144 — Project list screen](144-project-list.md)
+- [ ] [145 — Create a project](145-project-create.md)
+- [ ] [146 — Open a project and current-project provider](146-project-open.md)
+- [ ] [147 — Project home screen](147-project-home.md)
+- [ ] [148 — Edit project details](148-project-edit.md)
+- [ ] [149 — Per-project settings](149-project-settings.md)
+- [ ] [150 — Archive and unarchive a project](150-project-archive.md)
+- [ ] [151 — Delete a project](151-project-delete.md)
+- [ ] [152 — Duplicate a project structure](152-project-duplicate.md)

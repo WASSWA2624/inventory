@@ -2,19 +2,19 @@
 
 A meeting is a record with structure: minutes, attendance and actions.
 
-Tasks 340–353 (14).
+Tasks 343–356 (14). Each file is a standalone implementation prompt.
 
-- [ ] [340 — Meeting template and model](340-meeting-template.md)
-- [ ] [341 — Create a meeting](341-meeting-create.md)
-- [ ] [342 — Agenda items editor](342-agenda-editor.md)
-- [ ] [343 — Attendees editor](343-attendee-editor.md)
-- [ ] [344 — Attendance sheet photo](344-attendance-photo.md)
-- [ ] [345 — Read the attendance sheet](345-attendance-ocr.md)
-- [ ] [346 — Match attendees to staff data](346-attendee-matching.md)
-- [ ] [347 — Record the meeting](347-meeting-audio.md)
-- [ ] [348 — Transcribe the recording](348-meeting-transcription.md)
-- [ ] [349 — Refine the minutes](349-minutes-refinement.md)
-- [ ] [350 — Decisions editor](350-decisions-editor.md)
-- [ ] [351 — Action items editor](351-actions-editor.md)
-- [ ] [352 — Meeting attachments](352-meeting-attachments.md)
-- [ ] [353 — Meeting review and approval](353-meeting-review.md)
+- [ ] [343 — Meeting template and model](343-meeting-template.md)
+- [ ] [344 — Create a meeting](344-meeting-create.md)
+- [ ] [345 — Agenda items editor](345-agenda-editor.md)
+- [ ] [346 — Attendees editor](346-attendee-editor.md)
+- [ ] [347 — Attendance sheet photo](347-attendance-photo.md)
+- [ ] [348 — Read the attendance sheet](348-attendance-ocr.md)
+- [ ] [349 — Match attendees to staff data](349-attendee-matching.md)
+- [ ] [350 — Record the meeting](350-meeting-audio.md)
+- [ ] [351 — Transcribe the recording](351-meeting-transcription.md)
+- [ ] [352 — Refine the minutes](352-minutes-refinement.md)
+- [ ] [353 — Decisions editor](353-decisions-editor.md)
+- [ ] [354 — Action items editor](354-actions-editor.md)
+- [ ] [355 — Meeting attachments](355-meeting-attachments.md)
+- [ ] [356 — Meeting review and approval](356-meeting-review.md)

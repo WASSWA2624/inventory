@@ -1,0 +1,35 @@
+# 109 — Merge session and conflict tables
+
+**Phase** 04 · Local database  |  **Depends on** [097](097-records-table.md), [086](086-column-mixins.md)
+
+> **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
+
+## Implement
+
+Persist bundle imports, their conflicts and enough state to undo a merge.
+
+## Files
+
+- `lib/core/db/tables/merge.dart` (new)
+
+## Steps
+
+1. Sessions: bundleName, sourceDevice, importedAt, counts JSON, status, undoSnapshotPath.
+2. Conflicts: sessionId, entityType, entityId, fieldKey, mineValue, theirsValue, mineMeta, theirsMeta, resolution, resolvedAt.
+
+## Constraints
+
+- Every table carries `id`, `createdAt`, `updatedAt`, `updatedByDevice` and `rev` through the shared column mixins.
+- Deletes write a tombstone in the same transaction; nothing is hard-deleted.
+- Raw columns are written once at creation and never updated.
+- Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
+- `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
+- No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.
+
+## Definition of done
+
+- [ ] Analyzer clean, formatter applied, guardrail suites green.
+
+## Out of scope
+
+- Anything not named above. Raise it as its own task rather than widening this one.
