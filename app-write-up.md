@@ -1,4 +1,4 @@
-# AI Field Capture — Product & Technical Specification
+# Tapture — Product & Technical Specification
 
 **Document status:** Revision 2 — supersedes all earlier drafts.
 **Architecture:** Local-first. The application runs entirely on the device; there is no application backend and no automatic cloud synchronisation.
@@ -106,7 +106,7 @@ B. Core Product Principle
 
 ## 1. Overview
 
-**AI Field Capture** is a Flutter application for collecting structured data about physical things — equipment, buildings, vehicles, stock, land, plants, animals, people, documents, meetings — using photographs, voice and typed input.
+**Tapture** is a Flutter application for collecting structured data about physical things — equipment, buildings, vehicles, stock, land, plants, animals, people, documents, meetings — using photographs, voice and typed input.
 
 The application:
 
@@ -290,7 +290,7 @@ All project data — database, photos, documents, audio, exports — lives in de
 Files are written to a single app-visible root folder so that the user can also reach them with a file manager or a USB cable.
 
 ```text
-<Documents>/AIFieldCapture/
+<Documents>/Tapture/
 ├── app.db                          # the local database (all projects)
 ├── app.db-wal / app.db-shm
 │
@@ -1630,7 +1630,7 @@ medical-equipment-inventory__deviceA__2026-09-08T1030.zip
 
 ```json
 {
-  "format": "aifc-bundle",
+  "format": "tapture-bundle",
   "format_version": 1,
   "app_version": "1.4.0",
   "project_id": "0192f3c1-…",
@@ -2378,11 +2378,21 @@ A user can, on one device with no account and no server:
 
 ## 68. Product Naming
 
-Working name: **AI Field Capture**.
+Product name: **Tapture** — *tap* + *capture*: the app's whole promise is that a tap turns a real-world thing into structured data.
 
-Alternatives: FieldCapture, CaptureMap, FieldLedger, AssetLens, InspectFlow, DataLens, FieldExtract.
+```text
+App display name   Tapture              (shown to users, in stores, in the UI)
+Repository         tapture              (lowercase, like the folder)
+Project folder     tapture
+Package / app id   com.tapture.app      (Dart package name: tapture)
+Storage folder     <Documents>/Tapture/ (user-visible, so it uses the display name)
+Bundle format      tapture-bundle
+Tagline            Tap it. It's data.
+```
 
-The name should not imply a single domain (equipment, buildings) because the application is deliberately general.
+The name deliberately implies no single domain — equipment, buildings, stock, plants, people and meetings are all first-class (§6, §13).
+
+Before public release, confirm the name is clear on the Google Play Store and with a trademark search in Uganda and the wider EAC, and secure the matching package id and domain.
 
 ## 69. Requirements Coverage Matrix
 
