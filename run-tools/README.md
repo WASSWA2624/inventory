@@ -30,11 +30,11 @@ missing rather than pretending to start.
 
 ## Build the deployables
 
-| Artefact | Build | Update |
-|---|---|---|
-| Android APK | `python run-tools/deploy/build-android.py` | `python run-tools/deploy/update-android.py` |
-| Web bundle | `python run-tools/deploy/build-web.py` | `python run-tools/deploy/update-web.py` |
-| Backend `.zip` | `python run-tools/deploy/build-backend.py` | `python run-tools/deploy/update-backend.py` |
+| Artefact        | Build                                        | Update                                        |
+| --------------- | -------------------------------------------- | --------------------------------------------- |
+| Android APK     | `python run-tools/deploy/build-android.py` | `python run-tools/deploy/update-android.py` |
+| Web bundle      | `python run-tools/deploy/build-web.py`     | `python run-tools/deploy/update-web.py`     |
+| Backend`.zip` | `python run-tools/deploy/build-backend.py` | `python run-tools/deploy/update-backend.py` |
 
 Every artefact lands in `run-tools/dist/`, which is ignored by git:
 
@@ -54,10 +54,10 @@ Useful flags: `--debug` and `--split` on Android, `--base-href /path/` on web, `
 
 ## Ports
 
-| Port | Used by | Changed with |
-|---|---|---|
-| 3000 | backend | `--port`, or `$BACKEND_PORT` |
-| 5173 | web | `--port` on run-web.py, `--web-port` on run-backend.py |
+| Port | Used by | Changed with                                               |
+| ---- | ------- | ---------------------------------------------------------- |
+| 3000 | backend | `--port`, or `$BACKEND_PORT`                           |
+| 5173 | web     | `--port` on run-web.py, `--web-port` on run-backend.py |
 
 ## What `common.py` handles for you
 
