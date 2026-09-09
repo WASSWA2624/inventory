@@ -1,20 +1,20 @@
-# 11 — Context fields
+# 11 — Context
 
 Set a value once, and it applies to every record until changed.
 
-Tasks 200–213 (14). Each file is a standalone implementation prompt.
+Tasks 202–215 (14). Each file is a standalone implementation prompt.
 
-- [ ] [200 — Context domain model and repository](200-context-model.md)
-- [ ] [201 — Define the context hierarchy](201-context-hierarchy-editor.md)
-- [ ] [202 — Persist and restore context](202-context-persistence.md)
-- [ ] [203 — Context bar widget](203-context-bar.md)
-- [ ] [204 — Context level picker](204-context-level-picker.md)
-- [ ] [205 — Cascade clearing](205-context-cascade-clear.md)
-- [ ] [206 — Apply context to a new record](206-context-apply-to-record.md)
-- [ ] [207 — Per-record override](207-context-per-record-override.md)
-- [ ] [208 — Pinned non-hierarchical fields](208-context-pinned-fields.md)
-- [ ] [209 — Save a context preset](209-context-presets-save.md)
-- [ ] [210 — Apply a context preset](210-context-presets-apply.md)
-- [ ] [211 — Optional auto-clear timer](211-context-auto-clear.md)
-- [ ] [212 — Optional movement prompt](212-context-gps-prompt.md)
-- [ ] [213 — Wire context into the folder path](213-context-folder-wiring.md)
+- [ ] [202 — Context domain model and repository](202-context-model.md)
+- [ ] [203 — Define the context hierarchy](203-context-hierarchy-editor.md)
+- [ ] [204 — Persist and restore context](204-context-persistence.md)
+- [ ] [205 — Context bar widget](205-context-bar.md)
+- [ ] [206 — Context level picker](206-context-level-picker.md)
+- [ ] [207 — Cascade clearing](207-context-cascade-clear.md)
+- [ ] [208 — Apply context to a new record](208-context-apply-to-record.md)
+- [ ] [209 — Per-record override](209-context-per-record-override.md)
+- [ ] [210 — Pinned non-hierarchical fields](210-context-pinned-fields.md)
+- [ ] [211 — Save a context preset](211-context-presets-save.md)
+- [ ] [212 — Apply a context preset](212-context-presets-apply.md)
+- [ ] [213 — Optional auto-clear timer](213-context-auto-clear.md)
+- [ ] [214 — Optional movement prompt](214-context-gps-prompt.md)
+- [ ] [215 — Wire context into the folder path](215-context-folder-wiring.md)

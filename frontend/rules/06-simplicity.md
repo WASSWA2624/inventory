@@ -3,7 +3,7 @@
 The product's central claim is that a field worker can use it. These rules are how that claim survives contact with
 475 features.
 
-*Built into tasks 048, 052, 127-133; audited by 439 and 442.*
+*Built into tasks 048, 052, 127-133; audited by 441 and 444.*
 
 ## FE-SIMP-01 — One primary action per screen
 It is the largest control, it sits in the lower third, and it is reachable with one thumb. If a screen has two equally
@@ -15,9 +15,11 @@ Projects, Capture, Records, More. A fifth destination requires deleting one.
 ## FE-SIMP-03 — Three taps to a record
 Capture, shutter, save. Anything that adds a tap to that path needs a written justification.
 
-## FE-SIMP-04 — Nothing is mandatory at the start
-No account, no login in standalone mode, no onboarding tour, no setup wizard. A new install captures within thirty
-seconds using a shipped template.
+## FE-SIMP-04 — One sign-in, and nothing else, at the start
+Signing in once is the only thing a new install asks for (§71.1). No onboarding tour, no setup wizard, no second
+login ever: the session and role grant are cached for a configurable period (default 30 days) and refreshed
+silently (§70.4). Past that first screen, a new install captures within thirty seconds using a shipped
+template.
 
 ## FE-SIMP-05 — Default, do not ask
 Today's date, the current context, the last template, the last camera setting. A question the app can answer itself is

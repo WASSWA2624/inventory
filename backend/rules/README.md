@@ -1,13 +1,19 @@
 # Backend rules
 
-The standardisation rules for the optional Tapture backend — the small server described in Part XI of the
-specification, used only in team mode.
+The standardisation rules for the Tapture backend — the small, **required** server described in Part XI of the
+specification. Every deployment has one.
 
 ## Read this first
 
-The backend is **optional, minimal and deliberately weak**. It exists to do five things the device cannot do for
-itself: accounts, one organisation identity, roles, AI key custody and change relay. Everything else is a device
-responsibility and stays one.
+The backend is **required, minimal and deliberately weak**. It exists to do five things the device cannot do for
+itself (§70.1): users, authentication, roles and permissions, AI functionality, and AI provider-key custody.
+Everything else is a device responsibility and stays one. The change relay (§72) is the single optional extra
+the same server may carry — off by default for every project, and a deployment that never enables it is
+complete.
+
+Required does not mean in the way. The server is required to **exist**; it is never required to be
+**reachable** (§70.4). A device that has signed in once behaves, with the server unreachable, exactly as if no
+server existed.
 
 The device is the store of record. The server is transit, not truth. If a rule in this folder ever seems to conflict
 with that, the rule is wrong.
@@ -17,7 +23,7 @@ with that, the rule is wrong.
 - **Every rule has an identifier** (`BE-SEC-03`). Cite it in review.
 - **Rules that protect the boundary** — 06-relay-and-retention and 07-ai-proxy — are not style preferences. Breaking
   one turns the product into something it deliberately is not.
-- Backend dev-plan tasks (phase 25) cite the rule files that apply to them.
+- Backend dev-plan tasks (phase 24) cite the rule files that apply to them.
 
 ## The files
 
@@ -44,4 +50,6 @@ with that, the rule is wrong.
    server holds no key and has no code path that decrypts one. The AI proxy is the deliberate exception and the only
    one: a request the user chose to send passes through in the clear on its way to the provider, is never persisted,
    and is logged only as metadata (`07-ai-proxy.md`).
-4. The application must remain fully usable when this server does not exist.
+4. The application must remain fully usable when this server is unreachable. Capture, review, editing,
+   validation, export, bundle exchange and merge never wait on it, and being unable to reach it never costs a
+   user a record.

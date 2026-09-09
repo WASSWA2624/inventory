@@ -1,6 +1,6 @@
 # 12 — Testing
 
-*Enforced by dev-plan task 017 (test presence checker); harnesses in tasks 453-455.*
+*Enforced by dev-plan task 017 (test presence checker); harnesses in tasks 504-506.*
 
 ## FE-TEST-01 — Tests ship with the change
 A task is not done until its tests exist and pass. Tests are never a follow-up task.

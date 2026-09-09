@@ -6,12 +6,15 @@
 API keys and cloud credentials go to platform secure storage and nowhere else — never the database, logs, exports,
 bundles or preferences.
 
-## FE-SEC-02 — No key is compiled in
-Nothing ships with a provider key. Keys are entered by the user, or held by the organisation's backend in team mode.
+## FE-SEC-02 — No key is compiled in, and by default no key is on the device
+Nothing ships with a provider key. Custody belongs to the organisation's backend, which is the default
+arrangement and the reason it exists (§30.2, §73.1): the device calls the backend, the backend calls the
+provider, and no endpoint ever returns a key to a device. A key entered on the device is the exception an
+administrator permits for a lone operator, not the norm.
 
 ## FE-SEC-03 — Egress is a closed list
 The only outbound calls are those in sections 7.1 and 7.3 of the specification, and only when the user enables them.
-Networking imports are confined to `core/ai/`, `core/cloud/` and `core/team/` — the last only for the team-mode
+Networking imports are confined to `core/ai/`, `core/cloud/` and `core/backend/` — the last for the minimal
 backend of Part XI. A screen never speaks to a server; it calls a client in one of those three, which is why they are
 the only three places the boundary test allows an HTTP import.
 

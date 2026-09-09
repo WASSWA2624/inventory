@@ -1,6 +1,6 @@
 # 01 — Structure
 
-*Applies to dev-plan phase 25.*
+*Applies to dev-plan phase 24.*
 
 ## BE-STR-01 — The server lives in `backend/`
 One deployable, one repository folder. It shares no code with `frontend/`; contracts are shared as a written API

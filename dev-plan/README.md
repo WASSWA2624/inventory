@@ -1,7 +1,7 @@
 # Tapture — development plan
 
-517 implementation prompts, in the order they should be built, from an empty repository to a shippable app plus its
-optional team backend.
+521 implementation prompts, in the order they should be built, from an empty repository to a shippable product: the
+Flutter application and the minimal backend it requires.
 
 Every file is a prompt that produces code. There are no policy documents here: the architectural rules live in
 `frontend/rules/` and `backend/rules/`, and phase 01 ships them as lints, checkers and tests that fail a build when
@@ -15,7 +15,7 @@ Read [INDEX.md](INDEX.md) for the full list, or open a phase folder.
 tapture/
 ├── frontend/           the Flutter application
 │   └── rules/          13 rule files — structure, theming, responsiveness, simplicity, l10n, a11y, ...
-├── backend/            the optional team server (post-MVP, specification Part XI)
+├── backend/            the minimal server — required, one per organisation (specification Part XI)
 │   └── rules/          11 rule files — structure, API, data, security, relay boundary, AI proxy, ...
 ├── dev-plan/           this plan
 └── app-write-up.md     the specification
@@ -43,9 +43,9 @@ Open the lowest unticked task, give the file to a developer or an agent, and bui
 self-contained.
 
 ```text
-# 228 — Delete a photo
+# 230 — Delete a photo
 
-**Phase** 12 · Capture  |  **Depends on** 225, 072, 074
+**Phase** 12 · Capture  |  **Depends on** 227, 072, 074
 
 > Implementation prompt. Build exactly this task, then stop.
 
@@ -90,25 +90,36 @@ green guardrails.
 | 04 | [Local database](04-data-layer/) | 084–114 | Every table, with merge columns from the first migration |
 | 05 | [File storage](05-file-storage/) | 115–126 | The organised folder tree and every service that writes into it |
 | 06 | [Application shell](06-app-shell/) | 127–133 | Navigation, routing and the always-visible status line |
-| 07 | [Operator and settings](07-operator-and-settings/) | 134–142 | Local identity, app lock, and the switches later features read |
+| 07 | [Account and settings](07-account-and-settings/) | 134–142 | Local identity that later becomes an account, app lock, and the switches later features read |
 | 08 | [Projects](08-projects/) | 143–152 | The container that owns everything else |
-| 09 | [Templates](09-templates/) | 153–183 | Shipped, hand-built and spreadsheet-derived record shapes |
-| 10 | [Reference data](10-reference-data/) | 184–199 | Imported tables, lookups and prefill |
-| 11 | [Context](11-context/) | 200–213 | Set a value once; it applies until changed |
-| 12 | [Capture](12-capture/) | 214–258 | Evidence in, with as little typing as possible |
-| 13 | [Processing](13-processing/) | 259–297 | On-device first, online only when it earns its place |
-| 14 | [Records](14-records/) | 298–312 | Find, read and change what was captured |
-| 15 | [Data quality](15-data-quality/) | 313–332 | Validation, duplicates, conflicts and verification |
-| 16 | [Review](16-review/) | 333–342 | Where a person turns proposals into data |
-| 17 | [Meetings](17-meetings/) | 343–356 | Minutes, attendance and actions |
-| 18 | [Export](18-export/) | 357–385 | XLSX, CSV, JSON, PDF and ZIP, all produced on device |
-| 19 | [Bundles and merge](19-bundles-and-merge/) | 386–409 | Collaboration with no server |
-| 20 | [Data import](20-data-import/) | 410–415 | Continue an inventory someone else started |
-| 21 | [Cloud upload](21-cloud-upload/) | 416–426 | A destination for files, never a sync channel |
-| 22 | [Privacy and security](22-privacy-and-security/) | 427–436 | What leaves the device, and what never does |
-| 23 | [Hardening](23-hardening/) | 437–452 | Fast, legible, reachable, unbreakable in the field |
-| 24 | [Testing and release](24-testing-and-release/) | 453–469 | The suites, the pipeline and the shipping gate |
-| 25 | [Optional team backend](25-backend/) | 470–517 | Accounts, roles, key custody and change relay — **post-MVP** |
+| 09 | [Templates](09-templates/) | 153–185 | Record shapes with atomic columns, and requiredness the user owns |
+| 10 | [Reference data](10-reference-data/) | 186–201 | Imported tables, lookups and prefill |
+| 11 | [Context](11-context/) | 202–215 | Set a value once; it applies until changed |
+| 12 | [Capture](12-capture/) | 216–260 | Evidence in, with as little typing as possible |
+| 13 | [Processing](13-processing/) | 261–299 | On-device first, online only when it earns its place |
+| 14 | [Records](14-records/) | 300–314 | Find, read and change what was captured |
+| 15 | [Data quality](15-data-quality/) | 315–334 | Validation, duplicates, conflicts and verification |
+| 16 | [Review](16-review/) | 335–344 | Where a person turns proposals into data |
+| 17 | [Meetings](17-meetings/) | 345–358 | Minutes, attendance and actions |
+| 18 | [Export](18-export/) | 359–387 | XLSX, CSV, JSON, PDF and ZIP, all produced on device |
+| 19 | [Bundles and merge](19-bundles-and-merge/) | 388–411 | Collaboration that never touches the backend |
+| 20 | [Data import](20-data-import/) | 412–417 | Continue an inventory someone else started |
+| 21 | [Cloud upload](21-cloud-upload/) | 418–428 | A destination for files, never a sync channel |
+| 22 | [Privacy and security](22-privacy-and-security/) | 429–438 | What leaves the device, and what never does |
+| 23 | [Hardening](23-hardening/) | 439–454 | Fast, legible, reachable, unbreakable in the field |
+| 24 | [The minimal backend](24-backend/) | 455–503 | **Required** — accounts, auth, roles, AI functionality and key custody, plus the optional relay |
+| 25 | [Testing and release](25-testing-and-release/) | 504–521 | The suites, the pipeline and the gate over both artefacts |
+
+## Why the backend is built late but required
+
+The backend is not optional — every deployment has one (§70) — but it is built after the app, because almost all of
+it depends on the app existing first. That ordering is a build sequence, not a statement about what ships. The app is
+developed against a local operator profile and, where an administrator permits it, a device-held key; task 497
+onwards turns those into an account and server-held key custody, which is the default arrangement (§30.2). Nothing is
+shippable until phase 25 passes, and phase 25 gates the app and the backend together.
+
+The one thing inside phase 24 that stays optional is the change relay (§72): tasks 466, 478–483, 501 and 502. An
+organisation that never switches it on has a complete product.
 
 ## Milestones
 
@@ -116,21 +127,25 @@ green guardrails.
 
 **Task 083** — the design system is complete. Every later screen is assembled from existing parts.
 
-**Task 385** — the first end-to-end slice works: create a project, choose a template, set context, capture, process,
+**Task 387** — the first end-to-end slice works: create a project, choose a template, set context, capture, process,
 review, approve, export with photos.
 
-**Task 469** — shippable. The application is complete and releasable with no server in existence.
+**Task 503** — the backend exists and the app runs on it: one organisation identity, role grants, and AI through the
+proxy with no key on the device.
 
-**Task 517** — team mode. Only worth starting once a real organisation needs accounts, roles and relay.
+**Task 521** — shippable. The app and the backend pass one gate together, including the run that proves a required
+backend is never a required connection.
 
 ## Rules that outrank convenience
 
 1. Raw evidence is never destroyed. Refinement writes beside the original.
 2. No screen invents a widget, colour, spacing value or error style the design system already has.
-3. Nothing blocks capture — not a missing network, not a slow provider, not a missing template.
+3. Nothing blocks capture — not a missing network, not an unreachable server, not a slow provider, not a missing
+   template.
 4. Every write is local-first and durable before the interface confirms it.
 5. AI proposes; a person approves.
-6. The backend is transit, not truth. It never holds a durable copy of a project, and the app is complete without it.
+6. The backend is required to exist and never required to be reachable. It holds people, permissions and keys; it is
+   never the store of record, never a backup, and never in the way of a field worker.
 
-Tasks 010–022 turn the first five into failing tests. `backend/rules/06-relay-and-retention.md` and tasks 495–497 do
-the same for the sixth.
+Tasks 010–022 turn the first five into failing tests. `backend/rules/06-relay-and-retention.md`, tasks 480–482 and
+the end-to-end run at 521 do the same for the sixth.

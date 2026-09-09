@@ -1,6 +1,6 @@
 # 149 — Per-project settings
 
-**Phase** 08 · Projects  |  **Depends on** [148](148-project-edit.md), [136](../07-operator-and-settings/136-settings-store.md)
+**Phase** 08 · Projects  |  **Depends on** [148](148-project-edit.md), [136](../07-account-and-settings/136-settings-store.md)
 
 > **Implementation prompt.** Build exactly this task against the current repository state, then stop. The deliverable is working, analysed, tested Dart code — not a description of it.
 
