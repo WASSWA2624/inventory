@@ -1,0 +1,13 @@
+# EditorConfig — https://editorconfig.org
+# Editor settings for the Tapture Flutter application, so a file reads the same
+# whichever editor wrote it.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+
+[*.dart]
+indent_style = space
+indent_size = 2

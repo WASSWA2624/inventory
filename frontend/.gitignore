@@ -30,7 +30,7 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+build/
 /coverage/
 
 # Symbolication related
@@ -43,3 +43,24 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Tapture repository hygiene (dev-plan 01-orchestration/002)
+
+# Generated sources. Produced by build_runner from the file beside them.
+*.g.dart
+*.freezed.dart
+
+# Android signing material. A key that reaches git is a key that must be rotated.
+*.keystore
+*.jks
+key.properties
+
+# Local environment files. Only the machine that wrote one should ever hold it.
+.env
+.env.*
+
+# Sample and exported project bundles (app-write-up section 45). They carry
+# real field data: records, photos, audio and the audit log behind them.
+/samples/
+*.bundle.zip
+*__*__*.zip
