@@ -479,6 +479,7 @@ class Composition:
     #                               # ("gradient", from, to, radius)
     note: str = ""
     png: list = field(default_factory=list)   # widths in pixels
+    opaque: bool = False   # drop the alpha channel: stores reject icons with one
 
 
 def _svg(comp: Composition) -> str:
@@ -554,7 +555,12 @@ def _png(comp: Composition, width_px: int):
     for sh in comp.shapes:
         sh.draw(draw, transform)
 
-    return img.resize((width_px, max(1, round(width_px * aspect))), Image.LANCZOS)
+    img = img.resize((width_px, max(1, round(width_px * aspect))), Image.LANCZOS)
+    if comp.opaque:
+        flat = Image.new("RGB", img.size, comp.bg[1] if comp.bg else "#FFFFFF")
+        flat.paste(img, (0, 0), img)
+        return flat
+    return img
 
 
 # ---------------------------------------------------------------------------
@@ -633,14 +639,14 @@ def compositions() -> list:
     comps.append(Composition(
         "icon/app-icon", _centred_mark(c, WHITE, frac=0.68), (0, 0, c, c),
         bg=("gradient", ICON_TOP, ICON_BOTTOM, 0),
-        note="app icon master, full bleed", png=[1024]))
+        note="app icon master, full bleed", png=[1024], opaque=True))
     comps.append(Composition(
         "icon/adaptive-foreground", _centred_mark(c, WHITE), (0, 0, c, c),
         note="Android adaptive foreground", png=[1024]))
     comps.append(Composition(
         "icon/adaptive-background", [RoundRect(0, 0, c, c, 0, ICON_BOTTOM)],
         (0, 0, c, c), bg=("gradient", ICON_TOP, ICON_BOTTOM, 0),
-        note="Android adaptive background", png=[1024]))
+        note="Android adaptive background", png=[1024], opaque=True))
     comps.append(Composition(
         "icon/adaptive-monochrome", _centred_mark(c, "#000000"), (0, 0, c, c),
         note="Android themed icon, tinted by the system", png=[1024]))
@@ -669,7 +675,7 @@ def compositions() -> list:
     comps.append(Composition(
         "social/og-image", lock, (0, 0, ow, oh),
         bg=("gradient", ICON_TOP, ICON_BOTTOM, 0),
-        note="social preview, 1200 by 630", png=[1200]))
+        note="social preview, 1200 by 630", png=[1200], opaque=True))
 
     return comps
 

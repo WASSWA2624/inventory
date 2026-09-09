@@ -18,6 +18,8 @@ frontend/        the Flutter application
 backend/         the optional team server (post-MVP; specification Part XI)
   rules/         standardisation rules: structure, API, data, security, the relay boundary, AI proxy
 dev-plan/        517 implementation prompts, in build order
+branding/        the identity: logos, app icons, splash, palette, and the generator that draws them
+  tool/          one geometry definition; every asset is regenerated from it
 app-write-up.md  the product and technical specification
 ```
 
@@ -25,6 +27,7 @@ app-write-up.md  the product and technical specification
 
 - [app-write-up.md](app-write-up.md) — the full product and technical specification.
 - [dev-plan/README.md](dev-plan/README.md) — how the build is sequenced, and where to start.
+- [branding/BRAND.md](branding/BRAND.md) — the identity: mark, wordmark, palette and how to use them.
 - [frontend/rules/](frontend/rules/) and [backend/rules/](backend/rules/) — the conventions every task obeys.
 
 ## Status

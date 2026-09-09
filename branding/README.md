@@ -32,6 +32,9 @@ change the generator and re-run it.
 | `adaptive-monochrome-1024.png` | Android 13+ themed icon, tinted by the system                        |
 | `favicon.svg`, `favicon-{32,48,180,512}.png` | web favicon and Apple touch icon                       |
 
+`app-icon`, `adaptive-background` and `og-image` are written without an alpha channel, because App Store Connect
+rejects an icon that has one. Everything else keeps transparency.
+
 The mark occupies 62 % of the adaptive canvas. That is not arbitrary: at 62 % the mark's circumradius fits inside
 Android's 66/108 guaranteed-visible circle, so no bracket corner is clipped when the launcher applies a round mask.
 
