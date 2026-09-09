@@ -105,6 +105,188 @@ int _unreachable() => 0;
   ),
 };
 
+/// One violation each of the diagnostics the analyzer reports as a warning and
+/// this project reads as an error. No lint rule enables these, so nothing but
+/// the `errors:` section keeps them above a suggestion — and nothing but a
+/// fixture proves the section still names them.
+const Map<String, _Violation> _promotions = <String, _Violation>{
+  'do_not_store_assignment.dart': (
+    code: 'ASSIGNMENT_OF_DO_NOT_STORE',
+    source: '''
+import 'package:meta/meta.dart';
+
+@doNotStore
+int seed() => 1;
+
+final int stored = seed();
+''',
+  ),
+  'do_not_store_return.dart': (
+    code: 'RETURN_OF_DO_NOT_STORE',
+    source: '''
+import 'package:meta/meta.dart';
+
+@doNotStore
+int seed() => 1;
+
+int reuse() => seed();
+''',
+  ),
+  'catch_error_body.dart': (
+    code: 'BODY_MIGHT_COMPLETE_NORMALLY_CATCH_ERROR',
+    source: '''
+Future<int> recover(Future<int> pending) {
+  return pending.catchError((Object error) {});
+}
+''',
+  ),
+  'duplicate_import.dart': (
+    code: 'DUPLICATE_IMPORT',
+    source: '''
+import 'dart:convert';
+import 'dart:convert';
+
+int encodedLength(String text) => jsonEncode(text).length;
+''',
+  ),
+  'duplicate_shown_name.dart': (
+    code: 'DUPLICATE_SHOWN_NAME',
+    source: '''
+import 'dart:convert' show jsonEncode, jsonEncode;
+
+int encodedLength(String text) => jsonEncode(text).length;
+''',
+  ),
+  'duplicate_hidden_name.dart': (
+    code: 'DUPLICATE_HIDDEN_NAME',
+    source: '''
+import 'dart:convert' hide utf8, utf8;
+
+int encodedLength(String text) => jsonEncode(text).length;
+''',
+  ),
+  'equal_keys_in_map.dart': (
+    code: 'EQUAL_KEYS_IN_MAP',
+    source: '''
+Map<String, int> counts() => <String, int>{'first': 1, 'first': 2};
+''',
+  ),
+  'equal_elements_in_set.dart': (
+    code: 'EQUAL_ELEMENTS_IN_SET',
+    source: '''
+Set<int> totals() => <int>{1, 1};
+''',
+  ),
+  'invalid_factory.dart': (
+    code: 'INVALID_FACTORY_METHOD_IMPL',
+    source: '''
+import 'package:flutter/foundation.dart';
+
+class Registry {
+  @factory
+  int make() => 0;
+}
+''',
+  ),
+  'language_version_override.dart': (
+    code: 'INVALID_LANGUAGE_VERSION_OVERRIDE',
+    source: '''
+// @dart=3.99
+int answer() => 42;
+''',
+  ),
+  'must_be_overridden.dart': (
+    code: 'MISSING_OVERRIDE_OF_MUST_BE_OVERRIDDEN',
+    source: '''
+import 'package:meta/meta.dart';
+
+class Contract {
+  @mustBeOverridden
+  void run() {}
+}
+
+class Breaks extends Contract {}
+''',
+  ),
+  'literal_constructor.dart': (
+    code: 'NON_CONST_CALL_TO_LITERAL_CONSTRUCTOR',
+    source: '''
+import 'package:meta/meta.dart';
+
+@immutable
+class Marker {
+  @literal
+  const Marker();
+}
+
+final Marker marker = Marker();
+''',
+  ),
+  'nullable_catch_clause.dart': (
+    code: 'NULLABLE_TYPE_IN_CATCH_CLAUSE',
+    source: '''
+int guarded() {
+  try {
+    return 0;
+  } on Object? catch (_) {
+    return 1;
+  }
+}
+''',
+  ),
+  'detached_override.dart': (
+    code: 'OVERRIDE_ON_NON_OVERRIDING_MEMBER',
+    source: '''
+class Detached {
+  @override
+  void run() {}
+}
+''',
+  ),
+  'pattern_never_matches.dart': (
+    code: 'PATTERN_NEVER_MATCHES_VALUE_TYPE',
+    source: '''
+bool isText(int value) {
+  if (value case String _) {
+    return true;
+  }
+  return false;
+}
+''',
+  ),
+  'text_direction.dart': (
+    code: 'TEXT_DIRECTION_CODE_POINT_IN_LITERAL',
+    source: '''
+const String reversed = 'start\u202Eend';
+''',
+  ),
+  'nan_comparison.dart': (
+    code: 'UNNECESSARY_NAN_COMPARISON',
+    source: '''
+bool isNan(double value) => value == double.nan;
+''',
+  ),
+  'null_comparison.dart': (
+    code: 'UNNECESSARY_NULL_COMPARISON',
+    source: '''
+bool isNull(int value) => value == null;
+''',
+  ),
+  'wildcard_pattern.dart': (
+    code: 'UNNECESSARY_WILDCARD_PATTERN',
+    source: '''
+int classify(Object? value) {
+  switch (value) {
+    case int _ && _:
+      return 0;
+    default:
+      return 1;
+  }
+}
+''',
+  ),
+};
+
 /// A public member with nothing saying what it is for. It is written twice:
 /// under `core/`, where the documentation rule applies, and outside it, where
 /// it does not.
@@ -146,6 +328,12 @@ void main() {
     for (final MapEntry<String, _Violation> violation in _violations.entries) {
       test('${violation.key} fails with ${violation.value.code}', () {
         expect(fixture.codesIn(violation.key), contains(violation.value.code));
+      });
+    }
+
+    for (final MapEntry<String, _Violation> promotion in _promotions.entries) {
+      test('${promotion.key} fails with ${promotion.value.code}', () {
+        expect(fixture.codesIn(promotion.key), contains(promotion.value.code));
       });
     }
 
@@ -209,7 +397,10 @@ void _writeFixture() {
     '$_violationRoot/analysis_options.yaml',
   ).writeAsStringSync('include: ../../analysis_options.yaml\n');
   File('$_violationRoot/clean.dart').writeAsStringSync(_cleanSource);
-  for (final MapEntry<String, _Violation> violation in _violations.entries) {
+  for (final MapEntry<String, _Violation> violation in <String, _Violation>{
+    ..._violations,
+    ..._promotions,
+  }.entries) {
     File(
       '$_violationRoot/${violation.key}',
     ).writeAsStringSync(violation.value.source);

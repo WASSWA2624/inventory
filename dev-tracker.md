@@ -6,7 +6,7 @@ A task is ticked here only when every box in its own **Definition of done** is t
 verify gate is green. A task that is mostly working stays open — see
 [`frontend/.rules/13-workflow.md`](frontend/.rules/13-workflow.md) FE-FLOW-03.
 
-**2 of 522 tasks complete (0.4%)** · last updated 2026-09-09
+**3 of 522 tasks complete (0.6%)** · last updated 2026-09-09
 
 `░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░`
 
@@ -14,7 +14,7 @@ verify gate is green. A task that is mostly working stays open — see
 
 | Phase | Done | Total | Progress |
 | :--- | ---: | ---: | :--- |
-| 01 — Project setup and guardrails | 2 | 22 | `█░░░░░░░░░░░░░` 9% |
+| 01 — Project setup and guardrails | 3 | 22 | `██░░░░░░░░░░░░` 14% |
 | 02 — Foundation services | 0 | 19 | `░░░░░░░░░░░░░░` 0% |
 | 03 — Design system | 0 | 42 | `░░░░░░░░░░░░░░` 0% |
 | 04 — Local database | 0 | 31 | `░░░░░░░░░░░░░░` 0% |
@@ -39,7 +39,7 @@ verify gate is green. A task that is mostly working stays open — see
 | 23 — Hardening | 0 | 16 | `░░░░░░░░░░░░░░` 0% |
 | 24 — The minimal backend | 0 | 49 | `░░░░░░░░░░░░░░` 0% |
 | 25 — Testing and release | 0 | 18 | `░░░░░░░░░░░░░░` 0% |
-| **Total** | **2** | **522** | `░░░░░░░░░░░░░░` 0.4% |
+| **Total** | **3** | **522** | `░░░░░░░░░░░░░░` 0.6% |
 
 ## Completed
 
@@ -47,6 +47,7 @@ verify gate is green. A task that is mostly working stays open — see
 | :--- | :--- | :--- |
 | 001 — Create the Flutter project | 2026-09-09 | App id `com.tapture.app`, label Tapture, demo code removed, `test/smoke_test.dart` green. |
 | 002 — Repository hygiene files | 2026-09-09 | `.gitignore` + `.editorconfig`, guarded by `tool/check_repo_hygiene.dart` and 9 tests. |
+| 003 — Strict analyzer configuration | 2026-09-09 | `strict-casts`/`-inference`/`-raw-types` on, all 171 enabled rules and diagnostics promoted to error, `public_member_api_docs` scoped to `lib/core/`; guarded by `tool/check_analyzer_config.dart`, 14 config tests and 29 analyzer fixtures. |
 
 ## Carried decisions
 
@@ -57,16 +58,17 @@ Things a finished task surfaced that are not yet resolved. Each needs a numbered
 | :--- | :--- | :--- |
 | 002 | Task 002 step 1 ignores `*.g.dart` and `*.freezed.dart`; FE-CODE-13 says generated code is committed so a clean checkout builds without a generator run. Both cannot hold. | Open — implemented as the task says; the rule or the step has to give |
 | 002 | `dart run tool/verify.dart --fast` is named as a gate by every task from 001 onward, but task 008 builds it. Gates are being run individually until then. | Open until 008 |
+| 003 | The analyzer has no wildcard severity promotion, so `errors:` names every diagnostic one at a time. A Dart SDK upgrade can add a warning code that nobody lists, and it lands as a suggestion rather than as a failure. | Open — needs a task to re-sweep the codes on each SDK bump |
 
 ## Checklist
 
 ### 01 — Project setup and guardrails
 
-*2 of 22 complete.*
+*3 of 22 complete.*
 
 - [x] [001 — Create the Flutter project](dev-plan/01-orchestration/001-flutter-project-init.md)
 - [x] [002 — Repository hygiene files](dev-plan/01-orchestration/002-repo-hygiene.md)
-- [ ] [003 — Strict analyzer configuration](dev-plan/01-orchestration/003-strict-lints.md)
+- [x] [003 — Strict analyzer configuration](dev-plan/01-orchestration/003-strict-lints.md)
 - [ ] [004 — Create the folder skeleton](dev-plan/01-orchestration/004-folder-scaffold.md)
 - [ ] [005 — Dependency allowlist checker](dev-plan/01-orchestration/005-dependency-allowlist.md)
 - [ ] [006 — Plan integrity checker](dev-plan/01-orchestration/006-plan-integrity-checker.md)

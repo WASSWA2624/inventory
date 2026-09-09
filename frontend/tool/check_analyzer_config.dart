@@ -35,8 +35,22 @@ const List<String> _requiredRules = <String>[
 ];
 
 /// Diagnostics the analyzer raises as a warning or a hint that this project
-/// reads as an error: what the strict checks report, and code nothing reaches.
+/// reads as an error: what the strict checks report, code nothing reaches, a
+/// broken annotation contract, and a directive or literal that does not say
+/// what it appears to say.
+///
+/// The analyzer has no wildcard promotion, so every code is named. The
+/// severity check below catches a lint rule that is enabled and never
+/// promoted; this list is what catches one of these — which no rule enables —
+/// being dropped.
 const List<String> _requiredPromotions = <String>[
+  'assignment_of_do_not_store',
+  'body_might_complete_normally_catch_error',
+  'duplicate_hidden_name',
+  'duplicate_import',
+  'duplicate_shown_name',
+  'equal_elements_in_set',
+  'equal_keys_in_map',
   'inference_failure_on_collection_literal',
   'inference_failure_on_function_invocation',
   'inference_failure_on_function_return_type',
@@ -44,7 +58,19 @@ const List<String> _requiredPromotions = <String>[
   'inference_failure_on_instance_creation',
   'inference_failure_on_uninitialized_variable',
   'inference_failure_on_untyped_parameter',
+  'invalid_factory_method_impl',
+  'invalid_language_version_override',
+  'missing_override_of_must_be_overridden',
+  'non_const_call_to_literal_constructor',
+  'nullable_type_in_catch_clause',
+  'override_on_non_overriding_member',
+  'pattern_never_matches_value_type',
+  'return_of_do_not_store',
   'strict_raw_type',
+  'text_direction_code_point_in_literal',
+  'unnecessary_nan_comparison',
+  'unnecessary_null_comparison',
+  'unnecessary_wildcard_pattern',
   'unused_catch_clause',
   'unused_catch_stack',
   'unused_element',

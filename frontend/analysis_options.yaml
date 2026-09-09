@@ -41,24 +41,35 @@ analyzer:
     unused_shown_name: error
 
     # Code the analyzer already knows cannot run or cannot hold.
+    body_might_complete_normally_catch_error: error
     body_might_complete_normally_nullable: error
     dead_code: error
     dead_null_aware_expression: error
+    pattern_never_matches_value_type: error
     receiver_of_type_never: error
+    unnecessary_nan_comparison: error
+    unnecessary_null_comparison: error
+    unnecessary_wildcard_pattern: error
     unreachable_switch_case: error
     unreachable_switch_default: error
 
     # Deprecation and annotation misuse: contracts other code relies on.
+    assignment_of_do_not_store: error
     deprecated_member_use: error
     deprecated_member_use_from_same_package: error
     invalid_annotation_target: error
+    invalid_factory_method_impl: error
     invalid_override_of_non_virtual_member: error
     invalid_use_of_internal_member: error
     invalid_use_of_protected_member: error
     invalid_use_of_visible_for_testing_member: error
+    missing_override_of_must_be_overridden: error
     mixin_on_sealed_class: error
     must_be_immutable: error
     must_call_super: error
+    non_const_call_to_literal_constructor: error
+    override_on_non_overriding_member: error
+    return_of_do_not_store: error
     subtype_of_sealed_class: error
 
     # Nullability and casts, the other half of the strict type checks above.
@@ -68,9 +79,21 @@ analyzer:
     invalid_null_aware_operator: error
     invalid_return_type_for_catch_error: error
     null_check_always_fails: error
+    nullable_type_in_catch_clause: error
     unnecessary_cast: error
     unnecessary_non_null_assertion: error
     unnecessary_type_check: error
+
+    # Directives and literals that do not say what they appear to say. The
+    # analyzer reads these as a warning; a duplicated shown name or a
+    # bidirectional code point in a string is a defect either way.
+    duplicate_hidden_name: error
+    duplicate_import: error
+    duplicate_shown_name: error
+    equal_elements_in_set: error
+    equal_keys_in_map: error
+    invalid_language_version_override: error
+    text_direction_code_point_in_literal: error
 
     # The rules this file turns on.
     avoid_unused_constructor_parameters: error
