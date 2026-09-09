@@ -22,6 +22,7 @@ Copy an existing template, including its fields, rows and aliases.
 ## Definition of done
 
 - [ ] Records keep pointing at the original; the copy starts with none.
+- [ ] Tests written and passing: Widget test of `template_duplicate_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -26,6 +26,7 @@ Show exactly what will change before moving records forward.
 ## Definition of done
 
 - [ ] No record is migrated without the user seeing the consequences.
+- [ ] Tests written and passing: Widget test of `template_migration_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

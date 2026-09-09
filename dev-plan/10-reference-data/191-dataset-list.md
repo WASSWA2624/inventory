@@ -21,6 +21,7 @@ List datasets with row counts, source and import date.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `dataset_list_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

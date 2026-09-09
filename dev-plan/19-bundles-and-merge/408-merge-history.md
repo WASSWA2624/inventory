@@ -23,6 +23,7 @@ List past merges with their counts, source device and resolutions.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `merge_history_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -26,6 +26,7 @@ Choose a value for one level from recents, a reference dataset, or free text.
 ## Definition of done
 
 - [ ] Setting a facility takes two taps on the second visit.
+- [ ] Tests written and passing: Widget test of `context_picker_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

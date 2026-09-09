@@ -22,6 +22,7 @@ Start from nothing with just a name.
 ## Definition of done
 
 - [ ] A blank template is immediately usable with one added field.
+- [ ] Tests written and passing: Widget test of `template_create_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

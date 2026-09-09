@@ -22,6 +22,7 @@ Produce XLSX, CSV, JSON, PDF and ZIP offline and validate each output.
 ## Definition of done
 
 - [ ] Every format opens correctly in a reader and matches the record count.
+- [ ] Tests written and passing: `export_formats_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

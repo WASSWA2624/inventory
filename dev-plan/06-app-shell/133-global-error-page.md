@@ -26,6 +26,7 @@ A last-resort screen that keeps data safe and offers the log.
 ## Definition of done
 
 - [ ] A fatal error cannot lead a user into destroying their work.
+- [ ] Tests written and passing: Unit tests of `global_error_page.dart`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

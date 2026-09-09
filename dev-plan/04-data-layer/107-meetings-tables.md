@@ -29,6 +29,7 @@ Meeting header, attendees and action items.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `meetings.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

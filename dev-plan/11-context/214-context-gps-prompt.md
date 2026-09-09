@@ -26,6 +26,7 @@ Ask the operator to confirm the context after moving a configured distance.
 ## Definition of done
 
 - [ ] No location is read when the feature is off.
+- [ ] Tests written and passing: Unit tests of `context_movement_prompt.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

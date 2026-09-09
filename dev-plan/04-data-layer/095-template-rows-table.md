@@ -28,6 +28,7 @@ Store predefined checklist rows and their aliases.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `template_rows.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

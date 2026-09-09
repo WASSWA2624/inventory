@@ -26,6 +26,7 @@ Record every export and allow re-share without regenerating.
 ## Definition of done
 
 - [ ] A user can explain, months later, exactly what a given file contained.
+- [ ] Tests written and passing: Widget test of `export_history_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

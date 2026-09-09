@@ -21,6 +21,7 @@ Capture the signed attendance sheet as evidence, typed ATTENDANCE.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `attendance_capture.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

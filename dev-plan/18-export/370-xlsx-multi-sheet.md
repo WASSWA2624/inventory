@@ -22,6 +22,7 @@ Multi-template projects produce one sheet per template.
 ## Definition of done
 
 - [ ] Sheet names are unique, valid and derived from template names.
+- [ ] Tests written and passing: Unit tests of `xlsx_multi_sheet.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

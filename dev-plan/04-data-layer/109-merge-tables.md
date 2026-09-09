@@ -29,6 +29,7 @@ Persist bundle imports, their conflicts and enough state to undo a merge.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `merge.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

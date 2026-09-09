@@ -26,6 +26,7 @@ Load the library, list it, and copy an entry into a project.
 ## Definition of done
 
 - [ ] Editing a copied template cannot affect the library.
+- [ ] Tests written and passing: Repository tests for `shipped_template_loader.dart` against an in-memory database, plus the fake later tests use.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

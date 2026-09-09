@@ -26,6 +26,7 @@ Change name, description, organisation, dates and status.
 ## Definition of done
 
 - [ ] Existing file paths keep working after a rename.
+- [ ] Tests written and passing: Widget test of `project_edit_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

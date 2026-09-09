@@ -23,6 +23,7 @@ Show the band with colour, icon and number, never colour alone.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `confidence_indicator.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

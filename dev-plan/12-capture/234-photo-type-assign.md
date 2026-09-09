@@ -29,6 +29,7 @@ Set front, serial, rating plate, damage and the rest, by hand or from a suggesti
 ## Definition of done
 
 - [ ] The type feeds file naming and evidence tracking immediately.
+- [ ] Tests written and passing: Widget test of `photo_type_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

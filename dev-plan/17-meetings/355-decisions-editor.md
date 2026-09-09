@@ -21,6 +21,7 @@ Add and edit decisions, whether refined or typed.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `decisions_editor.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

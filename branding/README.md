@@ -45,7 +45,7 @@ Android's 66/108 guaranteed-visible circle, so no bracket corner is clipped when
 ### `splash/`
 
 `splash-light` and `splash-dark` are the mark alone on transparency, at the proportion Flutter's native splash
-expects. Set the background from the palette: `#FFFFFF` for light, `#121830` for dark.
+expects. Set the background from the palette: `#FFFFFF` for light, `#0A1236` for dark.
 
 ### `social/`
 

@@ -26,6 +26,7 @@ Read existing spreadsheet rows into the checklist the operator works through.
 ## Definition of done
 
 - [ ] Rows import with their spreadsheet positions preserved.
+- [ ] Tests written and passing: Repository tests for `predefined_rows_import.dart` against an in-memory database, plus the fake later tests use.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

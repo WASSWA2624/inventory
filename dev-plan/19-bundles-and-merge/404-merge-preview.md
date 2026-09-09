@@ -28,6 +28,7 @@ Show new, updated, deleted, conflicting and duplicate counts before anything is 
 ## Definition of done
 
 - [ ] A user can cancel with no change at all.
+- [ ] Tests written and passing: Widget test of `merge_preview_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

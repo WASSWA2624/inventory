@@ -31,6 +31,7 @@ class AppBanner extends StatelessWidget { final String message; final IconData i
 ## Definition of done
 
 - [ ] Offline state is visible without stealing focus.
+- [ ] Tests written and passing: Golden tests of `app_banner.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

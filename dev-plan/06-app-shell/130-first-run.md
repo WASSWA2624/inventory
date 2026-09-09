@@ -6,7 +6,9 @@
 
 ## Implement
 
-The shortest possible path from install to first capture, with no account.
+The shortest possible path from install to first capture. Until the backend exists, that path starts at a local
+operator profile; task 498 puts sign-in in front of it, which is the shipped behaviour (§56 rule 4, FE-SIMP-04).
+Build the flow so adding that step is a route change, not a redesign.
 
 ## Files
 
@@ -15,7 +17,9 @@ The shortest possible path from install to first capture, with no account.
 ## Steps
 
 1. Ask only for an operator name, then offer "Start a project" with a shipped template.
-2. Skippable: a user can reach capture without answering anything.
+2. Skippable: a user can reach capture without answering anything beyond the name.
+3. Keep the flow a single gate the router consults, so 498 can replace the operator-name step with sign-in and
+   enrolment without touching any screen after it. No onboarding tour, no wizard, no second step, ever.
 
 ## Constraints
 
@@ -26,7 +30,8 @@ The shortest possible path from install to first capture, with no account.
 
 ## Definition of done
 
-- [ ] A new install can capture within thirty seconds.
+- [ ] A new install can capture within thirty seconds of clearing this screen.
+- [ ] The gate is one decision in the router, so task 498 can put sign-in in front of it without a redesign.
 - [ ] Tests written and passing: Widget test of the skip path.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

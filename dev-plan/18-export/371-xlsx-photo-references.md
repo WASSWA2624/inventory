@@ -26,6 +26,7 @@ Filename, relative path or embedded image, chosen per project.
 ## Definition of done
 
 - [ ] Switching mode changes only the photo column.
+- [ ] Tests written and passing: Unit tests of `xlsx_photo_refs.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

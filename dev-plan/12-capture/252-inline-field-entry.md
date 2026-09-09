@@ -29,6 +29,7 @@ Let the operator type known values during capture instead of waiting for review.
 ## Definition of done
 
 - [ ] A fully manual project is captured entirely on this screen.
+- [ ] Tests written and passing: Widget test of `inline_fields_section.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

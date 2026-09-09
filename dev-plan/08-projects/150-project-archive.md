@@ -26,6 +26,7 @@ Move a finished project out of the active list without deleting anything.
 ## Definition of done
 
 - [ ] Archiving is reversible and loses nothing.
+- [ ] Tests written and passing: Widget test of `project_archive_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -25,6 +25,7 @@ Ask the cheap model only when local signals are inconclusive.
 ## Definition of done
 
 - [ ] No detection call is made when local scoring is confident.
+- [ ] Tests written and passing: Unit tests of `template_detection_ai.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

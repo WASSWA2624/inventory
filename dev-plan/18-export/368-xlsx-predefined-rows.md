@@ -22,6 +22,7 @@ Populate the matched row rather than appending, when the template has predefined
 ## Definition of done
 
 - [ ] Rows never found remain visibly empty or marked not found.
+- [ ] Tests written and passing: Unit tests of `xlsx_row_targeting.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

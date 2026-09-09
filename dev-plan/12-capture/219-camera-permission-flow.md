@@ -29,6 +29,7 @@ Ask once, explain why, and recover gracefully from refusal.
 ## Definition of done
 
 - [ ] A user who denies the camera can still work.
+- [ ] Tests written and passing: Widget test of `camera_permission_gate.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

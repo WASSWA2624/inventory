@@ -25,6 +25,7 @@ Add attendees by hand with name, title, organisation and contact.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `attendee_editor.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

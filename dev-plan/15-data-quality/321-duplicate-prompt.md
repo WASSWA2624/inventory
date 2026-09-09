@@ -26,6 +26,7 @@ Warn at the moment of saving, with the four choices from the specification.
 ## Definition of done
 
 - [ ] The prompt never appears without showing the differing values.
+- [ ] Tests written and passing: Widget test of `duplicate_prompt.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

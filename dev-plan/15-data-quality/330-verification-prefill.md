@@ -26,6 +26,7 @@ Fill the whole record from the reference row and mark it as on-record.
 ## Definition of done
 
 - [ ] Not-found identifiers create a record flagged not-in-register.
+- [ ] Tests written and passing: Unit tests of `verification_prefill.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

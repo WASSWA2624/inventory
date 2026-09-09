@@ -25,6 +25,7 @@ List failures with reasons and one-tap retry.
 ## Definition of done
 
 - [ ] A failed job never damages the raw record.
+- [ ] Tests written and passing: Widget test of `failed_jobs_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

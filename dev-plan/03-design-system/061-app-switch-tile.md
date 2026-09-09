@@ -31,6 +31,7 @@ class AppSwitchTile extends StatelessWidget { final String title; final String? 
 ## Definition of done
 
 - [ ] Settings and boolean template fields share one control.
+- [ ] Tests written and passing: Golden tests of `app_switch_tile.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

@@ -29,6 +29,7 @@ Declare the domain-facing contracts so features never see Drift types.
 ## Definition of done
 
 - [ ] Presentation code compiles without importing the database package.
+- [ ] Tests written and passing: Unit tests of `*_repository.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -29,6 +29,7 @@ Optional, off by default, with a Wi-Fi-only restriction.
 ## Definition of done
 
 - [ ] With the setting off, nothing processes without a tap.
+- [ ] Tests written and passing: Unit tests of `auto_process.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

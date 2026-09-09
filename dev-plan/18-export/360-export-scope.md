@@ -26,6 +26,7 @@ Choose which records go into the export.
 ## Definition of done
 
 - [ ] The chosen scope shows a live record count before export starts.
+- [ ] Tests written and passing: Widget test of `export_scope_section.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

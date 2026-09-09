@@ -6,11 +6,21 @@
 
 ## Implement
 
-Implement listing, creating and updating organisation users, restricted to administrators.
+Implement listing, creating and updating organisation users, restricted to administrators — and the one
+directory endpoint that is not: `GET /auth/me`, which returns the caller's own identity and role grants and is
+what the device caches to survive an unreachable server (§70.4, §71.2).
 
 ## Files
 
 - `backend/src/routes/org/users.ts` (new)
+- `backend/src/routes/auth/me.ts` (new)
+
+## Contract
+
+```ts
+GET /api/v1/org/users    POST /api/v1/org/users    PATCH /api/v1/org/users/:id
+GET /api/v1/auth/me
+```
 
 ## Constraints
 
@@ -24,7 +34,9 @@ Implement listing, creating and updating organisation users, restricted to admin
 
 ## Definition of done
 
-- [ ] Tests written and passing: Route tests including the unauthorised paths.
+- [ ] `GET /auth/me` returns the identity and grants the device caches, and never a credential or a provider key.
+- [ ] Listing is cursor-paginated; no endpoint here returns an unbounded list (BE-API-06).
+- [ ] Tests written and passing: Route tests including the unauthorised paths and the permission matrix for each role.
 - [ ] Type check clean, lint and formatter applied, `npm run verify` green.
 
 ## Out of scope

@@ -25,6 +25,7 @@ Ask for the microphone only when the user first taps the mic.
 ## Definition of done
 
 - [ ] Refusing the microphone leaves typing fully available.
+- [ ] Tests written and passing: Widget test of `mic_permission_gate.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

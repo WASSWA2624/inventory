@@ -26,6 +26,7 @@ A paged, searchable table of rows.
 ## Definition of done
 
 - [ ] Ten thousand rows scroll smoothly.
+- [ ] Tests written and passing: Widget test of `dataset_browser_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

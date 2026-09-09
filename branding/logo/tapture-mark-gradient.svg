@@ -2,8 +2,8 @@
   <title>Tapture &#8212; symbol in the brand gradient, for hero use</title>
   <defs>
     <linearGradient id="tapture-gradient" gradientUnits="userSpaceOnUse" x1="91" y1="91" x2="909" y2="909">
-      <stop offset="0" stop-color="#4A6CB8"/>
-      <stop offset="1" stop-color="#1D284D"/>
+      <stop offset="0" stop-color="#2662EB"/>
+      <stop offset="1" stop-color="#0F215F"/>
     </linearGradient>
   </defs>
   <path d="M 140 244 A 104 104 0 0 1 244 140" fill="none" stroke="url(#tapture-gradient)" stroke-width="98" stroke-linecap="round"/>

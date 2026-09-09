@@ -27,6 +27,7 @@ Configure and upload to an S3-compatible bucket with user-supplied keys.
 ## Definition of done
 
 - [ ] A test upload of a small file proves the configuration before any real upload.
+- [ ] Tests written and passing: Unit tests of `s3_destination.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

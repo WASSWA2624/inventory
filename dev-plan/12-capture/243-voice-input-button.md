@@ -29,6 +29,7 @@ The microphone affordance attached to any long-text field.
 ## Definition of done
 
 - [ ] The result lands in the field as editable text, never auto-submitted.
+- [ ] Tests written and passing: Widget test of `voice_input_button.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

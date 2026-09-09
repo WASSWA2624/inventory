@@ -26,6 +26,7 @@ Show space used per project and offer cache clearing and retention control.
 ## Definition of done
 
 - [ ] A user can find and free space without a file manager.
+- [ ] Tests written and passing: Widget test of `storage_settings_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

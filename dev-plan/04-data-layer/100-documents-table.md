@@ -28,6 +28,7 @@ Store attached documents and audio clips with the same identity rules as photos.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `attachments.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

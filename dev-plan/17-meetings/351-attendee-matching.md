@@ -25,6 +25,7 @@ Link extracted names to the Staff reference dataset where one exists.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Unit tests of `attendee_matching.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

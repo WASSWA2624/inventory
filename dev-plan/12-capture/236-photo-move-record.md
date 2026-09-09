@@ -29,6 +29,7 @@ Correct a mistake where photos landed on the wrong record.
 ## Definition of done
 
 - [ ] Moving photos never leaves a dangling evidence link.
+- [ ] Tests written and passing: Widget test of `photo_move_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

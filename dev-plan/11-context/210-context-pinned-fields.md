@@ -26,6 +26,7 @@ Pin any stickable field, such as surveyor or funder, without it being a level.
 ## Definition of done
 
 - [ ] A survey date can be pinned once and applied to every record.
+- [ ] Tests written and passing: Widget test of `pinned_fields_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

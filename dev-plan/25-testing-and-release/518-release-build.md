@@ -26,6 +26,7 @@ Signing, shrinking, split ABIs and a reproducible build command.
 ## Definition of done
 
 - [ ] A release build is produced from one documented command.
+- [ ] Tests written and passing: Unit tests of `build.gradle`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

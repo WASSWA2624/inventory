@@ -25,6 +25,7 @@ Persist source, method, provider, model and prompt version per value.
 ## Definition of done
 
 - [ ] An auditor can tell how any value came to exist.
+- [ ] Tests written and passing: Unit tests of `provenance.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

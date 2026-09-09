@@ -22,6 +22,7 @@ Formatted minutes with attendance list and photo appendix.
 ## Definition of done
 
 - [ ] Both raw and refined minutes can be included, clearly labelled.
+- [ ] Tests written and passing: Unit tests of `minutes_report.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -22,6 +22,7 @@ A sheet listing record, photo type, caption and path, always included.
 ## Definition of done
 
 - [ ] Photos remain traceable even in filename mode.
+- [ ] Tests written and passing: Unit tests of `photo_index_sheet.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

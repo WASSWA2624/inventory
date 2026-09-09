@@ -24,6 +24,7 @@ Catch records that are the same thing captured independently on two devices.
 ## Definition of done
 
 - [ ] The scan runs automatically after every merge and lists pairs for review.
+- [ ] Tests written and passing: Unit tests of `post_merge_scan.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

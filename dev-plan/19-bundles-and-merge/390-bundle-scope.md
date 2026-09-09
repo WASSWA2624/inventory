@@ -24,6 +24,7 @@ Full project, date range, context subtree, approved only, or data without photos
 ## Definition of done
 
 - [ ] A data-only bundle is small enough to send by email.
+- [ ] Tests written and passing: Widget test of `bundle_scope_section.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

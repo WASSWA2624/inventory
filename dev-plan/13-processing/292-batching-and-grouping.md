@@ -29,6 +29,7 @@ One request per record, not one per photo.
 ## Definition of done
 
 - [ ] A five-photo record produces exactly one extraction call.
+- [ ] Tests written and passing: Unit tests of `request_batching.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

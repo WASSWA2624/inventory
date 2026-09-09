@@ -22,6 +22,7 @@ Show per-stage progress and allow cancellation without leaving partial files.
 ## Definition of done
 
 - [ ] A cancelled export leaves no half-written archive.
+- [ ] Tests written and passing: Widget test of `export_progress.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

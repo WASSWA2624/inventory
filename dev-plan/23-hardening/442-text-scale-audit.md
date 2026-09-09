@@ -22,6 +22,7 @@ Verify every screen at 200 percent text scale.
 ## Definition of done
 
 - [ ] No clipping, no overlap, no unreachable buttons at maximum scale.
+- [ ] Tests written and passing: A smoke test proving the harness itself works, and one suite consuming it.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

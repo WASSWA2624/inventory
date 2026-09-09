@@ -22,6 +22,7 @@ Upload to a URL with basic or token authentication.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Unit tests of `webdav_destination.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

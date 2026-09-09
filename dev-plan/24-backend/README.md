@@ -19,7 +19,7 @@ Tasks 455–503 (49). Each file is a standalone implementation prompt.
 - [ ] [467 — Schema: audit and security events](467-be-schema-audit.md)
 - [ ] [468 — Repository base and transactions](468-be-repositories.md)
 - [ ] [469 — Password hashing](469-be-auth-passwords.md)
-- [ ] [470 — Account creation and invitation](470-be-auth-register.md)
+- [ ] [470 — Account creation, invitation and password lifecycle](470-be-auth-register.md)
 - [ ] [471 — Login with rate limiting and lockout](471-be-auth-login.md)
 - [ ] [472 — Access and refresh tokens](472-be-auth-tokens.md)
 - [ ] [473 — Authentication middleware](473-be-auth-middleware.md)

@@ -26,6 +26,7 @@ Project-level list of pending pairs with the same four actions and a bulk option
 ## Definition of done
 
 - [ ] A hundred pairs can be cleared without opening each record.
+- [ ] Tests written and passing: Widget test of `duplicates_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

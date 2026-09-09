@@ -26,6 +26,7 @@ Show found and not-found progress while capturing.
 ## Definition of done
 
 - [ ] The operator can see what is still missing in the current room.
+- [ ] Tests written and passing: Widget test of `checklist_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

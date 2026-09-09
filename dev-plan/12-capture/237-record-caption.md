@@ -29,6 +29,7 @@ The main description of the item, typed or spoken, stored raw.
 ## Definition of done
 
 - [ ] Text survives backgrounding without an explicit save.
+- [ ] Tests written and passing: Widget test of `record_caption_field.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

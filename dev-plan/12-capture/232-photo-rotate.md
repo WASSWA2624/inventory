@@ -29,6 +29,7 @@ Fix orientation without touching the original file.
 ## Definition of done
 
 - [ ] The original hash is unchanged after rotation.
+- [ ] Tests written and passing: Unit tests of `photo_rotate.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

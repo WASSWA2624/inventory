@@ -33,6 +33,7 @@ class KeepFocusedVisible extends StatelessWidget { final Widget child; }
 ## Definition of done
 
 - [ ] Long forms remain usable on a small phone with the keyboard open.
+- [ ] Tests written and passing: Golden tests of `focus_actions.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

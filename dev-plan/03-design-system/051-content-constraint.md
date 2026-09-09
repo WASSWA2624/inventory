@@ -35,6 +35,7 @@ class ContentConstraint extends StatelessWidget { final Widget child; final doub
 ## Definition of done
 
 - [ ] Forms remain readable on expanded layouts.
+- [ ] Tests written and passing: Golden tests of `content_constraint.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

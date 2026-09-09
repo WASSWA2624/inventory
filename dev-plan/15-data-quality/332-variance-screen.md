@@ -25,6 +25,7 @@ Show the differences for one record and for the project.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `variance_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

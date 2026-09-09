@@ -26,6 +26,7 @@ Choose which fields identify a record for duplicate detection.
 ## Definition of done
 
 - [ ] Duplicate detection has an explicit, visible configuration.
+- [ ] Tests written and passing: Widget test of `identity_fields_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

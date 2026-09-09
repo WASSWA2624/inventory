@@ -26,6 +26,7 @@ Side-by-side comparison of the two records and their photos.
 ## Definition of done
 
 - [ ] A decision can be made without opening either record separately.
+- [ ] Tests written and passing: Widget test of `duplicate_compare_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

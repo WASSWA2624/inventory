@@ -22,6 +22,7 @@ Export from one database, import into another, resolve a conflict, undo, redo.
 ## Definition of done
 
 - [ ] The test proves idempotency and a complete undo.
+- [ ] Tests written and passing: `merge_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

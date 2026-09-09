@@ -35,6 +35,7 @@ abstract final class Copy { static String get notDetected; static String records
 ## Definition of done
 
 - [ ] No inline user-facing string remains in a catalogue widget.
+- [ ] Tests written and passing: Unit tests of `copy.dart` against its fake.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

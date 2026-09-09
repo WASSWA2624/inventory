@@ -29,6 +29,7 @@ Builders that make a valid project, template, record and photo in one line.
 ## Definition of done
 
 - [ ] Later tests are short and do not repeat setup.
+- [ ] Tests written and passing: A smoke test proving the harness itself works, and one suite consuming it.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -26,6 +26,7 @@ The editing screen: an ordered list of fields with add, edit, reorder and delete
 ## Definition of done
 
 - [ ] The list is the only place fields are managed.
+- [ ] Tests written and passing: Widget test of `field_list_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

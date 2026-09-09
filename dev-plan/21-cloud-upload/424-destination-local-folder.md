@@ -23,6 +23,7 @@ Copy an export to an SD card or a folder chosen with the system picker.
 ## Definition of done
 
 - [ ] Works with no network at all.
+- [ ] Tests written and passing: Unit tests of `local_destination.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

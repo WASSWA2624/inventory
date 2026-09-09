@@ -29,6 +29,7 @@ A single call that proves the key and endpoint work, with a clear result.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `provider_test_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -69,23 +69,25 @@ worker in bright sun reads status by colour before anything else, and the brand 
 (`frontend/rules/04-theming.md`, FE-THEME-05). Blue sits further from all three than any warm or green-adjacent hue
 could.
 
-It is a blend, not a flat tint. The hue drifts from 212° in the tints to 228° in the shades, so the light end reads
-cool and open and the dark end settles into navy without ever turning violet. Saturation stays restrained: quiet
-enough to sit behind a photograph all day, strong enough to hold a home screen.
+It is a blend, not a flat tint. The hue drifts from 212° in the tints to 229° in the shades, so the light end reads
+cool and open and the dark end settles into navy without ever turning violet. Saturation is deliberately high —
+around 62% at the light end, peaking near 86% through the middle of the ramp — so the mark reads as a vivid blue on a
+sunlit screen rather than a grey one. Brightness is bounded by contrast, not by taste: `brand-600` is the most
+luminous stop on the ramp that still clears AA against white in both directions.
 
 | Token       | Hex       | Role                                            |
 | ----------- | --------- | ----------------------------------------------- |
-| `brand-50`  | `#F3F6FA` | tinted surface, light theme                     |
-| `brand-100` | `#E9EEF6` |                                                 |
-| `brand-200` | `#D2DDEC` | outline, light theme                            |
-| `brand-300` | `#AABDDC` | **primary, dark theme**; splash mark on dark    |
-| `brand-400` | `#8CA4D0` |                                                 |
-| `brand-500` | `#718DC6` |                                                 |
-| `brand-600` | `#4A6CB8` | **primary, light theme**                        |
-| `brand-700` | `#395395` | pressed state                                   |
-| `brand-800` | `#2C3E73` |                                                 |
-| `brand-900` | `#1D284D` | gradient end                                    |
-| `brand-950` | `#121830` | **brand ink** — wordmark, dark surface          |
+| `brand-50`  | `#F5F8FD` | tinted surface, light theme                     |
+| `brand-100` | `#E8F0FA` |                                                 |
+| `brand-200` | `#C8DBF6` | outline, light theme                            |
+| `brand-300` | `#95B9F1` | **primary, dark theme**; splash mark on dark    |
+| `brand-400` | `#6496EF` |                                                 |
+| `brand-500` | `#417CF1` |                                                 |
+| `brand-600` | `#2662EB` | **primary, light theme**                        |
+| `brand-700` | `#1748C7` | pressed state                                   |
+| `brand-800` | `#143494` |                                                 |
+| `brand-900` | `#0F215F` | gradient end                                    |
+| `brand-950` | `#0A1236` | **brand ink** — wordmark, dark surface          |
 
 The machine-readable copy is [`palette.json`](palette.json). It is the input to dev-plan task
 [042 — Colour tokens](../dev-plan/03-design-system/042-color-tokens.md); the Dart token file is the only place
@@ -95,7 +97,7 @@ these values may be re-declared.
 
 One gradient, `brand-600 → brand-900`, running top-left to bottom-right.
 
-`brand-600` is the lightest stop that holds white at 5.09 : 1 *and* reads 5.09 : 1 on white — so the gradient works
+`brand-600` is the lightest stop that holds white at 5.21 : 1 *and* reads 5.21 : 1 on white — so the gradient works
 either way round, as a tile behind a white mark or as the paint inside the mark itself, and neither end ever goes
 washy. That is the whole reason it stops where it does.
 
@@ -115,13 +117,13 @@ Every pairing below is computed, not estimated. All clear WCAG AA for body text 
 
 | Pair                                       | Ratio     |
 | ------------------------------------------ | --------- |
-| White on `brand-600` (primary button)      | 5.09 : 1  |
-| `brand-600` on white (mark on light)       | 5.09 : 1  |
-| `brand-600` on `brand-50`                  | 4.69 : 1  |
-| `brand-300` on `brand-950` (dark theme)    | 9.19 : 1  |
-| `brand-950` on white (wordmark)            | 17.51 : 1 |
-| White on `brand-700` (pressed)             | 7.38 : 1  |
-| White on `brand-900` (gradient, dark end)  | 14.35 : 1 |
+| White on `brand-600` (primary button)      | 5.21 : 1  |
+| `brand-600` on white (mark on light)       | 5.21 : 1  |
+| `brand-600` on `brand-50`                  | 4.90 : 1  |
+| `brand-300` on `brand-950` (dark theme)    | 9.10 : 1  |
+| `brand-950` on white (wordmark)            | 18.22 : 1 |
+| White on `brand-700` (pressed)             | 7.53 : 1  |
+| White on `brand-900` (gradient, dark end)  | 14.97 : 1 |
 
 Outdoor theme raises contrast further and thickens outlines; it changes no geometry, so the mark is identical in
 all three themes (FE-THEME-03).

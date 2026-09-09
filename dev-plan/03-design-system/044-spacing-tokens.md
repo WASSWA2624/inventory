@@ -37,6 +37,7 @@ abstract final class Sizes { static const minTapTarget = 48.0, controlHeight = 5
 ## Definition of done
 
 - [ ] Padding and radius literals disappear from feature code.
+- [ ] Tests written and passing: Unit test asserting every token in `dimensions.dart` is defined in light, dark and outdoor.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

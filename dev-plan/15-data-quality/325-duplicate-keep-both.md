@@ -22,6 +22,7 @@ Record the pair as related so a later reviewer sees it.
 ## Definition of done
 
 - [ ] Linked records show a badge and a link to their counterpart.
+- [ ] Tests written and passing: Unit tests of `duplicate_link.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

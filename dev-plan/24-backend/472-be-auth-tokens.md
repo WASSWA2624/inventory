@@ -6,21 +6,30 @@
 
 ## Implement
 
-Implement short-lived access tokens and rotating refresh tokens bound to an enrolled device.
+Implement short-lived access tokens and rotating refresh tokens bound to an enrolled device, plus the refresh
+and sign-out endpoints that spend them (§74.2).
 
 ## Files
 
 - `backend/src/services/auth/tokens.ts` (new)
+- `backend/src/routes/auth/session.ts` (new)
 
 ## Contract
 
 ```ts
 issueTokens(userId, deviceId): Promise<TokenPair>;  rotate(refresh: string): Promise<TokenPair>
+revoke(refresh: string): Promise<void>
+
+POST /api/v1/auth/refresh            POST /api/v1/auth/logout
 ```
 
 ## Steps
 
 1. Detect refresh reuse, invalidate the family and log a security event.
+2. Sign-out revokes the presenting device's refresh-token family and is idempotent: signing out twice, or with
+   an already-expired token, succeeds silently rather than erroring (BE-API-07).
+3. Sign-out is a server-side revocation only. It never reaches the device's project data, which stays exactly
+   where it is (§70.2).
 
 ## Constraints
 
@@ -35,7 +44,8 @@ issueTokens(userId, deviceId): Promise<TokenPair>;  rotate(refresh: string): Pro
 ## Definition of done
 
 - [ ] A stolen refresh token cannot be replayed after rotation.
-- [ ] Tests written and passing: Tests for rotation, expiry and reuse detection.
+- [ ] Signing out twice succeeds both times and revokes exactly one family.
+- [ ] Tests written and passing: Tests for rotation, expiry, reuse detection and repeated sign-out.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Type check clean, lint and formatter applied, `npm run verify` green.
 

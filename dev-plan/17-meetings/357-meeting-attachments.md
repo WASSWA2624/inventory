@@ -21,6 +21,7 @@ Attach agendas, reports, whiteboard photos and handouts.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `meeting_attachments.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

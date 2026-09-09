@@ -26,6 +26,7 @@ Correct reference data in place.
 ## Definition of done
 
 - [ ] Fixing a supplier's phone number does not silently rewrite history.
+- [ ] Tests written and passing: Widget test of `dataset_row_edit_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

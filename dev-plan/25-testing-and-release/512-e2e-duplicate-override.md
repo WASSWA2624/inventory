@@ -21,6 +21,7 @@ Capture the same serial twice, compare, override, and verify history.
 
 ## Definition of done
 
+- [ ] Tests written and passing: `duplicate_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

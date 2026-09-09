@@ -26,6 +26,7 @@ Produce a transcript, stored verbatim, re-runnable with a better service later.
 ## Definition of done
 
 - [ ] The raw transcript is never replaced by refinement.
+- [ ] Tests written and passing: Unit tests of `meeting_transcription.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

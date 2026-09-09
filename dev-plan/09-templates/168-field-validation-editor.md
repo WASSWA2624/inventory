@@ -26,6 +26,7 @@ Configure pattern, length, range and required-with rules per field.
 ## Definition of done
 
 - [ ] A rule can be tested against a sample value before saving.
+- [ ] Tests written and passing: Widget test of `field_validation_editor.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

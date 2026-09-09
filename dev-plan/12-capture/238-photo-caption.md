@@ -28,6 +28,7 @@ Caption one photo, independently editable afterwards.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `photo_caption_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

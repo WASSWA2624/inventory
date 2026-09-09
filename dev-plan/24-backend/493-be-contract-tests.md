@@ -25,6 +25,8 @@ Run the OpenAPI document against the running server so drift fails the build.
 ## Definition of done
 
 - [ ] A route that changes shape without updating the document fails continuous integration.
+- [ ] Tests written and passing: The contract suite runs green against the running server, and fails when a
+      route is changed without the document.
 - [ ] Type check clean, lint and formatter applied, `npm run verify` green.
 
 ## Out of scope

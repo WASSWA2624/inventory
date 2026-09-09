@@ -35,6 +35,7 @@ Future<T?> showAppSheet<T>(BuildContext c, {required String title, required Widg
 ## Definition of done
 
 - [ ] Pickers and option sheets share one presentation.
+- [ ] Tests written and passing: Golden tests of `app_bottom_sheet.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

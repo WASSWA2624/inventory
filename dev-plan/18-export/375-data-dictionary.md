@@ -26,6 +26,7 @@ Emit the self-describing field catalogue for downstream analysts.
 ## Definition of done
 
 - [ ] An analyst can interpret the export without the app.
+- [ ] Tests written and passing: Unit tests of `data_dictionary.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

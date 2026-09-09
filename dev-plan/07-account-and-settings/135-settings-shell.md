@@ -26,6 +26,7 @@ The settings screen with the sections named in the specification, each a separat
 ## Definition of done
 
 - [ ] Adding a setting later means adding one tile, not restructuring.
+- [ ] Tests written and passing: Widget test of `settings_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

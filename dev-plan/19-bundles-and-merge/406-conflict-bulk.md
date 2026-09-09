@@ -28,6 +28,7 @@ Resolve by field or by device in one action.
 ## Definition of done
 
 - [ ] Bulk choices are listed in the audit log individually.
+- [ ] Tests written and passing: Widget test of `conflict_bulk_actions.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

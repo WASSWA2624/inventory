@@ -26,6 +26,7 @@ Manage actions with owner, due date and status.
 ## Definition of done
 
 - [ ] Actions are exportable as their own register.
+- [ ] Tests written and passing: Widget test of `actions_editor.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

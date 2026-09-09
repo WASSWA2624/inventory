@@ -26,6 +26,8 @@ Apply the Tapture identity: icon, adaptive icon, splash and store assets.
 ## Definition of done
 
 - [ ] The icon is recognisable on a crowded home screen.
+- [ ] Tests written and passing: A test asserting every declared branding asset exists at its generated
+      constant path, at every density the platforms require.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

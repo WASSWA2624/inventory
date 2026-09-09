@@ -27,6 +27,7 @@ Sign in with the user's own account and upload to a chosen folder.
 ## Definition of done
 
 - [ ] The app never reads the user's other Drive content.
+- [ ] Tests written and passing: Unit tests of `google_drive_destination.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

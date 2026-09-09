@@ -26,6 +26,7 @@ The two-column confirmation screen from the specification.
 ## Definition of done
 
 - [ ] Nothing is imported until the user confirms the mapping.
+- [ ] Tests written and passing: Widget test of `xlsx_mapping_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

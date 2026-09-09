@@ -21,6 +21,7 @@ Apply a caption to one, to a selection and to all photos, then edit one independ
 
 ## Definition of done
 
+- [ ] Tests written and passing: `caption_scope_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

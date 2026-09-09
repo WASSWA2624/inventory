@@ -29,6 +29,7 @@ A responsive, correctly oriented preview that starts fast.
 ## Definition of done
 
 - [ ] Returning from background restores the preview without a black frame.
+- [ ] Tests written and passing: Widget test of `camera_view.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -35,6 +35,7 @@ class AppSearchField extends StatelessWidget { final String hint; final ValueCha
 ## Definition of done
 
 - [ ] Records, datasets and template pickers all use it.
+- [ ] Tests written and passing: Golden tests of `app_search_field.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

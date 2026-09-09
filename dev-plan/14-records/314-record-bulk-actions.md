@@ -26,6 +26,7 @@ Select several records and approve, archive, delete, export or re-process them t
 ## Definition of done
 
 - [ ] A bulk action reports how many succeeded and how many failed.
+- [ ] Tests written and passing: Widget test of `record_bulk_actions.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -28,6 +28,7 @@ Run format, analyze, unit, widget and golden tests on every push, for the app. T
 ## Definition of done
 
 - [ ] A red pipeline blocks merging, and a red backend pipeline makes this one red.
+- [ ] Tests written and passing: A pipeline run proving the gate fails when any single step fails.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

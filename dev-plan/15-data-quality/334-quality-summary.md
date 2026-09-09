@@ -26,6 +26,7 @@ One screen answering what still blocks a clean export.
 ## Definition of done
 
 - [ ] A user can reach export-ready state by clearing this list.
+- [ ] Tests written and passing: Widget test of `quality_summary_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

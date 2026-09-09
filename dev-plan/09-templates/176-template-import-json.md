@@ -25,6 +25,7 @@ Read a shared template, validating its schema version.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `template_import_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

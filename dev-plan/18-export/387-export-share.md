@@ -21,6 +21,7 @@ Hand the file to the system share sheet.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `export_share_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

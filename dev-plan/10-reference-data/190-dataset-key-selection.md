@@ -26,6 +26,7 @@ Pick the column that identifies a row, warning about duplicates.
 ## Definition of done
 
 - [ ] A dataset with a non-unique key cannot be saved silently.
+- [ ] Tests written and passing: Widget test of `dataset_key_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

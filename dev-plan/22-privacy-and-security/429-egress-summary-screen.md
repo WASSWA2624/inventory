@@ -27,6 +27,7 @@ One screen listing every outbound path, its current state and what it sends.
 ## Definition of done
 
 - [ ] A user can see and disable every outbound path from one place.
+- [ ] Tests written and passing: Widget test of `egress_summary_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

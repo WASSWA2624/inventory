@@ -22,6 +22,7 @@ Shared setup, fakes and matchers for domain tests.
 ## Definition of done
 
 - [ ] A new unit test needs no boilerplate beyond its assertions.
+- [ ] Tests written and passing: A smoke test proving the harness itself works, and one suite consuming it.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

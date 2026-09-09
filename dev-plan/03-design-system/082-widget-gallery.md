@@ -36,6 +36,7 @@ class WidgetGalleryScreen extends StatelessWidget { static const route = '/_gall
 ## Definition of done
 
 - [ ] A developer can see the whole vocabulary in one place before building a screen.
+- [ ] Tests written and passing: Golden tests of `widget_gallery_screen.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

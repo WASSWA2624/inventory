@@ -22,6 +22,7 @@ The core path: create project, pick template, set context, capture, process, rev
 ## Definition of done
 
 - [ ] The vertical slice is protected by a test that fails loudly if it breaks.
+- [ ] Tests written and passing: `capture_to_export_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

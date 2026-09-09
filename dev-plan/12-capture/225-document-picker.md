@@ -28,6 +28,7 @@ Attach PDFs and other files as evidence.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `document_picker.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

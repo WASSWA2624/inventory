@@ -31,6 +31,7 @@ class AppEmptyState extends StatelessWidget { final IconData icon; final String 
 ## Definition of done
 
 - [ ] Every list screen shows a helpful empty state rather than blank space.
+- [ ] Tests written and passing: Golden tests of `app_empty_state.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

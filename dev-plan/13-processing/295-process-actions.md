@@ -29,6 +29,7 @@ Start processing with clear progress and a cancel action.
 ## Definition of done
 
 - [ ] Interrupting a batch keeps everything already processed.
+- [ ] Tests written and passing: Widget test of `process_actions.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

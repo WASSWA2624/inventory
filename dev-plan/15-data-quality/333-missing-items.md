@@ -22,6 +22,7 @@ Identify register entries never found and checklist rows never captured.
 ## Definition of done
 
 - [ ] Missing items are exportable as their own set.
+- [ ] Tests written and passing: Unit tests of `missing_items.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

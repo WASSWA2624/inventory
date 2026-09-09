@@ -28,6 +28,7 @@ Move through a filtered queue of records with one action per record.
 ## Definition of done
 
 - [ ] Forty records can be reviewed without returning to a list between each.
+- [ ] Tests written and passing: Widget test of `batch_review_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

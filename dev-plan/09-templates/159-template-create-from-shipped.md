@@ -26,6 +26,7 @@ Pick a shipped template and add it to the project in two taps.
 ## Definition of done
 
 - [ ] A new project is capture-ready without building anything.
+- [ ] Tests written and passing: Widget test of `shipped_picker_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

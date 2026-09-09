@@ -26,6 +26,7 @@ Manage option lists, with codes for export and aliases for AI mapping.
 ## Definition of done
 
 - [ ] Renaming an option does not silently rewrite historical records.
+- [ ] Tests written and passing: Widget test of `field_options_editor.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -2,26 +2,26 @@
   "name": "Tapture",
   "tagline": "Tap it. It's data.",
   "ramp": {
-    "brand-50": "#F3F6FA",
-    "brand-100": "#E9EEF6",
-    "brand-200": "#D2DDEC",
-    "brand-300": "#AABDDC",
-    "brand-400": "#8CA4D0",
-    "brand-500": "#718DC6",
-    "brand-600": "#4A6CB8",
-    "brand-700": "#395395",
-    "brand-800": "#2C3E73",
-    "brand-900": "#1D284D",
-    "brand-950": "#121830"
+    "brand-50": "#F5F8FD",
+    "brand-100": "#E8F0FA",
+    "brand-200": "#C8DBF6",
+    "brand-300": "#95B9F1",
+    "brand-400": "#6496EF",
+    "brand-500": "#417CF1",
+    "brand-600": "#2662EB",
+    "brand-700": "#1748C7",
+    "brand-800": "#143494",
+    "brand-900": "#0F215F",
+    "brand-950": "#0A1236"
   },
   "roles": {
-    "primary.light": "#4A6CB8",
-    "primary.dark": "#AABDDC",
+    "primary.light": "#2662EB",
+    "primary.dark": "#95B9F1",
     "onPrimary": "#FFFFFF",
-    "ink": "#121830",
+    "ink": "#0A1236",
     "gradient": [
-      "#4A6CB8",
-      "#1D284D"
+      "#2662EB",
+      "#0F215F"
     ]
   }
 }

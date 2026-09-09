@@ -26,6 +26,7 @@ Prepare for translation without translating yet.
 ## Definition of done
 
 - [ ] Adding a language later requires no code change.
+- [ ] Tests written and passing: Unit tests of `l10n`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

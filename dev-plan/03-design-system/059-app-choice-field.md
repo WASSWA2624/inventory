@@ -35,6 +35,7 @@ class AppChoiceField<T> extends StatelessWidget { final String label; final List
 ## Definition of done
 
 - [ ] Long option lists remain usable on a small screen.
+- [ ] Tests written and passing: Golden tests of `app_choice_field.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

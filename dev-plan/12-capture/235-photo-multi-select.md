@@ -29,6 +29,7 @@ Long-press to select several photos and act on them together.
 ## Definition of done
 
 - [ ] Selection state survives scrolling and rotation.
+- [ ] Tests written and passing: Widget test of `photo_multi_select.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -26,6 +26,7 @@ List deleted records and restore them within the retention window.
 ## Definition of done
 
 - [ ] Nothing leaves the device's storage without an explicit action.
+- [ ] Tests written and passing: Widget test of `recycle_bin_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

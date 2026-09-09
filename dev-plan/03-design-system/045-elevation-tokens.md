@@ -35,6 +35,7 @@ abstract final class Elevation { static BoxDecoration surface(BuildContext c, {i
 ## Definition of done
 
 - [ ] Cards, sheets and dialogs share one depth language.
+- [ ] Tests written and passing: Unit test asserting every token in `elevation.dart` is defined in light, dark and outdoor.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

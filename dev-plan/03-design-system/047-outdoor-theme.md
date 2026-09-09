@@ -35,6 +35,7 @@ ThemeData buildOutdoorTheme(Brightness brightness);
 ## Definition of done
 
 - [ ] Switching to outdoor mode changes no layout, only contrast.
+- [ ] Tests written and passing: Unit test asserting every token in `outdoor_theme.dart` is defined in light, dark and outdoor.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

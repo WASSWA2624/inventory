@@ -29,6 +29,7 @@ Crop for legibility, keeping the original.
 ## Definition of done
 
 - [ ] Reverting always restores the full frame.
+- [ ] Tests written and passing: Widget test of `photo_crop_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -27,6 +27,7 @@ Request only what is needed, only when it is needed, and document why.
 ## Definition of done
 
 - [ ] A fresh install requests no permission before the user does something requiring it.
+- [ ] Tests written and passing: Unit tests of `permission_rationale.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

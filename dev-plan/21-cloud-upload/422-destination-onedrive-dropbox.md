@@ -27,6 +27,7 @@ The same flow for the other two consumer providers.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Unit tests of `onedrive_destination.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

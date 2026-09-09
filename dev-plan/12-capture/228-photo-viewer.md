@@ -28,6 +28,7 @@ Inspect a photo with zoom, swipe between photos, and see its caption and type.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `photo_viewer_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -21,6 +21,7 @@ As-recorded against as-found, plus missing and not-in-register items.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Unit tests of `variance_report.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

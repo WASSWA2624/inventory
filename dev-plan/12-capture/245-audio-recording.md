@@ -29,6 +29,7 @@ Record a walkthrough or a meeting to a file for later transcription.
 ## Definition of done
 
 - [ ] A thirty-minute recording survives an app kill.
+- [ ] Tests written and passing: Widget test of `audio_recorder.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

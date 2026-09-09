@@ -28,6 +28,7 @@ Resolve template differences without breaking existing records.
 ## Definition of done
 
 - [ ] Records keep the template version they were captured under.
+- [ ] Tests written and passing: Unit tests of `merge_templates.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -30,6 +30,7 @@ class AppSectionHeader extends StatelessWidget { final String title; final Widge
 
 ## Definition of done
 
+- [ ] Tests written and passing: Golden tests of `app_section_header.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

@@ -21,6 +21,7 @@ Counts by context, template, condition and status, with simple charts.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Unit tests of `summary_report.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -26,6 +26,7 @@ Choose raw and refined columns, confidence, evidence and the extra sheets.
 ## Definition of done
 
 - [ ] Options are remembered per project.
+- [ ] Tests written and passing: Widget test of `export_options_section.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

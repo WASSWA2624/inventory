@@ -29,6 +29,7 @@ A capture mode tuned for paper: edge detection, perspective correction, higher c
 ## Definition of done
 
 - [ ] The original photo is retained unchanged alongside the corrected copy.
+- [ ] Tests written and passing: Widget test of `document_mode.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

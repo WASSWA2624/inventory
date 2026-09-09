@@ -22,6 +22,7 @@ Choose whether imported rows become records or the register to verify against.
 ## Definition of done
 
 - [ ] The verification flow works immediately after this import.
+- [ ] Tests written and passing: Widget test of `import_purpose_step.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -22,6 +22,7 @@ Project-scoped switches: AI enabled, do-not-send-images, GPS, folder strategy, c
 ## Definition of done
 
 - [ ] A project can be made fully manual and offline with two switches.
+- [ ] Tests written and passing: Widget test of `project_settings_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -27,6 +27,7 @@ A standard consent field for projects that record people.
 ## Definition of done
 
 - [ ] Consent is recorded per record, with who recorded it and when.
+- [ ] Tests written and passing: Unit tests of `consent_field.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

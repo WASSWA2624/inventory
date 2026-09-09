@@ -28,6 +28,7 @@ An explicit verification action for critical fields, separate from editing.
 ## Definition of done
 
 - [ ] Verified values are protected from later automatic overwrite.
+- [ ] Tests written and passing: Widget test of `verify_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

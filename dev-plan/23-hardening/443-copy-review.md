@@ -26,6 +26,7 @@ One pass over every user-facing string for plain language and consistency.
 ## Definition of done
 
 - [ ] No message contains a technical term the user cannot act on.
+- [ ] Tests written and passing: Unit tests of `copy.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

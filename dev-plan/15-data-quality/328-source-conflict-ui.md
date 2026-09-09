@@ -26,6 +26,7 @@ Present each candidate with its source and let the user choose or type another.
 ## Definition of done
 
 - [ ] A record cannot be approved with an unresolved conflict.
+- [ ] Tests written and passing: Widget test of `conflict_resolution_row.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -22,6 +22,7 @@ One screen assembling format, scope, options and extras, with a live record coun
 ## Definition of done
 
 - [ ] A default export needs one tap after opening the screen.
+- [ ] Tests written and passing: Widget test of `export_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

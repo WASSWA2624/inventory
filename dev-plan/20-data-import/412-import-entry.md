@@ -26,6 +26,7 @@ One place to bring anything in: bundle, spreadsheet, dataset or template.
 ## Definition of done
 
 - [ ] A user never has to know which importer to pick.
+- [ ] Tests written and passing: Widget test of `import_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

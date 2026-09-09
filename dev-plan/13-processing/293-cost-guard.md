@@ -29,6 +29,7 @@ Let a project cap how much processing it will do, and show what has been used.
 ## Definition of done
 
 - [ ] A user can always see how many calls have been made today.
+- [ ] Tests written and passing: Unit tests of `cost_guard.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

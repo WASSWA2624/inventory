@@ -23,6 +23,7 @@ A test that scans exports, bundles and logs for secret-shaped strings.
 ## Definition of done
 
 - [ ] The suite fails if any artefact contains a key or credential.
+- [ ] Tests written and passing: A smoke test proving the harness itself works, and one suite consuming it.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

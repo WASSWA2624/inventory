@@ -29,6 +29,7 @@ Replace a photo in place, keeping its position, type and caption.
 ## Definition of done
 
 - [ ] Retaking never changes the photo's position in the tray.
+- [ ] Tests written and passing: Widget test of `photo_retake_action.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

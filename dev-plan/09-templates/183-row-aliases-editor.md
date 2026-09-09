@@ -26,6 +26,7 @@ Teach the matcher local names for each row.
 ## Definition of done
 
 - [ ] "BP machine" reliably matches "Blood Pressure Machine".
+- [ ] Tests written and passing: Widget test of `row_aliases_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

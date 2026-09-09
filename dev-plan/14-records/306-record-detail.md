@@ -26,6 +26,7 @@ Read-only view of everything about a record, with edit entry points.
 ## Definition of done
 
 - [ ] Every value shows its source without extra taps.
+- [ ] Tests written and passing: Widget test of `record_detail_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -22,6 +22,7 @@ Editing one prefilled field detaches only that field.
 ## Definition of done
 
 - [ ] Editing the phone number does not detach the supplier name.
+- [ ] Tests written and passing: Unit tests of `lookup_unlink.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

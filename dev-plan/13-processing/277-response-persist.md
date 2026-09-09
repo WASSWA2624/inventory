@@ -29,6 +29,7 @@ Keep what the provider actually said, for audit and reprocessing.
 ## Definition of done
 
 - [ ] A record can be reprocessed from stored output with no new call.
+- [ ] Tests written and passing: Repository tests for `response_store.dart` against an in-memory database, plus the fake later tests use.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

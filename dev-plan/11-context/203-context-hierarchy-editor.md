@@ -26,6 +26,7 @@ Choose which template fields are context levels and in what order.
 ## Definition of done
 
 - [ ] A project with no hierarchy behaves exactly as before, with no empty bar.
+- [ ] Tests written and passing: Widget test of `context_hierarchy_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

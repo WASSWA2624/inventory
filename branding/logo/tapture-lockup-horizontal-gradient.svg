@@ -2,8 +2,8 @@
   <title>Tapture &#8212; horizontal lockup, gradient mark, for hero use</title>
   <defs>
     <linearGradient id="tapture-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="818" y2="818">
-      <stop offset="0" stop-color="#4A6CB8"/>
-      <stop offset="1" stop-color="#1D284D"/>
+      <stop offset="0" stop-color="#2662EB"/>
+      <stop offset="1" stop-color="#0F215F"/>
     </linearGradient>
   </defs>
   <path d="M 49 153 A 104 104 0 0 1 153 49" fill="none" stroke="url(#tapture-gradient)" stroke-width="98" stroke-linecap="round"/>
@@ -20,19 +20,19 @@
   <path d="M 49 665 L 49 509" fill="none" stroke="url(#tapture-gradient)" stroke-width="98" stroke-linecap="round"/>
   <circle cx="409" cy="409" r="222" fill="none" stroke="url(#tapture-gradient)" stroke-width="44"/>
   <rect x="299" y="299" width="220" height="220" rx="64" fill="url(#tapture-gradient)"/>
-  <path d="M 1084.39 225.49 L 1342.03 225.49" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 1213.21 225.49 L 1213.21 592.51" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <circle cx="1498.81" cy="469.77" r="122.75" fill="none" stroke="#121830" stroke-width="58.34"/>
-  <path d="M 1621.56 347.02 L 1621.56 592.51" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <circle cx="1837.88" cy="469.77" r="122.75" fill="none" stroke="#121830" stroke-width="58.34"/>
-  <path d="M 1715.14 347.02 L 1715.14 749.29" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2088.24 261.95 L 2088.24 592.51" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2027.47 317.85 L 2167.23 317.85" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2237.72 347.02 L 2237.72 469.77" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2483.21 469.77 A 122.75 122.75 0 0 1 2237.72 469.77" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2483.21 347.02 L 2483.21 592.51" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2563.43 347.02 L 2563.43 592.51" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2563.43 453.36 A 106.34 106.34 0 0 1 2669.77 347.02" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2734.18 469.77 L 2979.67 469.77" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
-  <path d="M 2950.95 548.67 A 122.75 122.75 0 1 1 2979.67 469.77" fill="none" stroke="#121830" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 1084.39 225.49 L 1342.03 225.49" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 1213.21 225.49 L 1213.21 592.51" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <circle cx="1498.81" cy="469.77" r="122.75" fill="none" stroke="#0A1236" stroke-width="58.34"/>
+  <path d="M 1621.56 347.02 L 1621.56 592.51" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <circle cx="1837.88" cy="469.77" r="122.75" fill="none" stroke="#0A1236" stroke-width="58.34"/>
+  <path d="M 1715.14 347.02 L 1715.14 749.29" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2088.24 261.95 L 2088.24 592.51" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2027.47 317.85 L 2167.23 317.85" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2237.72 347.02 L 2237.72 469.77" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2483.21 469.77 A 122.75 122.75 0 0 1 2237.72 469.77" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2483.21 347.02 L 2483.21 592.51" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2563.43 347.02 L 2563.43 592.51" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2563.43 453.36 A 106.34 106.34 0 0 1 2669.77 347.02" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2734.18 469.77 L 2979.67 469.77" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
+  <path d="M 2950.95 548.67 A 122.75 122.75 0 1 1 2979.67 469.77" fill="none" stroke="#0A1236" stroke-width="58.34" stroke-linecap="round"/>
 </svg>

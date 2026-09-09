@@ -28,6 +28,7 @@ As-recorded versus as-found differences produced by verification mode.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `variances.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

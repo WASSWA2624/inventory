@@ -26,6 +26,7 @@ Camera defaults, auto-fill dates, GPS, photo quality, folder strategy and naming
 ## Definition of done
 
 - [ ] Changing the folder strategy affects only new files, with that stated on screen.
+- [ ] Tests written and passing: Widget test of `capture_settings_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

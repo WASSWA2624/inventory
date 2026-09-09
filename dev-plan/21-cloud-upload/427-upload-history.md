@@ -22,6 +22,7 @@ Record destination, file, size, time and result.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `upload_history_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

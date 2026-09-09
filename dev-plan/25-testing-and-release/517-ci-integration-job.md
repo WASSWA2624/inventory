@@ -21,6 +21,7 @@ Run the integration suite on an emulator, nightly and before release.
 
 ## Definition of done
 
+- [ ] Tests written and passing: A pipeline run proving the gate fails when any single step fails.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

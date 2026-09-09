@@ -25,6 +25,7 @@ Persist the device id, operator name and preferences.
 ## Definition of done
 
 - [ ] The profile row is created on first launch and never duplicated.
+- [ ] Tests written and passing: Tests against an in-memory database covering `device_profile.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

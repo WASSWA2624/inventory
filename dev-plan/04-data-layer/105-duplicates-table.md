@@ -28,6 +28,7 @@ Store detected duplicate pairs and how a human resolved them.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `duplicates.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

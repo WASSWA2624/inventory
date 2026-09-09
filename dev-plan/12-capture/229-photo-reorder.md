@@ -25,6 +25,7 @@ Drag thumbnails to set the order used everywhere else.
 ## Definition of done
 
 - [ ] The order is persisted immediately and used by export and reports.
+- [ ] Tests written and passing: Widget test of `photo_reorder.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

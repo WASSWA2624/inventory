@@ -25,6 +25,7 @@ Run the whole backend gate on every push, including integration tests against a 
 ## Definition of done
 
 - [ ] A red pipeline blocks merging.
+- [ ] Tests written and passing: A pipeline run proving the gate fails when any single step fails.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

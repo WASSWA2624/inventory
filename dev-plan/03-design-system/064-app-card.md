@@ -31,6 +31,7 @@ class AppCard extends StatelessWidget { final Widget child; final EdgeInsets? pa
 ## Definition of done
 
 - [ ] Lists and detail sections share one container.
+- [ ] Tests written and passing: Golden tests of `app_card.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

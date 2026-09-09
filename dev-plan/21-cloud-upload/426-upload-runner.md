@@ -27,6 +27,7 @@ Upload large archives reliably, with progress, cancel and resume.
 ## Definition of done
 
 - [ ] A failed upload changes nothing locally and can be retried.
+- [ ] Tests written and passing: Unit tests of `upload_runner.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

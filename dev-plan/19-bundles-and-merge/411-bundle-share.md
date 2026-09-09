@@ -28,6 +28,7 @@ Export to the share sheet and accept bundles opened from other apps.
 ## Definition of done
 
 - [ ] Receiving a bundle by any transport lands in the same import screen.
+- [ ] Tests written and passing: Widget test of `bundle_share_actions.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

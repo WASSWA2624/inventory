@@ -22,6 +22,8 @@ Drive the real app against an in-memory database and fake services.
 ## Definition of done
 
 - [ ] Integration tests run with no network and no real provider.
+- [ ] Tests written and passing: A smoke test proving the harness itself works, and one integration suite
+      consuming it offline against fakes.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

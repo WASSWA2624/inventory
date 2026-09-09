@@ -26,6 +26,7 @@ Start a meeting record with the header filled automatically.
 ## Definition of done
 
 - [ ] A meeting can be started in one tap.
+- [ ] Tests written and passing: Widget test of `meeting_create_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -21,6 +21,7 @@ Send a dataset back out as CSV or JSON, including rows added on the device.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Repository tests for `dataset_export.dart` against an in-memory database, plus the fake later tests use.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

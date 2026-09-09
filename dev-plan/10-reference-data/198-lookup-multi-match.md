@@ -25,6 +25,7 @@ Ask the operator when several rows match.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `lookup_picker_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

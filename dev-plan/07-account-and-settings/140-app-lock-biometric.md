@@ -22,6 +22,7 @@ Offer biometrics where the device supports it, with the PIN as fallback.
 ## Definition of done
 
 - [ ] Failing biometrics falls back to the PIN, never to no lock.
+- [ ] Tests written and passing: Repository tests for `biometric_lock.dart` against an in-memory database, plus the fake later tests use.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

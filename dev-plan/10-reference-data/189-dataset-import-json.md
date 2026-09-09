@@ -21,6 +21,7 @@ Accept an array of objects, inferring columns from the keys.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Repository tests for `dataset_json_import.dart` against an in-memory database, plus the fake later tests use.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

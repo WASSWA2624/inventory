@@ -30,6 +30,7 @@ One shape for every DAO: typed queries, Result returns, streams for lists.
 ## Definition of done
 
 - [ ] Later table tasks are a schema plus a thin DAO, nothing more.
+- [ ] Tests written and passing: Tests against an in-memory database covering `base_dao.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

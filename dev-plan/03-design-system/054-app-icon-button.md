@@ -35,6 +35,7 @@ class AppIconButton extends StatelessWidget { final IconData icon; final String 
 ## Definition of done
 
 - [ ] An icon button without a label fails to compile.
+- [ ] Tests written and passing: Golden tests of `app_icon_button.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

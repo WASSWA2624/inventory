@@ -29,6 +29,7 @@ The four controls a field worker actually uses, with large targets.
 ## Definition of done
 
 - [ ] Controls are usable with gloves and remain visible in sunlight.
+- [ ] Tests written and passing: Widget test of `camera_controls.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

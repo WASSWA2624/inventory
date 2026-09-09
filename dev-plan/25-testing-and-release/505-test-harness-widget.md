@@ -22,6 +22,7 @@ A pump helper that installs theme, providers, router and a fixed clock.
 ## Definition of done
 
 - [ ] Every widget test starts from one line of setup.
+- [ ] Tests written and passing: A smoke test proving the harness itself works, and one suite consuming it.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

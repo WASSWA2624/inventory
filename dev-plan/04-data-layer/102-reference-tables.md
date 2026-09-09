@@ -29,6 +29,7 @@ Imported lookup tables and their rows.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `reference.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

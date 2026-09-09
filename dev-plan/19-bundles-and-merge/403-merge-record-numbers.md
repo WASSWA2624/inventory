@@ -24,6 +24,7 @@ Keep human-facing numbers unique after a merge without touching identifiers.
 ## Definition of done
 
 - [ ] No reference breaks, because identity is the UUID, not the number.
+- [ ] Tests written and passing: Unit tests of `merge_numbering.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

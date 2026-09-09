@@ -22,6 +22,7 @@ Show errors and warnings consistently, inline and as a summary.
 ## Definition of done
 
 - [ ] Every screen reports problems the same way.
+- [ ] Tests written and passing: Golden tests of `validation_display.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

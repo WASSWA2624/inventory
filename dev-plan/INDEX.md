@@ -1,6 +1,6 @@
 # Tapture — task index
 
-521 implementation prompts across 25 phases. Work top to bottom.
+522 implementation prompts across 25 phases. Work top to bottom.
 
 ## 01 — Project setup and guardrails
 
@@ -478,6 +478,7 @@
 - [ ] [385 — Export history](18-export/385-export-history.md)
 - [ ] [386 — Export versioning and folders](18-export/386-export-versioning.md)
 - [ ] [387 — Share an export](18-export/387-export-share.md)
+- [ ] [522 — Inspection report PDF](18-export/522-pdf-inspection-report.md)
 
 ## 19 — Bundles and merge
 
@@ -590,7 +591,7 @@
 - [ ] [467 — Schema: audit and security events](24-backend/467-be-schema-audit.md)
 - [ ] [468 — Repository base and transactions](24-backend/468-be-repositories.md)
 - [ ] [469 — Password hashing](24-backend/469-be-auth-passwords.md)
-- [ ] [470 — Account creation and invitation](24-backend/470-be-auth-register.md)
+- [ ] [470 — Account creation, invitation and password lifecycle](24-backend/470-be-auth-register.md)
 - [ ] [471 — Login with rate limiting and lockout](24-backend/471-be-auth-login.md)
 - [ ] [472 — Access and refresh tokens](24-backend/472-be-auth-tokens.md)
 - [ ] [473 — Authentication middleware](24-backend/473-be-auth-middleware.md)

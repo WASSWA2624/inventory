@@ -22,6 +22,7 @@ Capture forty records with the network off, process later, export.
 ## Definition of done
 
 - [ ] The test asserts zero outbound calls during capture.
+- [ ] Tests written and passing: `offline_deferred_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

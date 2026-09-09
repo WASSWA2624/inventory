@@ -26,6 +26,7 @@ Send the user somewhere sensible when a route needs a project and none is select
 ## Definition of done
 
 - [ ] Opening a capture link with no project selected asks which project, then continues.
+- [ ] Tests written and passing: Unit tests of `route_guards.dart`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -31,6 +31,7 @@ abstract interface class Haptics { void shutter(); void save(); void warning(); 
 ## Definition of done
 
 - [ ] Shutter and save feel distinct; haptics respect the system setting.
+- [ ] Tests written and passing: Unit tests of `haptics.dart` against its fake.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

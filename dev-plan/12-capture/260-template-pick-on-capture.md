@@ -29,6 +29,7 @@ Let the operator pick the template and pin it for the session or the context lev
 ## Definition of done
 
 - [ ] A single-template project never shows this control.
+- [ ] Tests written and passing: Widget test of `template_picker_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

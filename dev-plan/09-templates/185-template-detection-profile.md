@@ -26,6 +26,7 @@ Configure how a template is recognised automatically.
 ## Definition of done
 
 - [ ] Every template carries a profile, with sensible defaults for shipped ones.
+- [ ] Tests written and passing: Widget test of `detection_profile_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

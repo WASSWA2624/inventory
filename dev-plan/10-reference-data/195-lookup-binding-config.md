@@ -26,6 +26,7 @@ Bind a field to a dataset and map which columns fill which fields.
 ## Definition of done
 
 - [ ] The configuration matches the specification example exactly.
+- [ ] Tests written and passing: Widget test of `lookup_binding_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

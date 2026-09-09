@@ -23,6 +23,7 @@ Merge rows by key, raising a conflict when attributes differ.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Unit tests of `merge_reference.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

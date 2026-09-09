@@ -29,6 +29,7 @@ Photo metadata with the content hash that gives it merge identity.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `photos.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

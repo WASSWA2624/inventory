@@ -28,6 +28,7 @@ Make a missing value actionable rather than merely empty.
 ## Definition of done
 
 - [ ] The user is never left staring at a blank field with no next step.
+- [ ] Tests written and passing: Widget test of `not_detected_row.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

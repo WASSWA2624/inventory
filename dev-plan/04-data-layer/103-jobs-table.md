@@ -30,6 +30,7 @@ The deferred queue and the raw provider responses kept for audit.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `processing.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

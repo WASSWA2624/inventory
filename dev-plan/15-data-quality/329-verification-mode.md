@@ -26,6 +26,7 @@ Switch a project or session into confirming existing data rather than creating i
 ## Definition of done
 
 - [ ] The mode is visible in the status line so no one forgets it is on.
+- [ ] Tests written and passing: Widget test of `verification_mode_toggle.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

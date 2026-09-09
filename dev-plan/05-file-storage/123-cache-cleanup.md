@@ -28,6 +28,7 @@ Keep .cache bounded and disposable.
 ## Definition of done
 
 - [ ] Deleting the whole cache loses nothing but speed.
+- [ ] Tests written and passing: Unit tests of `cache_cleanup.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

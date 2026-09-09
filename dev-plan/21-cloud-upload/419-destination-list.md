@@ -22,6 +22,7 @@ List configured destinations with add, test, edit and remove.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `destination_list_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

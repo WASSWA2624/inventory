@@ -2,7 +2,7 @@
 
 Five formats, all produced on the device, all reproducible and all recorded.
 
-Tasks 359–387 (29). Each file is a standalone implementation prompt.
+Tasks 359–387 and 522 (30). Each file is a standalone implementation prompt.
 
 - [ ] [359 — Export request model](359-export-model.md)
 - [ ] [360 — Export scope selection](360-export-scope.md)
@@ -33,3 +33,4 @@ Tasks 359–387 (29). Each file is a standalone implementation prompt.
 - [ ] [385 — Export history](385-export-history.md)
 - [ ] [386 — Export versioning and folders](386-export-versioning.md)
 - [ ] [387 — Share an export](387-export-share.md)
+- [ ] [522 — Inspection report PDF](522-pdf-inspection-report.md)

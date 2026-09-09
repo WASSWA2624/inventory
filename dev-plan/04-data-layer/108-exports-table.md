@@ -28,6 +28,7 @@ Export history: what was produced, from which records, with which options.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `exports.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

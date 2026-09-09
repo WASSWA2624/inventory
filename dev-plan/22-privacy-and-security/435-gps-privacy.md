@@ -27,6 +27,7 @@ Keep location off by default and easy to strip.
 ## Definition of done
 
 - [ ] A project can be delivered with no location data at all.
+- [ ] Tests written and passing: Widget test of `gps_privacy_section.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

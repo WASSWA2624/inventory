@@ -29,6 +29,7 @@ One repair attempt before declaring the job failed.
 ## Definition of done
 
 - [ ] Failure leaves the raw response stored for inspection.
+- [ ] Tests written and passing: Unit tests of `response_repair.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

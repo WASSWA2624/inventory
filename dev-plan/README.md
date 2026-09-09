@@ -1,6 +1,6 @@
 # Tapture — development plan
 
-521 implementation prompts, in the order they should be built, from an empty repository to a shippable product: the
+522 implementation prompts, in the order they should be built, from an empty repository to a shippable product: the
 Flutter application and the minimal backend it requires.
 
 Every file is a prompt that produces code. There are no policy documents here: the architectural rules live in
@@ -78,7 +78,9 @@ being blocked; task 006 builds the checker that proves it stays true.
 **Never widen a task.** Every file ends with an Out of scope fence.
 
 **A task is done when** its Definition of done is fully ticked — clean analyzer, applied formatter, written tests,
-green guardrails.
+green guardrails. Every task carries a test obligation naming the layer it owes tests at, because
+`frontend/rules/12-testing.md` (FE-TEST-01) and `backend/rules/09-testing.md` (BE-TEST-01) both refuse to let a
+task close without them. Tests are never a follow-up task.
 
 ## Phases
 
@@ -101,7 +103,7 @@ green guardrails.
 | 15 | [Data quality](15-data-quality/) | 315–334 | Validation, duplicates, conflicts and verification |
 | 16 | [Review](16-review/) | 335–344 | Where a person turns proposals into data |
 | 17 | [Meetings](17-meetings/) | 345–358 | Minutes, attendance and actions |
-| 18 | [Export](18-export/) | 359–387 | XLSX, CSV, JSON, PDF and ZIP, all produced on device |
+| 18 | [Export](18-export/) | 359–387, 522 | XLSX, CSV, JSON, PDF and ZIP, all produced on device |
 | 19 | [Bundles and merge](19-bundles-and-merge/) | 388–411 | Collaboration that never touches the backend |
 | 20 | [Data import](20-data-import/) | 412–417 | Continue an inventory someone else started |
 | 21 | [Cloud upload](21-cloud-upload/) | 418–428 | A destination for files, never a sync channel |
@@ -135,6 +137,10 @@ proxy with no key on the device.
 
 **Task 521** — shippable. The app and the backend pass one gate together, including the run that proves a required
 backend is never a required connection.
+
+Task 522 was added after the first numbering and sits with its phase rather than at the end of it: numbers are
+allocated by `dart run tool/new_task.dart` from the highest in use, so a task added later keeps a higher number
+than the phase around it. Nothing depends on it, so working top to bottom is unaffected.
 
 ## Rules that outrank convenience
 

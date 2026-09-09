@@ -25,6 +25,7 @@ Attach a long-form recording to the meeting record.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `meeting_audio_section.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

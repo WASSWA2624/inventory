@@ -29,6 +29,7 @@ Keep the scanner open for stock counting, one scan per item.
 ## Definition of done
 
 - [ ] Fifty items can be counted without leaving the screen.
+- [ ] Tests written and passing: Widget test of `barcode_continuous_mode.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

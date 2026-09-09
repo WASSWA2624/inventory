@@ -22,6 +22,7 @@ Restore a saved set in one tap.
 ## Definition of done
 
 - [ ] Moving between two rooms costs one tap each way.
+- [ ] Tests written and passing: Widget test of `context_preset_list.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

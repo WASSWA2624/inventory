@@ -29,6 +29,7 @@ Pre-read text on unprocessed records while charging, so online work is smaller l
 ## Definition of done
 
 - [ ] Battery use is negligible and no network is used.
+- [ ] Tests written and passing: Unit tests of `background_ocr.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

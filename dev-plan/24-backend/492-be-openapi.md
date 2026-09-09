@@ -29,6 +29,7 @@ Write the API document that is the contract between the app and the server.
 ## Definition of done
 
 - [ ] The document and the server never disagree, because a test proves it.
+- [ ] Tests written and passing: Contract tests asserting the running server matches the document.
 - [ ] Type check clean, lint and formatter applied, `npm run verify` green.
 
 ## Out of scope

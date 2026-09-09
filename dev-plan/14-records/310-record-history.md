@@ -26,6 +26,7 @@ The chronological story of one record, as in the specification.
 ## Definition of done
 
 - [ ] A reviewer can reconstruct every change without a server.
+- [ ] Tests written and passing: Widget test of `record_history_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

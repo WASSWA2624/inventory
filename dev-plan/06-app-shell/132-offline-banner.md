@@ -26,6 +26,7 @@ Show the offline explanation from the specification, not an error.
 ## Definition of done
 
 - [ ] Going offline never interrupts capture with a dialog.
+- [ ] Tests written and passing: Unit tests of `offline_banner.dart`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

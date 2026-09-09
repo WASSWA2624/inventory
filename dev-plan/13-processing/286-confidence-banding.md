@@ -25,6 +25,7 @@ Turn scores into high, medium and review-required using project thresholds.
 ## Definition of done
 
 - [ ] Thresholds are configurable per project and used identically everywhere.
+- [ ] Tests written and passing: Unit tests of `confidence.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

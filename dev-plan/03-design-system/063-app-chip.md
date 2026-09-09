@@ -36,6 +36,7 @@ class AppChipRow extends StatelessWidget { final List<AppChip> chips; final bool
 ## Definition of done
 
 - [ ] The context bar and filter bar are built from this.
+- [ ] Tests written and passing: Golden tests of `app_chip.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

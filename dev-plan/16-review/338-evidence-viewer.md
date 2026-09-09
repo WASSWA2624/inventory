@@ -28,6 +28,7 @@ Tap a value to see the photo region, page or transcript behind it.
 ## Definition of done
 
 - [ ] Every value with evidence can be checked in two taps.
+- [ ] Tests written and passing: Widget test of `evidence_viewer.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

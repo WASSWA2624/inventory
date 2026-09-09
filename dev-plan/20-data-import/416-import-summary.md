@@ -22,6 +22,7 @@ Report created, updated, skipped and failed with reasons, and allow retrying fai
 ## Definition of done
 
 - [ ] Every skipped row is explained and exportable as a list.
+- [ ] Tests written and passing: Widget test of `import_summary_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

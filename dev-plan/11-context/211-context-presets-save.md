@@ -21,6 +21,7 @@ Save the current set of values under a name.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `context_preset_save.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

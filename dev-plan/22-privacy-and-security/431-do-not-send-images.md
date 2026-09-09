@@ -23,6 +23,7 @@ Force on-device OCR only, sending no image anywhere.
 ## Definition of done
 
 - [ ] With the switch on, extraction uses text only and says so.
+- [ ] Tests written and passing: Widget test of `image_egress_switch.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

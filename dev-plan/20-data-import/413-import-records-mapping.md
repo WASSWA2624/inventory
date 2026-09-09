@@ -30,6 +30,7 @@ Reuse the mapping screen to import rows as records rather than as a template.
 ## Definition of done
 
 - [ ] The same mapping interface serves both purposes.
+- [ ] Tests written and passing: Widget test of `record_mapping_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

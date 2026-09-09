@@ -22,6 +22,7 @@ Per-field chooser: keep mine, take theirs, or keep both as a note.
 ## Definition of done
 
 - [ ] Photos from the discarded side can be kept on the surviving record.
+- [ ] Tests written and passing: Widget test of `duplicate_merge_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

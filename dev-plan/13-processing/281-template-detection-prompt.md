@@ -29,6 +29,7 @@ The smallest possible interruption when detection is uncertain.
 ## Definition of done
 
 - [ ] The question is asked once per room, not once per item.
+- [ ] Tests written and passing: Widget test of `template_choice_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

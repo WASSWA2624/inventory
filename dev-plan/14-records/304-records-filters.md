@@ -26,6 +26,7 @@ Filter by context, template, status, date, operator, condition and the quality f
 ## Definition of done
 
 - [ ] Filters combine and are clearable in one tap.
+- [ ] Tests written and passing: Widget test of `records_filter_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

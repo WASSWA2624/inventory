@@ -29,6 +29,7 @@ Scan the symbologies listed in the specification, fast and one-handed.
 ## Definition of done
 
 - [ ] A worn label still scans within a couple of seconds.
+- [ ] Tests written and passing: Widget test of `barcode_scanner_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

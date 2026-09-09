@@ -26,6 +26,7 @@ Optionally clear the lowest level after a period of inactivity.
 ## Definition of done
 
 - [ ] With the setting off, context never changes on its own.
+- [ ] Tests written and passing: Unit tests of `context_auto_clear.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

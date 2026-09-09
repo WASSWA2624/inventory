@@ -29,6 +29,7 @@ Import existing images into the session, copying them into the project tree.
 ## Definition of done
 
 - [ ] Deleting the photo from the gallery afterwards does not affect the record.
+- [ ] Tests written and passing: Widget test of `gallery_picker.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

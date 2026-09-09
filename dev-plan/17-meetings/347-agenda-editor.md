@@ -22,6 +22,7 @@ Add, reorder and remove agenda items.
 ## Definition of done
 
 - [ ] Each agenda item becomes a discussion section.
+- [ ] Tests written and passing: Widget test of `agenda_editor.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

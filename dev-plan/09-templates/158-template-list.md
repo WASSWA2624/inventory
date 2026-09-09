@@ -25,6 +25,7 @@ Show a project's templates with field counts and record counts.
 
 ## Definition of done
 
+- [ ] Tests written and passing: Widget test of `template_list_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

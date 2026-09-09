@@ -26,6 +26,7 @@ Move a record to a different template, re-mapping by field key.
 ## Definition of done
 
 - [ ] Unmapped values are retained as retired, never dropped.
+- [ ] Tests written and passing: Widget test of `record_template_change.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -27,6 +27,7 @@ The screen that answers "what should I do next" with one dominant action.
 ## Definition of done
 
 - [ ] Every number on the screen is tappable and leads to the matching list.
+- [ ] Tests written and passing: Widget test of `project_home_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

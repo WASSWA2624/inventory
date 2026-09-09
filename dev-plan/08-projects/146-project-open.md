@@ -26,6 +26,7 @@ Hold the currently open project and restore it on launch.
 ## Definition of done
 
 - [ ] Reopening the app returns to the last project.
+- [ ] Tests written and passing: Widget test of `current_project.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

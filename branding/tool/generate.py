@@ -27,22 +27,25 @@ ROOT = Path(__file__).resolve().parents[1]
 # three than any warm or green-adjacent hue could.
 #
 # It is a blend rather than a flat tint: the hue drifts from 212 degrees in the
-# tints to 228 degrees in the shades, so the light end reads cool and open and
-# the dark end settles into navy without ever turning violet. Saturation stays
-# restrained -- quiet enough to sit behind a photograph all day.
+# tints to 229 degrees in the shades, so the light end reads cool and open and
+# the dark end settles into navy without ever turning violet. Saturation is
+# deliberately high -- around 62 per cent at the light end, peaking near 86 per
+# cent through the middle of the ramp -- so the brand reads as a vivid blue on a
+# sunlit screen rather than a grey one. Brightness is bounded by contrast, not
+# by taste: brand-600 is the most luminous stop that still clears AA both ways.
 
 PALETTE = {
-    "brand-50": "#F3F6FA",
-    "brand-100": "#E9EEF6",
-    "brand-200": "#D2DDEC",
-    "brand-300": "#AABDDC",
-    "brand-400": "#8CA4D0",
-    "brand-500": "#718DC6",
-    "brand-600": "#4A6CB8",
-    "brand-700": "#395395",
-    "brand-800": "#2C3E73",
-    "brand-900": "#1D284D",
-    "brand-950": "#121830",
+    "brand-50": "#F5F8FD",
+    "brand-100": "#E8F0FA",
+    "brand-200": "#C8DBF6",
+    "brand-300": "#95B9F1",
+    "brand-400": "#6496EF",
+    "brand-500": "#417CF1",
+    "brand-600": "#2662EB",
+    "brand-700": "#1748C7",
+    "brand-800": "#143494",
+    "brand-900": "#0F215F",
+    "brand-950": "#0A1236",
 }
 
 PRIMARY = PALETTE["brand-600"]       # primary, light themes
@@ -52,7 +55,7 @@ WHITE = "#FFFFFF"
 
 # One brand gradient, used both as a tile behind a white mark and as the paint
 # inside the mark itself. brand-600 is the lightest stop that still holds white
-# at 5.09:1 and still reads 5.09:1 on white, so whichever way round it is used
+# at 5.21:1 and still reads 5.21:1 on white, so whichever way round it is used
 # neither end goes washy -- including on a 48 px tile.
 TILE_FROM, TILE_TO = PALETTE["brand-600"], PALETTE["brand-900"]
 HERO_FROM, HERO_TO = TILE_FROM, TILE_TO

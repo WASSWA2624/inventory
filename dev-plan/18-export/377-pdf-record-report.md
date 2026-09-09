@@ -25,6 +25,7 @@ One record per page or block, with fields, photos, captions, context and operato
 
 ## Definition of done
 
+- [ ] Tests written and passing: Unit tests of `record_report.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

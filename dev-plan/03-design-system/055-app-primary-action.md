@@ -35,6 +35,7 @@ class AppPrimaryAction extends StatelessWidget { final String label; final Strin
 ## Definition of done
 
 - [ ] Capture and review use the identical control.
+- [ ] Tests written and passing: Golden tests of `app_primary_action.dart` in light, dark and outdoor, and a widget test of every state it renders.
 - [ ] Contract above is implemented exactly, with nothing else made public.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 

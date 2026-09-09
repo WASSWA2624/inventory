@@ -22,6 +22,7 @@ Let an operator add a missing supplier or asset without leaving capture.
 ## Definition of done
 
 - [ ] The new row is immediately available to the lookup that failed.
+- [ ] Tests written and passing: Widget test of `dataset_add_row_sheet.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

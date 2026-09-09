@@ -21,6 +21,7 @@ Five records inherit context; one override changes only itself; a district chang
 
 ## Definition of done
 
+- [ ] Tests written and passing: `context_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

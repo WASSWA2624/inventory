@@ -28,6 +28,7 @@ Link every extracted value to the photo region, document page or transcript segm
 
 ## Definition of done
 
+- [ ] Tests written and passing: Tests against an in-memory database covering `field_evidence.dart` and its migration.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

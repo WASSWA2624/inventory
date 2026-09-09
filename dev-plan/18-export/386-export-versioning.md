@@ -26,6 +26,7 @@ Versioned, dated folders that are never overwritten.
 ## Definition of done
 
 - [ ] A new export never destroys a previous one.
+- [ ] Tests written and passing: Unit tests of `export_versioning.dart`, with no Flutter binding.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

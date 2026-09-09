@@ -22,6 +22,7 @@ Drag to reorder, which also sets capture and export order.
 ## Definition of done
 
 - [ ] Reordering never changes stored values or output column mapping.
+- [ ] Tests written and passing: Widget test of `field_reorder.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

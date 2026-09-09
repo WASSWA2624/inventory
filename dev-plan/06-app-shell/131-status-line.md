@@ -27,6 +27,7 @@ One line that always says where you are and what is pending.
 ## Definition of done
 
 - [ ] The user can answer "where am I and what is queued" without leaving the screen.
+- [ ] Tests written and passing: Unit tests of `status_line.dart`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

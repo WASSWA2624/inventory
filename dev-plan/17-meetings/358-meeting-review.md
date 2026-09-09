@@ -22,6 +22,7 @@ Review the meeting like any other record before it is exported.
 ## Definition of done
 
 - [ ] A meeting cannot be exported while its actions have no owners, when the template requires them.
+- [ ] Tests written and passing: Widget test of `meeting_review_screen.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -25,6 +25,7 @@ Warn and then stop before the device fills.
 ## Definition of done
 
 - [ ] A full device shows an actionable message with an export shortcut.
+- [ ] Tests written and passing: Widget test of `capture_storage_guard.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

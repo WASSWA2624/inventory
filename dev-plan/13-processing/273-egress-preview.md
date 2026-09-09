@@ -29,6 +29,7 @@ Before the first online call of a session, show exactly what will be sent.
 ## Definition of done
 
 - [ ] A user can decline and continue working offline.
+- [ ] Tests written and passing: Widget test of `egress_preview_dialog.dart`, including its empty and failure states.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

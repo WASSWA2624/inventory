@@ -22,6 +22,7 @@ Support landscape capture and review, and hinge-aware layouts.
 ## Definition of done
 
 - [ ] Rotating during capture never loses the session.
+- [ ] Tests written and passing: Unit tests of `nav_shell.dart`.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -21,6 +21,7 @@ Import a register, scan an identifier, confirm, edit one value, check the varian
 
 ## Definition of done
 
+- [ ] Tests written and passing: `verification_test.dart` runs green offline against fakes, end to end.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope

@@ -28,6 +28,7 @@ Password-protect a bundle that will travel on removable media.
 ## Definition of done
 
 - [ ] A wrong password fails cleanly without partial extraction.
+- [ ] Tests written and passing: Unit tests of `bundle_encryption.dart` against its fake.
 - [ ] Analyzer clean, formatter applied, guardrail suites green.
 
 ## Out of scope
