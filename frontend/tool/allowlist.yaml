@@ -1,0 +1,25 @@
+# Approved direct dependencies for the Tapture Flutter application
+# (dev-plan 01-orchestration/005).
+#
+# A package reaches this file the way frontend/.rules/13-workflow.md FE-FLOW-06
+# says it must: its own task, a pinned version, a licence check and a note on
+# what it replaces. Editing pubspec.yaml without editing this file fails
+# tool/check_dependencies.dart, which is the point — a dependency is a decision
+# somebody has to make on purpose.
+#
+# Every entry carries the version pubspec.yaml must ask for, what the package
+# is for, and the task that introduced it. `sdk` is the version of a package
+# that ships with the Flutter SDK rather than from pub.dev.
+packages:
+  flutter:
+    version: sdk
+    purpose: The Flutter framework the application is built on.
+    task: "001"
+  flutter_test:
+    version: sdk
+    purpose: The widget and unit test harness every guardrail suite runs on.
+    task: "001"
+  flutter_lints:
+    version: ^6.0.0
+    purpose: The shared lint set analysis_options.yaml layers its rules onto.
+    task: "003"
