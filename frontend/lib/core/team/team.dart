@@ -1,0 +1,2 @@
+/// Shared team state.
+library;
