@@ -21,30 +21,44 @@ ROOT = Path(__file__).resolve().parents[1]
 # ---------------------------------------------------------------------------
 # Palette
 # ---------------------------------------------------------------------------
-# One hue, deliberately. Red, amber and green stay reserved for danger,
-# warning and success (frontend/rules/04-theming.md, FE-THEME-05), so the
-# brand never competes with a status signal in the field.
+# One hue family, deliberately. Red, amber and green stay reserved for danger,
+# warning and success (frontend/rules/04-theming.md, FE-THEME-05), so the brand
+# never competes with a status signal in the field. Blue sits further from all
+# three than any warm or green-adjacent hue could.
+#
+# It is a blend rather than a flat tint: the hue drifts from 212 degrees in the
+# tints to 228 degrees in the shades, so the light end reads cool and open and
+# the dark end settles into navy without ever turning violet. Saturation stays
+# restrained -- quiet enough to sit behind a photograph all day.
 
 PALETTE = {
-    "teal-50": "#EAF7F6",
-    "teal-100": "#CCEBE8",
-    "teal-200": "#9BD7D2",
-    "teal-300": "#63BDB6",
-    "teal-400": "#31A099",
-    "teal-500": "#12857D",
-    "teal-600": "#0F766E",
-    "teal-700": "#0C5F59",
-    "teal-800": "#0A4F4A",
-    "teal-900": "#073331",
-    "teal-950": "#06312F",
+    "brand-50": "#F3F6FA",
+    "brand-100": "#E9EEF6",
+    "brand-200": "#D2DDEC",
+    "brand-300": "#AABDDC",
+    "brand-400": "#8CA4D0",
+    "brand-500": "#718DC6",
+    "brand-600": "#4A6CB8",
+    "brand-700": "#395395",
+    "brand-800": "#2C3E73",
+    "brand-900": "#1D284D",
+    "brand-950": "#121830",
 }
 
-TEAL = PALETTE["teal-600"]         # primary, light themes
-TEAL_LIGHT = PALETTE["teal-300"]   # primary, dark themes
-INK = PALETTE["teal-950"]          # brand ink, near-black
+PRIMARY = PALETTE["brand-600"]       # primary, light themes
+PRIMARY_DARK = PALETTE["brand-300"]  # primary, dark themes
+INK = PALETTE["brand-950"]           # brand ink, a near-black navy
 WHITE = "#FFFFFF"
-ICON_TOP = "#0F7C74"               # app-icon gradient, top-left
-ICON_BOTTOM = PALETTE["teal-800"]  # app-icon gradient, bottom-right
+
+# One brand gradient, used both as a tile behind a white mark and as the paint
+# inside the mark itself. brand-600 is the lightest stop that still holds white
+# at 5.09:1 and still reads 5.09:1 on white, so whichever way round it is used
+# neither end goes washy -- including on a 48 px tile.
+TILE_FROM, TILE_TO = PALETTE["brand-600"], PALETTE["brand-900"]
+HERO_FROM, HERO_TO = TILE_FROM, TILE_TO
+
+# Sentinel colour: a shape painted with the composition's gradient.
+GRAD = "@gradient"
 
 # ---------------------------------------------------------------------------
 # Primitives
@@ -59,6 +73,14 @@ def _fmt(v: float) -> str:
     return f"{v:.2f}".rstrip("0").rstrip(".")
 
 
+def _paint(color) -> str:
+    return "url(#tapture-gradient)" if color == GRAD else color
+
+
+def _op(kind: str, alpha: float) -> str:
+    return "" if alpha >= 1 else f' {kind}-opacity="{_fmt(alpha)}"'
+
+
 @dataclass
 class Line:
     x0: float
@@ -67,6 +89,7 @@ class Line:
     y1: float
     w: float
     color: str
+    alpha: float = 1.0
 
     def bbox(self):
         h = self.w / 2
@@ -80,8 +103,9 @@ class Line:
     def svg(self) -> str:
         d = f"M {_fmt(self.x0)} {_fmt(self.y0)} L {_fmt(self.x1)} {_fmt(self.y1)}"
         return (
-            f'<path d="{d}" fill="none" stroke="{self.color}" '
-            f'stroke-width="{_fmt(self.w)}" stroke-linecap="round"/>'
+            f'<path d="{d}" fill="none" stroke="{_paint(self.color)}" '
+            f'stroke-width="{_fmt(self.w)}" stroke-linecap="round"'
+            f'{_op("stroke", self.alpha)}/>'
         )
 
     def draw(self, d, t):
@@ -101,6 +125,7 @@ class Arc:
     a1: float
     w: float
     color: str
+    alpha: float = 1.0
 
     def _span(self):
         a1 = self.a1
@@ -136,8 +161,9 @@ class Arc:
             f"{_fmt(p1[0])} {_fmt(p1[1])}"
         )
         return (
-            f'<path d="{d}" fill="none" stroke="{self.color}" '
-            f'stroke-width="{_fmt(self.w)}" stroke-linecap="round"/>'
+            f'<path d="{d}" fill="none" stroke="{_paint(self.color)}" '
+            f'stroke-width="{_fmt(self.w)}" stroke-linecap="round"'
+            f'{_op("stroke", self.alpha)}/>'
         )
 
     def draw(self, d, t):
@@ -165,6 +191,7 @@ class Circle:
     r: float
     color: str
     w: float | None = None
+    alpha: float = 1.0
 
     def bbox(self):
         h = 0 if self.w is None else self.w / 2
@@ -181,10 +208,10 @@ class Circle:
             f'r="{_fmt(self.r)}"'
         )
         if self.w is None:
-            return base + f' fill="{self.color}"/>'
-        return (
-            base + f' fill="none" stroke="{self.color}" '
-            f'stroke-width="{_fmt(self.w)}"/>'
+            return base + f' fill="{_paint(self.color)}"{_op("fill", self.alpha)}/>'
+        return base + (
+            f' fill="none" stroke="{_paint(self.color)}" '
+            f'stroke-width="{_fmt(self.w)}"{_op("stroke", self.alpha)}/>'
         )
 
     def draw(self, d, t):
@@ -210,6 +237,7 @@ class RoundRect:
     height: float
     r: float
     color: str
+    alpha: float = 1.0
 
     def bbox(self):
         return (self.x, self.y, self.x + self.width, self.y + self.height)
@@ -218,7 +246,8 @@ class RoundRect:
         return (
             f'<rect x="{_fmt(self.x)}" y="{_fmt(self.y)}" '
             f'width="{_fmt(self.width)}" height="{_fmt(self.height)}" '
-            f'rx="{_fmt(self.r)}" fill="{self.color}"/>'
+            f'rx="{_fmt(self.r)}" fill="{_paint(self.color)}"'
+            f'{_op("fill", self.alpha)}/>'
         )
 
     def draw(self, d, t):
@@ -253,25 +282,35 @@ def moved(shapes, dx=0.0, dy=0.0, s=1.0):
         if isinstance(sh, Line):
             out.append(
                 Line(sh.x0 * s + dx, sh.y0 * s + dy, sh.x1 * s + dx,
-                     sh.y1 * s + dy, sh.w * s, sh.color)
+                     sh.y1 * s + dy, sh.w * s, sh.color, sh.alpha)
             )
         elif isinstance(sh, Arc):
             out.append(
                 Arc(sh.cx * s + dx, sh.cy * s + dy, sh.r * s, sh.a0, sh.a1,
-                    sh.w * s, sh.color)
+                    sh.w * s, sh.color, sh.alpha)
             )
         elif isinstance(sh, Circle):
             out.append(
                 Circle(sh.cx * s + dx, sh.cy * s + dy, sh.r * s, sh.color,
-                       None if sh.w is None else sh.w * s)
+                       None if sh.w is None else sh.w * s, sh.alpha)
             )
         elif isinstance(sh, RoundRect):
             out.append(
                 RoundRect(sh.x * s + dx, sh.y * s + dy, sh.width * s,
-                          sh.height * s, sh.r * s, sh.color)
+                          sh.height * s, sh.r * s, sh.color, sh.alpha)
             )
         else:
             raise TypeError(sh)
+    return out
+
+
+def recoloured(shapes, color, alpha=None):
+    """Copy `shapes` with a new colour, and optionally a new opacity."""
+    out = moved(shapes)
+    for sh in out:
+        sh.color = color
+        if alpha is not None:
+            sh.alpha = alpha
     return out
 
 
@@ -292,12 +331,12 @@ def bounds(shapes):
 # rounded cell at the centre is the record it becomes. Drawn on 1000 x 1000.
 # ---------------------------------------------------------------------------
 
-MARK_W = 98.0                     # bracket stroke weight
+MARK_W = 98.0                      # bracket stroke weight
 FRAME_LO, FRAME_HI = 140.0, 860.0  # frame centreline square
-FRAME_R = 104.0                   # frame corner radius, centreline
-ARM = 156.0                       # straight arm beyond each corner arc
+FRAME_R = 104.0                    # frame corner radius, centreline
+ARM = 156.0                        # straight arm beyond each corner arc
 RIPPLE_R, RIPPLE_W = 222.0, 44.0
-CELL = 220.0                      # side of the centre cell
+CELL = 220.0                       # side of the centre cell
 CELL_R = 64.0
 
 
@@ -480,6 +519,7 @@ class Composition:
     note: str = ""
     png: list = field(default_factory=list)   # widths in pixels
     opaque: bool = False   # drop the alpha channel: stores reject icons with one
+    gradient: tuple = (HERO_FROM, HERO_TO)    # stops for GRAD-painted shapes
 
 
 def _svg(comp: Composition) -> str:
@@ -490,17 +530,34 @@ def _svg(comp: Composition) -> str:
         f'width="{_fmt(w)}" height="{_fmt(h)}" role="img" aria-label="Tapture">',
         f"  <title>Tapture &#8212; {comp.note or comp.name}</title>",
     ]
+
+    defs = []
     if comp.bg and comp.bg[0] == "gradient":
-        out += [
-            "  <defs>",
+        defs += [
             '    <linearGradient id="tapture-bg" x1="0" y1="0" x2="1" y2="1">',
             f'      <stop offset="0" stop-color="{comp.bg[1]}"/>',
             f'      <stop offset="1" stop-color="{comp.bg[2]}"/>',
             "    </linearGradient>",
-            "  </defs>",
-            f'  <rect x="{_fmt(x)}" y="{_fmt(y)}" width="{_fmt(w)}" '
-            f'height="{_fmt(h)}" rx="{_fmt(comp.bg[3])}" fill="url(#tapture-bg)"/>',
         ]
+    painted = [sh for sh in comp.shapes if sh.color == GRAD]
+    if painted:
+        gx0, gy0, gx1, gy1 = bounds(painted)
+        defs += [
+            '    <linearGradient id="tapture-gradient" '
+            f'gradientUnits="userSpaceOnUse" x1="{_fmt(gx0)}" y1="{_fmt(gy0)}" '
+            f'x2="{_fmt(gx1)}" y2="{_fmt(gy1)}">',
+            f'      <stop offset="0" stop-color="{comp.gradient[0]}"/>',
+            f'      <stop offset="1" stop-color="{comp.gradient[1]}"/>',
+            "    </linearGradient>",
+        ]
+    if defs:
+        out += ["  <defs>"] + defs + ["  </defs>"]
+
+    if comp.bg and comp.bg[0] == "gradient":
+        out.append(
+            f'  <rect x="{_fmt(x)}" y="{_fmt(y)}" width="{_fmt(w)}" '
+            f'height="{_fmt(h)}" rx="{_fmt(comp.bg[3])}" fill="url(#tapture-bg)"/>'
+        )
     elif comp.bg and comp.bg[0] == "solid":
         out.append(
             f'  <rect x="{_fmt(x)}" y="{_fmt(y)}" width="{_fmt(w)}" '
@@ -524,6 +581,39 @@ def _gradient(size, c0, c1):
             t = (xx + yy) / (2 * (n - 1))
             px[xx, yy] = tuple(round(a[k] + (b[k] - a[k]) * t) for k in range(3))
     return ramp.resize(size, Image.BILINEAR).convert("RGBA")
+
+
+def _draw(img, comp, transform):
+    """Draw the shapes in order, in runs of one opacity and one paint kind."""
+    from PIL import Image, ImageDraw
+
+    shapes = comp.shapes
+    i = 0
+    while i < len(shapes):
+        key = (shapes[i].alpha, shapes[i].color == GRAD)
+        j = i
+        while j < len(shapes) and (shapes[j].alpha, shapes[j].color == GRAD) == key:
+            j += 1
+        alpha, is_gradient = key
+        run = shapes[i:j]
+
+        layer = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        if is_gradient:
+            mask = Image.new("L", img.size, 0)
+            md = ImageDraw.Draw(mask)
+            for sh in recoloured(run, 255):
+                sh.draw(md, transform)
+            layer.paste(_gradient(img.size, *comp.gradient), (0, 0), mask)
+        else:
+            ld = ImageDraw.Draw(layer)
+            for sh in run:
+                sh.draw(ld, transform)
+
+        if alpha < 1:
+            layer.putalpha(layer.getchannel("A").point(lambda v: round(v * alpha)))
+        img.alpha_composite(layer)
+        i = j
+    return img
 
 
 def _png(comp: Composition, width_px: int):
@@ -550,10 +640,7 @@ def _png(comp: Composition, width_px: int):
                 [0, 0, base_w - 1, base_h - 1], radius=radius, fill=comp.bg[1]
             )
 
-    draw = ImageDraw.Draw(img)
-    transform = Transform(vx, vy, scale)
-    for sh in comp.shapes:
-        sh.draw(draw, transform)
+    _draw(img, comp, Transform(vx, vy, scale))
 
     img = img.resize((width_px, max(1, round(width_px * aspect))), Image.LANCZOS)
     if comp.opaque:
@@ -576,7 +663,7 @@ def _tight(shapes):
 def _centred_mark(canvas: float, color: str, frac: float = 0.62) -> list:
     """The mark, scaled to `frac` of a square canvas and centred in it.
 
-    At 0.62 the mark's circumradius sits inside Android's 66/108
+    At 0.62 the mark's circumradius fits inside Android's 66/108
     guaranteed-visible circle, so no bracket corner is clipped by a round mask.
     """
     shapes = mark_shapes(color)
@@ -588,20 +675,43 @@ def _centred_mark(canvas: float, color: str, frac: float = 0.62) -> list:
     )
 
 
+def _marketing_card(w: float, h: float, lockup_frac: float) -> list:
+    """A gradient card: the lockup in white, over an oversized mark that runs
+    off the right edge at low opacity."""
+    watermark = mark_shapes(WHITE)
+    x0, y0, x1, y1 = bounds(watermark)
+    watermark = moved(watermark, 0, 0, (h * 1.5) / (y1 - y0))
+    x0, y0, x1, y1 = bounds(watermark)
+    watermark = recoloured(
+        moved(watermark, w - (x1 - x0) * 0.60 - x0, (h - (y1 - y0)) / 2 - y0),
+        WHITE,
+        0.10,
+    )
+
+    lock = lockup_horizontal(WHITE, WHITE)
+    x0, y0, x1, y1 = bounds(lock)
+    lock = moved(lock, 0, 0, (w * lockup_frac) / (x1 - x0))
+    x0, y0, x1, y1 = bounds(lock)
+    lock = moved(lock, w * 0.075 - x0, (h - (y1 - y0)) / 2 - y0)
+    return watermark + lock
+
+
 def compositions() -> list:
     comps: list = []
 
     # --- logo/ ------------------------------------------------------------
     for suffix, color, note, png in (
-        ("", TEAL, "symbol", [512, 1024]),
+        ("", PRIMARY, "symbol", [512, 1024]),
         ("-inverse", WHITE, "symbol, for dark backgrounds", [512, 1024]),
         ("-ink", INK, "symbol, single-colour ink", []),
         ("-currentcolor", "currentColor",
          "symbol, inherits the surrounding text colour", []),
+        ("-gradient", GRAD, "symbol in the brand gradient, for hero use", [1024]),
     ):
         s = mark_shapes(color)
         comps.append(
-            Composition(f"logo/tapture-mark{suffix}", s, _tight(s), note=note, png=png)
+            Composition(f"logo/tapture-mark{suffix}", s, _tight(s),
+                        note=note, png=png)
         )
 
     for suffix, color, note in (
@@ -615,8 +725,9 @@ def compositions() -> list:
         )
 
     for suffix, mc, wc, note in (
-        ("", TEAL, INK, "horizontal lockup"),
+        ("", PRIMARY, INK, "horizontal lockup"),
         ("-inverse", WHITE, WHITE, "horizontal lockup, for dark backgrounds"),
+        ("-gradient", GRAD, INK, "horizontal lockup, gradient mark, for hero use"),
     ):
         s = lockup_horizontal(mc, wc)
         comps.append(
@@ -625,7 +736,7 @@ def compositions() -> list:
         )
 
     for suffix, mc, wc, note in (
-        ("", TEAL, INK, "stacked lockup"),
+        ("", PRIMARY, INK, "stacked lockup"),
         ("-inverse", WHITE, WHITE, "stacked lockup, for dark backgrounds"),
     ):
         s = lockup_stacked(mc, wc)
@@ -638,44 +749,42 @@ def compositions() -> list:
     c = 1024.0
     comps.append(Composition(
         "icon/app-icon", _centred_mark(c, WHITE, frac=0.68), (0, 0, c, c),
-        bg=("gradient", ICON_TOP, ICON_BOTTOM, 0),
+        bg=("gradient", TILE_FROM, TILE_TO, 0),
         note="app icon master, full bleed", png=[1024], opaque=True))
     comps.append(Composition(
         "icon/adaptive-foreground", _centred_mark(c, WHITE), (0, 0, c, c),
         note="Android adaptive foreground", png=[1024]))
     comps.append(Composition(
-        "icon/adaptive-background", [RoundRect(0, 0, c, c, 0, ICON_BOTTOM)],
-        (0, 0, c, c), bg=("gradient", ICON_TOP, ICON_BOTTOM, 0),
+        "icon/adaptive-background", [RoundRect(0, 0, c, c, 0, TILE_TO)],
+        (0, 0, c, c), bg=("gradient", TILE_FROM, TILE_TO, 0),
         note="Android adaptive background", png=[1024], opaque=True))
     comps.append(Composition(
         "icon/adaptive-monochrome", _centred_mark(c, "#000000"), (0, 0, c, c),
         note="Android themed icon, tinted by the system", png=[1024]))
     comps.append(Composition(
         "icon/favicon", _centred_mark(c, WHITE, frac=0.66), (0, 0, c, c),
-        bg=("gradient", ICON_TOP, ICON_BOTTOM, 0.22 * c),
+        bg=("gradient", TILE_FROM, TILE_TO, 0.22 * c),
         note="favicon and touch icon", png=[32, 48, 180, 512]))
 
     # --- splash/ ----------------------------------------------------------
     s = 1152.0
     for suffix, color, note in (
-        ("-light", TEAL, "splash mark for the light background"),
-        ("-dark", TEAL_LIGHT, "splash mark for the dark background"),
+        ("-light", PRIMARY, "splash mark for the light background"),
+        ("-dark", PRIMARY_DARK, "splash mark for the dark background"),
     ):
         comps.append(Composition(
             f"splash/splash{suffix}", _centred_mark(s, color, frac=0.42),
             (0, 0, s, s), note=note, png=[1152]))
 
     # --- social/ ----------------------------------------------------------
-    ow, oh = 1200.0, 630.0
-    lock = lockup_horizontal(WHITE, WHITE)
-    x0, y0, x1, y1 = bounds(lock)
-    lock = moved(lock, 0, 0, (ow * 0.66) / (x1 - x0))
-    x0, y0, x1, y1 = bounds(lock)
-    lock = moved(lock, (ow - (x1 - x0)) / 2 - x0, (oh - (y1 - y0)) / 2 - y0)
     comps.append(Composition(
-        "social/og-image", lock, (0, 0, ow, oh),
-        bg=("gradient", ICON_TOP, ICON_BOTTOM, 0),
+        "social/og-image", _marketing_card(1200.0, 630.0, 0.56),
+        (0, 0, 1200.0, 630.0), bg=("gradient", TILE_FROM, TILE_TO, 0),
         note="social preview, 1200 by 630", png=[1200], opaque=True))
+    comps.append(Composition(
+        "social/banner", _marketing_card(1500.0, 500.0, 0.44),
+        (0, 0, 1500.0, 500.0), bg=("gradient", TILE_FROM, TILE_TO, 0),
+        note="wide banner, 1500 by 500", png=[1500], opaque=True))
 
     return comps
 
@@ -704,11 +813,11 @@ def main() -> None:
                 "tagline": "Tap it. It's data.",
                 "ramp": PALETTE,
                 "roles": {
-                    "primary.light": TEAL,
-                    "primary.dark": TEAL_LIGHT,
+                    "primary.light": PRIMARY,
+                    "primary.dark": PRIMARY_DARK,
                     "onPrimary": WHITE,
                     "ink": INK,
-                    "icon.gradient": [ICON_TOP, ICON_BOTTOM],
+                    "gradient": [TILE_FROM, TILE_TO],
                 },
             },
             indent=2,

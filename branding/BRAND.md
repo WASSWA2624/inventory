@@ -19,8 +19,8 @@ ripple    →  the tap   (the whole promise of the name: tap + capture)
 cell      →  the data  (§49 Export formats)
 ```
 
-It is a single stroke weight, round-capped, on a 1000 × 1000 grid. There is no gradient in the mark itself, no
-shadow, and no detail that disappears below 24 px.
+It is a single stroke weight, round-capped, on a 1000 × 1000 grid. No shadow, no outline, and no detail that
+disappears below 24 px.
 
 **Construction.** Frame centreline 140–860, corner radius 104, stroke 98, arms 156 past each corner arc. Ripple
 r 222, stroke 44. Centre cell 220 square, radius 64. All of it lives in
@@ -33,12 +33,12 @@ rule, no photograph edge — enters that band. In the lockups the same `c` gover
 
 ### Minimum sizes
 
-| Asset               | Minimum        | Notes                                        |
-| ------------------- | -------------- | -------------------------------------------- |
-| Mark                | 24 px tall     | 16 px is allowed for a favicon only          |
-| Horizontal lockup   | 120 px wide    | below this, use the mark alone                |
-| Stacked lockup      | 96 px wide     |                                              |
-| App icon            | 48 px          | the size the icon was proportioned against    |
+| Asset               | Minimum        | Notes                                       |
+| ------------------- | -------------- | ------------------------------------------- |
+| Mark                | 24 px tall     | 16 px is allowed for a favicon only         |
+| Horizontal lockup   | 120 px wide    | below this, use the mark alone              |
+| Stacked lockup      | 96 px wide     |                                             |
+| App icon            | 48 px          | the size the icon was proportioned against  |
 
 ---
 
@@ -53,54 +53,75 @@ approved form is [`logo/tapture-wordmark.svg`](logo/tapture-wordmark.svg).
 
 ### Which lockup
 
-| Situation                                                     | Use                          |
-| ------------------------------------------------------------- | ---------------------------- |
+| Situation                                                       | Use                          |
+| --------------------------------------------------------------- | ---------------------------- |
 | Anywhere the name already appears in text — app bar, store page | mark alone                   |
-| Wide space: web header, letterhead, e-mail footer, README      | horizontal lockup            |
-| Square or tall space: splash, poster, social avatar card       | stacked lockup               |
-| App icon, launcher, favicon, notification                     | icon set (never the lockup)  |
+| Wide space: web header, letterhead, e-mail footer, README       | horizontal lockup            |
+| Square or tall space: splash, poster, social avatar card        | stacked lockup               |
+| App icon, launcher, favicon, notification                       | icon set (never the lockup)  |
 
 ---
 
 ## 3. Colour
 
-**One hue, deliberately.** Red, amber and green stay reserved for `danger`, `warning` and `success`. A field worker
-in bright sun reads status by colour before anything else, and the brand must never compete with that signal
-(`frontend/rules/04-theming.md`, FE-THEME-05).
+**One hue family, deliberately.** Red, amber and green stay reserved for `danger`, `warning` and `success`. A field
+worker in bright sun reads status by colour before anything else, and the brand must never compete with that signal
+(`frontend/rules/04-theming.md`, FE-THEME-05). Blue sits further from all three than any warm or green-adjacent hue
+could.
 
-| Token      | Hex       | Role                                              |
-| ---------- | --------- | ------------------------------------------------- |
-| `teal-50`  | `#EAF7F6` | tinted surface, light theme                       |
-| `teal-100` | `#CCEBE8` |                                                   |
-| `teal-200` | `#9BD7D2` |                                                   |
-| `teal-300` | `#63BDB6` | **primary, dark theme**; splash mark on dark      |
-| `teal-400` | `#31A099` |                                                   |
-| `teal-500` | `#12857D` |                                                   |
-| `teal-600` | `#0F766E` | **primary, light theme** — Tapture Teal           |
-| `teal-700` | `#0C5F59` | pressed state                                     |
-| `teal-800` | `#0A4F4A` | app-icon gradient, bottom-right                   |
-| `teal-900` | `#073331` |                                                   |
-| `teal-950` | `#06312F` | **brand ink** — wordmark, dark surface            |
+It is a blend, not a flat tint. The hue drifts from 212° in the tints to 228° in the shades, so the light end reads
+cool and open and the dark end settles into navy without ever turning violet. Saturation stays restrained: quiet
+enough to sit behind a photograph all day, strong enough to hold a home screen.
 
-The app icon is the one place a gradient is allowed: `#0F7C74` top-left to `#0A4F4A` bottom-right. It gives the
-tile depth on a crowded home screen without a shadow (FE-THEME-06).
+| Token       | Hex       | Role                                            |
+| ----------- | --------- | ----------------------------------------------- |
+| `brand-50`  | `#F3F6FA` | tinted surface, light theme                     |
+| `brand-100` | `#E9EEF6` |                                                 |
+| `brand-200` | `#D2DDEC` | outline, light theme                            |
+| `brand-300` | `#AABDDC` | **primary, dark theme**; splash mark on dark    |
+| `brand-400` | `#8CA4D0` |                                                 |
+| `brand-500` | `#718DC6` |                                                 |
+| `brand-600` | `#4A6CB8` | **primary, light theme**                        |
+| `brand-700` | `#395395` | pressed state                                   |
+| `brand-800` | `#2C3E73` |                                                 |
+| `brand-900` | `#1D284D` | gradient end                                    |
+| `brand-950` | `#121830` | **brand ink** — wordmark, dark surface          |
 
 The machine-readable copy is [`palette.json`](palette.json). It is the input to dev-plan task
 [042 — Colour tokens](../dev-plan/03-design-system/042-color-tokens.md); the Dart token file is the only place
 these values may be re-declared.
 
+### The gradient
+
+One gradient, `brand-600 → brand-900`, running top-left to bottom-right.
+
+`brand-600` is the lightest stop that holds white at 5.09 : 1 *and* reads 5.09 : 1 on white — so the gradient works
+either way round, as a tile behind a white mark or as the paint inside the mark itself, and neither end ever goes
+washy. That is the whole reason it stops where it does.
+
+Where it is allowed:
+
+- the app icon, favicon and adaptive tile;
+- the hero mark and hero lockup (`-gradient`), at large sizes on a marketing surface;
+- marketing cards — the social preview and the banner.
+
+Everywhere else the mark is flat. In the app itself, in any UI control, at any small size, and in every one-colour
+context, use the flat variants. A gradient is depth, not decoration — it never substitutes for a shadow (FE-THEME-06),
+and it never appears under 96 px.
+
 ### Measured contrast
 
-Every pairing below is computed, not estimated. All clear WCAG AA for body text (4.5:1).
+Every pairing below is computed, not estimated. All clear WCAG AA for body text (4.5 : 1).
 
-| Pair                                        | Ratio     |
-| ------------------------------------------- | --------- |
-| White on `teal-600` (primary button)        | 5.47 : 1  |
-| `teal-600` on `teal-50`                     | 4.99 : 1  |
-| `teal-300` on `teal-950` (dark theme)       | 6.37 : 1  |
-| `teal-950` on white (wordmark)              | 14.11 : 1 |
-| White on the icon gradient, lightest stop   | 5.05 : 1  |
-| White on the icon gradient, darkest stop    | 9.42 : 1  |
+| Pair                                       | Ratio     |
+| ------------------------------------------ | --------- |
+| White on `brand-600` (primary button)      | 5.09 : 1  |
+| `brand-600` on white (mark on light)       | 5.09 : 1  |
+| `brand-600` on `brand-50`                  | 4.69 : 1  |
+| `brand-300` on `brand-950` (dark theme)    | 9.19 : 1  |
+| `brand-950` on white (wordmark)            | 17.51 : 1 |
+| White on `brand-700` (pressed)             | 7.38 : 1  |
+| White on `brand-900` (gradient, dark end)  | 14.35 : 1 |
 
 Outdoor theme raises contrast further and thickens outlines; it changes no geometry, so the mark is identical in
 all three themes (FE-THEME-03).
@@ -125,7 +146,8 @@ the lockup as an image.
 
 Do not:
 
-- recolour the mark outside the palette, or fill it with a photograph or gradient;
+- recolour the mark outside the palette, or fill it with a photograph;
+- apply the gradient outside the cases listed in §3, or invent a second gradient;
 - add a shadow, glow, bevel, outline or stroke to any asset;
 - rotate, skew, stretch or condense the mark, the wordmark or a lockup;
 - rebuild the lockup by placing the mark next to typed text;
@@ -133,7 +155,7 @@ Do not:
 - crop the mark, or use a single bracket as a standalone device;
 - put the mark inside another shape, badge or ring.
 
-On photographs, use `-inverse` over a darkened area, never the teal mark directly on imagery.
+On photographs, use `-inverse` over a darkened area, never the flat blue mark directly on imagery.
 
 ---
 
