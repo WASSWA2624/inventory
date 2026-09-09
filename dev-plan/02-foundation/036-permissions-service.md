@@ -24,7 +24,7 @@ Future<Result<PermissionState>> request(AppPermission p);  Future<PermissionStat
 
 ## Constraints
 
-- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/02-coding-standards.md`, `frontend/rules/03-state-and-data.md`.
+- Obey `frontend/.rules/`. The ones that bite here: `frontend/.rules/01-structure.md`, `frontend/.rules/02-coding-standards.md`, `frontend/.rules/03-state-and-data.md`.
 - Every service is an interface plus an implementation plus a fake, so later tests never touch the platform.
 - Fallible calls return `Result<T>`; no raw exception crosses a layer boundary.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.

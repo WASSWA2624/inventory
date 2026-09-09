@@ -4,7 +4,7 @@
 Flutter application and the minimal backend it requires.
 
 Every file is a prompt that produces code. There are no policy documents here: the architectural rules live in
-`frontend/rules/` and `backend/rules/`, and phase 01 ships them as lints, checkers and tests that fail a build when
+`frontend/.rules/` and `backend/.rules/`, and phase 01 ships them as lints, checkers and tests that fail a build when
 they are broken.
 
 Read [INDEX.md](INDEX.md) for the full list, or open a phase folder.
@@ -14,10 +14,11 @@ Read [INDEX.md](INDEX.md) for the full list, or open a phase folder.
 ```text
 tapture/
 ├── frontend/           the Flutter application
-│   └── rules/          13 rule files — structure, theming, responsiveness, simplicity, l10n, a11y, ...
+│   └── .rules/         13 rule files — structure, theming, responsiveness, simplicity, l10n, a11y, ...
 ├── backend/            the minimal server — required, one per organisation (specification Part XI)
-│   └── rules/          11 rule files — structure, API, data, security, relay boundary, AI proxy, ...
+│   └── .rules/         11 rule files — structure, API, data, security, relay boundary, AI proxy, ...
 ├── dev-plan/           this plan
+├── run-tool/           run locally; build the APK, web bundle and backend archive
 └── app-write-up.md     the specification
 ```
 
@@ -30,8 +31,8 @@ Before starting any task, read the rule files it cites. Every task's **Constrain
 that matter for that task specifically:
 
 ```text
-- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/04-theming.md`,
-  `frontend/rules/07-consistency.md`, `frontend/rules/09-accessibility.md`.
+- Obey `frontend/.rules/`. The ones that bite here: `frontend/.rules/04-theming.md`,
+  `frontend/.rules/07-consistency.md`, `frontend/.rules/09-accessibility.md`.
 ```
 
 Rules are numbered (`FE-THEME-05`, `BE-RELAY-04`) so review cites an identifier instead of an opinion. Most are
@@ -64,8 +65,8 @@ scope**. Three appear only where they say something a task cannot say without th
 publishes an API other tasks call, **Steps** where the order of work is not obvious from the contract, and **Reuse**
 where a task is at genuine risk of rebuilding something that already exists. Their absence is not an omission.
 
-The reuse obligation itself is never optional: it lives in `frontend/rules/07-consistency.md` (FE-CONS-01, FE-CONS-02)
-and `frontend/rules/01-structure.md` (FE-STR-09), which every task inherits through its Constraints.
+The reuse obligation itself is never optional: it lives in `frontend/.rules/07-consistency.md` (FE-CONS-01, FE-CONS-02)
+and `frontend/.rules/01-structure.md` (FE-STR-09), which every task inherits through its Constraints.
 
 ## Rules the plan enforces on itself
 
@@ -79,7 +80,7 @@ being blocked; task 006 builds the checker that proves it stays true.
 
 **A task is done when** its Definition of done is fully ticked — clean analyzer, applied formatter, written tests,
 green guardrails. Every task carries a test obligation naming the layer it owes tests at, because
-`frontend/rules/12-testing.md` (FE-TEST-01) and `backend/rules/09-testing.md` (BE-TEST-01) both refuse to let a
+`frontend/.rules/12-testing.md` (FE-TEST-01) and `backend/.rules/09-testing.md` (BE-TEST-01) both refuse to let a
 task close without them. Tests are never a follow-up task.
 
 ## Phases
@@ -153,5 +154,5 @@ than the phase around it. Nothing depends on it, so working top to bottom is una
 6. The backend is required to exist and never required to be reachable. It holds people, permissions and keys; it is
    never the store of record, never a backup, and never in the way of a field worker.
 
-Tasks 010–022 turn the first five into failing tests. `backend/rules/06-relay-and-retention.md`, tasks 480–482 and
+Tasks 010–022 turn the first five into failing tests. `backend/.rules/06-relay-and-retention.md`, tasks 480–482 and
 the end-to-end run at 521 do the same for the sixth.

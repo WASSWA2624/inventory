@@ -19,7 +19,7 @@ Assemble the review screen from the specification, sorted so attention goes wher
 
 ## Constraints
 
-- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/06-simplicity.md`, `frontend/rules/07-consistency.md`, `frontend/rules/09-accessibility.md`.
+- Obey `frontend/.rules/`. The ones that bite here: `frontend/.rules/06-simplicity.md`, `frontend/.rules/07-consistency.md`, `frontend/.rules/09-accessibility.md`.
 - AI output is a proposal until a person approves it; nothing is written as final automatically.
 - Raw and refined values are both preserved and both selectable.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.

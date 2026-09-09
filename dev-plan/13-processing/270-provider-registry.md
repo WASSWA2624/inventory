@@ -22,7 +22,7 @@ backend proxy (503) a first-class entry from the start, since it is the default 
 
 ## Constraints
 
-- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/03-state-and-data.md`, `frontend/rules/10-performance.md`, `frontend/rules/11-security-privacy.md`.
+- Obey `frontend/.rules/`. The ones that bite here: `frontend/.rules/03-state-and-data.md`, `frontend/.rules/10-performance.md`, `frontend/.rules/11-security-privacy.md`.
 - On-device first; an online call happens only when local extraction cannot finish the job.
 - A verified or manual value is never overwritten by processing.
 - Every applied value carries source, confidence and at least one evidence link.

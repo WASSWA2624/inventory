@@ -14,7 +14,7 @@ Let an operator add a missing supplier or asset without leaving capture.
 
 ## Constraints
 
-- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/03-state-and-data.md`, `frontend/rules/07-consistency.md`.
+- Obey `frontend/.rules/`. The ones that bite here: `frontend/.rules/03-state-and-data.md`, `frontend/.rules/07-consistency.md`.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
 - `dart format` applied, `flutter analyze` clean, and `dart run tool/verify.dart --fast` green before this task closes.
 - No `print`, no `TODO`, no hardcoded secret, no commented-out code left behind.

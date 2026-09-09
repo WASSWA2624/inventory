@@ -20,7 +20,7 @@ interface AiProvider { extract(req): Promise<Res>; ocr(req): Promise<Res>; trans
 
 ## Constraints
 
-- Obey `backend/rules/`. The ones that bite here: `backend/rules/07-ai-proxy.md`, `backend/rules/05-security.md`.
+- Obey `backend/.rules/`. The ones that bite here: `backend/.rules/07-ai-proxy.md`, `backend/.rules/05-security.md`.
 - The server is transit, not truth: it never holds a durable copy of a project, never serves as backup, and never reads package content.
 - Validate every input by schema, parameterise every query, and keep SQL inside repositories.
 - The backend is required for accounts, roles and AI, and never required to be *reachable*: capture, review, editing and export must all work on the last cached session (§70.4).

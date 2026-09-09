@@ -14,7 +14,7 @@ Run the OpenAPI document against the running server so drift fails the build.
 
 ## Constraints
 
-- Obey `backend/rules/`. The ones that bite here: `backend/rules/03-api-design.md`, `backend/rules/09-testing.md`.
+- Obey `backend/.rules/`. The ones that bite here: `backend/.rules/03-api-design.md`, `backend/.rules/09-testing.md`.
 - The server is transit, not truth: it never holds a durable copy of a project, never serves as backup, and never reads package content.
 - Validate every input by schema, parameterise every query, and keep SQL inside repositories.
 - The backend is required for accounts, roles and AI, and never required to be *reachable*: capture, review, editing and export must all work on the last cached session (§70.4).

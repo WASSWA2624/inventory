@@ -20,7 +20,7 @@ export const ctx: AsyncLocalStorage<RequestContext>;
 
 ## Constraints
 
-- Obey `backend/rules/`. The ones that bite here: `backend/rules/01-structure.md`, `backend/rules/02-coding-standards.md`.
+- Obey `backend/.rules/`. The ones that bite here: `backend/.rules/01-structure.md`, `backend/.rules/02-coding-standards.md`.
 - The server is transit, not truth: it never holds a durable copy of a project, never serves as backup, and never reads package content.
 - Validate every input by schema, parameterise every query, and keep SQL inside repositories.
 - The backend is required for accounts, roles and AI, and never required to be *reachable*: capture, review, editing and export must all work on the last cached session (§70.4).

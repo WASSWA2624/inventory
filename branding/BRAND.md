@@ -66,7 +66,7 @@ approved form is [`logo/tapture-wordmark.svg`](logo/tapture-wordmark.svg).
 
 **One hue family, deliberately.** Red, amber and green stay reserved for `danger`, `warning` and `success`. A field
 worker in bright sun reads status by colour before anything else, and the brand must never compete with that signal
-(`frontend/rules/04-theming.md`, FE-THEME-05). Blue sits further from all three than any warm or green-adjacent hue
+(`frontend/.rules/04-theming.md`, FE-THEME-05). Blue sits further from all three than any warm or green-adjacent hue
 could.
 
 It is a blend, not a flat tint. The hue drifts from 212° in the tints to 229° in the shades, so the light end reads

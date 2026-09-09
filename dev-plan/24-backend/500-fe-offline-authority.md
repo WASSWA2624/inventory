@@ -46,7 +46,7 @@ abstract class OfflineAuthority {
 
 ## Constraints
 
-- Obey `frontend/rules/`. The ones that bite here: `frontend/rules/01-structure.md`, `frontend/rules/06-simplicity.md`, `frontend/rules/11-security-privacy.md`.
+- Obey `frontend/.rules/`. The ones that bite here: `frontend/.rules/01-structure.md`, `frontend/.rules/06-simplicity.md`, `frontend/.rules/11-security-privacy.md`.
 - The backend is required, but never in the way: being unable to reach it must never cost a user a record.
 - The server governs people, permissions and keys; it is never the store of record — project content, merge, conflict resolution and undo stay on the device.
 - Build only what this file describes. Anything else you find becomes a new task file (`dart run tool/new_task.dart`), never extra scope here.
