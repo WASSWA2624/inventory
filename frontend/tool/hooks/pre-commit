@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Runs the review gate in fast mode when a commit touches Dart code.
+# Installed by frontend/tool/install_hooks.dart (dev-plan 01-orchestration/009).
+#
+# frontend/.rules/13-workflow.md FE-FLOW-02: the gate is a command, and it runs
+# locally before review exactly as it runs in continuous integration. A commit
+# that touches no Dart is let through without paying for it.
+
+set -e
+
+staged=$(git diff --cached --name-only --diff-filter=ACMR -- '*.dart')
+if [ -z "$staged" ]; then
+	exit 0
+fi
+
+cd "$(git rev-parse --show-toplevel)/frontend"
+exec dart run tool/verify.dart --fast
