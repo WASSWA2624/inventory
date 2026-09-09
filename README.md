@@ -22,14 +22,16 @@ It never stores project content, never arbitrates a merge, and is never a backup
 
 ```text
 frontend/        the Flutter application
-  rules/         13 rule files: structure, coding, state, theming, responsiveness, simplicity,
+  .rules/        13 rule files: structure, coding, state, theming, responsiveness, simplicity,
                  consistency, l10n, a11y, performance, security, testing, workflow
 backend/         the required minimal server (specification Part XI)
-  rules/         11 rule files: structure, coding, API, data, security, the relay boundary,
+  .rules/        11 rule files: structure, coding, API, data, security, the relay boundary,
                  AI proxy, observability, testing, deployment, workflow
 dev-plan/        522 implementation prompts, in build order
 branding/        the identity: logos, app icons, splash, palette, and the generator that draws them
   tool/          one geometry definition; every asset is regenerated from it
+run-tool/        run the app locally, and build the three deployable artefacts
+  deploy/        one build script and one update script per artefact
 app-write-up.md  the product and technical specification
 ```
 
@@ -39,7 +41,8 @@ app-write-up.md  the product and technical specification
 - [dev-plan/README.md](dev-plan/README.md) — how the build is sequenced, and where to start.
 - [dev-plan/INDEX.md](dev-plan/INDEX.md) — all 522 tasks in one list.
 - [branding/BRAND.md](branding/BRAND.md) — the identity: mark, wordmark, palette and how to use them.
-- [frontend/rules/](frontend/rules/) and [backend/rules/](backend/rules/) — the conventions every task obeys.
+- [run-tool/README.md](run-tool/README.md) — running the app locally, and building the APK, web bundle and backend archive.
+- [frontend/.rules/](frontend/.rules/) and [backend/.rules/](backend/.rules/) — the conventions every task obeys.
 
 ## Status
 
