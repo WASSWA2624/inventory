@@ -6,7 +6,7 @@ A task is ticked here only when every box in its own **Definition of done** is t
 verify gate is green. A task that is mostly working stays open — see
 [`frontend/.rules/13-workflow.md`](frontend/.rules/13-workflow.md) FE-FLOW-03.
 
-**7 of 522 tasks complete (1.3%)** · last updated 2026-09-09
+**8 of 522 tasks complete (1.5%)** · last updated 2026-09-09
 
 `░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░`
 
@@ -14,7 +14,7 @@ verify gate is green. A task that is mostly working stays open — see
 
 | Phase | Done | Total | Progress |
 | :--- | ---: | ---: | :--- |
-| 01 — Project setup and guardrails | 7 | 22 | `████░░░░░░░░░░` 32% |
+| 01 — Project setup and guardrails | 8 | 22 | `█████░░░░░░░░░` 36% |
 | 02 — Foundation services | 0 | 19 | `░░░░░░░░░░░░░░` 0% |
 | 03 — Design system | 0 | 42 | `░░░░░░░░░░░░░░` 0% |
 | 04 — Local database | 0 | 31 | `░░░░░░░░░░░░░░` 0% |
@@ -39,7 +39,7 @@ verify gate is green. A task that is mostly working stays open — see
 | 23 — Hardening | 0 | 16 | `░░░░░░░░░░░░░░` 0% |
 | 24 — The minimal backend | 0 | 49 | `░░░░░░░░░░░░░░` 0% |
 | 25 — Testing and release | 0 | 18 | `░░░░░░░░░░░░░░` 0% |
-| **Total** | **7** | **522** | `░░░░░░░░░░░░░░` 1.3% |
+| **Total** | **8** | **522** | `░░░░░░░░░░░░░░` 1.5% |
 
 ## Completed
 
@@ -51,6 +51,7 @@ verify gate is green. A task that is mostly working stays open — see
 | 004 — Create the folder skeleton | 2026-09-09 | 99 directories under `lib/` — `app/`, 28 shared subsystems, 17 features × 3 layers — each owning a barrel; canonical list in `tool/paths.dart`, guarded by `tool/check_structure.dart` and 15 tests. |
 | 005 — Dependency allowlist checker | 2026-09-09 | `tool/allowlist.yaml` approves 3 packages with pinned version, purpose and introducing task; `tool/check_dependencies.dart` reads additions and version drift as errors and removals as warnings, guarded by 12 tests. |
 | 006 — Plan integrity checker | 2026-09-09 | `tool/check_plan.dart` validates all 522 task files — heading against filename, unique and contiguous numbers, unique slugs, required sections, a tickable Definition of done, and dependency links that resolve and point lower; guarded by 18 tests. |
+| 008 — The verify command | 2026-09-09 | `tool/verify.dart` runs nine gates in order — format, analyzer, dependencies, structure, plan, guardrail tests, unit and widget tests, then goldens and integration — as one table with one exit code; `--fast` sets the last two aside. Green in 79s; guarded by 16 tests. |
 | 007 — Task scaffolding tool | 2026-09-09 | `tool/new_task.dart` takes the next free number, renders `tool/task_template.md`, refuses to overwrite a file or reuse a slug, and lists the task in the phase README and `INDEX.md`; guarded by 17 tests, one of which runs task 006's checker over the generated tree. |
 
 ## Carried decisions
@@ -61,17 +62,18 @@ Things a finished task surfaced that are not yet resolved. Each needs a numbered
 | Raised by | Question | Status |
 | :--- | :--- | :--- |
 | 002 | Task 002 step 1 ignores `*.g.dart` and `*.freezed.dart`; FE-CODE-13 says generated code is committed so a clean checkout builds without a generator run. Both cannot hold. | Open — implemented as the task says; the rule or the step has to give |
-| 002 | `dart run tool/verify.dart --fast` is named as a gate by every task from 001 onward, but task 008 builds it. Gates are being run individually until then. | Open until 008 |
 | 003 | The analyzer has no wildcard severity promotion, so `errors:` names every diagnostic one at a time. A Dart SDK upgrade can add a warning code that nobody lists, and it lands as a suggestion rather than as a failure. | Open — needs a task to re-sweep the codes on each SDK bump |
 | 004 | Task 004 calls its core list exhaustive. It is not: `lib/core/backend/` is required by tasks 020, 497, 498, 500 and 501 but is absent from it, and `lib/core/team/` is on it but is referenced nowhere in the plan. | Open — built the list exactly as written; `check_structure.dart` will fail task 497 until the list or those tasks give |
-| 007 | A new task always takes the highest number in the plan, so adding one to any phase but the last leaves that phase's README saying something like `Tasks 001–523 (23)`. The count is true and the range is not a range any more. | Open — the summary line's shape assumes phases are contiguous, which new tasks break by design |
 | 005 | `tool/` now holds two hand-rolled YAML readers — one in `check_analyzer_config.dart`, one in `check_dependencies.dart` — because a `yaml` package would need its own task under FE-FLOW-06. A third checker that reads YAML makes the duplication worth collapsing into one `tool/yaml.dart`. | Open — needs a task, either for the shared reader or for approving the package |
+| 007 | A new task always takes the highest number in the plan, so adding one to any phase but the last leaves that phase's README saying something like `Tasks 001–523 (23)`. The count is true and the range is not a range any more. | Open — the summary line's shape assumes phases are contiguous, which new tasks break by design |
+| 008 | `dart run tool/verify.dart --fast` takes 79s, and 63s of that is the guardrail suite, over half of which is `verify_test.dart` starting six nested verify runs of its own. Correct, but the pre-commit path pays for it. | Open — needs a task if the wait starts costing more than the coverage is worth |
+| 008 | Task 008 lists seven gates and `tool/check_repo_hygiene.dart` from task 002 is not among them. It is only reached through its own test under the guardrail gate. | Open — built the list as written; the checker runs as a test, not as a gate |
 
 ## Checklist
 
 ### 01 — Project setup and guardrails
 
-*7 of 22 complete.*
+*8 of 22 complete.*
 
 - [x] [001 — Create the Flutter project](dev-plan/01-orchestration/001-flutter-project-init.md)
 - [x] [002 — Repository hygiene files](dev-plan/01-orchestration/002-repo-hygiene.md)
@@ -80,7 +82,7 @@ Things a finished task surfaced that are not yet resolved. Each needs a numbered
 - [x] [005 — Dependency allowlist checker](dev-plan/01-orchestration/005-dependency-allowlist.md)
 - [x] [006 — Plan integrity checker](dev-plan/01-orchestration/006-plan-integrity-checker.md)
 - [x] [007 — Task scaffolding tool](dev-plan/01-orchestration/007-task-scaffolder.md)
-- [ ] [008 — The verify command](dev-plan/01-orchestration/008-verify-command.md)
+- [x] [008 — The verify command](dev-plan/01-orchestration/008-verify-command.md)
 - [ ] [009 — Git hook installer](dev-plan/01-orchestration/009-git-hooks.md)
 - [ ] [010 — Layering enforcement test](dev-plan/01-orchestration/010-layering-test.md)
 - [ ] [011 — Naming and file-layout checker](dev-plan/01-orchestration/011-naming-checker.md)
