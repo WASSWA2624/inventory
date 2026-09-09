@@ -1,0 +1,15 @@
+# Analyzer configuration for lib/core/ (dev-plan 01-orchestration/003).
+#
+# Shared code carries a documentation requirement that feature code does not
+# (frontend/.rules/02-coding-standards.md, FE-CODE-12): one line saying what a
+# public member is for. The analyzer applies the nearest options file, so this
+# file scopes the rule to core/ and inherits everything else from the project.
+include: ../../analysis_options.yaml
+
+analyzer:
+  errors:
+    public_member_api_docs: error
+
+linter:
+  rules:
+    - public_member_api_docs

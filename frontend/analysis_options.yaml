@@ -1,28 +1,203 @@
-# This file configures the analyzer, which statically analyzes Dart code to
-# check for errors, warnings, and lints.
+# Analyzer configuration for Tapture (dev-plan 01-orchestration/003).
 #
-# The issues identified by the analyzer are surfaced in the UI of Dart-enabled
-# IDEs (https://dart.dev/tools#ides-and-editors). The analyzer can also be
-# invoked from the command line by running `flutter analyze`.
-
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
+# The analyzer is the first reviewer (frontend/.rules/02-coding-standards.md,
+# FE-CODE-01): the strict type checks are on, and every rule below reports as
+# an error rather than as a suggestion someone can scroll past. The analyzer
+# has no wildcard promotion, so each code is named here; the guardrail in
+# frontend/tool/check_analyzer_config.dart fails when an enabled rule is
+# missing from the errors section.
 include: package:flutter_lints/flutter.yaml
 
-linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
-  rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+analyzer:
+  language:
+    # No implicit downcast from dynamic, no inferred dynamic, no raw generic.
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+  errors:
+    # What the strict type checks above report. They arrive as warnings, and
+    # a warning is not a review comment anyone acts on.
+    inference_failure_on_collection_literal: error
+    inference_failure_on_function_invocation: error
+    inference_failure_on_function_return_type: error
+    inference_failure_on_generic_invocation: error
+    inference_failure_on_instance_creation: error
+    inference_failure_on_uninitialized_variable: error
+    inference_failure_on_untyped_parameter: error
+    strict_raw_type: error
+
+    # Unused code. FE-CODE-01: an element nothing reaches is a defect, not dead
+    # weight to tidy up later.
+    unused_catch_clause: error
+    unused_catch_stack: error
+    unused_element: error
+    unused_element_parameter: error
+    unused_field: error
+    unused_import: error
+    unused_label: error
+    unused_local_variable: error
+    unused_result: error
+    unused_shown_name: error
+
+    # Code the analyzer already knows cannot run or cannot hold.
+    body_might_complete_normally_nullable: error
+    dead_code: error
+    dead_null_aware_expression: error
+    receiver_of_type_never: error
+    unreachable_switch_case: error
+    unreachable_switch_default: error
+
+    # Deprecation and annotation misuse: contracts other code relies on.
+    deprecated_member_use: error
+    deprecated_member_use_from_same_package: error
+    invalid_annotation_target: error
+    invalid_override_of_non_virtual_member: error
+    invalid_use_of_internal_member: error
+    invalid_use_of_protected_member: error
+    invalid_use_of_visible_for_testing_member: error
+    mixin_on_sealed_class: error
+    must_be_immutable: error
+    must_call_super: error
+    subtype_of_sealed_class: error
+
+    # Nullability and casts, the other half of the strict type checks above.
+    argument_type_not_assignable_to_error_handler: error
+    cast_from_null_always_fails: error
+    cast_from_nullable_always_fails: error
+    invalid_null_aware_operator: error
+    invalid_return_type_for_catch_error: error
+    null_check_always_fails: error
+    unnecessary_cast: error
+    unnecessary_non_null_assertion: error
+    unnecessary_type_check: error
+
+    # The rules this file turns on.
+    avoid_unused_constructor_parameters: error
+    directives_ordering: error
+    prefer_const_constructors: error
+    prefer_const_constructors_in_immutables: error
+    prefer_const_declarations: error
+    prefer_const_literals_to_create_immutables: error
+    unnecessary_await_in_return: error
+
+    # The rules package:flutter_lints turns on, promoted with the rest.
+    annotate_overrides: error
+    avoid_empty_else: error
+    avoid_function_literals_in_foreach_calls: error
+    avoid_init_to_null: error
+    avoid_print: error
+    avoid_relative_lib_imports: error
+    avoid_renaming_method_parameters: error
+    avoid_return_types_on_setters: error
+    avoid_returning_null_for_void: error
+    avoid_shadowing_type_parameters: error
+    avoid_single_cascade_in_expression_statements: error
+    avoid_types_as_parameter_names: error
+    avoid_unnecessary_containers: error
+    avoid_web_libraries_in_flutter: error
+    await_only_futures: error
+    camel_case_extensions: error
+    camel_case_types: error
+    collection_methods_unrelated_type: error
+    constant_identifier_names: error
+    control_flow_in_finally: error
+    curly_braces_in_flow_control_structures: error
+    dangling_library_doc_comments: error
+    depend_on_referenced_packages: error
+    empty_catches: error
+    empty_constructor_bodies: error
+    empty_statements: error
+    exhaustive_cases: error
+    file_names: error
+    hash_and_equals: error
+    implementation_imports: error
+    implicit_call_tearoffs: error
+    invalid_runtime_check_with_js_interop_types: error
+    library_annotations: error
+    library_prefixes: error
+    library_private_types_in_public_api: error
+    no_duplicate_case_values: error
+    no_leading_underscores_for_library_prefixes: error
+    no_leading_underscores_for_local_identifiers: error
+    no_logic_in_create_state: error
+    no_wildcard_variable_uses: error
+    non_constant_identifier_names: error
+    null_check_on_nullable_type_parameter: error
+    null_closures: error
+    overridden_fields: error
+    package_names: error
+    prefer_adjacent_string_concatenation: error
+    prefer_collection_literals: error
+    prefer_conditional_assignment: error
+    prefer_contains: error
+    prefer_final_fields: error
+    prefer_for_elements_to_map_fromIterable: error
+    prefer_function_declarations_over_variables: error
+    prefer_generic_function_type_aliases: error
+    prefer_if_null_operators: error
+    prefer_initializing_formals: error
+    prefer_inlined_adds: error
+    prefer_interpolation_to_compose_strings: error
+    prefer_is_empty: error
+    prefer_is_not_empty: error
+    prefer_is_not_operator: error
+    prefer_iterable_whereType: error
+    prefer_null_aware_operators: error
+    prefer_spread_collections: error
+    prefer_typing_uninitialized_variables: error
+    provide_deprecation_message: error
+    recursive_getters: error
+    secure_pubspec_urls: error
+    sized_box_for_whitespace: error
+    slash_for_doc_comments: error
+    sort_child_properties_last: error
+    strict_top_level_inference: error
+    type_init_formals: error
+    type_literal_in_constant_pattern: error
+    unintended_html_in_doc_comment: error
+    unnecessary_brace_in_string_interps: error
+    unnecessary_const: error
+    unnecessary_constructor_name: error
+    unnecessary_getters_setters: error
+    unnecessary_late: error
+    unnecessary_library_name: error
+    unnecessary_new: error
+    unnecessary_null_aware_assignments: error
+    unnecessary_null_in_if_null_operators: error
+    unnecessary_nullable_for_final_variable_declarations: error
+    unnecessary_overrides: error
+    unnecessary_string_escapes: error
+    unnecessary_string_interpolations: error
+    unnecessary_this: error
+    unnecessary_to_list_in_spreads: error
+    unnecessary_underscores: error
+    unrelated_type_equality_checks: error
+    use_build_context_synchronously: error
+    use_full_hex_values_for_flutter_colors: error
+    use_function_type_syntax_for_parameters: error
+    use_key_in_widget_constructors: error
+    use_null_aware_elements: error
+    use_rethrow_when_possible: error
+    use_string_in_part_of_directives: error
+    use_super_parameters: error
+    valid_regexps: error
+    void_checks: error
+
+linter:
+  rules:
+    # const usage: a widget that can be const is rebuilt for nothing when it
+    # is not (frontend/.rules/10-performance.md).
+    - prefer_const_constructors
+    - prefer_const_constructors_in_immutables
+    - prefer_const_declarations
+    - prefer_const_literals_to_create_immutables
+
+    # Sorted directives (FE-CODE-11).
+    - directives_ordering
+
+    # Unnecessary awaits: an await that only delays the returned future.
+    - unnecessary_await_in_return
+
+    # Unused elements, on the one shape the analyzer does not report itself.
+    - avoid_unused_constructor_parameters
