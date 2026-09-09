@@ -6,7 +6,7 @@ A task is ticked here only when every box in its own **Definition of done** is t
 verify gate is green. A task that is mostly working stays open — see
 [`frontend/.rules/13-workflow.md`](frontend/.rules/13-workflow.md) FE-FLOW-03.
 
-**5 of 522 tasks complete (1.0%)** · last updated 2026-09-09
+**6 of 522 tasks complete (1.1%)** · last updated 2026-09-09
 
 `░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░`
 
@@ -14,7 +14,7 @@ verify gate is green. A task that is mostly working stays open — see
 
 | Phase | Done | Total | Progress |
 | :--- | ---: | ---: | :--- |
-| 01 — Project setup and guardrails | 5 | 22 | `███░░░░░░░░░░░` 23% |
+| 01 — Project setup and guardrails | 6 | 22 | `████░░░░░░░░░░` 27% |
 | 02 — Foundation services | 0 | 19 | `░░░░░░░░░░░░░░` 0% |
 | 03 — Design system | 0 | 42 | `░░░░░░░░░░░░░░` 0% |
 | 04 — Local database | 0 | 31 | `░░░░░░░░░░░░░░` 0% |
@@ -39,7 +39,7 @@ verify gate is green. A task that is mostly working stays open — see
 | 23 — Hardening | 0 | 16 | `░░░░░░░░░░░░░░` 0% |
 | 24 — The minimal backend | 0 | 49 | `░░░░░░░░░░░░░░` 0% |
 | 25 — Testing and release | 0 | 18 | `░░░░░░░░░░░░░░` 0% |
-| **Total** | **5** | **522** | `░░░░░░░░░░░░░░` 1.0% |
+| **Total** | **6** | **522** | `░░░░░░░░░░░░░░` 1.1% |
 
 ## Completed
 
@@ -50,6 +50,7 @@ verify gate is green. A task that is mostly working stays open — see
 | 003 — Strict analyzer configuration | 2026-09-09 | `strict-casts`/`-inference`/`-raw-types` on, all 171 enabled rules and diagnostics promoted to error, `public_member_api_docs` scoped to `lib/core/`; guarded by `tool/check_analyzer_config.dart`, 14 config tests and 29 analyzer fixtures. |
 | 004 — Create the folder skeleton | 2026-09-09 | 99 directories under `lib/` — `app/`, 28 shared subsystems, 17 features × 3 layers — each owning a barrel; canonical list in `tool/paths.dart`, guarded by `tool/check_structure.dart` and 15 tests. |
 | 005 — Dependency allowlist checker | 2026-09-09 | `tool/allowlist.yaml` approves 3 packages with pinned version, purpose and introducing task; `tool/check_dependencies.dart` reads additions and version drift as errors and removals as warnings, guarded by 12 tests. |
+| 006 — Plan integrity checker | 2026-09-09 | `tool/check_plan.dart` validates all 522 task files — heading against filename, unique and contiguous numbers, unique slugs, required sections, a tickable Definition of done, and dependency links that resolve and point lower; guarded by 18 tests. |
 
 ## Carried decisions
 
@@ -68,14 +69,14 @@ Things a finished task surfaced that are not yet resolved. Each needs a numbered
 
 ### 01 — Project setup and guardrails
 
-*5 of 22 complete.*
+*6 of 22 complete.*
 
 - [x] [001 — Create the Flutter project](dev-plan/01-orchestration/001-flutter-project-init.md)
 - [x] [002 — Repository hygiene files](dev-plan/01-orchestration/002-repo-hygiene.md)
 - [x] [003 — Strict analyzer configuration](dev-plan/01-orchestration/003-strict-lints.md)
 - [x] [004 — Create the folder skeleton](dev-plan/01-orchestration/004-folder-scaffold.md)
 - [x] [005 — Dependency allowlist checker](dev-plan/01-orchestration/005-dependency-allowlist.md)
-- [ ] [006 — Plan integrity checker](dev-plan/01-orchestration/006-plan-integrity-checker.md)
+- [x] [006 — Plan integrity checker](dev-plan/01-orchestration/006-plan-integrity-checker.md)
 - [ ] [007 — Task scaffolding tool](dev-plan/01-orchestration/007-task-scaffolder.md)
 - [ ] [008 — The verify command](dev-plan/01-orchestration/008-verify-command.md)
 - [ ] [009 — Git hook installer](dev-plan/01-orchestration/009-git-hooks.md)

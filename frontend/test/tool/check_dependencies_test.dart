@@ -1,6 +1,7 @@
 @Timeout(Duration(minutes: 5))
 library;
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -193,12 +194,17 @@ class _Run {
 }
 
 /// Runs the checker over [root] and reads back what it found.
+///
+/// The output is decoded as UTF-8 rather than as whatever the host's console
+/// codepage is, so a message carrying a character outside ASCII arrives as the
+/// checker wrote it.
 Future<_Run> _check(String root) async {
-  final ProcessResult result = await Process.run(_dartExecutable(), <String>[
-    'run',
-    _checker,
-    root,
-  ]);
+  final ProcessResult result = await Process.run(
+    _dartExecutable(),
+    <String>['run', _checker, root],
+    stdoutEncoding: utf8,
+    stderrEncoding: utf8,
+  );
   final Object? errors = result.stderr;
   final Object? output = result.stdout;
   final List<String> violations = <String>[
