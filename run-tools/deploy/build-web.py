@@ -1,9 +1,9 @@
 """Build the deployable Tapture web bundle.
 
-    python run-tool/deploy/build_web.py
-    python run-tool/deploy/build_web.py --base-href /tapture/
+    python run-tools/deploy/build-web.py
+    python run-tools/deploy/build-web.py --base-href /tapture/
 
-The static site is written to run-tool/dist/web/, ready to copy to any host.
+The static site is written to run-tools/dist/web/, ready to copy to any host.
 """
 
 from __future__ import annotations
@@ -46,7 +46,7 @@ def entry() -> None:
         raise BuildError("--base-href must start and end with '/', for example /tapture/")
     if not (FRONTEND / "web").is_dir():
         raise BuildError(
-            "frontend/web is missing. Run: python run-tool/deploy/update_web.py"
+            "frontend/web is missing. Run: python run-tools/deploy/update-web.py"
         )
     tool("flutter")
 

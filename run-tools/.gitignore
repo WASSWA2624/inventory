@@ -1,0 +1,6 @@
+# Build artefacts produced by the deploy scripts.
+dist/
+__pycache__/
+
+# Written by run-backend.py while the backend is running.
+.run-backend.pid

@@ -1,10 +1,10 @@
 """Build the Tapture Android APK.
 
-    python run-tool/deploy/build_android.py              # release APK
-    python run-tool/deploy/build_android.py --debug
-    python run-tool/deploy/build_android.py --split      # one APK per ABI
+    python run-tools/deploy/build-android.py              # release APK
+    python run-tools/deploy/build-android.py --debug
+    python run-tools/deploy/build-android.py --split      # one APK per ABI
 
-The APK is copied to run-tool/dist/android/.
+The APK is copied to run-tools/dist/android/.
 """
 
 from __future__ import annotations
@@ -44,7 +44,7 @@ def entry() -> None:
     args = parse_args()
     if not (FRONTEND / "android").is_dir():
         raise BuildError(
-            "frontend/android is missing. Run: python run-tool/deploy/update_android.py"
+            "frontend/android is missing. Run: python run-tools/deploy/update-android.py"
         )
     tool("flutter")
     env = gradle_env()

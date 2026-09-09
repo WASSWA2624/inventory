@@ -1,6 +1,6 @@
 """Refresh the backend's dependencies.
 
-    python run-tool/deploy/update_backend.py
+    python run-tools/deploy/update-backend.py
 
 The backend is built in dev-plan phase 24. Until its manifest exists this
 script reports what it is waiting for rather than pretending to succeed.
@@ -8,6 +8,7 @@ script reports what it is waiting for rather than pretending to succeed.
 
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -26,6 +27,9 @@ INSTALLERS: list[tuple[str, list[str]]] = [
 
 
 def entry() -> None:
+    argparse.ArgumentParser(
+        description="Refresh the Tapture backend's dependencies."
+    ).parse_args()
     if not BACKEND.is_dir():
         raise BuildError(f"{BACKEND} does not exist")
 

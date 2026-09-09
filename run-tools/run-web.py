@@ -1,9 +1,9 @@
 """Run the Tapture web application locally.
 
-    python run-tool/run_web.py                 # open in Chrome
-    python run-tool/run_web.py --server        # serve only, print the URL
-    python run-tool/run_web.py --port 8080
-    python run-tool/run_web.py --release       # run the optimised build
+    python run-tools/run-web.py                 # open in Chrome
+    python run-tools/run-web.py --server        # serve only, print the URL
+    python run-tools/run-web.py --port 9090
+    python run-tools/run-web.py --release       # run the optimised build
 
 Stop it with Ctrl-C.
 """
@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from common import BuildError, FRONTEND, flutter, main, step, tool  # noqa: E402
 
-DEFAULT_PORT = 5353
+DEFAULT_PORT = 5173
 
 
 def parse_args() -> argparse.Namespace:
@@ -41,7 +41,7 @@ def entry() -> None:
     args = parse_args()
     if not (FRONTEND / "web").is_dir():
         raise BuildError(
-            "frontend/web is missing. Run: python run-tool/deploy/update_web.py"
+            "frontend/web is missing. Run: python run-tools/deploy/update-web.py"
         )
     tool("flutter")
 

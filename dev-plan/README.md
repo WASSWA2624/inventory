@@ -18,7 +18,7 @@ tapture/
 ├── backend/            the minimal server — required, one per organisation (specification Part XI)
 │   └── .rules/         11 rule files — structure, API, data, security, relay boundary, AI proxy, ...
 ├── dev-plan/           this plan
-├── run-tool/           run locally; build the APK, web bundle and backend archive
+├── run-tools/           run locally; build the APK, web bundle and backend archive
 └── app-write-up.md     the specification
 ```
 

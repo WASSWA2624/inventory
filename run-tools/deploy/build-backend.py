@@ -1,9 +1,9 @@
 """Package the Tapture backend as a deployable .zip.
 
-    python run-tool/deploy/build_backend.py
-    python run-tool/deploy/build_backend.py --name tapture-backend-2026-09-09
+    python run-tools/deploy/build-backend.py
+    python run-tools/deploy/build-backend.py --name tapture-backend-2026-09-09
 
-The archive is written to run-tool/dist/backend/. Dependency directories, build
+The archive is written to run-tools/dist/backend/. Dependency directories, build
 output and anything that could carry a secret are excluded rather than shipped.
 """
 
